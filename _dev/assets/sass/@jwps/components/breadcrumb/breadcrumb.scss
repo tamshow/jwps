@@ -1,0 +1,127 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #breadcrumb
+   ========================================================================== */
+
+/*doc
+---
+title:
+name: breadcrumb
+category: breadcrumb
+
+---
+
+```html_example
+<div class="c-breadcrumb" role="navigation" aria-label="現在地表示">
+  <div class="c-breadcrumb__inner">
+    <span><a href="/">ホーム</a></span>
+        <span><a href="/category/">カテゴリー</a></span>
+        <span>ページタイトル</span>
+  </div>
+</div>
+
+
+```
+
+
+
+<h3 class="styleguide">構造化データ</h3>
+
+```html_example
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement":
+  [
+
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item":
+      {
+        "@id": "/category/",
+        "name": "カテゴリー"
+      }
+    },
+
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item":
+      {
+        "@id": "",
+        "name": "ページタイトル"
+      }
+    }
+
+  ]
+}
+</script>
+
+```
+
+*/
+
+.c-breadcrumb {
+  max-width: $width-pc-max;
+  padding: 0 $width-gap-pc;
+  margin: -5px auto $margin-small-pc;
+  max-height: 40px;
+
+  @include media-tab-only {
+    margin-top: 16px;
+  }
+
+  @include media-sp-max {
+    border-top: 1px solid $border-color;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-top: 15px;
+    margin-top: 0;
+    margin-bottom: 9px;
+  }
+
+  &__inner {
+
+    font-size: .875rem;
+    i {
+      color: #757575;
+      font-size: 1.125rem;
+      vertical-align: middle;
+      margin-right: -.3em;
+    }
+
+    @include media-sp-max {
+      white-space: nowrap;
+      overflow: scroll;
+      -ms-overflow-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: $brand-link;
+    }
+
+    span:before {
+      content: "/";
+      padding-right: .5em;
+      padding-left: .5em;
+      color: $border-color;
+    }
+
+    span:first-child:before {
+      display: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      transition: $animation;
+      color: $brand-link-hover;
+    }
+  }
+}
+

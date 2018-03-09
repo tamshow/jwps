@@ -1,0 +1,405 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #LIST
+   ========================================================================== */
+
+/* list
+   ========================================================================== */
+
+.rich-editor ul,
+.rich-editor ol,
+.e-list {
+  @include mb-small;
+
+  //入れ子の場合
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+/* リスト disc
+   ========================================================================== */
+
+/*doc
+---
+title: Unordered List
+name: list-1
+category: list
+---
+
+```html_example
+<ul class="e-list e-list--disc">
+  <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+  <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。
+  <ul class="e-list e-list--disc">
+    <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+    <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+    <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+    <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+  </ul>
+  </li>
+  <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+  <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+</ul>
+```
+*/
+
+.rich-editor ul,
+.e-list--disc {
+  margin-left: 1.4em;
+  list-style-type: disc;
+}
+
+/* リスト decimal
+   ========================================================================== */
+
+/*doc
+---
+title: Ordered List
+name: list-2
+category: list
+---
+
+```html_example
+<ol class="e-list e-list--decimal">
+  <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+  <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+  <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+  <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+</ol>
+```
+*/
+
+.rich-editor ol,
+.e-list--decimal {
+  margin-left: 1.4em;
+  list-style-type: decimal;
+}
+
+/* リスト arrow
+   ========================================================================== */
+
+/*doc
+---
+title: Arrow List
+name: list-3
+category: list
+---
+
+```html_example
+<ul class="e-list e-list--arrow">
+  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
+  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
+  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
+  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
+</ul>
+```
+*/
+
+.rich-editor .e-list--arrow,
+.e-list--arrow {
+
+  margin-left: 0;
+  list-style-type: none;
+
+  a:hover:before {
+    text-decoration: none;
+  }
+
+  li {
+    text-indent: -.6em;
+    padding-left: 1em;
+
+    &:before {
+      color: #757575;
+      @include material-icons;
+      vertical-align: middle;
+      content: "navigate_next";
+      white-space: nowrap;
+      font-size: 1.2em;
+    }
+  }
+}
+
+
+
+/* リスト arrow
+   ========================================================================== */
+
+/*doc
+---
+title: Square List
+name: list-3-2
+category: list
+---
+
+```html_example
+<ul class="e-list e-list--square">
+  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
+  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
+  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
+  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
+</ul>
+
+
+```
+*/
+
+
+.rich-editor .e-list--square,
+.e-list--square {
+
+  margin-left: 0;
+  list-style-type: none;
+
+  a:hover:before {
+    text-decoration: none;
+  }
+
+  li {
+    text-indent: -.6em;
+    padding-left: 1em;
+
+    &:before {
+      background-color: $brand-primary-light;
+      width: .5em;
+      height:.5em;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: .3em;
+      margin-top: -.1em;
+      content: '';
+    }
+  }
+}
+
+
+
+
+/* リスト img
+   ========================================================================== */
+
+/*doc
+---
+title: Img List
+name: list-4
+category: list
+---
+
+```html_example
+<ul class="e-list e-list--img">
+  <li><a href=""><img src="/assets/img/dummy/300x100.png" alt=""></a></li>
+  <li><a href=""><img src="/assets/img/dummy/300x100.png" alt=""></a></li>
+  <li><a href=""><img src="/assets/img/dummy/300x100.png" alt=""></a></li>
+</ul>
+
+
+```
+*/
+
+.e-list--img {
+
+  li {
+    text-align: center;
+    margin-bottom: $margin-xs-pc;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+
+}
+
+/* 定義リスト
+   ========================================================================== */
+
+/*doc
+---
+title: Description Lists
+name: list-5
+category: list
+---
+
+```html_example
+<dl class="dl">
+  <dt>情に棹させば流される。</dt>
+  <dd>智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて</dd>
+  <dd>智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて</dd>
+  <dt>情に棹させば流される。</dt>
+  <dd>智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて</dd>
+  <dt>情に棹させば流される。</dt>
+  <dd>智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて</dd>
+</dl>
+```
+*/
+
+.rich-editor dl,
+.dl {
+
+  @include mb-small;
+
+  dt {
+    font-weight: bold;
+    margin-top: .7em;
+    margin-bottom: .1em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  dd {
+    margin-left: 1.3em;
+  }
+}
+
+/* インラインリスト
+   ========================================================================== */
+
+/*doc
+---
+title: Inline Lists
+name: list-6
+category: list
+---
+
+```html_example
+<ul class="e-list-inline">
+  <li><a href="">智に働けば</a></li>
+  <li><a href="">智に働けば</a></li>
+  <li><a href="">智に働けば</a></li>
+  <li><a href="">智に働けば</a></li>
+  <li><a href="">智に働けば</a></li>
+  <li><a href="">智に働けば</a></li>
+  <li><a href="">智に働けば</a></li>
+  <li><a href="">智に働けば</a></li>
+  <li><a href="">智に働けば</a></li>
+
+</ul>
+```
+*/
+
+.e-list-inline {
+
+  @include mb-small;
+
+  li {
+    display: inline-block;
+    line-height: 1.6;
+
+    &:after {
+      padding-left: .3rem;
+      content: "｜";
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      color: $border-color;
+
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+  }
+}
+
+/*doc
+---
+title: Btn Lists
+name: list-7
+category: list
+---
+
+```html_example
+  <ul class="e-btn-list">
+    <li><a href="" class="is-active"><span class="is-icon-target-blank">智に働けば<br>智に働けば</span></a></li>
+    <li><a href="">智に働けば</a></li>
+    <li><a href="">智に働けば</a></li>
+    <li><a href="">智に働けば</a></li>
+    <li><a href="">智に働けば</a></li>
+    <li><a href="">智に働けば</a></li>
+
+
+  </ul>
+
+```
+*/
+
+.e-btn-list {
+  @include clearfix;
+  @include mb-small;
+  align-items: stretch;
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -1%;
+  margin-left: -1%;
+  @include media-sp-max {
+    margin-right: -1.7142857143%;
+    margin-left: -1.7142857143%;
+  }
+
+  li {
+    display: flex;
+    flex: 0 0 23%;
+    max-width: 23%;
+    box-sizing: border-box;
+    margin-right: 1%;
+    margin-left: 1%;
+    // margin-bottom: 1.92%;
+    margin-bottom: 16px;
+    border-radius: $border-radius-pc;
+
+    @include media-sp-max {
+      flex: 0 0 46.5714285714%;
+      max-width: 46.5714285714%;
+      margin-right: 1.7142857143%;
+      margin-left: 1.7142857143%;
+      margin-bottom: $width-gap-sp;
+    }
+
+    a {
+      height: 60px;
+      padding: 1em .5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background-color: #fff;
+      @include fsize(14px);
+      color: $text-color;
+      max-width: 100%;
+      box-sizing: border-box;
+      transition: all $animation;
+      -webkit-font-smoothing: antialiased;
+      text-align: center;
+      text-decoration: none;
+      position: relative;
+      vertical-align: middle;
+      line-height: 1.4;
+
+      @include elevation(2);
+      @include elevation-transition;
+
+      &:hover,
+      &:focus,
+      &.is-active {
+        text-decoration: none;
+        @include elevation(4);
+      }
+
+      &:active {
+        text-decoration: none;
+        @include elevation(8);
+      }
+
+    }
+
+  }
+}
+
+
+

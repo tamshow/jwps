@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* @ color
+ * ------------------------------------------------------------ */
+
+
+
+/*doc
+---
+title: color
+name: color
+category: color
+---
+
+
+<div class="styleguide-table"></div>
+ Class        |  Description
+ -------------| ----------
+ `is-color-success`   |
+ `is-color-warning`   |
+ `is-color-error`     |
+ `is-color-info`      |
+ `is-bg-color-success`   |
+ `is-bg-color-warning`   |
+ `is-bg-color-error`     |
+ `is-bg-color-info`      |
+ `is-color-red`      |
+ `is-color-pink`      |
+ `is-color-orange`      |
+ `is-color-light-green`      |
+ `is-color-green`      |
+ `is-color-blue`      |
+ `is-color-purple`      |
+ `is-color-brawn`      |
+ `is-color-yellow`      |
+
+*/
+
+
+
+
+
+@mixin color-base($color-code, $color-name) {
+
+  .is-color#{$color-name} {
+    color: $color-code!important;
+  }
+
+  .is-bg-color#{$color-name} {
+    background-color: $color-code!important;
+  }
+}
+
+@include color-base ($brand-primary-light, -primary-light);
+@include color-base ($brand-primary, -primary);
+@include color-base ($brand-primary-dark, -primary-dark);
+
+@include color-base ($brand-secondary-light, -secondary-light);
+@include color-base ($brand-secondary, -secondary);
+@include color-base ($brand-secondary-dark, -secondary-dark);
+
+@include color-base ($text-color, -text);
+@include color-base ($text-color-sub, -text-sub);
+@include color-base ($text-color-week, -text-week);
+
+@include color-base ($text-color-dark, -text-dark);
+@include color-base ($text-color-dark-sub, -text-dark-sub);
+@include color-base ($text-color-dark-week, -text-dark-week);
+
+@include color-base ($brand-white, -white);
+@include color-base ($brand-black, -black);
+@include color-base ($brand-gray, -gray);
+
+@include color-base ($brand-red, -red);
+@include color-base ($brand-pink, -pink);
+@include color-base ($brand-orange, -orange);
+@include color-base ($brand-light-green, -light-green);
+@include color-base ($brand-green, -green);
+@include color-base ($brand-blue, -blue);
+@include color-base ($brand-purple, -purple);
+@include color-base ($brand-brawn, -brawn);
+@include color-base ($brand-yellow, -yellow);
+
+@include color-base ($brand-link, -link);
+@include color-base ($brand-link-visited, -link-visited);
+@include color-base ($brand-link-hover, -link-hover);
+@include color-base ($brand-link-dark, -link-dark);
+@include color-base ($brand-link-dark-visited, -link-dark-visited);
+@include color-base ($brand-link-dark-hover, -link-dark-hover);
+
+@include color-base ($bg-color, -bg-color);
+@include color-base ($border-color, -border-color);
+
+@include color-base ($success-color, -success);
+@include color-base ($warning-color, -warning);
+@include color-base ($error-color, -error);
+@include color-base ($info-color, -info);
+

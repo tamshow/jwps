@@ -1,0 +1,274 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #GRID
+   ========================================================================== */
+
+/**
+ * グリッドレイアウトのスタイルです
+ *
+ *
+ *
+ */
+
+/* cloumn:mixins
+   ========================================================================== */
+
+@mixin grid-col($col: 6, $w: 940, $g: 20, $direction:left) {
+  &:nth-child(1n) {
+    clear: none;
+  }
+
+  @if $col == 1 {
+    width: auto;
+    float: none;
+
+    &:nth-child(1n) {
+      margin-#{$direction}: 0;
+      clear: both;
+    }
+  } @else {
+    $one-col: ($w - ($g * ($col - 1))) / $col;
+    width: ($one-col / $w) * 100%;
+    min-height: 1px;
+    float: left;
+
+    &:nth-child(1n) {
+      margin-#{$direction}: ($g / $w) * 100%;
+    }
+
+    &:nth-child(#{$col}n+1) {
+      margin-#{$direction}: 0;
+      clear: both;
+    }
+
+    &__tile {
+      margin-bottom: ($g / $w) * 100%;
+    }
+
+  }
+}
+
+@mixin flex-col-base () {
+  align-items: stretch;
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+
+  .l-grid {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@mixin flex-col ($col:6, $w:940, $g:30, $sp:false) {
+  $grid: 12;
+  $gap: $g / 2;
+  $mb: 0;
+
+  @if $sp == false {
+    $mb: $gap * .16%;
+
+  } @else {
+    $gap: $gap * 1.2;
+    $mb: $gap * .16%;
+  }
+
+  $columns-auto: ($w / $grid) - (2 * $gap);
+  $grid-auto: ($gap * ($grid * 2)) + ($columns-auto * $grid);
+  $this-width: ((($columns-auto * $col) + ($gap * ($col - 1)) + ($gap * ($col - 1))) / $grid-auto * 100%);
+
+  margin-left: - percentage($gap / $grid-auto);
+  margin-right: - percentage($gap / $grid-auto);
+
+  .l-grid {
+    flex: 0 0 $this-width;
+    margin-left: percentage($gap / $grid-auto);
+    margin-right: percentage($gap / $grid-auto);
+    //margin-bottom: percentage(($gap / $grid-auto) * 2);
+    margin-bottom: 16px;
+  }
+}
+
+/* base
+   ========================================================================== */
+
+.l-grid {
+  box-sizing: border-box;
+
+  //.media,
+  //.c-card,
+
+  .rich-editor & {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 0;
+    }
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* grid-2column
+   ========================================================================== */
+
+/*doc
+---
+title: 2to2to1
+name: grid-2column
+category: grid
+---
+
+
+```html_example
+
+<div class="l-grid-assy-2to2to1">
+ <div class="l-grid"><div class="dummy-box">1/2<br>6 columns</div></div>
+ <div class="l-grid"><div class="dummy-box">1/2<br>6 columns</div></div>
+</div>
+
+
+
+```
+*/
+
+.l-grid-assy-2to2to1 {
+
+  @include flex-col-base();
+  @include flex-col(6, $screen-pc-max, 24);
+
+  @include media-tab-max {
+    @include flex-col(6, $screen-tab-max, 24);
+  }
+
+  @include media-sp-max {
+    @include flex-col(12, $screen-sp-max, 24);
+  }
+
+  //@include clearfix;
+  //
+  //.l-grid {
+  //
+  //  @include grid-col(2, $screen-pc-max, 30);
+  //
+  //  @include media-tab-max {
+  //    @include grid-col(2, $screen-tab-max, 30);
+  //  }
+  //
+  //  @include media-sp-max {
+  //    @include grid-col(1);
+  //  }
+  //}
+}
+
+/* grid-3column
+   ========================================================================== */
+/*doc
+---
+title: 3to2to1
+name: grid-3column
+category: grid
+---
+
+
+```html_example
+
+<div class="l-grid-assy-3to2to1">
+ <div class="l-grid l-grid__tile"><div class="dummy-box">1/3<br>4 columns</div></div>
+ <div class="l-grid l-grid__tile"><div class="dummy-box">1/3<br>4 columns</div></div>
+ <div class="l-grid l-grid__tile"><div class="dummy-box">1/3<br>4 columns</div></div>
+ <div class="l-grid l-grid__tile"><div class="dummy-box">1/3<br>4 columns</div></div>
+</div>
+
+
+```
+*/
+
+.l-grid-assy-3to2to1 {
+
+  @include flex-col-base();
+  @include flex-col(4, $screen-pc-max, 24);
+
+  @include media-tab-max {
+    @include flex-col(6, $screen-tab-max, 24);
+  }
+
+  @include media-sp-max {
+    @include flex-col(12, $screen-sp-max, 24);
+  }
+
+  //@include clearfix;
+  //
+  //.l-grid {
+  //
+  //  @include grid-col(3, $screen-pc-max, 30);
+  //
+  //  @include media-tab-max {
+  //    @include grid-col(2, $screen-tab-max, 30);
+  //  }
+  //
+  //  @include media-sp-max {
+  //    @include grid-col(1);
+  //  }
+  //}
+
+}
+
+/* grid-4column
+   ========================================================================== */
+/*doc
+---
+title: 4to2to2
+name: grid-4column
+category: grid
+---
+
+
+```html_example
+
+<div class="l-grid-assy-4to2to2">
+ <div class="l-grid"><div class="dummy-box">1/4<br>3 columns</div></div>
+ <div class="l-grid"><div class="dummy-box">1/4<br>3 columns</div></div>
+ <div class="l-grid"><div class="dummy-box">1/4<br>3 columns</div></div>
+ <div class="l-grid"><div class="dummy-box">1/4<br>3 columns</div></div>
+</div>
+
+
+```
+*/
+
+.l-grid-assy-4to2to2 {
+
+  @include flex-col-base();
+  @include flex-col(3, $screen-pc-max, 24);
+
+  @include media-tab-max {
+    @include flex-col(6, $screen-tab-max, 24);
+  }
+
+  @include media-sp-max {
+    @include flex-col(6, $screen-sp-max, 24);
+  }
+
+  //@include clearfix;
+  //
+  //.l-grid {
+  //
+  //  @include grid-col(4, $screen-pc-max, 30);
+  //
+  //  @include media-tab-max {
+  //    @include grid-col(2, $screen-tab-max, 30);
+  //  }
+  //
+  //  @include media-sp-max {
+  //    @include grid-col(2, $screen-sp-max, 30);
+  //  }
+  //}
+
+}

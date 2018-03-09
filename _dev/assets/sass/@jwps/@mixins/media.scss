@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+/*doc
+---
+title: Media
+name: media
+category: mixins
+---
+
+```
+@include media-min;
+@include media-sp-min;
+@include media-sp-max;
+@include media-sp-only;
+
+@include media-tab-min;
+@include media-tab-max;
+@include media-tab-only;
+
+@include media-pc-min;
+@include media-pc-max;
+@include media-pc-only;
+
+@include media-lg-min;
+@include media-lg-max;
+@include media-lg-only;
+
+@include media-max;
+
+
+@include media($query);
+
+```
+
+*/
+
+@mixin media-min() {
+  @media screen and (max-width: ($screen-sp-min / 16) + em) {
+    @content;
+  }
+}
+
+//sp
+@mixin media-sp-min() {
+  @media screen and (min-width: ($screen-sp-min / 16) + em) {
+    @content;
+  }
+}
+
+@mixin media-sp-max() {
+  @media screen and (max-width: ($screen-sp-max / 16) + em) {
+    @content;
+  }
+}
+
+@mixin media-sp-only() {
+  @media screen and (min-width: ($screen-sp-min / 16) + em) and (max-width: ($screen-sp-max / 16) + em) {
+    @content;
+  }
+}
+
+//tab
+@mixin media-tab-min() {
+  @media screen and (min-width: ($screen-tab-min / 16) + em) {
+    @content;
+  }
+}
+
+@mixin media-tab-max() {
+  @media screen and (max-width: ($screen-tab-max / 16) + em) {
+    @content;
+  }
+}
+
+@mixin media-tab-only() {
+  @media screen and (min-width: ($screen-tab-min / 16) + em) and (max-width: ($screen-tab-max / 16) + em) {
+    @content;
+  }
+}
+
+//pc
+@mixin media-pc-min() {
+  @media screen and (min-width: ($screen-pc-min / 16) + em) {
+    @content;
+  }
+}
+
+@mixin media-pc-max() {
+  @media screen and (max-width: ($screen-pc-max / 16) + em) {
+    @content;
+  }
+}
+
+@mixin media-pc-only() {
+  @media screen and (min-width: ($screen-pc-min / 16) + em) and (max-width: ($screen-pc-max / 16) + em) {
+    @content;
+  }
+}
+
+//lg
+@mixin media-lg-min() {
+  @media screen and (min-width: ($screen-lg-min / 16) + em) {
+    @content;
+  }
+}
+
+@mixin media-lg-max() {
+  @media screen and (max-width: ($screen-lg-max / 16) + em) {
+    @content;
+  }
+}
+
+@mixin media-lg-only() {
+  @media screen and (min-width: ($screen-lg-min / 16) + em) and (max-width: ($screen-lg-max / 16) + em) {
+    @content;
+  }
+}
+
+@mixin media-max() {
+  @media screen and (min-width: ($screen-pc-max / 16) + em) {
+    @content;
+  }
+}
+
+@mixin media($query) {
+
+  $media-query: "screen and ";
+  $loop-to: length($query);
+  $i: 1;
+
+  @while $i <= $loop-to {
+
+    $media-query: $media-query + "(" + nth($query, $i) + ": " + nth($query, $i + 1) + ") ";
+
+    @if ($i + 1) != $loop-to {
+      $media-query: $media-query + "and ";
+    }
+
+    $i: $i + 2;
+  }
+
+  @media #{$media-query} {
+    @content;
+  }
+}
+

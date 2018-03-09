@@ -1,0 +1,207 @@
+@charset "utf-8";
+/* @ img
+ * ------------------------------------------------------------ */
+
+/*doc
+---
+title: Image Caption
+name: images
+category: images
+---
+
+```html_example
+
+  <figure class="e-img-box">
+    <img src="/assets/img/dummy/820x273.png" alt="">
+    <figcaption class="e-img-caption">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</figcaption>
+  </figure>
+  <p class="e-text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
+    情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+
+  <div>
+    <figure class="e-img-box is-left is-one-fourth">
+      <img src="/assets/img/dummy/820x273.png" alt="">
+      <figcaption class="img-caption">情に棹させば流される。智に働けば角が立つ。</figcaption>
+    </figure>
+    <p class="e-text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
+      情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
+      情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
+      情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+  </div>
+
+
+  <div class="rich-editor">
+    <figure class="is-left is-one-fourth">
+      <img src="/assets/img/dummy/820x273.png" alt="">
+      <figcaption class="img-caption">情に棹させば流される。智に働けば角が立つ。</figcaption>
+    </figure>
+    <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
+      情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
+      情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
+      情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+  </div>
+
+
+```
+
+
+
+<div class="styleguide-table"></div>
+Class                                                                      | Description
+-----------------------------------------------------------------------    | ------------
+`e-img-box`                |         |
+`e-img-box.is-left`          |         |
+`e-img-box.is-right`         |         |
+`e-img-box.is-center`        |         |
+`e-img-box.is-one-fourth`    |         |
+`e-img-box.is-one-third`     |         |
+`e-img-box.is-one-half`      |         |
+`e-img-box.is-full`          |         |
+
+
+
+<div class="styleguide-table"></div>
+Class                                                                      | Description
+-----------------------------------------------------------------------    | ------------
+`e-img-box > e-img-caption`            |         |
+`e-img-box > e-img-frame`            |         |
+`e-img-box > e-img-round`            |         |
+`e-img-box > e-img-circle`            |         |
+`e-img-box > e-img-hover`            |         |
+`e-img-box > .is-one-fourth`    |         |
+`e-img-box > .is-one-third`     |         |
+`e-img-box > .is-one-half`      |         |
+`e-img-box > .is-full`      |         |
+
+
+
+
+
+*/
+
+//----------------------------
+.rich-editor figure,
+.e-img-box {
+  margin-bottom: $margin-xs-pc;
+
+  a {
+    display: inline-block;
+  }
+
+  figcaption,
+  .e-img-caption {
+    margin-top: .5em;
+    color: $text-color-sub;
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+}
+
+//画像をfloatした場合の処理
+//`img-left img-w40`など付与
+//配置は画像1毎を想定、
+
+//配置
+//.rich-editor .is-left,
+//.rich-editor .is-right,
+.e-img-box.is-left,
+.e-img-box.is-right {
+  margin-top: .3em;
+}
+
+//画像左
+.rich-editor .is-left,
+.e-img-box.is-left {
+  margin-right: 1rem;
+  float: left;
+
+  @include media-sp-max {
+    float: none;
+    margin-right: 0;
+  }
+}
+
+//画像右
+.rich-editor .is-right,
+.e-img-box.is-right {
+  margin-left: 1rem;
+  float: right;
+
+  @include media-sp-max {
+    float: none;
+    margin-left: 0;
+  }
+
+}
+
+//画像中央
+.rich-editor .is-center,
+.e-img-box.is-center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.is-one-fourth {
+  width: 25%;
+}
+
+.is-one-third {
+  width: 33.33%;
+}
+
+.is-one-half {
+  width: 50%;
+}
+
+.is-full {
+  width: 100%;
+}
+
+@include media-sp-max {
+  .is-one-fourth,
+  .is-one-third,
+  .is-one-half {
+    width: 100%;
+  }
+
+}
+
+//--------------
+
+.e-img-frame {
+  height: auto;
+  padding: 2px;
+  border: 1px solid $border-color;
+  background-color: $brand-white;
+  box-sizing: border-box;
+}
+
+.e-img-round {
+  border-radius: $border-radius-pc;
+}
+
+.e-img-border {
+  border: 1px solid $border-color;
+}
+
+.e-img-circle {
+  border-radius: 50%;
+}
+
+//---------------------
+
+.e-img-hover {
+  overflow: hidden;
+
+  img {
+    transition: all $animation;
+  }
+}
+
+a:hover .e-img-hover img {
+  transform: scale(1.1);
+  transform-origin: center center;
+}
+

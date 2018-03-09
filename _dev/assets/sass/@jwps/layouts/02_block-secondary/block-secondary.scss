@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+
+/* @  l-block-secondary
+ * ------------------------------------------------------------ */
+
+.l-block-secondary {
+  @include mb-small;
+
+  width: ($screen-sub-colum / $screen-pc-max) * 100%;
+  float: left;
+
+  @include media-sp-max {
+    float: none;
+    width: 100%;
+  }
+}
