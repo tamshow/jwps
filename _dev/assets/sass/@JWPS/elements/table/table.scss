@@ -1,0 +1,445 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #TABLE
+   ========================================================================== */
+
+/* table:base
+   ========================================================================== */
+
+$table-border: 1px solid $border-color !default;
+$table-bg: $bg-color !default;
+$table-padding-vertical: .68em !default;
+$table-padding-horizon: 1.4em !default;
+$table-small-fsize: .7em !default;
+
+%table-base {
+
+  caption {
+    color: $text-color-sub;
+    @include mb-small();
+  }
+
+
+  width: 100%;
+  border-top: $table-border;
+  border-right: $table-border;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  @include mb-small;
+
+  tr,
+  td,
+  th {
+    text-align: left;
+    vertical-align: top;
+    word-break: break-all;
+  }
+
+  th {
+    padding: $table-padding-vertical $table-padding-horizon;
+    border-bottom: $table-border;
+    border-left: $table-border;
+    vertical-align: top;
+    background-color: $table-bg;
+    width: 20%;
+    @include media-sp-max {
+      width: 30%;
+    }
+
+  }
+
+  td {
+    padding: $table-padding-vertical $table-padding-horizon;
+    border-bottom: $table-border;
+    border-left: $table-border;
+  }
+
+  //テーブルの中の最後の要素のマージンを消す
+  th,
+  td {
+    *:last-child {
+      //  margin-bottom: 0;
+    }
+
+  }
+
+  /*doc
+  ---
+  title: Table Helpers
+  name: table-type99
+  category: table
+  ---
+
+
+
+
+
+<div class="styleguide-table"></div>
+  Class                                                                      | Description
+  -----------------------------------------------------------------------    | ------------
+  `e-th-w--1em`, `e-td-w--1em`                |         |
+  `e-th-w--10p`, `e-td-w--1em`                |         |
+  `e-th-w--15p`, `e-td-w--15p`                |         |
+  `e-th-w--20p`, `e-td-w--20p`                |         |
+  `e-th-w--small`, `e-td-w--small`                |         |
+  `e-th-w--medium`, `e-td-w--medium`                |         |
+
+*/
+
+  //tools
+
+  th.e-th-w--1em,
+  td.e-td-w--1em {
+    width: 1em;
+  }
+
+  th.e-th-w--10p,
+  td.e-td-w--10p {
+    width: 10%;
+  }
+
+  th.e-th-w--15p,
+  td.e-td-w--15p {
+    width: 15%;
+  }
+
+  th.e-th-w--20p,
+  td.e-td-w--20p {
+    width: 20%;
+  }
+
+  th.e-th-w--small,
+  td.e-td-w--small {
+    width: 20%;
+  }
+
+  th.e-th-w--medium,
+  td.e-td-w--medium {
+    width: 50%;
+  }
+
+}
+
+
+
+
+/*  Bordered
+   ========================================================================== */
+/*doc
+---
+title: Bordered
+name: table-1
+category: table
+---
+
+`.e-table--center`
+
+`.e-table--layout-fixed`
+
+```html_example
+  <table class="e-table">
+    <tr>
+      <th>見出し</th>
+      <th>見出し</th>
+      <th>見出し</th>
+    </tr>
+    <tr>
+      <td>テキストが入ります</td>
+      <td>テキストが入りますテキストが入りますテキストが入ります</td>
+      <td>テキストが入ります</td>
+    </tr>
+    <tr>
+      <td>テキストが入ります</td>
+      <td>テキストが入りますテキストが入りますテキストが入ります</td>
+      <td>テキストが入ります</td>
+    </tr>
+  </table>
+
+```
+*/
+
+.e-table--layout-fixed {
+  table-layout: fixed;
+}
+
+.rich-editor table,
+.e-table {
+  @extend %table-base;
+
+}
+
+/*  Borderless
+   ========================================================================== */
+/*doc
+---
+title: Borderless
+name: table-2
+category: table
+---
+
+```html_example
+  <table class="e-table e-table--borderless">
+    <tr>
+      <th>見出し</th>
+      <th>見出し</th>
+      <th>見出し</th>
+    </tr>
+    <tr>
+      <td>テキストが入ります</td>
+      <td>テキストが入りますテキストが入りますテキストが入ります</td>
+      <td>テキストが入ります</td>
+    </tr>
+    <tr>
+      <td>テキストが入ります</td>
+      <td>テキストが入りますテキストが入りますテキストが入ります</td>
+      <td>テキストが入ります</td>
+    </tr>
+  </table>
+
+```
+*/
+
+.rich-editor .e-table--borderless,
+.e-table--borderless {
+  @extend %table-base;
+
+  border-right: 0;
+
+  th {
+    border-left: 0;
+  }
+
+  td {
+    border-left: 0;
+  }
+
+}
+
+/* テーブル バリエーション  スマホ時縦１列
+   ========================================================================== */
+/*doc
+---
+title: Type - SP-Block
+name: table-type1
+category: table
+---
+
+```html_example
+  <table class="e-table e-table--block">
+    <tr>
+      <th>見出し</th>
+      <td>テキストが入ります</td>
+    </tr>
+    <tr>
+      <th>見出し</th>
+      <td>テキストが入ります</td>
+    </tr>
+  </table>
+```
+*/
+
+.rich-editor .e-table--block,
+.e-table--block {
+
+  @include media-sp-max {
+
+    //table {}
+    th {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    th,
+    td {
+      display: block;
+      width: auto;
+    }
+
+    .th-w--1em,
+    .td-w--1em {
+      width: auto;
+    }
+
+    .th-w--10p,
+    .td-w--10p {
+      width: auto;
+    }
+
+    .th-w--15p,
+    .td-w--15p {
+      width: auto;
+    }
+
+    .th-w--20p,
+    .td-w--20p {
+      width: auto;
+    }
+
+    .th-w--small,
+    .td-w--small {
+      width: auto;
+    }
+
+    .th-w--medium,
+    .td-w--medium {
+      width: auto;
+    }
+
+  }
+}
+
+/* テーブル バリエーション  フォント小さい
+   ========================================================================== */
+/*doc
+---
+title: Type - Small
+name: table-type2
+category: table
+---
+
+```html_example
+<table class="e-table e-table--small e-table--layout-fixed e-table--center">
+  <tr>
+    <th class="e-th-w--small">タイトル</th>
+    <th>タイトル</th>
+    <th>タイトル</th>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td>テキスト</td>
+    <td>テキスト</td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td>テキスト</td>
+    <td>テキスト</td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td>テキスト</td>
+    <td>テキスト</td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td>テキスト</td>
+    <td>テキスト</td>
+  </tr>
+</table>
+
+```
+*/
+
+.rich-editor .e-table--small,
+.e-table--small {
+
+  th,
+  td {
+    font-size: $table-small-fsize;
+  }
+
+}
+
+/* テーブル バリエーション 横スクロール
+   ========================================================================== */
+
+/*doc
+---
+title: Type SP-Scroll
+name: table-type3
+category: table
+---
+
+`.e-responsive-w-inner--one-half`
+
+
+```html_example
+
+
+<div class="e-responsive-table">
+  <table class="e-table">
+    <tr>
+      <th class="e-th-w--10p">タイトル10%</th>
+      <th class="e-th-w--15p">タイトル15%</th>
+      <th class="e-th-w--15p">タイトル15%</th>
+      <th class="e-th-w--15p">タイトル15%</th>
+      <th class="e-th-w--10p">タイトル10%</th>
+      <th>タイトル</th>
+    </tr>
+    <tr>
+      <td>テキストテキスト</td>
+      <td>テキストテキスト</td>
+      <td>テキストテキスト</td>
+      <td>テキストテキスト</td>
+      <td>テキストテキスト</td>
+      <td><div class="e-responsive-w-inner--one-half">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト30vw </div></td>
+    </tr>
+    <tr>
+      <td>テキスト</td>
+      <td>テキスト</td>
+      <td>テキスト</td>
+      <td>テキスト</td>
+      <td>テキスト</td>
+      <td><div class="e-responsive-w-inner--half">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト50vw </div></td>
+    </tr>
+
+  </table>
+</div>
+```
+*/
+
+.rich-editor .e-responsive-table,
+.e-responsive-table {
+
+  @include media-sp-max {
+    position: relative;
+    margin-bottom: $margin-small-sp;
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      height: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #d4d4d4;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #333;
+    }
+
+    &:after {
+      display: block;
+      padding-bottom: .5em;
+      font-size: .8em;
+      text-align: center;
+      white-space: nowrap;
+      content: "← この表は左右に動かせます。 →";
+    }
+
+    table {
+      width: auto;
+    }
+
+    th,
+    td {
+      white-space: nowrap;
+    }
+
+    .e-responsive-w-inner--short {
+      white-space: normal;
+      width: 30vw;
+    }
+
+    .e-responsive-w-inner--one-half {
+      white-space: normal;
+      width: 50vw;
+    }
+
+  }
+}
+
+

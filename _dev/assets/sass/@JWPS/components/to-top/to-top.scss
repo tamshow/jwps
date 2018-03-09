@@ -1,0 +1,64 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #to-top
+   ========================================================================== */
+
+/*doc
+---
+title: to-top
+name: to-top
+category: to-top
+---
+
+```html_example
+<p class="c-to-top" data-scroll="to-top">
+  <a href="#skippy"><span>ページトップへ</span></a>
+</p>
+```
+*/
+
+.c-to-top a {
+  display: block;
+  position: fixed;
+  right: 15px;
+  bottom: -100px;
+  box-sizing: border-box;
+  width: 56px;
+  height: 56px;
+  opacity: .88;
+  background: #716f86;
+  border-radius: 100px;
+  font-size: 2em;
+  line-height: 54px;
+  text-align: center;
+  z-index: 8888;
+
+  @include elevation(6);
+  @include elevation-transition;
+
+  span {
+    overflow: hidden;
+    text-indent: 101%;
+    white-space: nowrap;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    border-top: 1px solid $brand-white;
+    border-left: 1px solid $brand-white;
+    content: "";
+    vertical-align: middle;
+  }
+
+  //&:hover {
+  //  background: $brand-primary;
+  //  transition: all $animation;
+  //
+  //  span {
+  //    border-color: $brand-white;
+  //  }
+  //
+  //}
+}
+

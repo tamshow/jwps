@@ -1,0 +1,42 @@
+{
+  "engines": {
+    "node": "8.4.0",
+    "npm": "5.3.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.24.1",
+    "browser-sync": "^2.18.13",
+    "css-mqpacker": "^6.0.1",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-cache": "^0.4.6",
+    "gulp-changed": "^3.0.0",
+    "gulp-csso": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-prettify": "^0.5.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2",
+    "node-sass-package-importer": "^5.0.0-alpha.17",
+    "run-sequence": "^2.1.0",
+    "vue-loader": "^13.7.0",
+    "vue-style-loader": "^3.0.3",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^2.6.1",
+    "webpack-stream": "^3.2.0"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "bourbon": "^5.0.0",
+    "jquery": "^1.11.3",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "normalize.css": "^8.0.0",
+    "swiper": "^3.4.2",
+    "vue": "^2.5.9"
+  }
+}

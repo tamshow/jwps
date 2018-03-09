@@ -1,0 +1,97 @@
+@charset "utf-8";
+
+/*doc
+---
+title: Font
+name: font
+category: mixins
+---
+
+
+```
+@include fsize($size-pc: 14, $size-tab: false, $size-sp: false);
+
+@include fsize-vmin($fsize: 14, $screen: 375);
+
+
+```
+
+*/
+
+@mixin fsize($size-pc: 0px, $size-tab: false, $size-sp: false) {
+  @if $size-pc != false {
+    font-size: $size-pc;
+    font-size: ($size-pc / (1 + $size-pc - $size-pc)) / ($fsize-pc / (1 + $fsize-pc - $fsize-pc)) +rem;
+  }
+  @if $size-tab != false {
+    @include media-tab-max {
+      font-size: $size-tab;
+      font-size: ($size-tab / (1 + $size-tab - $size-tab)) / ($fsize-tab / (1 + $fsize-tab - $fsize-tab)) +rem;
+    }
+  }
+  @if $size-sp != false {
+    @include media-sp-max {
+      font-size: $size-sp;
+      font-size: ($size-sp / (1 + $size-sp - $size-sp)) / ($fsize-sp / (1 + $fsize-sp - $fsize-sp)) +rem;
+    }
+  }
+
+}
+
+@mixin fsize-vmin($fsize: 14, $screen: 375) {
+  font-size: (100 / $screen) * ($fsize / (1 + $fsize - $fsize)) * 1vmin;
+
+  //font-size:calc(1em * 1vmin) ;
+
+}
+
+@mixin webfont($family:sans-serif, $style:false, $weight:false, $feature-settings: "palt" 1) {
+  font-family: $family;
+
+  @if $style != false {
+    font-style: $style;
+  }
+
+  @if $weight != false {
+    font-weight: $weight;
+  }
+
+  @if $feature-settings != false {
+    font-feature-settings: $feature-settings;
+
+    body[data-browser="safari"] & {
+      font-feature-settings: 'pkna' 0;
+    }
+  }
+
+}
+
+//メディアプロパティ
+@mixin media-property($propertyName:font-size, $size-pc: 0, $size-tab: false, $size-sp: false, $size-min: false) {
+  @if $size-pc != false {
+    #{$propertyName}: $size-pc;
+  }
+  @if $size-tab != false {
+    @include media-tab-max {
+      #{$propertyName}: $size-tab;
+    }
+  }
+  @if $size-sp != false {
+    @include media-sp-max {
+      #{$propertyName}: $size-sp;
+    }
+  }
+
+  @if $size-min != false {
+    @include media-min {
+      #{$propertyName}: $size-min;
+    }
+  }
+}
+
+//単位を外す
+//strip-units(12px);
+
+@function strip-units($x) {
+  @return $x / (1 + $x - $x);
+}

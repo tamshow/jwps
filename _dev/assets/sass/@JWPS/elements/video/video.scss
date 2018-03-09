@@ -1,0 +1,69 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #VIDEO
+   ========================================================================== */
+
+/*doc
+---
+title: video
+name: video-container
+category: video
+---
+
+
+```html_example
+<div class="e-video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/MZyeTk5b4PQ?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+```
+*/
+
+.e-video-container {
+  position: relative;
+  height: 0;
+  padding-top: 25%;
+  padding-bottom: 30.25%;
+  overflow: hidden;
+  @include mb-small;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+/* Google map
+   ========================================================================== */
+
+/*doc
+---
+title: Google map
+name: g-map
+category: video
+---
+
+```html_example
+ <div class="e-g-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12963.323312243096!2d139.7670516!3d35.6811673!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1515111619588" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+ </div>
+```
+*/
+
+.e-g-map {
+  text-align: center;
+  @include mb-small;
+
+  iframe {
+    width: 100%;
+
+    @include media-sp-max {
+      height: 30vh;
+    }
+  }
+}
+

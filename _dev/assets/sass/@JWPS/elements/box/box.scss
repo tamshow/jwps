@@ -1,0 +1,241 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #BOX
+   ========================================================================== */
+
+/*doc
+---
+title: Box
+name: box
+category: box
+---
+
+```html_example
+
+<div class="e-box">
+  <div class="e-box__head">
+    <h3 class="e-box__title">タイトル</h3>
+     <p class="e-box__to-list"><a href="">一覧を見る</a></p>
+  </div>
+
+  <div class="e-box__body">
+    <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。</p>
+  </div>
+</div>
+
+```
+
+
+```html_example
+
+<div class="e-box e-box--error">
+  <div class="e-box__body">
+    <p>ボックス（error）<br>このように、選択した部分に背景色と枠線のスタイルがつきます。</p>
+  </div>
+</div>
+
+<div class="e-box e-box--warning">
+  <div class="e-box__body">
+    <p>ボックス（warning）<br>このように、選択した部分に背景色と枠線のスタイルがつきます。</p>
+  </div>
+</div>
+
+
+<div class="e-box e-box--info">
+  <div class="e-box__body">
+    <p>ボックス（info）<br>このように、選択した部分に背景色と枠線のスタイルがつきます。</p>
+  </div>
+</div>
+
+
+<div class="e-box e-box--success">
+  <div class="e-box__body">
+    <p>ボックス（success）<br>このように、選択した部分に背景色と枠線のスタイルがつきます。</p>
+  </div>
+</div>
+
+
+<div class="e-box e-box--bg">
+  <div class="e-box__body">
+    <p>ボックス（$bg-color）<br>このように、選択した部分に背景色と枠線のスタイルがつきます。</p>
+  </div>
+</div>
+
+
+```
+
+*/
+
+.rich-editor .e-box h1,
+.rich-editor .e-box h2,
+.rich-editor .e-box h3,
+.rich-editor .e-box h4,
+.rich-editor .e-box h5,
+.rich-editor .e-box h6,
+.rich-editor .e-box p {
+  margin-top: 0;
+  margin-bottom: .2rem;
+}
+
+.e-box {
+  display: block;
+  background: #fff;
+  border: solid 1px $border-color;
+  @include mb-small;
+
+  &__head {
+    margin: 1rem 1.5rem 0;
+    padding-bottom: .6em;
+    border-bottom: 1px solid $border-color;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    @include media-sp-max {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  &__to-list {
+
+    a {
+      border-radius: $border-radius-pc;
+      background-color: #eef0f4;
+      padding: .3em .7em;
+      display: inline-block;
+      color: $text-color;
+      @include fsize(14px);
+      @include elevation(2);
+      @include elevation-transition;
+
+      &:hover {
+        text-decoration: none;
+        @include elevation(4);
+      }
+      &:active {
+        text-decoration: none;
+        @include elevation(8);
+      }
+
+    }
+
+  }
+
+  &__body {
+    padding: 1rem 1.5rem;
+
+    @include media-sp-max {
+      padding: 1rem;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+}
+
+.e-box--bg {
+  background-color: $bg-color;
+  border-color: $bg-color;
+}
+
+.e-box--error {
+  background-color: $error-bg;
+  border-color: $error-border;
+}
+
+.e-box--warning {
+  background-color: $warning-bg;
+  border-color: $warning-bg;
+
+}
+
+.e-box--info {
+  background-color: $info-bg;
+  border-color: $info-bg;
+}
+
+.e-box--success {
+  background-color: $success-bg;
+  border-color: $success-bg;
+}
+
+/*doc
+---
+title: Bordered
+name: box-bordered
+category: box
+---
+
+```html_example
+
+<div class="e-box-bordered">
+  <div class="e-box-bordered__body">
+    <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。</p>
+  </div>
+</div>
+
+
+```
+*/
+
+$box-border: 5px solid #b2b2b2;
+
+.rich-editor .e-box-bordered h1,
+.rich-editor .e-box-bordered h2,
+.rich-editor .e-box-bordered h3,
+.rich-editor .e-box-bordered h4,
+.rich-editor .e-box-bordered h5,
+.rich-editor .e-box-bordered h6,
+.rich-editor .e-box-bordered p {
+  margin-top: 0;
+  margin-bottom: .2rem;
+}
+
+.rich-editor .e-box-bordered {
+  margin-left: 24px;
+  margin-right: 24px;
+
+  @include media-sp-max {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+}
+
+.e-box-bordered {
+  display: block;
+  background: #f7f7f7;
+  border-left: $box-border;
+  border-radius: 0;
+  @include mb-small;
+
+  &__body {
+    padding: 1.1rem 1.5rem;
+
+    @include media-sp-max {
+      padding: .8rem 1.1rem;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+}
+
+
+

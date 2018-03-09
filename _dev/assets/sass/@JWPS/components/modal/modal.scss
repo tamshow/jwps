@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #modal
+   ========================================================================== */
+
+/*doc
+---
+title: Default
+name:  modal-dialog
+category: modal
+---
+
+```html_example
+<!-- ボタン領域 -->
+<div class="e-btn-group is-left">
+<button type="button" class="e-btn" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
+</div>
+<div class="e-box" data-clone-modal="area-modal-dialog1">
+<div class="e-box__body">
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+</div>
+</div>
+
+<!-- コンテンツ領域 -->
+  <div class="c-modal-dialog" id="area-modal-dialog1" data-modal role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="c-modal-dialog__scroll" role="document">
+      <div class="c-modal-dialog__body">
+
+        <h3 class="c-modal-dialog__title">情に棹させば流される智に働けば角が立つ 18px</h3>
+        <div data-append-modal>
+          <!--  data-append-modal内はdata-clone-modal="aria-controls名"を表示 -->
+        </div>
+        <div class="c-modal-dialog__btn-group e-btn-group">
+          <button type="button" class="e-btn e-btn--secondary" data-close-modal aria-expanded="true" aria-label="キャンセル">キャンセル</button>
+          <button type="button" class="e-btn e-btn--secondary" aria-expanded="true" aria-label="実行する">実行する</button>
+        </div>
+
+      </div>
+    </div>
+    <button type="button" class="c-modal-dialog__close material-icons" data-close-modal aria-expanded="true" aria-label="dialogを閉じる">close</button>
+  </div>
+
+```
+
+
+
+<div class="c-accordion" data-accordion data-device-accordion="all">
+  <button type="button" class="c-accordion__title" aria-expanded="true" aria-label="開く" data-toggle-accordion>Javascript</button>
+    <div class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+  <ul>
+    <li>･data-open-modal</li>
+    <li>･data-modal</li>
+    <li>･data-close-modal</li>
+    <li>･data-clone-modal="aria-controls名"</li>
+    <li>･data-append-modal</li>
+    <li>･背景暗転はjsで作成します。</li>
+  </ul>
+    </div>
+</div>
+
+<div class="c-accordion" data-accordion data-device-accordion="all">
+  <button type="button" class="c-accordion__title" aria-expanded="true" aria-label="開く" data-toggle-accordion>Accessibility</button>
+    <div class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+  <ul>
+    <li>･表示領域の操作はマウスとキーボードの両方で使用可能です。</li>
+    <li>･ボタン領域の属性は、aria-expanded = `true`または`false`を設定します（必須）。</li>
+    <li>･ボタン領域の属性は、aria-label = `開く`または`閉じる`など適宜設定します（必須）。</li>
+    <li>･ボタン領域にaria-controls = `id名`、コンテンツ領域に該当する`id名`を設定し、表示領域の関連付けを設定します（必須）。</li>
+    <li>･コンテンツ領域の属性は、対応するボタン領域の属性に応じて、aria-hidden= `true`を設定します（必須）。</li>
+    <li>･コンテンツ領域の属性は、対応するボタン領域の属性に応じて、tabindex=`-1`または`1`を設定します（必須）。</li>
+    <li>･背景暗転下領域の属性は、対応するボタン領域の属性に応じて、aria-hidden= `true`または`false`を設定します（必須）。</li>
+    <li>･コンテンツ領域は role="dialog"設定します（必須）。</li>
+    <li>･コンテンツのドキュメント領域は role="document"を設定します（必須）。</li>
+  </ul>
+    </div>
+</div>
+
+
+
+*/
+
+.c-modal-dialog {
+  display: none;
+  z-index: 99999;
+  position: fixed;
+  top: 15%;
+  left: 0;
+  right: 0;
+  padding: 25px;
+  background-color: $brand-white;
+  border-radius: $border-radius-pc;
+  width: $width-main-colum;
+  margin: auto;
+
+  @include elevation(8);
+  @include elevation-transition;
+
+  @include media-sp-max {
+    width: auto;
+    margin-right: $width-gap-sp;
+    margin-left: $width-gap-sp;
+  }
+
+  &__scroll {
+    padding-right: 15px;
+    width: 100%;
+
+    @include media-sp-max {
+      padding-right: 10px;
+    }
+
+  }
+
+  &__close {
+    @include fsize(30px);
+    color: $brand-white;
+    position: absolute;
+    top: -1.2em;
+    right: 0;
+    line-height: 1;
+    display: block;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    cursor: pointer;
+    appearance: none;
+    user-select: none;
+    font-weight: 400;
+    margin: 0 auto;
+
+  }
+
+  &__body {
+    max-height: 60vh;
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+  &__title {
+    font-weight: bold;
+    margin-bottom: $fsize-mb-pc;
+    @include fsize($fsize-h3-pc, false, $fsize-h3-sp);
+
+  }
+
+  &__btn-group {
+
+    margin-top: $margin-small-pc;
+
+    @include media-sp-max {
+      margin-top: $margin-small-sp;
+    }
+  }
+}
+
+

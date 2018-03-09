@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+// Color
+// ------------------------------------------------------------
+
+// Primary Colors
+// -------------------
+$brand-primary-light:         #919499 !default;
+$brand-primary:               #5b5e63 !default;
+$brand-primary-dark:          #4f5156 !default;
+
+// Secondary Colors
+// -------------------
+$brand-secondary-light:       #d7e8df !default;
+$brand-secondary:             #93e9be !default;
+$brand-secondary-dark:        #77C399 !default;
+
+// Background Colors
+// -------------------
+$bg-color:                    #f2f3f5 !default;
+
+// Border Colors
+// -------------------
+$border-color:                #ddd !default;
+
+// Text Colors
+// -------------------
+$text-color:                  rgba(0, 0, 0, .87) !default;
+$text-color-sub:              rgba(0, 0, 0, .54) !default;
+$text-color-week:             rgba(0, 0, 0, .38) !default;
+
+$text-color-dark:             rgba(255, 255, 255, 1) !default;
+$text-color-dark-sub:         rgba(255, 255, 255, .7) !default;
+$text-color-dark-week:        rgba(255, 255, 255, .3) !default;
+
+
+// Link Colors
+// -------------------
+$brand-link:                  #477DCA !default;
+$brand-link-visited:          #3A5898 !default;
+$brand-link-hover:            #3A5898 !default;
+
+$brand-link-dark:             #d6d7d9 !default;
+$brand-link-dark-visited:     #fff    !default;
+$brand-link-dark-hover:       #fff    !default;
+
+
+// Other Colors
+// -------------------
+$brand-white:                 #fff    !default;
+$brand-black:                 #000    !default;
+$brand-gray:                  #ddd    !default;
+
+$brand-red:                   #cc3e4c !default;
+$brand-pink:                  #dc6887 !default;
+$brand-light-green:           #6f9614 !default;
+$brand-green:                 #1b957b !default;
+$brand-blue:                  #478fbb !default;
+$brand-purple:                #997ebd !default;
+$brand-brawn:                 #af9100 !default;
+$brand-orange:                #e75a00 !default;
+$brand-yellow:                #f6bb42 !default;
+
+$success-color:               $brand-light-green !default;
+$success-border:              $brand-light-green !default;
+$success-bg:                  tint($brand-light-green, 90%) !default;
+$success-content:             "check" !default;
+
+$warning-color:               shade($brand-yellow, 30%) !default;
+$warning-border:              $brand-yellow !default;
+$warning-bg:                  tint($brand-yellow, 90%) !default;
+$warning-content:             "warning" !default;
+
+$error-color:                 $brand-red !default;
+$error-border:                $brand-red !default;
+$error-bg:                    #fef8f8 !default;
+$error-bg:                    tint($brand-red, 90%) !default;
+$error-content:               "warning" !default;
+
+$info-color:                  $brand-blue !default;
+$info-border:                 $brand-blue !default;
+$info-bg:                     tint($brand-blue, 90%) !default;
+$info-content:                "priority_high" !default;
+
+
+// Parts Colors
+// -------------------
+$twitter:                     #1d9ef0 !default;
+$facebook:                    #3b5996 !default;
+$line:                        #00b900 !default;
+$hatena:                      #5d8ac1 !default;
+$instagram:                   #be3449 !default;

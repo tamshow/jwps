@@ -1,0 +1,163 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #tab
+   ========================================================================== */
+
+/*doc
+---
+title: tab
+name: tab
+category: tab
+---
+
+```html_example
+
+<div class="c-tab" data-tab>
+  <ul class="c-tab__nav" role="tablist">
+    <li id="aria-tab-nav1" role="tab" tabindex="0" aria-selected="true"><button type="button" data-tablist aria-controls="area-tab-panel1">タイトル1</button></li>
+    <li id="aria-tab-nav2" role="tab" tabindex="-1" aria-selected="false"><button type="button" data-tablist aria-controls="area-tab-panel2">タイトル2</button></li>
+    <li id="aria-tab-nav3" role="tab" tabindex="-1" aria-selected="false"><button type="button" data-tablist aria-controls="area-tab-panel3">タイトル3</button></li>
+  </ul>
+  <div class="c-tab__body">
+    <div data-tabpanel id="area-tab-panel1" aria-labelledby="aria-tab-nav1" aria-hidden="false" role="tabpanel">タイトル1</div>
+    <div data-tabpanel id="area-tab-panel2" aria-labelledby="aria-tab-nav2" aria-hidden="true" role="tabpanel">タイトル2</div>
+    <div data-tabpanel id="area-tab-panel3" aria-labelledby="aria-tab-nav3" aria-hidden="true" role="tabpanel">タイトル3</div>
+  </div>
+</div>
+
+
+```
+
+*/
+
+.c-tab {
+  background-color: $brand-white;
+
+  @include mb-small;
+
+  [data-tabpanel] {
+
+    &[aria-hidden="true"] {
+      //display: none;
+      opacity: 0;
+      height: 0;
+      z-index: -1;
+      position: relative;
+      transition: $animation;
+    }
+
+    &[aria-hidden="false"] {
+      // display: block;
+      height: auto;
+      opacity: 1;
+      transition: $animation;
+
+    }
+  }
+
+  @include media-sp-max {
+    margin-right: -$width-gap-sp;
+    margin-left: -$width-gap-sp;
+  }
+}
+
+.c-tab__nav {
+
+  overflow: auto;
+  white-space: nowrap;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+
+  background-color: $bg-color;
+  padding: 12px 12px 0;
+
+  @include media-sp-max {
+
+    padding: 6px 6px 0;
+  }
+
+  li {
+    flex: 1 1 0;
+    border-right: 1px solid $border-color;
+
+    &:first-child {
+      border-left: 1px solid $border-color;
+    }
+
+    button,
+    a {
+      background-color: #fff;
+      @include fsize(14px);
+      text-align: center;
+      padding: 14px;
+      text-decoration: none;
+      line-height: 1;
+      border: 0;
+      border-radius: 0;
+      display: block;
+      cursor: pointer;
+      appearance: none;
+      user-select: none;
+      margin: 0 auto;
+      font-weight: normal;
+      color: $text-color-week;
+      width: 100%;
+      border-top: 1px solid $border-color;
+      border-bottom: 1px solid $border-color;
+
+    }
+
+    button:hover,
+    &[aria-selected="true"] button,
+    &.is-active button,
+    a:hover,
+    &[aria-selected="true"] a,
+    &.is-active a {
+      //transition: $animation;
+      color: $text-color;
+      border-color: $brand-secondary;
+      border-top-width: 2px;
+      border-bottom-width: 0;
+    }
+  }
+
+}
+
+.c-tab__body {
+  margin-top: -1px;
+  border: 1px solid $border-color;
+  padding: 1.5em;
+
+  @include media-sp-max {
+    border-width: 1px 0 0;
+    padding: $width-gap-sp;
+  }
+}
+
+.c-tab__to-list {
+  text-align: center;
+  a {
+    border-radius: $border-radius-pc;
+    background-color: #eef0f4;
+    padding: .3em .7em;
+    display: inline-block;
+    color: $text-color;
+    @include fsize(14px);
+    @include elevation-transition;
+
+    &:hover {
+      text-decoration: none;
+      @include elevation(4);
+    }
+    &:active {
+      text-decoration: none;
+      @include elevation(8);
+    }
+
+  }
+}
+
+
+

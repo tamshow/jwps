@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+/*doc
+---
+title: mb
+name: mb
+category: mixins
+---
+
+
+```
+@include mb-small($multiplication:1);
+@include mb-medium($multiplication:1);
+@include mb-large($multiplication:1);
+
+```
+
+*/
+
+@mixin mb-small($multiplication:1) {
+  margin-bottom: $margin-small-pc * $multiplication;
+
+  @include media-tab-max {
+    margin-bottom: $margin-small-tab * $multiplication;
+  }
+
+  @include media-sp-max {
+    margin-bottom: $margin-small-sp * $multiplication;
+  }
+}
+
+@mixin mb-medium($multiplication:1) {
+  margin-bottom: $margin-medium-pc * $multiplication;
+
+  @include media-tab-max {
+    margin-bottom: $margin-medium-tab * $multiplication;
+  }
+
+  @include media-sp-max {
+    margin-bottom: $margin-medium-sp * $multiplication;
+  }
+}
+
+@mixin mb-large($multiplication:1) {
+  margin-bottom: $margin-large-pc * $multiplication;
+
+  @include media-tab-max {
+    margin-bottom: $margin-large-tab * $multiplication;
+  }
+
+  @include media-sp-max {
+    margin-bottom: $margin-large-sp * $multiplication;
+  }
+}
+
+

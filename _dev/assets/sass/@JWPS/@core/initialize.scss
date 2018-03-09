@@ -1,0 +1,304 @@
+@charset "utf-8";
+
+/* @  Font Reset
+* ------------------------------------------------------------ */
+@font-face {
+  font-family: "MyYuGothicM";
+  font-weight: normal;
+  src: local("YuGothic-Medium"), /* Postscript name */
+  local("Yu Gothic Medium"), /* for Chrome */
+  local("YuGothic-Regular"); /* Mediumがない場合 */
+}
+
+@font-face {
+  font-family: "MyYuGothicM";
+  font-weight: bold;
+  src: local("YuGothic-Bold"), /* Postscript name */
+  local("Yu Gothic"); /* for Chrome */
+}
+
+html {
+  line-height: $line-height-pc;
+  @include media-lg-min {
+    font-size: $fsize-pc;
+  }
+  @include media-pc-min {
+    font-size: $fsize-pc;
+  }
+  @include media-tab-max {
+    font-size: $fsize-tab;
+  }
+  @include media-sp-max {
+    font-size: $fsize-sp;
+  }
+
+  @include media-min {
+    font-size: (100 / 375) * ($fsize-sp / (1 + $fsize-sp - $fsize-sp)) * 1vmin;
+  }
+}
+
+body {
+  font-family: $font-family-base;
+  //font-synthesis: weight style;
+  //text-rendering: auto;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
+  //-moz-font-feature-settings: 'liga', 'kern';
+  //font-feature-settings: "palt";
+  //-ms-text-size-adjust: 100%;
+  color: $text-color;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+body[data-os="Windows"] {
+}
+
+body[data-browser="safari"] {
+  //font-feature-settings: "pkna";
+}
+
+p,
+li,
+dt,
+dd,
+th,
+td,
+pre {
+  -ms-line-break: strict;
+  line-break: strict;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 500;
+  color: inherit
+}
+
+/* @  Element Reset
+* ------------------------------------------------------------ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl,
+dt,
+dd,
+table,
+pre,
+figure,
+img,
+blockquote {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+img,
+picture {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+hr {
+  border: 0;
+  border-bottom: solid 1px $border-color;
+  margin-top: $margin-large-pc;
+  margin-bottom: $margin-large-pc;
+
+  @include media-tab-max {
+    margin-top: $margin-large-tab;
+    margin-bottom: $margin-large-tab;
+  }
+
+  @include media-sp-max {
+    margin-top: $margin-large-sp;
+    margin-bottom: $margin-large-sp;
+  }
+
+}
+
+table {
+  border-collapse: collapse;
+  //table-layout: fixed;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+@media all and (-ms-high-contrast: none) {
+  img {
+    width: 100%;
+  }
+}
+
+/* @  Link Reset
+* ------------------------------------------------------------ */
+
+::selection {
+  background: $brand-primary-light;
+  color: $brand-white;
+  text-shadow: none;
+}
+
+input::selection,
+textarea::selection {
+  background: tint($brand-primary-light, 40%);
+  //background: shade(blue, 60%);, 40%);
+  color: $text-color;
+  text-shadow: none;
+
+}
+
+a,
+a:link {
+  color: inherit;
+  text-decoration: none;
+  transition: $animation;
+}
+
+a:hover,
+a:focus,
+a:visited {
+  transition: $animation;
+  //color: $brand-link-hover;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  //color: $brand-link-visited;
+}
+
+a {
+  -webkit-tap-highlight-color: rgba($brand-primary, .5);
+}
+
+a:link {
+  -webkit-tap-highlight-color: rgba($brand-primary, .5);
+}
+
+button:focus,
+a:focus {
+  box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf;
+}
+
+button:focus {
+  outline-width: 0;
+}
+
+/* @  Print Reset
+* ------------------------------------------------------------ */
+
+@media print {
+  header,
+  footer,
+  .c-breadcrumb,
+  .l-block-secondary {
+    display: none;
+  }
+  .l-block-primary {
+    width: 93%;
+  }
+  a[href]:after {
+    content: "";
+  }
+
+  abbr[title]:after {
+    content: "";
+  }
+
+}
+
+/* @ Code Layout
+ * ------------------------------------------------------------ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: $font-family-monospace;
+}
+
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: $border-radius-pc;
+}
+
+kbd {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: $border-radius-pc / 2;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
+
+  kbd {
+    padding: 0;
+    font-size: 100%;
+    font-weight: bold;
+    box-shadow: none;
+  }
+}
+
+pre,
+.e-pre {
+  display: block;
+  padding: 10px;
+  white-space: pre-wrap;
+  @include fsize(14px);
+  line-height: $line-height-pc;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #aaa;
+  background-color: $bg-color;
+  border: 1px solid #ccc;
+  border-radius: $border-radius-pc;
+
+  margin: 0;
+
+  @include mb-small;
+
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    white-space: pre-wrap;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}
+
+// Enable scrollable blocks of code
+.e-pre--scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+

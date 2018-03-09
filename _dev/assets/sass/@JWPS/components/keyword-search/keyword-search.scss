@@ -1,0 +1,161 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #keyword
+   ========================================================================== */
+
+/*doc
+---
+title:
+name: keyword-search
+category: keyword-search
+---
+
+<h3 class="styleguide">Keyword Search</h3>
+
+```html_example
+  <div class="c-keyword-search" role="search">
+    <div class="c-keyword-search__body">
+      <input type="text" name="#" class="c-keyword-search__input" value="" placeholder="キーワードを入力してください" autocomplete="off" aria-autocomplete="list" role="textbox">
+      <button type="submit" class="c-keyword-search__btn"><i class="material-icons">search</i></button>
+    </div>
+            <div class="c-keyword-search__control">
+              <p class="c-keyword-search__control-lead">100アイテムが検索キーワードに該当</p>
+
+              <div class="c-keyword-search__control-item">
+                <p class="c-keyword-search__control-title">絞り込み</p>
+                <select class="c-keyword-search__control-select">
+                  <option>すべて</option>
+                  <option>すべて</option>
+                  <option>すべて</option>
+                  <option>すべて</option>
+                </select>
+              </div>
+
+              <div class="c-keyword-search__control-item">
+                <p class="c-keyword-search__control-title">ソート</p>
+                <select class="c-keyword-search__control-select">
+                  <option>関連度</option>
+                  <option>関連度</option>
+                  <option>関連度</option>
+                  <option>関連度</option>
+                </select>
+              </div>
+
+            </div>
+  </div>
+```
+
+
+*/
+
+.c-keyword-search {
+  overflow: hidden;
+  background-color: #f7f7f7;
+  //color: $text-color-sub;
+  padding: 16px;
+
+  @include mb-small;
+
+  &__body {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    @include elevation(1);
+    border-radius: $border-radius-pc;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-pc 0 0 $border-radius-pc;
+    box-sizing: border-box;
+  }
+
+  &__btn {
+    display: block;
+    user-select: none;
+    font-weight: normal;
+    margin: 0 auto;
+    //width: 100%;
+    width: 80px;
+    border-radius: 0 $border-radius-pc $border-radius-pc 0;
+    padding: 10px;
+    @include fsize(18px);
+    border: 0;
+    color: $text-color;
+    background-color: $brand-secondary;
+    -webkit-font-smoothing: antialiased;
+    appearance: none;
+  }
+
+  &__control {
+    margin-top: 1em;
+    @include fsize(14px);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+
+    @include media-sp-max {
+      display: block;
+    }
+
+  }
+
+  &__control-item {
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+
+    &:before {
+      text-align: center;
+      content: "|";
+      color: $text-color-week;
+      width: 1em;
+      padding-right: 1em;
+      padding-left: 1em;
+
+      @include media-sp-max {
+        display: none;
+      }
+
+    }
+
+  }
+  &__control-title {
+    font-weight: bold;
+  }
+  &__control-select {
+    border: 0;
+    margin-left: 10px;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    padding-right: 15px;
+    background: transparent url("#{$img-path}/form/form_icon_select_top.svg") right 0 center no-repeat;
+    text-align: left;
+    text-indent: .01px;
+    text-overflow: "";
+    cursor: pointer;
+    &::-ms-expand {
+      display: none;
+    }
+
+    &:focus {
+      background-image: url("#{$img-path}/form/form_icon_select_top.svg");
+    }
+
+  }
+
+}
+
+.l-block-widget .c-keyword-search {
+  @include fsize(14px);
+  &__btn {
+    width: 54px;
+  }
+}

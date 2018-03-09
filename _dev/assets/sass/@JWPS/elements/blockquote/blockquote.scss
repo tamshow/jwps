@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #BLOCKQUOTE
+   ========================================================================== */
+
+
+/*doc
+---
+title: Blockquotes
+name: blockquote
+category: blockquote
+---
+
+```html_example
+
+<blockquote class="e-blockquote">
+ 情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
+</blockquote>
+
+```
+*/
+
+.rich-editor blockquote,
+.e-blockquote {
+  background-color: $bg-color;
+  line-height: 1.8;
+  position: relative;
+  padding: 3.1rem 3rem;
+  border: 0;
+
+  @include mb-small;
+
+  @include media-sp-max {
+    padding: 3.4rem 1rem;
+  }
+
+  &:before,
+  &:after {
+    display: block;
+    content: "";
+    width: 30px;
+    height: 23px;
+    position: absolute;
+
+  }
+
+  &:before {
+    background-image: url("#{$img-path}/common/blockquote1.svg");
+    top: 1rem;
+    left: 1rem;
+  }
+
+  &:after {
+    background-image: url("#{$img-path}/common/blockquote2.svg");
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+}
