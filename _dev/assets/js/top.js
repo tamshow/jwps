@@ -18529,7 +18529,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_CalendarList_vue__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_CalendarList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_CalendarList_vue__);
 /* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_CalendarList_vue__) if(["default","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_CalendarList_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_511cf2d6_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CalendarList_vue__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_16d102d6_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CalendarList_vue__ = __webpack_require__(49);
 var disposed = false
 var normalizeComponent = __webpack_require__(15)
 /* script */
@@ -18547,13 +18547,13 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_CalendarList_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_511cf2d6_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CalendarList_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_16d102d6_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_CalendarList_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "source/assets/src/@JWPS/vue/CalendarList.vue"
+Component.options.__file = "source/assets/src/@jwps/vue/CalendarList.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -18562,9 +18562,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-511cf2d6", Component.options)
+    hotAPI.createRecord("data-v-16d102d6", Component.options)
   } else {
-    hotAPI.reload("data-v-511cf2d6", Component.options)
+    hotAPI.reload("data-v-16d102d6", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -18583,7 +18583,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_NewsList_vue__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_NewsList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_NewsList_vue__);
 /* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_NewsList_vue__) if(["default","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_NewsList_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_05ae59aa_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_NewsList_vue__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_56df5cac_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_NewsList_vue__ = __webpack_require__(50);
 var disposed = false
 var normalizeComponent = __webpack_require__(15)
 /* script */
@@ -18601,13 +18601,13 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_NewsList_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_05ae59aa_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_NewsList_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_56df5cac_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_NewsList_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "source/assets/src/@JWPS/vue/NewsList.vue"
+Component.options.__file = "source/assets/src/@jwps/vue/NewsList.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -18616,9 +18616,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-05ae59aa", Component.options)
+    hotAPI.createRecord("data-v-56df5cac", Component.options)
   } else {
-    hotAPI.reload("data-v-05ae59aa", Component.options)
+    hotAPI.reload("data-v-56df5cac", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -30632,62 +30632,6 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "ul",
-    { staticClass: "l-grid-assy-4to2to2" },
-    _vm._l(_vm.results, function(result) {
-      return _c("li", { staticClass: "l-grid c-card" }, [
-        _c("a", { attrs: { href: result.url } }, [
-          _c("div", { staticClass: "c-card__img" }, [
-            _c("img", { attrs: { src: result.image_path, alt: "" } })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "c-card__body" }, [
-            _c("p", { staticClass: "c-card__text is-text-week" }, [
-              _vm._v(" " + _vm._s(result.date))
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "c-card__label" },
-              _vm._l(result.tags, function(tag, key) {
-                return _c(
-                  "span",
-                  { class: "e-label e-label--pink e-label--" + key },
-                  [_vm._v(_vm._s(tag))]
-                )
-              })
-            ),
-            _vm._v(" "),
-            _c("p", { staticClass: "c-card__title" }, [
-              _vm._v(_vm._s(result.title))
-            ])
-          ])
-        ])
-      ])
-    })
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-05ae59aa", esExports)
-  }
-}
-
-/***/ }),
-/* 50 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
   return _c("div", { staticClass: "calendar" }, [
     _c("div", { staticClass: "calendar__controll" }, [
       _c("div", { staticClass: "calendar__prev", on: { click: _vm.prev } }, [
@@ -30752,7 +30696,63 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-511cf2d6", esExports)
+    require("vue-hot-reload-api")      .rerender("data-v-16d102d6", esExports)
+  }
+}
+
+/***/ }),
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "ul",
+    { staticClass: "l-grid-assy-4to2to2" },
+    _vm._l(_vm.results, function(result) {
+      return _c("li", { staticClass: "l-grid c-card" }, [
+        _c("a", { attrs: { href: result.url } }, [
+          _c("div", { staticClass: "c-card__img" }, [
+            _c("img", { attrs: { src: result.image_path, alt: "" } })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "c-card__body" }, [
+            _c("p", { staticClass: "c-card__text is-text-week" }, [
+              _vm._v(" " + _vm._s(result.date))
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "c-card__label" },
+              _vm._l(result.tags, function(tag, key) {
+                return _c(
+                  "span",
+                  { class: "e-label e-label--pink e-label--" + key },
+                  [_vm._v(_vm._s(tag))]
+                )
+              })
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "c-card__title" }, [
+              _vm._v(_vm._s(result.title))
+            ])
+          ])
+        ])
+      ])
+    })
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-56df5cac", esExports)
   }
 }
 
