@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import CalendarList from './@JWPS/vue/CalendarList.vue'
-import NewsList from './@JWPS/vue/NewsList.vue'
+import CalendarList from './@jwps/vue/CalendarList.vue'
+import NewsList from './@jwps/vue/NewsList.vue'
 
 document.addEventListener("DOMContentLoaded",  (e) => {
   
