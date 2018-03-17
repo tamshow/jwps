@@ -19,35 +19,37 @@ category: keyword-search
       <input type="text" name="#" class="c-keyword-search__input" value="" placeholder="キーワードを入力してください" autocomplete="off" aria-autocomplete="list" role="textbox">
       <button type="submit" class="c-keyword-search__btn"><i class="material-icons">search</i></button>
     </div>
-            <div class="c-keyword-search__control">
-              <p class="c-keyword-search__control-lead">100アイテムが検索キーワードに該当</p>
-
-              <div class="c-keyword-search__control-item">
-                <p class="c-keyword-search__control-title">絞り込み</p>
-                <select class="c-keyword-search__control-select">
-                  <option>すべて</option>
-                  <option>すべて</option>
-                  <option>すべて</option>
-                  <option>すべて</option>
-                </select>
-              </div>
-
-              <div class="c-keyword-search__control-item">
-                <p class="c-keyword-search__control-title">ソート</p>
-                <select class="c-keyword-search__control-select">
-                  <option>関連度</option>
-                  <option>関連度</option>
-                  <option>関連度</option>
-                  <option>関連度</option>
-                </select>
-              </div>
-
-            </div>
   </div>
 ```
+*/
 
+
+/*
+
+ <div class="c-keyword-search__control">
+    <p class="c-keyword-search__control-lead">100アイテムが検索キーワードに該当</p>
+    <div class="c-keyword-search__control-item">
+      <p class="c-keyword-search__control-title">絞り込み</p>
+      <select class="c-keyword-search__control-select">
+        <option>すべて</option>
+        <option>すべて</option>
+        <option>すべて</option>
+        <option>すべて</option>
+      </select>
+    </div>
+    <div class="c-keyword-search__control-item">
+      <p class="c-keyword-search__control-title">ソート</p>
+      <select class="c-keyword-search__control-select">
+        <option>関連度</option>
+        <option>関連度</option>
+        <option>関連度</option>
+        <option>関連度</option>
+      </select>
+    </div>
+  </div>
 
 */
+
 
 .c-keyword-search {
   overflow: hidden;
@@ -159,3 +161,5 @@ category: keyword-search
     width: 54px;
   }
 }
+
+

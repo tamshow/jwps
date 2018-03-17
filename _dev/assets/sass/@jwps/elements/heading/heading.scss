@@ -83,7 +83,7 @@ category: heading
 .e-heading1--type2 {
 
   position: relative;
-  border-bottom: 1px solid $border-color;
+  //border-bottom: 1px solid $border-color;
   padding-bottom: 1rem;
   margin-bottom: 2.5rem;
 
@@ -106,7 +106,8 @@ category: heading
     width: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(to right, $brand-secondary 35%, $brand-primary 35%);
+   // background: linear-gradient(to right, $brand-secondary 35%, $brand-primary 35%);
+    background: linear-gradient(to right, $brand-primary 35%, $brand-primary 35%);
     display: block;
     height: 3px;
     content: "";
@@ -117,28 +118,6 @@ category: heading
     margin-left: -$width-gap-sp;
     padding-left: $width-gap-sp;
     padding-right: $width-gap-sp;
-  }
-
-  .is-staff {
-    background-color: $brand-light-green;
-    padding: .6em 1em;
-    color: #fff;
-    @include fsize(16px, false, 14px);
-    border-radius: 0 0 $border-radius-pc $border-radius-pc;
-    position: absolute;
-    right: 0;
-    top: 0;
-    line-height: 1;
-
-    @include media-sp-max {
-      border-radius: 0 0 0 $border-radius-pc;
-    }
-
-    i {
-      top: 2px;
-      position: relative;
-    }
-
   }
 
 }
@@ -171,7 +150,8 @@ category: heading
 
 .rich-editor h3,
 .e-heading3--type2 {
-  border-left: 5px solid $brand-secondary;
+//  border-left: 5px solid $brand-secondary;
+  border-left: 5px solid $brand-primary;
   border-bottom: 1px solid #757575;
   padding-bottom: .6em;
   padding-left: .9em;
