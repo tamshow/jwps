@@ -2,19 +2,19 @@
 # Design principles
 
 [Configuration](page-configuration.html)
-![Configuration](/assets/img/dummy/style-parts.png)
+![Configuration](https://github.com/tamshow/jwps/blob/images/style-parts.png)
 
 [Layout](l-main.html)
-![Layout](/assets/img/dummy/style-parts2.png)
+![Layout](https://github.com/tamshow/jwps/blob/images/style-parts2.png)
 
 [Components](c-main-visual.html)
-![Components](/assets/img/dummy/style-parts3.png)
+![Components](https://github.com/tamshow/jwps/blob/images/style-parts3.png)
 
 [Elements](e-typography.html)
-![Elements](/assets/img/dummy/style-parts4.png)
+![Elements](https://github.com/tamshow/jwps/blob/images/style-parts4.png)
 
 [Utility](u-tools.html)
-![Utility](/assets/img/dummy/style-parts5.png)
+![Utility](https://github.com/tamshow/jwps/blob/images/style-parts5.png)
 
 
 # Guidelines
