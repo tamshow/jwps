@@ -76,6 +76,7 @@ category: headline
     }
 
     span {
+      white-space: nowrap;
       margin-right: .3em;
       &:last-child {
         margin-right: 0;

@@ -43,7 +43,7 @@ category: menu
     background: $brand-primary;
     @include fsize($fsize-h4-pc, false, $fsize-h4-sp);
     padding: .7em;
-    text-align: center;
+   // text-align: center;
     font-weight: bold;
     color: #fff;
   }
@@ -304,7 +304,7 @@ category: menu
     border: 1px solid $border-color;
     border-bottom: 0;
     display: block;
-    border-left: 5px solid $brand-secondary;
+   // border-left: 5px solid $brand-secondary;
     background: #f7f7f7;
     border-radius: 0;
     padding: .6rem 1rem;

@@ -107,7 +107,8 @@ category: breadcrumb
     }
 
     span:before {
-      content: "/";
+      //content: "/";
+      content: ">";
       padding-right: .5em;
       padding-left: .5em;
       color: $border-color;
