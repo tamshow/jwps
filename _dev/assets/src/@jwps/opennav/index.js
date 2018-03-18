@@ -4,7 +4,9 @@ import $ from 'jquery';
 export default class OpenNav {
 
 
-  constructor(opts) {
+  constructor(opts = {}) {
+
+
     const defaults = {
       selector: '[data-toggle-nav-sp]',
       bodyContents: '[data-body-nav-sp]',
@@ -15,7 +17,13 @@ export default class OpenNav {
       focusSelector: '.l-header-search-sp__input'
     };
 
-    this.conf = $.extend({}, defaults, opts);
+    this.selector = opts.selector || defaults.selector;
+    this.bodyContents = opts.bodyContents || defaults.bodyContents;
+    this.bgSelector = opts.bgSelector || defaults.bgSelector;
+    this.lowerLayerSelector = opts.lowerLayerSelector || defaults.lowerLayerSelector;
+    this.iconOpen = opts.iconOpen || defaults.iconOpen;
+    this.iconClose = opts.iconClose || defaults.iconClose;
+    this.focusSelector = opts.focusSelector || defaults.focusSelector;
 
     this.currentScrollY = null;
     this.initialize();
@@ -29,24 +37,23 @@ export default class OpenNav {
   }
 
   handleEvents() {
-    const {container, selector, bodyContents, bgSelector, lowerLayerSelector, iconOpen, iconClose, focusSelector} = this.conf;
 
-    const $container = $(container);
-    const $selector = $(selector);
-    const $bodyContents = $(bodyContents);
-    const $bgSelector = $(bgSelector);
-    const $lowerLayerSelector = $(lowerLayerSelector);
-    const $focusSelector = $(focusSelector);
+    const $container = $(this.container);
+    const $selector = $(this.selector);
+    const $bodyContents = $(this.bodyContents);
+    const $bgSelector = $(this.bgSelector);
+    const $lowerLayerSelector = $(this.lowerLayerSelector);
+    const $focusSelector = $(this.focusSelector);
 
 
     $selector.on('click', (e) => {
 
-      this.toggle(e, $selector, $bodyContents, $bgSelector, $lowerLayerSelector, iconOpen, iconClose, $focusSelector);
+      this.toggle(e, $selector, $bodyContents, $bgSelector, $lowerLayerSelector, this.iconOpen, this.iconClose, $focusSelector);
 
     });
 
     $bgSelector.on('click', (e) => {
-      this.settingInitialization($selector, $bodyContents, $bgSelector, $lowerLayerSelector, iconOpen, iconClose, $focusSelector);
+      this.settingInitialization($selector, $bodyContents, $bgSelector, $lowerLayerSelector, this.iconOpen, this.iconClose, $focusSelector);
     });
 
   }
@@ -85,7 +92,7 @@ export default class OpenNav {
       });
 
     } else {
-      this.settingInitialization($selector, $bodyContents, $bgSelector, $lowerLayerSelector, iconOpen, iconClose, $focusSelector);
+      this.settingInitialization($selector, $bodyContents, $bgSelector, $lowerLayerSelector, this.iconOpen, this.iconClose, $focusSelector);
     }
   }
 

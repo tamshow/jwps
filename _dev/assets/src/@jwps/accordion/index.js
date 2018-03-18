@@ -2,17 +2,21 @@ import $ from 'jquery';
 
 export default class Accordion {
 
-  constructor(opts) {
+  constructor(opts = {}) {
+
     const defaults = {
-      tabWidth: '960px',
-      spWidth: '600px'
+      tabWidth: '0px',
+      spWidth: '0px'
     };
 
-    this.conf = $.extend({}, defaults, opts);
+    this.tabWidth = opts.tabWidth || defaults.tabWidth;
+    this.spWidth = opts.spWidth || defaults.spWidth;
+
     this.initialize();
   }
 
   initialize() {
+
     this.$selectorAC = $('[data-toggle-accordion]');
     this.containerAC = '[data-accordion]';
     this.deviceAC = '[data-device-accordion]';//all, pc, tab, sp
@@ -24,13 +28,11 @@ export default class Accordion {
 
   handleEvents() {
 
-    const {tabWidth, spWidth} = this.conf;
-
     this.$selectorAC.on('click E_ENTER_KYE_CODE', (e) => {
-      const media = $(e.currentTarget).parents(this.deviceAC).data('device-accordion') || 'all';
 
-      const isMobile =  window.matchMedia(`(max-width:${spWidth})`).matches || false;
-      const isTablet =  window.matchMedia(`(min-width:${spWidth}) and (max-width:${tabWidth})`).matches || false;
+      const media = $(e.currentTarget).parents(this.deviceAC).data('device-accordion') || 'all';
+      const isMobile =  window.matchMedia(`(max-width:${this.spWidth})`).matches || false;
+      const isTablet =  window.matchMedia(`(min-width:${this.spWidth}) and (max-width:${this.tabWidth})`).matches || false;
 
       if (media.match(/all/) ||
           (media.match(/sp/) && isMobile) ||
@@ -58,7 +60,11 @@ export default class Accordion {
       $target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
       $bodyAC.stop().slideDown(200).attr('aria-hidden', 'false').focus();
 
-      $('html,body').animate({scrollTop: $target.offset().top - ($('header').height())}, {
+
+      const offset = $target.offset() || {};
+      const offsetTop = offset.top || 0;
+
+      $('html,body').animate({scrollTop: offsetTop - ($('header').height())}, {
         duration: 500,
         easing: 'swing'
       });

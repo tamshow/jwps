@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 export default class Pagescroll {
+
   constructor() {
     this.initialize();
   }
@@ -33,8 +34,12 @@ export default class Pagescroll {
 
     if (targetHref.includes('#')) {
       $target.blur();
+
+      const offset = $(targetHref).offset() || {};
+      const offsetTop = offset.top || 0;
+
       $('html,body').animate(
-          {scrollTop: $(targetHref).offset().top},
+          {scrollTop: offsetTop},
           {
             duration: 300, easing: 'swing', complete: function () {
             if (targetHref !== '#skippy') {
