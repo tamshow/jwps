@@ -13,25 +13,6 @@ export default class Tabs {
     this.handleEvents();
   }
 
-  listSelect($target) {
-    $target.focus();
-    $target.parents('li').attr('aria-selected', 'true').attr('tabindex', '0').focus()
-        .siblings('li').attr('aria-selected', 'false').attr('tabindex', '-1');
-
-    if ($target.offset()) {
-      $('html,body').animate({scrollTop: $target.offset().top - ($('header').height())}, {
-        duration: 500,
-        easing: 'swing'
-      });
-    }
-  }
-
-  panelSelect($target) {
-    const panel = $target.attr('aria-controls');
-    $(`#${panel}`).attr('aria-hidden', 'false')
-        .siblings(this.tabPanelSelector).attr('aria-hidden', 'true');
-  }
-
 
   handleEvents() {
 
@@ -47,6 +28,18 @@ export default class Tabs {
       this.tabKeyup(e);
     });
 
+  }
+
+  listSelect($target) {
+    $target.focus();
+    $target.parents('li').attr('aria-selected', 'true').attr('tabindex', '0').focus()
+        .siblings('li').attr('aria-selected', 'false').attr('tabindex', '-1');
+  }
+
+  panelSelect($target) {
+    const panel = $target.attr('aria-controls');
+    $(`#${panel}`).attr('aria-hidden', 'false')
+        .siblings(this.tabPanelSelector).attr('aria-hidden', 'true');
   }
 
   tabKeyup(e) {
