@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="/assets/css/base.css" media="all">
+  <script src="/assets/js/index.js"></script>
+</head>
+
+<body class="sg-body">
+
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>Japan Web Production Standards</h1>
+    <nav class="sg-header__nav">
+      <a href="layout.html" class="current">Layout</a>
+      <a href="richEditor.html">RichEditor</a>
+      <a href="utility.html">Utility</a>
+      <a href="components.html">Components</a>
+      <a href="elements.html">Elements</a>
+      <a href="snippets.html">Snippets</a>
+    </nav>
+  </div>
+</header>
+
+<div>
+  <div class="sg-container">
+
+    <div class="sg-content-block">
+      <h2 class="sg-heading2">Layout</h2>
+
+      <h3 class="sg-heading3">1column</h3>
+      <div class="l-container">
+        <div class="l-container__inner"><div class="dummy-box">
+          <p>.l-container > .l-container__inner</p>
+          <div class="l-block-content"><div class="dummy-box">.l-block-content</div></div>
+        </div>
+        </div>
+      </div>
+
+
+      <h3 class="sg-heading3">1column-full</h3>
+      <div class="l-container">
+        <div class="l-container__inner-full"><div class="dummy-box">
+          <p>.l-container > .l-container__inner-full</p>
+          <div class="l-block-content l-block-content-full"><div class="dummy-box">.l-block-content-full</div></div>
+        </div>
+        </div>
+      </div>
+
+
+      <h3 class="sg-heading3">1column-inner-full</h3>
+      <div class="l-container">
+        <div class="l-container__inner"><div class="dummy-box">
+          <p>.l-container > .l-container__inner</p>
+          <div class="l-block-content l-block-content-full"><div class="dummy-box">.l-block-content-full</div></div>
+        </div>
+        </div>
+      </div>
+
+
+      <h3 class="sg-heading3">2column</h3>
+      <div class="l-container">
+        <div class="l-container__inner"><div class="dummy-box">
+          <p>.l-container > .l-container__inner</p>
+          <div class="l-block-primary"><div class="dummy-box">.l-block-primary</div></div>
+          <div class="l-block-secondary"><div class="dummy-box">.l-block-secondary</div></div>
+        </div>
+        </div>
+      </div>
+
+
+        <h3 class="sg-heading3">Flex</h3>
+        <div class="l-flex-boxes">
+          <div class="l-flex-box l-flex-box--large"><div class="dummy-box">.l-flex-box--large</div></div>
+          <div class="l-flex-box l-flex-box--medium"><div class="dummy-box">.l-flex-box--medium</div></div>
+          <div class="l-flex-box l-flex-box--medium"><div class="dummy-box">.l-flex-box--medium</div></div>
+          <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box--small</div></div>
+          <div class="l-flex-box"><div class="dummy-box">.l-flex-box</div></div>
+          <div class="l-flex-box"><div class="dummy-box">.l-flex-box</div></div>
+        </div>
+
+
+        <h3 class="sg-heading3">Grid 12column</h3>
+        <div class="l-cols">
+          <div class="l-col6 dummy-box">1/2<br>6 column</div>
+          <div class="l-col6 dummy-box">1/2<br>6 column</div>
+        </div>
+        <div class="l-cols l-cols--break">
+          <div class="l-col4 dummy-box">1/3<br>4 column</div>
+          <div class="l-col4 dummy-box">1/3<br>4 column</div>
+          <div class="l-col4 dummy-box">1/3<br>4 column</div>
+        </div>
+        <div class="l-cols">
+          <div class="l-col3 dummy-box">1/4<br>3 column</div>
+          <div class="l-col3 dummy-box">1/4<br>3 column</div>
+          <div class="l-col3 dummy-box">1/4<br>3 column</div>
+          <div class="l-col3 dummy-box">1/4<br>3 column</div>
+        </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>
