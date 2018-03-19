@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="/assets/css/base.css" media="all">
+  <script src="/assets/js/index.js"></script>
+</head>
+
+<body class="sg-body">
+
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>Japan Web Production Standards</h1>
+    <nav class="sg-header__nav">
+      <a href="layout.html">Layout</a>
+      <a href="richEditor.html" class="current">RichEditor</a>
+      <a href="utility.html">Utility</a>
+      <a href="components.html">Components</a>
+      <a href="elements.html">Elements</a>
+      <a href="snippets.html">Snippets</a>
+    </nav>
+  </div>
+</header>
+
+<div>
+  <div class="sg-container">
+    <div class="sg-content-block">
+
+      <h2 class="sg-heading2">Rich Editor</h2>
+      <h3 class="sg-heading3">richeditor Sample</h3>
+
+    <div class="is-mb-large">
+      <p class="e-text">ニュースの詳細などCMSで直接タグ入力するして更新する場合は外枠のdivに.rich-editorを指定してください。 こちらのサンプルのような形になり内包するタグ（p,span,table,list,dlなど）にベース装飾を追加します。 このため.rich-editor内ではサンプル以外のクラス.mediaなどは使用出来ませんのでご注意ください。</p>
+    </div>
+
+      <div class="c-anchor-nav is-mb-large">
+        <div class="c-anchor-nav__body">
+          <p class="c-anchor-nav__title">コンテンツ</p>
+          <ul data-scroll>
+            <li><a href="#ank1">見出し・段落</a> </li>
+            <li><a href="#ank2">リスト</a> </li>
+            <li><a href="#ank3">テキスト（装飾・リンク・配置・引用）</a> </li>
+            <li><a href="#ank4">画像（サイズ・配置）</a> </li>
+            <li><a href="#ank5">ボックス</a> </li>
+            <li><a href="#ank6">テーブル</a> </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="rich-editor">
+
+
+        <h2 id="ank1">1. 見出し・段落</h2>
+        <h2>見出し2</h2>
+        <h3>見出し3</h3>
+        <h4>見出し4</h4>
+        <h5>見出し5</h5>
+        <h6>見出し6</h6>
+
+        <p>吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。</p>
+
+        <h2 id="ank2">2. リスト</h2>
+
+        <ul>
+          <li>順序がないリスト</li>
+          <li>順序がないリスト
+            <ul>
+              <li>順序がないリスト</li>
+              <li>順序がないリスト</li>
+            </ul>
+          </li>
+          <li>順序がないリスト</li>
+        </ul>
+
+        <ol>
+          <li>順序のあるリスト</li>
+          <li>順序のあるリスト
+            <ol>
+              <li>順序のあるリスト</li>
+              <li>順序のあるリスト</li>
+            </ol>
+          </li>
+          <li>順序のあるリスト</li>
+        </ol>
+
+        <ul class="e-list--arrow">
+          <li>矢印付きリスト</li>
+          <li><a href="#dummy">矢印付きリスト</a></li>
+          <li><a href="#dummy">矢印付きリスト</a></li>
+        </ul>
+
+        <ul class="e-list--square">
+          <li>四角リスト</li>
+          <li><a href="#dummy">四角リスト</a></li>
+          <li><a href="#dummy">四角リスト</a></li>
+        </ul>
+
+        <dl>
+          <dt>定義リスト</dt>
+          <dd>テキストが入ります。テキストが入ります。</dd>
+          <dt>定義リスト</dt>
+          <dd>テキストが入ります。テキストが入ります。</dd>
+          <dt>定義リスト</dt>
+          <dd>テキストが入ります。テキストが入ります。</dd>
+        </dl>
+
+        <h2 id="ank3">3. テキスト（装飾・リンク・配置・引用）</h2>
+        <h3>装飾</h3>
+        <p>
+          <strong>強い強調を表す要素（strong）</strong><br>
+          <em>強調を表す要素（em）</em><br>
+          <s>すでに正確ではなくなった要素、打ち消し線（s）</s><br>
+          <small>注釈や細目を表す要素（small）</small>
+          <br>
+          <span>上付き文字（sup）　E=mc<sup>2</sup></span><br>
+          <span>下付き文字（sub）　CO<sub>2</sub></span><br>
+          <span class="is-indent" style="display:block">先頭1文字下げ</span>
+          <span class="is-underline">下線（Underline Text）</span><br>
+          <span class="is-point">マーカー線(Marker Yellow)</span><br>
+          <span class="is-color-orange">重要色文字（Text Orange）</span><br>
+          <span class="is-color-red">エラー色文字（Text Red）</span><br>
+          <span class="is-color-blue">青色文字（Text Blue）</span><br>
+          <span class="is-color-green">緑色文字（Text Green）</span><br>
+          <span class="is-bg-color-orange">重要色背景（Bg Orange）</span><br>
+          <span class="is-bg-color-red">エラー色背景（Bg Red）</span><br>
+          <span class="is-bg-color-blue">青色背景（Bg Blue）</span><br>
+          <span class="is-bg-color-green">緑色背景（Bg Green）</span><br>
+        </p>
+
+
+        <h3>リンク</h3>
+        <p>
+          <a href="#dummy">標準のリンク</a><br>
+          <a href="#dummy" target="_blank">target="_blank"を指定している場合 </a><br>
+          <a href="#dummy.pdf">pdfへのリンクの場合</a><br>
+          <a href="#dummy.doc">doc、docxへのリンクの場合</a><br>
+          <a href="#dummy.xls">xls、xlsxへのリンクの場合</a><br>
+          <a href="#dummy.ppt">ppt、pptxへのリンクの場合</a><br>
+          <a href="#dummy.ppt" class="is-iconless">aタグに.is-iconlessがあると自動リンクアイコンは表示されません</a>
+        </p>
+
+        <h3>配置</h3>
+        <p class="is-left">左揃え<br>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        </p>
+        <p class="is-center">
+          中央揃え<br>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        </p>
+        <p class="is-right">
+          右揃え<br>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        </p>
+        <p class="is-justify">
+          両端揃え<br>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        </p>
+
+        <h3>引用</h3>
+        <blockquote>
+          引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。
+        </blockquote>
+
+        <h2 id="ank4">4. 画像（サイズ・配置）</h2>
+
+        <h3>サイズ</h3>
+        <figure>
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+        <figure class="is-one-half">
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+        <figure class="is-one-third">
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+        <figure class="is-one-fourth">
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+
+
+        <h3>配置</h3>
+        <h4>左寄せ（テキスト回り込み）</h4>
+        <figure class="is-left is-one-fourth">
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+        <p>吾輩は猫である。名前はまだ無い。
+          どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+          吾輩はここで始めて人間というものを見た。
+          しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+          この書生というのは時々我々を捕えて煮て食うという話である。
+          しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
+          ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。
+          掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。
+          第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。
+          のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。
+          これが人間の飲む煙草というものである事はようやくこの頃知った。
+          ​</p>
+
+        <h4>中央寄せ</h4>
+        <figure class="is-center is-one-fourth">
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+
+        <h4>右寄せ（テキスト回り込み）</h4>
+        <figure class="is-right is-one-fourth">
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+        <p>吾輩は猫である。名前はまだ無い。
+          どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+          吾輩はここで始めて人間というものを見た。
+          しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+          この書生というのは時々我々を捕えて煮て食うという話である。
+          しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
+          ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。
+          掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。
+          第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。
+          のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。
+          これが人間の飲む煙草というものである事はようやくこの頃知った。
+          ​</p>
+
+        <h2 id="ank5">5. ボックス</h2>
+
+        <div class="e-box e-box--bg">
+          <div class="e-box__body">
+            <p>ボックス<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
+          </div>
+        </div>
+
+        <div class="e-box e-box--error">
+          <div class="e-box__body">
+            <p>ボックス（error）<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
+          </div>
+        </div>
+
+        <div class="e-box e-box--warning">
+          <div class="e-box__body">
+            <p>ボックス（warning）<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
+          </div>
+        </div>
+
+
+        <h2 id="ank6">6. テーブル</h2>
+
+        <h3>標準</h3>
+        <table>
+          <tr>
+            <th>見出し</th>
+            <th>見出し</th>
+            <th>見出し</th>
+          </tr>
+          <tr>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+        </table>
+
+
+        <h3>ボーダーレス</h3>
+        <table class="e-table--borderless">
+          <tr>
+            <th>見出し</th>
+            <th>見出し</th>
+            <th>見出し</th>
+          </tr>
+          <tr>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+        </table>
+
+        <h3>文字小さい</h3>
+        <table class="e-table--small">
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+        </table>
+
+        <h3>SP時スクロール</h3>
+        <div class="e-responsive-table">
+          <table>
+            <tr>
+              <th>見出し</th>
+              <th>見出し</th>
+              <th>見出し</th>
+            </tr>
+            <tr>
+              <td>テキストが入ります。</td>
+              <td>テキストが入ります。</td>
+              <td>テキストが入ります。</td>
+            </tr>
+            <tr>
+              <td>テキストが入ります。</td>
+              <td>テキストが入ります。</td>
+              <td>テキストが入ります。</td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>
