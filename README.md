@@ -1,26 +1,19 @@
 
-# Design principles
+## デザインリソース (For designers)
 
-[Configuration](page-configuration.html)
-![Configuration](https://github.com/tamshow/jwps/blob/images/style-parts.png)
-
-[Layout](l-main.html)
-![Layout](https://github.com/tamshow/jwps/blob/images/style-parts2.png)
-
-[Components](c-main-visual.html)
-![Components](https://github.com/tamshow/jwps/blob/images/style-parts3.png)
-
-[Elements](e-typography.html)
-![Elements](https://github.com/tamshow/jwps/blob/images/style-parts4.png)
-
-[Utility](u-tools.html)
-![Utility](https://github.com/tamshow/jwps/blob/images/style-parts5.png)
+![StyleGuide](https://github.com/tamshow/jwps/blob/images/style-guide.png)
 
 
-# Guidelines
+### Download design files 
+
+ - Adobe XD【準備中】
 
 
-## 概要
+## 開発ガイドライン (For developers)
+
+_devフォルダ内が開発フォルダです。
+gulp buildすることによってassetsフォルダを圧縮して上階層に移動させます。
+HTMLファイルは必要に応じて移動させてください。
 
 ### 使用するToolについて
 
@@ -38,30 +31,83 @@
 
 #### 必要環境
 
-*   Ruby 2.4.2
 *   Node 8.4.0
 *   npm 5.3.0
 *   yarn 1.3.2
 
 
+### 環境構築
+
+** 環境構築にはパッケージ管理ツールを使用してインストールすると良いかもです。**
+
+*   [Homebrew](https://brew.sh/index_ja.html)
+*   [nodebrew](https://github.com/hokaccha/nodebrew)
+*   [nodist](https://github.com/marcelklehr/nodist)
+
+
 ```
+$ cd _dev
 $ yarn install
 ```
 
 
+### 開発サイクル
+
 #### 開発時
+
+_devフォルダをルートとしてファイルをwatchします。
+[localhost:9000](localhost:9000)を見に行きます。
 
 ```
 $ gulp serve
 ```
 
+
 #### 公開時
+
+JS、CSSなど圧縮、不要ファイルを削除します。
+画像の圧縮は必要な箇所のみツールを使い適宜圧縮します。
+assetsフォルダのみ上階層の_devと同じ階層に書き出されます。
 
 
 ```
 $ gulp build
 ```
 
+### ディレクトリ構造
+
+デフォルトのディレクトリ構造は次のようになります。
+
+```
+.
+├── _dev（開発フォルダ）
+│   ├── assets
+│   │   ├── css
+│   │   ├── fonts
+│   │   ├── img
+│   │   ├── js
+│   │   ├── src
+│   │   └── sass
+│   │
+│   ├── sg
+│   │   ├── getting-started.html
+│   │   ├── ....html
+│   │   └── ....html
+│   │
+│   ├── index.html
+│   ├── ....html
+│   ├── ....
+│   ├── package.json
+│   ├── webpack.config.js
+│   ├── yarn.lock
+│   ├── node_modules
+│   └── gulpfile.js
+│
+├── assets(コンパイル後)
+├── LICENSE.txt
+└── README.md
+
+```
 
 
 ## コーディングマナー
@@ -157,9 +203,9 @@ $ gulp build
 *   固有のClass名がある場合は同じファイル名でも良いです。
 *   `[要素]_[属性][連番]`
 
-```bg_top.png
+```
+bg_top.png
 icon_arrow1.png
-      </pre>
 
 ```
 
@@ -261,14 +307,19 @@ display: table;
 
 ```
 sass
-├── variables
-├── layout
-├── components
-├── elements
-├── utilities
-├── core
-├── library
-├── mixins
+├── @jwps
+│    ├── @core
+│    ├── @mixins
+│    ├── @utilities
+│    ├── @variables
+│    ├── components
+│    ├── elements
+│    ├── library
+│    ├── layouts
+│    └── jwps.scss
+│ 
+├── pages
+├── snippets
 └── base.scss
 
 css
@@ -290,11 +341,18 @@ css
 
 ```
 js
-└── index.js
+├── index.js
+└── top.js
 
 src
+├── @jwps
+│    ├── accordion
+│    ├── allcheck
+│    ├── base
+│    └── ...
+│  
 ├── index.js
-└── library
-     └── accordion.js
+└── top.js
+
 
 ```
