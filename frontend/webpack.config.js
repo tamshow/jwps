@@ -4,11 +4,11 @@ const webpack = require("webpack");
 
 module.exports = {
   entry: {
-    index: './assets/src/index.js',
-    top: './assets/src/top.js'
+    index: './source/assets/src/index.js',
+    top: './source/assets/src/top.js'
   },
   output: {
-    path: path.join(__dirname, 'assets/js'),
+    path: path.join(__dirname, 'source/assets/js'),
     filename: '[name].js'
   },
 

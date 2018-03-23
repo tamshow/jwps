@@ -10,6 +10,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.24.1",
     "browser-sync": "^2.18.13",
+    "connect-ssi": "^1.1.1",
     "css-mqpacker": "^6.0.1",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
