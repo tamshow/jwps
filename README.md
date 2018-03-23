@@ -4,16 +4,15 @@
 ![StyleGuide](https://github.com/tamshow/jwps/blob/images/style-guide.png)
 
 
-### Download design files 
-
- - Adobe XD【準備中】
-
-
 ## 開発ガイドライン (For developers)
 
-_devフォルダ内が開発フォルダです。
-gulp buildすることによってassetsフォルダを圧縮して上階層に移動させます。
-HTMLファイルは必要に応じて移動させてください。
+### おおまかに
+主にassets内（CSS、JSなど）を管理します。   
+`frontend/source`フォルダが作業場所です。   
+`gulp serve`することで`frontend/source`を開発用ルートとしてファイルをwatchします。   
+`gulp build`することで`frontend/source/assets`を公開用に調整し`frontend/build/assets`へ書き出します。  
+HTMLはSSlでインクルードしています。適宜テンプレート等に組み込んで使用してください。 
+画像圧縮はしていません。必要に応じて圧縮してください。   
 
 ### 使用するToolについて
 
@@ -21,7 +20,6 @@ HTMLファイルは必要に応じて移動させてください。
 *   [jquery.js](https://jquery.com/)
 *   [lodash.js](https://lodash.com/)
 *   [moment.js](https://momentjs.com/)
-*   [swiper](http://idangero.us/swiper/)
 
 ### デバイス判定用
 
@@ -38,7 +36,7 @@ HTMLファイルは必要に応じて移動させてください。
 
 ### 環境構築
 
-** 環境構築にはパッケージ管理ツールを使用してインストールすると良いかもです。**
+*** 環境構築にはパッケージ管理ツールを使用してインストールすると良いかもです。***
 
 *   [Homebrew](https://brew.sh/index_ja.html)
 *   [nodebrew](https://github.com/hokaccha/nodebrew)
@@ -46,7 +44,7 @@ HTMLファイルは必要に応じて移動させてください。
 
 
 ```
-$ cd _dev
+$ cd frontend
 $ yarn install
 ```
 
@@ -55,7 +53,7 @@ $ yarn install
 
 #### 開発時
 
-_devフォルダをルートとしてファイルをwatchします。
+`frontend/source/`フォルダをルートとしてファイルをwatchします。
 [localhost:9000](localhost:9000)を見に行きます。
 
 ```
@@ -65,9 +63,9 @@ $ gulp serve
 
 #### 公開時
 
-JS、CSSなど圧縮、不要ファイルを削除します。
-画像の圧縮は必要な箇所のみツールを使い適宜圧縮します。
-assetsフォルダのみ上階層の_devと同じ階層に書き出されます。
+JS、CSSなど圧縮、不要ファイルを削除します。   
+画像圧縮はしていません。必要に応じて圧縮してください。   
+HTMLファイルは必要に応じてテンプレート等に組み込んで使用してください。   
 
 
 ```
@@ -80,23 +78,29 @@ $ gulp build
 
 ```
 .
-├── _dev（開発フォルダ）
-│   ├── assets
-│   │   ├── css
-│   │   ├── fonts
-│   │   ├── img
-│   │   ├── js
-│   │   ├── src
-│   │   └── sass
-│   │
-│   ├── sg
-│   │   ├── getting-started.html
-│   │   ├── ....html
-│   │   └── ....html
-│   │
-│   ├── index.html
-│   ├── ....html
-│   ├── ....
+├── frontend（開発フォルダ）
+│   ├── source
+│   │   ├── assets
+│   │   │   ├── css
+│   │   │   ├── fonts
+│   │   │   ├── img
+│   │   │   ├── js
+│   │   │   ├── src
+│   │   │   └── sass
+│   │   │
+│   │   ├── sg
+│   │   │   ├── getting-started.html
+│   │   │   ├── ....html
+│   │   │   └── ....html
+│   │   │
+│   │   ├── partials
+│   │   │   ├── header.html
+│   │   │   └── footer.html
+│   │   │
+│   │   ├── index.html
+│   │   ├── 404.html
+│   │   └── ....
+│   │   
 │   ├── package.json
 │   ├── webpack.config.js
 │   ├── yarn.lock
@@ -116,14 +120,6 @@ $ gulp build
 *   拡張性、再利用性、柔軟性、効率を意識したルールを持たせます。
 *   要素の追加・削除のし易さを心がけます。
 
-使い回せそうなクラスがあったとしても、メンテナンス性を損なうのであれば無理に使い回しません。  
-例えば別のクラスを用意して同じコードを記述します。
-
-「Elements」や「Utility」のみでページ要素を組み立てることはしません。  
-例えばクラスの組み合わせが3つ以上重複する場合は新たに「Snippets」を作成することを検討します。
-
-また、新規スタイル追加作業は「Components」などではなく「Snippets」に作成することをお勧めします。
-
 ## 使い方・分類
 
 #### Layoutとは
@@ -134,7 +130,7 @@ $ gulp build
 *   レイアウトの基本の型は次の並びになります。 `.l-main > .l-container > .l-block > .l-grid`
 *   外枠に`.rich-editor`を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。  
     主にCMSのリッチエディタ等で使用するイメージな気がしています。  
-    `.rich-editor`内では複雑なclassの装飾は使用出来ません。詳しくは[「RichEditor」](l-richeditor.html)を確認ください。  
+    `.rich-editor`内では複雑なclassの装飾は使用出来ません。詳しくは「RichEditor」を確認ください。  
 
 #### Componentsとは
 
@@ -181,6 +177,17 @@ $ gulp build
   </div>
 </div>
 ```
+
+
+
+使い回せそうなクラスがあったとしても、メンテナンス性を損なうのであれば無理に使い回しません。  
+例えば別のクラスを用意して同じコードを記述します。
+
+「Elements」や「Utility」のみでページ要素を組み立てることはしません。  
+例えばクラスの組み合わせが3つ以上重複する場合は新たに「Snippets」を作成することを検討します。
+
+また、新規スタイル追加作業は「Components」などではなく「Snippets」に作成することをお勧めします。
+
 
 ## 対応ブラウザ
 

@@ -1,8 +1,12 @@
 # node modules
-_dev/node_modules
-_dev/npm-debug.log
+frontend/node_modules
+frontend/npm-debug.log
+
+# source files
+frontend/assets/css
+frontend/assets/js
+frontend/*.css.map
+frontend/partials
 
 # build files
-_dev/assets/css
-_dev/assets/js
-_dev/*.css.map
+frontend/build

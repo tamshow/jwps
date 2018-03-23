@@ -13,16 +13,21 @@ const packageImporter = require('node-sass-package-importer');
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 const stream = browserSync.stream;
+const connectSSI   = require('connect-ssi');
 
 const webpackStream = require("webpack-stream");
 const webpack = require("webpack");
 const webpackConfig = require("./webpack.config");
 
-
 const del = require('del');
 const prettify = require('gulp-prettify');
 const uglifyjs = require('uglify-js');
 const minifier = require('gulp-uglify');
+
+
+//書き出し先変更
+const DEST = 'build';
+
 
 // js
 //=================
@@ -30,22 +35,22 @@ const minifier = require('gulp-uglify');
 gulp.task("js", () => {
   return webpackStream(webpackConfig, webpack)
       .pipe(plumber())
-      .pipe(gulp.dest('assets/js'));
+      .pipe(gulp.dest('source/assets/js'));
 });
 
 
 //css
 //=================
 gulp.task('css', () => {
-  const SRC = [
-    'assets/sass/base.scss'
+  const CSSRC = [
+    'source/assets/sass/base.scss'
   ];
-  const DEST = 'assets/css/';
+  const CSSDEST = 'source/assets/css/';
   const browsers = ['last 2 versions', 'ie >= 9', 'iOS >= 9', 'Android >= 4.4'];
 
-  return gulp.src(SRC)
+  return gulp.src(CSSRC)
       .pipe(plumber())
-      .pipe(changed(DEST))
+      .pipe(changed(CSSDEST))
       .pipe(sass.sync({
         outputStyle: 'expanded',
         precision: 10,
@@ -57,7 +62,7 @@ gulp.task('css', () => {
         require('autoprefixer')({browsers: browsers}),
         require('css-mqpacker')({sort: false})
       ]))
-      .pipe(gulp.dest(DEST));
+      .pipe(gulp.dest(CSSDEST));
 });
 
 
@@ -79,10 +84,17 @@ gulp.task('server', () => {
     startPath: '/index.html',
     open: 'false',
     server: {
-      baseDir: './'
+      baseDir: './source',
+      middleware: [
+        connectSSI({
+          baseDir: __dirname + '/source',
+          ext: '.html'
+        })
+      ]
     }
   });
 });
+
 
 
 //変更を監視する
@@ -92,12 +104,12 @@ gulp.task('serve', ['html', 'server'], () => {
 
   //js
   gulp.watch([
-    'assets/src/**/*.js'
+    'source/assets/src/**/*.js'
   ], ['js']);
 
   //css
   gulp.watch([
-    'assets/sass/**/*{.scss,.sass}'
+    'source/assets/sass/**/*{.scss,.sass}'
   ], ['css']);
 
 
@@ -115,11 +127,11 @@ gulp.task('serve', ['html', 'server'], () => {
 //=================
 gulp.task('build:clean:all', () => {
   return del([
-    '../assets/css/',
-    '../assets/form/',
-    '../assets/iconfont/',
-    '../assets/img/',
-    '../assets/js/'
+    DEST + '/assets/css/',
+    DEST + '/assets/form/',
+    DEST + '/assets/iconfont/',
+    DEST + '/assets/img/',
+    DEST + '/assets/js/'
   ],{force: true});
 });
 
@@ -127,11 +139,11 @@ gulp.task('build:clean:all', () => {
 //=================
 gulp.task('build:move', () => {
   return gulp.src([
-    'assets/**/*',
-    '!assets/sass/**/*',
-    '!assets/src/**/*'
+    'source/assets/**/*',
+    '!source/assets/sass/**/*',
+    '!source/assets/src/**/*'
   ])
-      .pipe(gulp.dest('../assets/'));
+      .pipe(gulp.dest(DEST + '/assets/'));
 });
 
 
@@ -139,8 +151,8 @@ gulp.task('build:move', () => {
 //=================
 gulp.task('build:clean', () => {
   return del([
-    '../assets/sass/',
-    '../assets/src/'
+    DEST + '/assets/sass/',
+    DEST + '/assets/src/'
   ],{force: true});
 });
 
@@ -149,11 +161,11 @@ gulp.task('build:clean', () => {
 //==================
 gulp.task('build:css:min', () => {
   return gulp.src([
-    '../assets/css/**/*.css'
+    DEST + '/assets/css/**/*.css'
   ])
       .pipe(plumber())
       .pipe(csso())
-      .pipe(gulp.dest('../assets/css/'));
+      .pipe(gulp.dest(DEST + '/assets/css/'));
 });
 
 
@@ -162,11 +174,11 @@ gulp.task('build:css:min', () => {
 gulp.task('build:js:min', () => {
   const options = {preserveComments: 'license'};
   return gulp.src([
-    '../assets/js/**/*.js'
+    DEST + '/assets/js/**/*.js'
   ])
       .pipe(plumber())
       .pipe(minifier(options, uglifyjs))
-      .pipe(gulp.dest('../assets/js/'));
+      .pipe(gulp.dest(DEST + '/assets/js/'));
 });
 
 
@@ -179,7 +191,7 @@ gulp.task('build', (callback) => {
       'build:clean:all',
       'build:move',
       'build:clean',
-      'build:js:min',
+      //'build:js:min',
       'build:css:min',
       callback);
 });
