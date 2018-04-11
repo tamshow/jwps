@@ -249,6 +249,11 @@ h5.styleguide {
   margin: 2em 0 1em;
 }
 
+h1.styleguide {
+  font-size: 2em;
+  border-bottom: 1px solid $brand-primary;
+}
+
 .styleguide-table + table {
   width: 100%;
   margin-bottom: 2em;

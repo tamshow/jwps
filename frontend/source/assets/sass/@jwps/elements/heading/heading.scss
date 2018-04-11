@@ -9,9 +9,9 @@
 
 /*doc
 ---
-title: Heading
-name: heading1
-category: heading
+title: heading
+name: heading
+categories: [elements, heading]
 ---
 
 ```html_example
@@ -193,9 +193,10 @@ category: heading
 
 /*doc
 ---
-title: Heading
-name: heading2
-category: heading
+title: heading-type
+name: heading-type
+categories: [elements, heading]
+parent: heading
 ---
 
 ```html_example
@@ -220,9 +221,10 @@ category: heading
 
 /*doc
 ---
-title: Heading Unit
-name: heading3
-category: heading
+title: heading-unit
+name: heading-unit
+categories: [elements, heading]
+parent: heading
 ---
 
 ```html_example

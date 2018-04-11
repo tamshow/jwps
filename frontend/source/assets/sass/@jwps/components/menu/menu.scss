@@ -6,9 +6,9 @@
 
 /*doc
 ---
-title: Menu Hierarchy Primary
-name: menu-hierarchy-primary
-category: menu
+title: menu
+name: menu
+categories: [components, menu]
 ---
 
 ```html_example
@@ -139,9 +139,10 @@ category: menu
 
 /*doc
 ---
-title: Menu Hierarchy Secondary
-name: menu-hierarchy-secondary
-category: menu
+title: menu-secondary
+name: menu-secondary
+categories: [components, menu]
+parent: menu
 ---
 
 ```html_example
@@ -264,9 +265,10 @@ category: menu
 
 /*doc
 ---
-title: Menu Nav
+title: menu-nav
 name: menu-nav
-category: menu
+categories: [components, menu]
+parent: menu
 ---
 
 

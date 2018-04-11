@@ -6,9 +6,9 @@
 
 /*doc
 ---
-title: swiper-main
-name: carousel1
-category: carousel
+title: carousel
+name: carousel
+categories: [components, carousel]
 ---
 
 ```html_example
@@ -176,9 +176,10 @@ category: carousel
 
 /*doc
 ---
-title: swiper-top
-name: carousel1-1
-category: carousel-none
+title: carousel-top
+name: carousel-top
+categories: [components, carousel]
+parent: carousel
 ---
 
 ```html_example
@@ -446,9 +447,10 @@ category: carousel-none
 
 /*doc
 ---
-title: swiper-3to1
-name: carousel
-category: carousel
+title: carousel-3to1
+name: carousel-3to1
+categories: [components, carousel]
+parent: carousel
 ---
 
 

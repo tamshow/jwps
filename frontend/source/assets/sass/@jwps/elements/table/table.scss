@@ -65,16 +65,13 @@ $table-small-fsize: .7em !default;
 
   }
 
-  /*doc
-  ---
-  title: Table Helpers
-  name: table-type99
-  category: table
-  ---
-
-
-
-
+/*doc
+---
+title: table-helpers
+name: table-helpers
+categories: [elements, table]
+parent: table
+---
 
 <div class="styleguide-table"></div>
   Class                                                                      | Description
@@ -129,9 +126,9 @@ $table-small-fsize: .7em !default;
    ========================================================================== */
 /*doc
 ---
-title: Bordered
-name: table-1
-category: table
+title: table
+name: table
+categories: [elements, table]
 ---
 
 `.e-table--center`
@@ -174,9 +171,10 @@ category: table
    ========================================================================== */
 /*doc
 ---
-title: Borderless
-name: table-2
-category: table
+title: table-borderless
+name: table-borderless
+categories: [elements, table]
+parent: table
 ---
 
 ```html_example
@@ -221,9 +219,10 @@ category: table
    ========================================================================== */
 /*doc
 ---
-title: Type - SP-Block
-name: table-type1
-category: table
+title: table-sp-block
+name: table-sp-block
+categories: [elements, table]
+parent: table
 ---
 
 ```html_example
@@ -294,9 +293,10 @@ category: table
    ========================================================================== */
 /*doc
 ---
-title: Type - Small
-name: table-type2
-category: table
+title: table-small
+name: table-small
+categories: [elements, table]
+parent: table
 ---
 
 ```html_example
@@ -346,9 +346,10 @@ category: table
 
 /*doc
 ---
-title: Type SP-Scroll
-name: table-type3
-category: table
+title: table-sp-scroll
+name: table-sp-scroll
+categories: [elements, table]
+parent: table
 ---
 
 `.e-responsive-w-inner--one-half`

@@ -6,9 +6,9 @@
 
 /*doc
 ---
-title: Headline Primary
-name: headline1
-category: headline
+title: headline
+name: headline
+categories: [components, headline]
 ---
 
 ```html_example
@@ -96,9 +96,10 @@ category: headline
 
 /*doc
 ---
-title: Headline Secondary
-name: headline2
-category: headline
+title: headline-secondary
+name: headline-secondary
+categories: [components, headline]
+parent: headline
 ---
 
 ```html_example
@@ -161,9 +162,10 @@ category: headline
 
 /*doc
 ---
-title: Headline Search
-name: headline3
-category: headline
+title: headline-search
+name: headline-search
+categories: [components, headline]
+parent: headline
 ---
 
 ```html_example

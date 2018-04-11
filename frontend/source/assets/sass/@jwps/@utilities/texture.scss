@@ -3,9 +3,10 @@
 
 /*doc
 ---
-title: Layer
+title: texture
 name: texture
-category: ToolsTexture
+categories: [utilities, texture]
+
 ---
 
 
@@ -85,7 +86,8 @@ category: ToolsTexture
 ---
 title: Gradient to Stripe
 name: texture1
-category: ToolsTexture
+categories: [utilities, texture]
+parent: texture
 ---
 
 <ul class="sg-colors">
@@ -116,7 +118,8 @@ category: ToolsTexture
 ---
 title: Pattern
 name: texture2
-category: ToolsTexture
+categories: [utilities, texture]
+parent: texture
 ---
 
 <ul class="sg-colors">

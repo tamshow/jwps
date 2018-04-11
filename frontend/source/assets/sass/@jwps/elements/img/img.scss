@@ -4,9 +4,9 @@
 
 /*doc
 ---
-title: Image Caption
+title: images
 name: images
-category: images
+categories: [elements, images]
 ---
 
 ```html_example
@@ -157,6 +157,10 @@ Class                                                                      | Des
 
 .is-full {
   width: 100%;
+}
+
+.is-clear {
+  @include clearfix;
 }
 
 @include media-sp-max {
