@@ -4,11 +4,12 @@
    #media
    ========================================================================== */
 
+
 /*doc
 ---
-title:
-name: media1
-category: media
+title: media
+name: media
+categories: [elements, media]
 ---
 
 <h3 class="styleguide">Default</h3>
@@ -52,7 +53,7 @@ category: media
 
     overflow: hidden;
     position: relative;
-    margin-right: 24px;
+    margin-right: 3%;
     float: left;
     width: 192px;
     height: 128px;

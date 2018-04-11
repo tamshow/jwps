@@ -5,9 +5,9 @@
 
 /*doc
 ---
-title: 画像一覧
-name: summary-horizontal-assy
-category: summary
+title: summary
+name: summary
+categories: [components, summary]
 ---
 
 ```html_example
@@ -96,9 +96,11 @@ category: summary
 
 /*doc
 ---
-title: テキスト一覧
+title: summary-vertical-assy
 name: summary-vertical-assy
-category: summary
+categories: [components, summary]
+parent: summary
+
 ---
 
 ```html_example

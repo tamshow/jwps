@@ -6,9 +6,9 @@
 
 /*doc
 ---
-title: Box
+title: box
 name: box
-category: box
+categories: [elements, box]
 ---
 
 ```html_example
@@ -170,9 +170,10 @@ category: box
 
 /*doc
 ---
-title: Bordered
+title: box-bordered
 name: box-bordered
-category: box
+categories: [elements, box]
+parent: box
 ---
 
 ```html_example

@@ -9,9 +9,9 @@
 
 /*doc
 ---
-title: Color
+title: btn
 name: btn
-category: btn
+categories: [elements, btn]
 ---
 
 
@@ -140,9 +140,10 @@ $btn-border-radius: 2px !default;
    ========================================================================== */
 /*doc
 ---
-title: Group
-name: btn-group
-category: btn
+title: btn
+name: btn
+categories: [elements, btn]
+parent: btn
 ---
 
 ```html_example
@@ -193,9 +194,10 @@ category: btn
 
 /*doc
 ---
-title: Size
+title: btn-size
 name: btn-size
-category: btn
+categories: [elements, btn]
+parent: btn
 ---
 
 ```html_example
@@ -210,27 +212,7 @@ category: btn
 
 */
 
-.e-btn--rss {
-  @include media-sp-max {
-    width: auto !important;
-  }
-
-  &:before {
-    @include material-icons;
-    vertical-align: middle;
-    content: "rss_feed";
-    @include fsize(24px);
-    color: #f90;
-    position: relative;
-    top: -3px;
-    bottom: 0;
-    margin-right: 6px;
-    margin-bottom: -2px;
-  }
-}
-
-.e-btn--small,
-.e-btn--rss {
+.e-btn--small {
   padding: ($btn-padding-vertical * .4) ($btn-padding-horizon * .55);
   font-size: .75em;
   font-weight: normal;
@@ -238,7 +220,6 @@ category: btn
   @include media-sp-max {
     padding: ($btn-padding-vertical * .4) ($btn-padding-horizon * .4);
   }
-
 }
 
 .e-btn--medium {

@@ -24,9 +24,9 @@
 
 /*doc
 ---
-title: Unordered List
-name: list-1
-category: list
+title: list
+name: list
+categories: [elements, list]
 ---
 
 ```html_example
@@ -57,9 +57,10 @@ category: list
 
 /*doc
 ---
-title: Ordered List
-name: list-2
-category: list
+title: list-ordered
+name: list-ordered
+categories: [elements, list]
+parent: list
 ---
 
 ```html_example
@@ -83,9 +84,10 @@ category: list
 
 /*doc
 ---
-title: Arrow List
-name: list-3
-category: list
+title: list-arrow
+name: list-arrow
+categories: [elements, list]
+parent: list
 ---
 
 ```html_example
@@ -130,9 +132,10 @@ category: list
 
 /*doc
 ---
-title: Square List
-name: list-3-2
-category: list
+title: list-square
+name: list-square
+categories: [elements, list]
+parent: list
 ---
 
 ```html_example
@@ -183,9 +186,10 @@ category: list
 
 /*doc
 ---
-title: Img List
-name: list-4
-category: list
+title: list-img
+name: list-img
+categories: [elements, list]
+parent: list
 ---
 
 ```html_example
@@ -218,9 +222,10 @@ category: list
 
 /*doc
 ---
-title: Description Lists
-name: list-5
-category: list
+title: list-description
+name: list-description
+categories: [elements, list]
+parent: list
 ---
 
 ```html_example
@@ -261,9 +266,10 @@ category: list
 
 /*doc
 ---
-title: Inline Lists
-name: list-6
-category: list
+title: list-inline
+name: list-inline
+categories: [elements, list]
+parent: list
 ---
 
 ```html_example
@@ -308,9 +314,10 @@ category: list
 
 /*doc
 ---
-title: Btn Lists
-name: list-7
-category: list
+title: list-btn
+name: list-btn
+categories: [elements, list]
+parent: list
 ---
 
 ```html_example
