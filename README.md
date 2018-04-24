@@ -1,5 +1,6 @@
 # このサイトについて
 
+
 ## Webコンポーネント+プロトタイピング+アクセシビリティ+CMS
 
 Webサイトを閲覧する目的のほどんどは「情報取得」にあり、また閲覧されているものの約9割は文字情報になります。理想的なWebサイトは作りっぱなしではなく、公開後に成長を続けられるサイトであると思います。<br>
@@ -22,7 +23,7 @@ Webサイトを閲覧する目的のほどんどは「情報取得」にあり�
 
 ## デザインリソース (For designers)
 
-![StyleGuide](/assets/img/dummy/style-guide.png)
+![StyleGuide](/tamshow/jwps/blob/images/style-guide.png)
 
 
 ## 開発ガイドライン (For developers)
@@ -52,7 +53,7 @@ Webサイトを閲覧する目的のほどんどは「情報取得」にあり�
 #### デバイス判定用
 デバイスを判定してbodyタグに出力します。   
 ```
-&lt;body data-device="desktop" data-touch-device="true"&gt;
+body data-device="desktop" data-touch-device="true"
 ```
 
 
