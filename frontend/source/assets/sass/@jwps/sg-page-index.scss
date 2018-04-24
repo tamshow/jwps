@@ -4,24 +4,28 @@
 
 /*doc
 ---
-title: 設計思想
+title: このサイトについて
 name: top
 categories: [index, richEditorWrap]
 ---
 
 <div class="rich-editor">
-<h2 id="web-cms">Webコンポーネント+プロトタイピング+アクセシビリティ+CMS</h2>
+<h2>Webコンポーネント+プロトタイピング+アクセシビリティ+CMS</h2>
 <p>Webサイトを閲覧する目的のほどんどは「情報取得」にあり、また閲覧されているものの約9割は文字情報になります。理想的なWebサイトは作りっぱなしではなく、公開後に成長を続けられるサイトであると思います。<br>
 そのどちらも兼ね備え、また、運用スタッフが公開までにCMSの扱い、拡張の方法を会得できるという特長もあります。</p>
-<h3 id="web-">Webコンポーネントとは</h3>
+
+<h3>Webコンポーネントとは</h3>
 <p>統一ルールに基づいたUIデザインパーツを組み合わせてWebページを構築していくというこれから主流になってくるWeb制作の手法です。PC、スマホ共通パーツを用いるレスポンシブデザインと親和性が高いのが特長です。<br>
 パーツは必要最小限になるため運用担当者の学習コストが低く、すぐに扱えるようになります。
 また、デザインが破綻しにくくメンテナンス性も高いものになります。</p>
+
 <h3>プロトタイピングとは</h3>
 <p>デザインを固めてからコーディングに入る従来の方式ではなく、デザイン前に早々にCMSを仮の状態（プロトタイプ）で動かしてしまい原稿やサイト構成を作ってしまうことで、使用した上でのアイデア・問題点（求める制作物との齟齬など）の洗い出し、使用感を伴ったフィードバック、改修を公開前に行うという手法を指します。</p>
+
 <h3>アクセシビリティとは</h3>
 <p>「アクセシビリティ」という言葉からは、障害者への対応というイメージを持たれることが多いですが、それだけではありません。アクセシビリティが向上すれば、アクセスできる人の母数が増えます。アクセシビリティへの配慮を行う事は、障害者や高齢者だけでなく、あらゆる人に恩恵をもたらす可能性があります。また、SEOにも有利になります。</p>
-<h3 id="cms-">CMSとは</h3>
+
+<h3>CMSとは</h3>
 <p>コンテンツ・マネジメント・システムの略で、Webサイトを管理・更新できるシステムのことをいいます。</p>
 </div>
 */
@@ -55,32 +59,38 @@ categories: [index, richEditorWrap]
 <li>拡張性、再利用性、柔軟性、効率を意識したルールを持たせます。</li>
 <li>要素の追加・削除のし易さを心がけます。</li>
 </ul>
+
 <h3>おおまかに</h3>
 <p>主にassets内（CSS、JSなど）を管理します。<br><code>frontend/source</code>フォルダが作業場所です。<br><code>gulp serve</code>することで<code>frontend/source</code>を開発用ルートとしてファイルをwatchします。
 <code>gulp build</code>することで<code>frontend/source/assets</code>を公開用に調整し<code>frontend/build/assets</code>へ書き出します。<br>画像圧縮はしていません。必要に応じて圧縮してください。 </p>
-<h3 id="-tool-">使用するToolについて</h3>
+
+<h3>使用するToolについて</h3>
 <ul>
 <li><a href="material-icons.css">material-icons.css</a></li>
 <li><a href="jquery.js">jquery.js</a></li>
 <li><a href="lodash.js">lodash.js</a></li>
 <li><a href="moment.js">moment.js</a></li>
 </ul>
+
 <h4>デバイス判定用</h4>
 <p>デバイスを判定してbodyタグに出力します。   </p>
-<pre><code>&amp;lt;body data-device=&quot;desktop&quot; data-touch-device=&quot;true&quot;&amp;gt;
+<pre><code>data-device=&quot;desktop&quot; data-touch-device=&quot;true&quot;
 </code></pre><h3>対応ブラウザ</h3>
 <ul>
 <li>Internet Explorer11、Microsoft Edge 最新ver、Firefox 最新ver、Chrome 最新ver Safari 最新ver</li>
 <li>スマートフォンOSに搭載されている標準のブラウザ</li>
 <li>旧ブラウザは閲覧性を重視します。</li>
 </ul>
+
 <h3>環境構築</h3>
+
 <h4>必要環境</h4>
 <ul>
 <li>Node 8.4.0</li>
 <li>npm 5.3.0</li>
 <li>yarn 1.3.2</li>
 </ul>
+
 <h4>インストール</h4>
 <pre><code>//通常
 $ cd frontend
@@ -113,7 +123,10 @@ $ node server.js
 $ cd hologram
 $ hologram
 
-</code></pre><h4>ディレクトリ構造</h4>
+</code></pre>
+
+<h4>ディレクトリ構造</h4>
+
 <pre><code>.
  ├── frontend
  │   ├── source
