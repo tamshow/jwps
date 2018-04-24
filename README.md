@@ -1,365 +1,141 @@
+## Webコンポーネント+プロトタイピング+アクセシビリティ+CMS
+
+Webサイトを閲覧する目的のほどんどは「情報取得」にあり、また閲覧されているものの約9割は文字情報になります。理想的なWebサイトは作りっぱなしではなく、公開後に成長を続けられるサイトであると思います。<br>
+そのどちらも兼ね備え、また、運用スタッフが公開までにCMSの扱い、拡張の方法を会得できるという特長もあります。
+
+### Webコンポーネントとは
+統一ルールに基づいたUIデザインパーツを組み合わせてWebページを構築していくというこれから主流になってくるWeb制作の手法です。PC、スマホ共通パーツを用いるレスポンシブデザインと親和性が高いのが特長です。<br>
+パーツは必要最小限になるため運用担当者の学習コストが低く、すぐに扱えるようになります。
+また、デザインが破綻しにくくメンテナンス性も高いものになります。
+
+### プロトタイピングとは
+デザインを固めてからコーディングに入る従来の方式ではなく、デザイン前に早々にCMSを仮の状態（プロトタイプ）で動かしてしまい原稿やサイト構成を作ってしまうことで、使用した上でのアイデア・問題点（求める制作物との齟齬など）の洗い出し、使用感を伴ったフィードバック、改修を公開前に行うという手法を指します。
+
+### アクセシビリティとは
+「アクセシビリティ」という言葉からは、障害者への対応というイメージを持たれることが多いですが、それだけではありません。アクセシビリティが向上すれば、アクセスできる人の母数が増えます。アクセシビリティへの配慮を行う事は、障害者や高齢者だけでなく、あらゆる人に恩恵をもたらす可能性があります。また、SEOにも有利になります。
+
+### CMSとは
+コンテンツ・マネジメント・システムの略で、Webサイトを管理・更新できるシステムのことをいいます。
+
 
 ## デザインリソース (For designers)
 
-![StyleGuide](https://github.com/tamshow/jwps/blob/images/style-guide.png)
+![StyleGuide](/assets/img/dummy/style-guide.png)
 
 
 ## 開発ガイドライン (For developers)
 
+
+### コーディングマナー
+ - メンテナンス性、可読性を意識したコーディングを心がけます。
+ - 拡張性、再利用性、柔軟性、効率を意識したルールを持たせます。
+ - 要素の追加・削除のし易さを心がけます。
+
+
 ### おおまかに
 主にassets内（CSS、JSなど）を管理します。   
 `frontend/source`フォルダが作業場所です。   
-`gulp serve`することで`frontend/source`を開発用ルートとしてファイルをwatchします。   
-`gulp build`することで`frontend/source/assets`を公開用に調整し`frontend/build/assets`へ書き出します。  
-HTMLはSSlでインクルードしています。適宜テンプレート等に組み込んで使用してください。 
-画像圧縮はしていません。必要に応じて圧縮してください。   
+`gulp serve`することで`frontend/source`を開発用ルートとしてファイルをwatchします。
+`gulp build`することで`frontend/source/assets`を公開用に調整し`frontend/build/assets`へ書き出します。   
+画像圧縮はしていません。必要に応じて圧縮してください。 
+
 
 ### 使用するToolについて
+ - [material-icons.css](material-icons.css)
+ - [jquery.js](jquery.js)
+ - [lodash.js](lodash.js)
+ - [moment.js](moment.js)
 
-*   [material-icons.css](/)
-*   [jquery.js](https://jquery.com/)
-*   [lodash.js](https://lodash.com/)
-*   [moment.js](https://momentjs.com/)
 
-### デバイス判定用
+#### デバイス判定用
+デバイスを判定してbodyタグに出力します。   
+```
+&lt;body data-device="desktop" data-touch-device="true"&gt;
+```
 
-デバイスを判定してbodyタグに出力します。
 
-`<body data-device="desktop" data-touch-device="true">`
+### 対応ブラウザ
 
-#### 必要環境
-
-*   Node 8.4.0
-*   npm 5.3.0
-*   yarn 1.3.2
+ - Internet Explorer11、Microsoft Edge 最新ver、Firefox 最新ver、Chrome 最新ver Safari 最新ver
+ - スマートフォンOSに搭載されている標準のブラウザ
+ - 旧ブラウザは閲覧性を重視します。
 
 
 ### 環境構築
 
-*** 環境構築にはパッケージ管理ツールを使用してインストールすると良いかもです。***
+#### 必要環境
+- Node 8.4.0
+- npm 5.3.0
+- yarn 1.3.2
 
-*   [Homebrew](https://brew.sh/index_ja.html)
-*   [nodebrew](https://github.com/hokaccha/nodebrew)
-*   [nodist](https://github.com/marcelklehr/nodist)
 
-
+#### インストール
 ```
+//通常
 $ cd frontend
 $ yarn install
+
+//hologramを使う場合
+$ bundle install --path vendor/bundle
 ```
 
-
-### 開発サイクル
-
-#### 開発時
-
-`frontend/source/`フォルダをルートとしてファイルをwatchします。
-[localhost:9000](localhost:9000)を見に行きます。
+#### 開発サイクル
 
 ```
+//開発時
 $ gulp serve
-```
+
+frontend/source/フォルダをルートとしてファイルをwatchします。
+localhost:9000を見に行きます。
 
 
-#### 公開時
-
-JS、CSSなど圧縮、不要ファイルを削除します。   
-画像圧縮はしていません。必要に応じて圧縮してください。   
-HTMLファイルは必要に応じてテンプレート等に組み込んで使用してください。   
-
-
-```
+//公開時
 $ gulp build
+
+JS、CSSなど圧縮、または不要ファイルを削除します。
+画像圧縮はしていません。必要に応じて圧縮してください。
+HTMLファイルは必要に応じてテンプレート等に組み込んで使用してください。
+
+
+//json-server
+$ cd json-server
+$ node server.js
+
+
+//hologram
+$ cd hologram
+$ hologram
+
 ```
 
-### ディレクトリ構造
 
-デフォルトのディレクトリ構造は次のようになります。
+#### ディレクトリ構造
 
 ```
 .
-├── frontend（開発フォルダ）
-│   ├── source
-│   │   ├── assets
-│   │   │   ├── css
-│   │   │   ├── fonts
-│   │   │   ├── img
-│   │   │   ├── js
-│   │   │   ├── src
-│   │   │   └── sass
-│   │   │
-│   │   ├── sg
-│   │   │   ├── getting-started.html
-│   │   │   ├── ....html
-│   │   │   └── ....html
-│   │   │
-│   │   ├── partials
-│   │   │   ├── header.html
-│   │   │   └── footer.html
-│   │   │
-│   │   ├── index.html
-│   │   ├── 404.html
-│   │   └── ....
-│   │   
-│   ├── package.json
-│   ├── webpack.config.js
-│   ├── yarn.lock
-│   ├── node_modules
-│   └── gulpfile.js
-│
-├── assets(コンパイル後)
-├── LICENSE.txt
-└── README.md
-
-```
-
-
-## コーディングマナー
-
-*   メンテナンス性、可読性を意識したコーディングを心がけます。
-*   拡張性、再利用性、柔軟性、効率を意識したルールを持たせます。
-*   要素の追加・削除のし易さを心がけます。
-
-## 使い方・分類
-
-#### Layoutとは
-
-*   ページの基本レイアウト
-*   Templatesはメインカラムレイアウトの1段組や2段組のパターンを選択します。
-*   Gridはメインカラム内の段組レイアウトに使用します。
-*   レイアウトの基本の型は次の並びになります。 `.l-main > .l-container > .l-block > .l-grid`
-*   外枠に`.rich-editor`を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。  
-    主にCMSのリッチエディタ等で使用するイメージな気がしています。  
-    `.rich-editor`内では複雑なclassの装飾は使用出来ません。詳しくは「RichEditor」を確認ください。  
-
-#### Componentsとは
-
-*   中規模の部品
-*   主に一覧ページを構成する部品のような気がしています。
-*   ベースのmargin-bottomとして`.is-mb-small`が設定されています。
-*   要素間の間隔を制御する場合の汎用マージンボトムで調整します。  
-    `.is-mb0`、`.is-mb-xs`、`.is-mb-small`、`.is-mb-medium`、`.is-mb-large`
-
-#### Elementsとは
-
-*   小規模の部品
-*   主に詳細ページを構成する部品のような気がしています。
-*   ベースのmargin-bottomとして`.is-mb-small`が設定されています。
-*   要素間の間隔を制御する場合の汎用マージンボトムで調整します。  
-    `.is-mb0`、`.is-mb-xs`、`.is-mb-small`、`.is-mb-medium`、`.is-mb-large`
-
-#### Utilityとは
-
-*   ツール、状態管理など
-*   汎用ツールです。ここぞと言うときに力を発揮してくれる頼もしい味方です。
-
-#### Snippetsとは
-
-*   用途を絞ったパーツ
-*   コード構造はそのまま使用することを想定しています。
-*   特定箇所で使用することを想定としていますので汎用的な記述は必要ありません。
-*   必ず`snippets`フォルダ内に配置され`._snippets`という接頭辞のクラスに属しています。
-*   内包するclass名は`._body`のようにアンダースコアからはじまる物を使用します。
-*   `._snippets-cv-group > ._body`
-
-
-
-```
-<div class="_snippets-cv-group">
-  <div class="_head">
-    <h2 class-"_title">タイトル</h2>
-    </div>
-    <div class="_body">
-      <ul class="_list">
-        <li>テキスト</li>
-        <li>テキスト</li>
-      </ul>
-  </div>
-</div>
-```
-
-
-
-使い回せそうなクラスがあったとしても、メンテナンス性を損なうのであれば無理に使い回しません。  
-例えば別のクラスを用意して同じコードを記述します。
-
-「Elements」や「Utility」のみでページ要素を組み立てることはしません。  
-例えばクラスの組み合わせが3つ以上重複する場合は新たに「Snippets」を作成することを検討します。
-
-また、新規スタイル追加作業は「Components」などではなく「Snippets」に作成することをお勧めします。
-
-
-## 対応ブラウザ
-
-*   Internet Explorer11、Microsoft Edge 最新ver、Firefox 最新ver、Chrome 最新ver Safari 最新ver
-*   スマートフォンOSに搭載されている標準のブラウザ
-*   旧ブラウザは閲覧性を重視します。
-
-## 命名規則
-
-### 共通
-
-*   単語の繋ぎはハイフン「 - 」を使用します。
-
-### HTML
-
-*   ファイル名はページタイトルを英語化します。
-
-### img
-
-*   固有のClass名がある場合は同じファイル名でも良いです。
-*   `[要素]_[属性][連番]`
-
-```
-bg_top.png
-icon_arrow1.png
-
-```
-
-### CSS
-
-#### 記述方法
-
-*   接頭辞 + BEM記法、マルチクラス
-*   `[接頭辞]-[塊]__[要素]--[属性]`
-*   フォルダの先頭の文字を接頭辞として使用します。「assets/sass/以下」
-*   パーツのメンテナンス性を重視ししてください。重複するパーツを作成しても構いません。
-*   コンポーネント単位のclass名毎にscssファイルを作成してください。
-*   新規スタイル追加箇所に迷った場合は「snippets」に作成してください。
-
-```
-<div class="c-unit">
- <div class="c-unit__head">
-  <h2 class-"c-unit__title">タイトル</h2>
- </div>
- <div class="c-unit__body">
-     <ul class="e-list e-list--disc">
-       <li>テキスト</li>
-       <li>テキスト</li>
-     </ul>
- </div>
-</div>
-```
-
-
-#### コメント
-
-*   コメントは読み安やを考え自由に入れて大丈夫です。
-*   例えば文脈にそった見出しなど記述してください。
-*   例えば複雑なコードはなるべくコメントを残してください。
-
-```
-例）
-
-/* ==========================================================================
- #FIME NAME
- ========================================================================== */
-
-/* 見だし1
- ========================================================================== */
-
-/* 見だし2
-* ------------------------------------------------------------ */
-
-//見だし3
-
-/**
-* コメントは気軽に残してください。
-*
-*/
-
-
-
-```
-
-##### 空白
-
-*   空白は読み安やを考え自由に入れて大丈夫です。
-*   例えば関連しないブロック間は3つ以上の改行
-*   例えばセレクタとプロパティの間は改行
-
-```
-例）
-
-.hoge {
-margin-top: 10px;
-padding-top: 10px;
-display: inline-block;
-
-&:before,
-&:after {
-  border-bottom: 0;
-}
-
-}
-
-.fuga {
-display: block;
-}
-
-.fuga--type1 {
-display: inline-block;
-}
-
-.fuga--type2 {
-display: table;
-}
-
-```
-
-
-### scssディレクトリ構造
-
-デフォルトのディレクトリ構造は次のようになります。
-
-```
-sass
-├── @jwps
-│    ├── @core
-│    ├── @mixins
-│    ├── @utilities
-│    ├── @variables
-│    ├── components
-│    ├── elements
-│    ├── library
-│    ├── layouts
-│    └── jwps.scss
-│ 
-├── pages
-├── snippets
-└── base.scss
-
-css
-└── base.css
-
-```
-
-
-## JS
-
-### jsの分類や作業の判断
-
-*   HTMLのclassに当てる場合は「js-●●●」など装飾のclassと区別してください。
-*   ページ固有のjsは別ファイルを作成します。
-
-### jsディレクトリ構造
-
-デフォルトのディレクトリ構造は次のようになります。
-
-```
-js
-├── index.js
-└── top.js
-
-src
-├── @jwps
-│    ├── accordion
-│    ├── allcheck
-│    ├── base
-│    └── ...
-│  
-├── index.js
-└── top.js
-
-
+ ├── frontend
+ │   ├── source
+ │   │   ├── assets（開発用）
+ │   │   │   ├── fonts
+ │   │   │   ├── img
+ │   │   │   ├── src
+ │   │   │   └── sass
+ │   │   │
+ │   │   ├── docs（hologramで作成）
+ │   │   │   ├── index.html
+ │   │   │   ├── started.html
+ │   │   │   └── ....html
+ │   │   │
+ │   │   ├── index.html（htmlファイル必要に応じて追加）
+ │   │   ├── 404.html
+ │   │   └── ....
+ │   │
+ │   ├── package.json
+ │   ├── webpack.config.js
+ │   ├── yarn.lock
+ │   └── gulpfile.js
+ │
+ ├── assets（公開用）
+ ├── LICENSE.txt
+ └── README.md
 ```

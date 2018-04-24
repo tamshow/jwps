@@ -117,6 +117,20 @@
   }
 }
 
+
+
+.sg-widget-head {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  z-index: 9999;
+  background-color: #fff;
+  ul{
+    border-bottom: 1px solid #ddd;
+  }
+}
+
 .sg-widget-list {
   padding-left: .3em;
   font-size: 16px;
@@ -140,7 +154,7 @@
 }
 
 .sg-content-block {
-  width: ($screen-main-wide-colum / $screen-pc-max) * 100%;
+  width: ($screen-main-colum / $screen-pc-max) * 100%;
   margin-left: auto;
   margin-right: auto;
 
@@ -174,7 +188,7 @@
 
   float: left;
   width: ($screen-sub-colum / $screen-pc-max) * 100%;
-  padding-right: 60px;
+  padding-right: 20px;
   box-sizing: border-box;
 
   @include media-sp-max {
@@ -240,18 +254,25 @@
 
 }
 
-h1.styleguide,
+
 h2.styleguide,
 h3.styleguide,
 h4.styleguide,
 h5.styleguide {
   font-size: 16px;
   margin: 2em 0 1em;
+  padding-top: 30px;
 }
 
 h1.styleguide {
+  margin-bottom: 1em;
+  padding-top: 30px;
+
   font-size: 2em;
   border-bottom: 1px solid $brand-primary;
+}
+.rich-editor h1.styleguide {
+  //display: none;
 }
 
 .styleguide-table + table {
@@ -312,7 +333,7 @@ div.exampleOutput + div.codeBlock {
 }
 
 div.codeBlock {
-  margin: .5em 0 50px;
+  margin: .5em 0 16px;
   overflow: scroll;
   @include media-sp-max {
     display: none;

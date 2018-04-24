@@ -1,0 +1,19 @@
+# Hologram config
+
+# The directory containing the source files to parse
+#source: ../assets/css
+source: ../source/assets/sass
+
+# The directory that hologram will build to
+destination: ../source/docs
+
+# The assets needed to build the docs (includes header.html, footer.html, etc)
+documentation_assets: ./templates
+
+# The assets needed to build the docs (includes header.html, footer.html, etc)
+documentation_assets: ./templates/doc_assets
+
+# The folder that contains templates for rendering code examples.
+# If you want to change the way code examples appear in the styleguide,
+# modify the files in this folder
+code_example_templates: ./templates/code_example_templates
