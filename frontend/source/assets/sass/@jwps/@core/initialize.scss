@@ -146,11 +146,7 @@ th {
   text-align: left;
 }
 
-@media all and (-ms-high-contrast: none) {
-  img {
-    width: 100%;
-  }
-}
+
 
 /* @  Link Reset
 * ------------------------------------------------------------ */
@@ -169,6 +165,10 @@ textarea::selection {
   text-shadow: none;
 
 }
+
+
+a {display: inline-block;}
+
 
 a,
 a:link {
