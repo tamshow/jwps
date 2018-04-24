@@ -16,9 +16,7 @@ categories: [components, main-visual]
 
 ```html_example
   <div class="c-main-visual c-main-visual--full">
-    <div class="c-main-visual__inner">
       <img src="/assets/img/dummy/1280x450.png" alt="">
-    </div>
   </div>
 
 ```
@@ -28,9 +26,7 @@ categories: [components, main-visual]
 
 ```html_example
   <div class="c-main-visual is-gapless--sm">
-    <div class="c-main-visual__inner">
       <a href=""><img src="/assets/img/dummy/1280x450.png" alt=""></a>
-    </div>
   </div>
 ```
 
@@ -39,11 +35,9 @@ categories: [components, main-visual]
 
 ```html_example
   <div class="c-main-visual c-main-visual--full">
-    <div class="c-main-visual__inner">
        <div class="c-main-visual__bg-img" style="background-image: url(/assets/img/dummy/1280x450.png)">
             <h1>タイトル</h1>
           </div>
-      </div>
   </div>
 ```
 
@@ -53,11 +47,9 @@ categories: [components, main-visual]
 
 ```html_example
   <div class="c-main-visual c-main-visual--full">
-    <div class="c-main-visual__inner">
        <div class="c-main-visual__bg-img c-main-visual__bg-img--large" style="background-image: url(/assets/img/dummy/1280x450.png)">
             <h1>タイトル</h1>
           </div>
-      </div>
   </div>
 ```
 

@@ -56,9 +56,15 @@
   flex-wrap: wrap;
 
   .l-grid {
-    display: flex;
     width: 100%;
     box-sizing: border-box;
+
+    //高さ揃え
+    display: flex;
+    img {
+      width:100%;//ie11
+    }
+
   }
 }
 
@@ -121,7 +127,7 @@
 /*doc
 ---
 title: grid
-name: grid
+name: 30_grid-assy
 categories: [layouts, grid]
 ---
 
@@ -174,7 +180,7 @@ categories: [layouts, grid]
 title: grid-3column
 name: grid-3column
 categories: [layouts, grid]
-parent: grid
+parent: 30_grid-assy
 ---
 
 
@@ -228,7 +234,7 @@ parent: grid
 title: grid-4column
 name: grid-4column
 categories: [layouts, grid]
-parent: grid
+parent: 30_grid-assy
 ---
 
 
