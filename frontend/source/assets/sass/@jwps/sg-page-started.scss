@@ -14,7 +14,7 @@ categories: [started, richEditorWrap]
 <li>ページの基本レイアウト</li>
 <li>Templatesはメインカラムレイアウトの1段組や2段組のパターンを選択します。</li>
 <li>Gridはメインカラム内の段組レイアウトに使用します。</li>
-<li>レイアウトの基本の型は次の並びになります。 <code>.l-main &gt; .l-container &gt; .l-block &gt; .l-grid</code></li>
+<li>レイアウトの基本の型は次の並びになります。 <code>.l-main &gt; .l-container &gt; .l-block &gt; .l-unit and .l-grid</code></li>
 <li>外枠に<code>.rich-editor</code>を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。<br>主にCMSのリッチエディタ等で使用するイメージな気がしています。<br><code>.rich-editor</code>内では複雑なclassの装飾は使用出来ません。詳しくは「RichEditor」を確認ください。
 </li>
 </ul>
@@ -84,45 +84,8 @@ categories: [started, richEditorWrap]
 
 /*doc
 ---
-title: 必要環境
-name: started2
-categories: [started, richEditorWrap]
-
----
-
-
-<div class="rich-editor">
-
-<h3>開発サイクル</h3>
-
-
-<h4>公開時</h4>
-
-<h3>ディレクトリ構造</h3>
-<p>デフォルトのディレクトリ構造は次のようになります。</p>
-
-<div class="c-accordion" data-accordion="" data-device-accordion="all">
-<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
-<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
-<pre>
-<code>
-
-</code>
-</pre>
-
-</div>
-</div>
-</div>
-
-
-*/
-
-
-
-/*doc
----
 title: 命名規則
-name: started3
+name: started2
 categories: [started, richEditorWrap]
 
 ---

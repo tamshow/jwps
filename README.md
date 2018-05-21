@@ -35,14 +35,6 @@ Webサイトを閲覧する目的のほどんどは「情報取得」にあり�
  - 要素の追加・削除のし易さを心がけます。
 
 
-### おおまかに
-主にassets内（CSS、JSなど）を管理します。   
-`frontend/source`フォルダが作業場所です。   
-`gulp serve`することで`frontend/source`を開発用ルートとしてファイルをwatchします。
-`gulp build`することで`frontend/source/assets`を公開用に調整し`frontend/build/assets`へ書き出します。   
-画像圧縮はしていません。必要に応じて圧縮してください。 
-
-
 ### 使用するToolについて
  - [material-icons.css](material-icons.css)
  - [jquery.js](jquery.js)
@@ -53,7 +45,7 @@ Webサイトを閲覧する目的のほどんどは「情報取得」にあり�
 #### デバイス判定用
 デバイスを判定してbodyタグに出力します。   
 ```
-body data-device="desktop" data-touch-device="true"
+data-device="desktop" data-touch-device="true"
 ```
 
 
@@ -142,3 +134,11 @@ $ hologram
  ├── LICENSE.txt
  └── README.md
 ```
+
+
+### おおまかに
+主にassets内（CSS、JSなど）を管理します。   
+`frontend/source`フォルダが作業場所です。   
+`gulp serve`することで`frontend/source`を開発用ルートとしてファイルをwatchします。
+`gulp build`することで`frontend/source/assets`を公開用に調整し`frontend/build/assets`へ書き出します。   
+画像圧縮はしていません。必要に応じて圧縮してください。 

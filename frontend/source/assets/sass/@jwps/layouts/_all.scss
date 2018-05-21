@@ -6,11 +6,9 @@
 @import "00_header/header-sp";
 @import "00_main/main";
 @import "10_container/container";
-@import "20_block-content/block-content";
-@import "20_block-primary/block-primary";
-@import "20_block-secondary/block-secondary";
-@import "20_block-widget/block-widget";
-@import "30_grid-assy/grid-assy";
-@import "30_grid-12column/grid-12column";
-@import "30_grid-flex/grid-flex";
-@import "40_rich-editor/rich-editor";
+@import "20_block/block";
+@import "30_unit/unit";
+@import "40_grid/grid";
+@import "40_grid-12column/grid-12column";
+@import "40_grid-flex/grid-flex";
+@import "50_rich-editor/rich-editor";

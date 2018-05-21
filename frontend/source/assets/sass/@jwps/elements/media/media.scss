@@ -19,7 +19,7 @@ categories: [elements, media]
 
 ```html_example
 
-<div class="e-media e-media--break">
+<div class="e-media">
   <div class="e-media__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
   <div class="e-media__body">
     <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
@@ -31,6 +31,7 @@ categories: [elements, media]
 
 
 */
+
 
 .e-media {
   @include mb-small;
@@ -108,6 +109,8 @@ categories: [elements, media]
   }
 
 }
+
+//e-media--break
 
 .e-media--small {
 

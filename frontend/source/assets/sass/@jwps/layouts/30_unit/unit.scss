@@ -1,20 +1,18 @@
 @charset "utf-8";
 
-/* @ l-block-widget
+/* @ l-unit
  * ------------------------------------------------------------ */
 
 
-.l-block-widget {
+.l-unit {
   margin-bottom: $margin-large-pc;
+
   *:last-child {
     margin-bottom: 0;
   }
 
   @include media-sp-max {
     margin-bottom: 0;
-    border-bottom: 1px solid $border-color;
-    margin-right: -$width-gap-sp;
-    margin-left: -$width-gap-sp;
   }
-}
 
+}

@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+/* @ l-block
+ * ------------------------------------------------------------ */
+
+
+.l-block {
+  width: ($screen-main-wide-colum / $screen-pc-max) * 100%;
+  max-width: $screen-main-wide-colum + px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include media-tab-max {
+    width: 100%;
+  }
+
+  @include media-sp-max {
+    width: 100%;
+  }
+}
+
+.l-block-fluid {
+  width: 100%;
+}
+
+
+/* @ l-block-primary
+ * ------------------------------------------------------------ */
+.l-block-primary {
+  @include mb-small;
+
+  width: ($screen-main-colum / $screen-pc-max) * 100%;
+  float: right;
+  @include media-sp-max {
+    float: none;
+    width: 100%;
+  }
+
+}
+
+
+/* @  l-block-secondary
+ * ------------------------------------------------------------ */
+
+.l-block-secondary {
+  @include mb-small;
+
+  width: ($screen-sub-colum / $screen-pc-max) * 100%;
+  float: left;
+
+  @include media-sp-max {
+    float: none;
+    width: 100%;
+  }
+}
+
+
+
+

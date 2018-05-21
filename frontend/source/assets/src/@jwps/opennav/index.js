@@ -38,7 +38,7 @@ export default class OpenNav {
 
   handleEvents() {
 
-    const $container = $(this.container);
+    //const $container = $(this.container);
     const $selector = $(this.selector);
     const $bodyContents = $(this.bodyContents);
     const $bgSelector = $(this.bgSelector);

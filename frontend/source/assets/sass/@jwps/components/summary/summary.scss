@@ -13,9 +13,8 @@ categories: [components, summary]
 ```html_example
 
 <div>
-  <ul class="c-summary-horizontal-assy">
-    <% for (var i = 0; i < 5; i++) { %>
-   <li class="c-summary-horizontal e-card">
+  <ul class="c-summary-horizontal">
+   <li class="c-summary__item e-card">
         <a href="">
           <div class="e-card__img e-card__img--trim img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
@@ -24,7 +23,6 @@ categories: [components, summary]
           </div>
         </a>
       </li>
-    <% } %>
   </ul>
 
 <div class="c-pagenavi">
@@ -42,7 +40,7 @@ categories: [components, summary]
 ```
 */
 
-.c-summary-horizontal-assy {
+.c-summary-horizontal {
 
   @include clearfix;
   align-items: stretch;
@@ -57,7 +55,7 @@ categories: [components, summary]
     margin-left: -1.7142857143%;
   }
 
-  .c-summary-horizontal {
+  .c-summary__item {
     align-self: stretch;
     display: block;
     box-sizing: border-box;
@@ -96,8 +94,8 @@ categories: [components, summary]
 
 /*doc
 ---
-title: summary-vertical-assy
-name: summary-vertical-assy
+title: summary-vertical
+name: summary-vertical
 categories: [components, summary]
 parent: summary
 
@@ -106,9 +104,8 @@ parent: summary
 ```html_example
 
 <div>
-   <ul class="c-summary-vertical-assy">
-     <% for (var i = 0; i < 3; i++) { %>
-        <li class="c-summary-vertical e-media e-media--small">
+   <ul class="c-summary-vertical">
+        <li class="c-summary__item e-media e-media--small">
           <a href="">
             <div class="e-media__img">
               <img src="/assets/img/dummy/255x255.png" >
@@ -119,7 +116,6 @@ parent: summary
             </div>
             </a>
         </li>
-       <% } %>
     </ul>
  </div>
 
@@ -138,9 +134,9 @@ parent: summary
 ```
 */
 
-.c-summary-vertical-assy {
+.c-summary-vertical {
 
-  .c-summary-vertical {
+  .c-summary__item {
     @include mb-medium;
   }
 
