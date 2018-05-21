@@ -10,7 +10,7 @@ export default class NewsList {
 
     $(function () {
       const template =
-          ` <ul class="l-grid-assy-4to2to2">
+          ` <ul class="l-grids-4to2to2">
          <% _.each(data, function(result) { %>
           <li class="l-grid c-card">
             <a href="<%-result.url %>">

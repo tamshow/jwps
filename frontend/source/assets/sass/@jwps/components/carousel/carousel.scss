@@ -382,10 +382,12 @@ parent: carousel
     right: 10px;
     top: 4px;
     margin: auto;
+    z-index:999;
     @include media-sp-max {
       top: 0;
     }
   }
+  
   .swiper-start,
   .swiper-stop {
     padding: 9px 3px 7px;

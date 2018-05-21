@@ -127,14 +127,14 @@
 /*doc
 ---
 title: grid
-name: 30_grid-assy
+name: 30_grid
 categories: [layouts, grid]
 ---
 
 
 ```html_example
 
-<div class="l-grid-assy-2to2to1">
+<div class="l-grids-2to2to1">
  <div class="l-grid"><div class="dummy-box">1/2<br>6 columns</div></div>
  <div class="l-grid"><div class="dummy-box">1/2<br>6 columns</div></div>
 </div>
@@ -144,7 +144,7 @@ categories: [layouts, grid]
 ```
 */
 
-.l-grid-assy-2to2to1 {
+.l-grids-2to2to1 {
 
   @include flex-col-base();
   @include flex-col(6, $screen-pc-max, 24);
@@ -180,13 +180,13 @@ categories: [layouts, grid]
 title: grid-3column
 name: grid-3column
 categories: [layouts, grid]
-parent: 30_grid-assy
+parent: 30_grid
 ---
 
 
 ```html_example
 
-<div class="l-grid-assy-3to2to1">
+<div class="l-grids-3to2to1">
  <div class="l-grid l-grid__tile"><div class="dummy-box">1/3<br>4 columns</div></div>
  <div class="l-grid l-grid__tile"><div class="dummy-box">1/3<br>4 columns</div></div>
  <div class="l-grid l-grid__tile"><div class="dummy-box">1/3<br>4 columns</div></div>
@@ -197,7 +197,7 @@ parent: 30_grid-assy
 ```
 */
 
-.l-grid-assy-3to2to1 {
+.l-grids-3to2to1 {
 
   @include flex-col-base();
   @include flex-col(4, $screen-pc-max, 24);
@@ -234,13 +234,13 @@ parent: 30_grid-assy
 title: grid-4column
 name: grid-4column
 categories: [layouts, grid]
-parent: 30_grid-assy
+parent: 30_grid
 ---
 
 
 ```html_example
 
-<div class="l-grid-assy-4to2to2">
+<div class="l-grids-4to2to2">
  <div class="l-grid"><div class="dummy-box">1/4<br>3 columns</div></div>
  <div class="l-grid"><div class="dummy-box">1/4<br>3 columns</div></div>
  <div class="l-grid"><div class="dummy-box">1/4<br>3 columns</div></div>
@@ -251,7 +251,7 @@ parent: 30_grid-assy
 ```
 */
 
-.l-grid-assy-4to2to2 {
+.l-grids-4to2to2 {
 
   @include flex-col-base();
   @include flex-col(3, $screen-pc-max, 24);

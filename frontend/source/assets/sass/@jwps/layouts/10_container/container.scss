@@ -6,7 +6,7 @@
 /*doc
 ---
 title: layout
-name: 20_block-content
+name: 20_block
 categories: [layouts, layout]
 ---
 
@@ -20,7 +20,7 @@ categories: [layouts, layout]
 <div class="l-container">
   <div class="dummy-box">
     <p>.l-container</p>
-      <div class="l-block-content"><div class="dummy-box">.l-block-content</div></div>
+      <div class="l-block"><div class="dummy-box">.l-block</div></div>
   </div>
 </div>
 ```
@@ -28,18 +28,17 @@ categories: [layouts, layout]
 <h2 class="styleguide">1column-full</h2>
 ```html_example
 <div class="l-container">
-
     <div class="dummy-box">
     <p>.l-container</p>
-      <div class="l-block-content l-block-content-full"><div class="dummy-box">.l-block-content-full</div></div>
+      <div class="l-block-fluid"><div class="dummy-box">.l-block-fluid</div></div>
   </div>
   </div>
 ```
 ```html_example
-    <div class="l-container-full">
+    <div class="l-container-fluid">
     <div class="dummy-box">
-    <p>.l-container-full</p>
-     <div class="l-block-content l-block-content-full"><div class="dummy-box">.l-block-content-full</div></div>
+    <p>.l-container-fluid</p>
+     <div class="l-block-fluid"><div class="dummy-box">.l-block-fluid</div></div>
     </div>
   </div>
 ```
@@ -57,7 +56,7 @@ categories: [layouts, layout]
 ```
 */
 
-.l-container-full {
+.l-container-fluid {
   @include clearfix;
 }
 
@@ -72,6 +71,7 @@ categories: [layouts, layout]
   padding-right: $width-gap-pc;
   padding-left: $width-gap-pc;
 
+
   @include media-tab-max {
     padding-right: $width-gap-tab;
     padding-left: $width-gap-tab;
@@ -85,7 +85,7 @@ categories: [layouts, layout]
 }
 
 
-.l-container--padding {
+.l-container--pdg {
   padding-top: $margin-medium-pc;
   padding-bottom: $margin-medium-pc;
 
@@ -95,7 +95,7 @@ categories: [layouts, layout]
   }
 }
 
-.l-container--bg-color {
+.l-container--bg {
   padding-top: 38px;
   padding-bottom: 16px;
   background-color: $bg-color;

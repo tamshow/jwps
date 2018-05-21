@@ -5,8 +5,8 @@ export default class Accordion {
   constructor(opts = {}) {
 
     const defaults = {
-      tabWidth: '0px',
-      spWidth: '0px'
+      tabWidth: '960px',
+      spWidth: '600px'
     };
 
     this.tabWidth = opts.tabWidth || defaults.tabWidth;

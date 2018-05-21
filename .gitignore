@@ -1,12 +1,20 @@
+# vendor
+vendor
+
 # node modules
 frontend/node_modules
 frontend/npm-debug.log
 
 # source files
-frontend/assets/css
-frontend/assets/js
-frontend/*.css.map
-frontend/partials
+frontend/source/assets/*.css.map
+frontend/source/assets/css
+frontend/source/assets/js
+frontend/source/assets/js-form
+frontend/source/tablefilter
+frontend/source/filelist.html
+frontend/source/ish
+frontend/source/styleguide
+frontend/source/styleguide.html
 
 # build files
 frontend/build

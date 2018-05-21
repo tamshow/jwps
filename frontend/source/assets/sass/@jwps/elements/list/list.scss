@@ -112,7 +112,7 @@ parent: list
 
   li {
     text-indent: -.6em;
-    padding-left: 1em;
+    padding-left: .8em;
 
     &:before {
       color: #757575;
@@ -127,7 +127,7 @@ parent: list
 
 
 
-/* リスト arrow
+/* リスト square
    ========================================================================== */
 
 /*doc
@@ -162,8 +162,8 @@ parent: list
   }
 
   li {
-    text-indent: -.6em;
-    padding-left: 1em;
+    text-indent: -.8em;
+    padding-left: .8em;
 
     &:before {
       background-color: $brand-primary-light;
@@ -229,7 +229,7 @@ parent: list
 ---
 
 ```html_example
-<dl class="dl">
+<dl class="e-dl">
   <dt>情に棹させば流される。</dt>
   <dd>智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて</dd>
   <dd>智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて</dd>
@@ -242,7 +242,7 @@ parent: list
 */
 
 .rich-editor dl,
-.dl {
+.e-dl {
 
   @include mb-small;
 

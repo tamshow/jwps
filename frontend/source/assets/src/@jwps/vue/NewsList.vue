@@ -1,5 +1,5 @@
 <template>
- <ul class="l-grid-assy-4to2to2">
+ <ul class="l-grids-4to2to2">
   <li v-for="result in results" class="l-grid c-card">
     <a :href="result.url">
       <div class="c-card__img"><img :src="result.image_path" alt=""></div>

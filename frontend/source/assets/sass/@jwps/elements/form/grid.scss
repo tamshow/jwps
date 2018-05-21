@@ -22,11 +22,11 @@ parent: form
 `.e-form-unit`          = 1かたまり<br>
 `.e-form-head`          = 見だし<br>
 `.e-form-field`         = フィールド<br>
-※`.e-form-field`の中は`.e-form-col-assy > .e-form-col12` 等で囲みその中に`inputタグ`を記述<br><br>
+※`.e-form-field`の中は`.e-form-cols > .e-form-col12` 等で囲みその中に`inputタグ`を記述<br><br>
 
 
 【レイアウト】<br>
-`.e-form-col-assy`      = グリッドレイアウト枠<br>
+`.e-form-cols`      = グリッドレイアウト枠<br>
 `.e-form-col[0_5 - 12]` = グリッドレイアウト スマホ時は続けて `.e-form-col12--sm`等を記述<br><br>
 
 
@@ -59,7 +59,7 @@ parent: form
 
 }
 
-.e-form-col-assy {
+.e-form-cols {
   //margin-top: -.8rem;
   margin-right: -1.5%;
   margin-left: -1.5%;
