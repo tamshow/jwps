@@ -18,3 +18,6 @@ frontend/source/styleguide.html
 
 # build files
 frontend/build
+
+# design files
+/design/JWPS_master.xd

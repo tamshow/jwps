@@ -23,9 +23,11 @@ Webサイトを閲覧する目的のほどんどは「情報取得」にあり�
 
 ## デザインリソース (For designers)
 
-![StyleGuide](/tamshow/jwps/blob/images/style-guide.png)
+![StyleGuide](https://github.com/tamshow/jwps/blob/images/style-guide.png?raw=true)
 
-
+ -  [Download design files (XD)](https://github.com/tamshow/jwps/blob/master/design/JWPS.xd)
+  
+  
 ## 開発ガイドライン (For developers)
 
 
