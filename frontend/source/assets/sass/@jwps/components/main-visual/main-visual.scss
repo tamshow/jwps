@@ -4,19 +4,17 @@
  * ------------------------------------------------------------ */
 /*doc
 ---
-title:
+title: main-visual
 name: main-visual
-category: main-visual
 categories: [components, main-visual]
 ---
-
 
 <h3 class="styleguide">Main Visual Full</h3>
 <br>
 
 ```html_example
   <div class="c-main-visual c-main-visual--full">
-      <img src="/assets/img/dummy/1280x450.png" alt="">
+      <img src="assets/img/dummy/1280x450.png" alt="">
   </div>
 
 ```
@@ -26,7 +24,7 @@ categories: [components, main-visual]
 
 ```html_example
   <div class="c-main-visual is-gapless--sm">
-      <a href=""><img src="/assets/img/dummy/1280x450.png" alt=""></a>
+      <a href=""><img src="assets/img/dummy/1280x450.png" alt=""></a>
   </div>
 ```
 
@@ -35,7 +33,7 @@ categories: [components, main-visual]
 
 ```html_example
   <div class="c-main-visual c-main-visual--full">
-       <div class="c-main-visual__bg-img" style="background-image: url(/assets/img/dummy/1280x450.png)">
+       <div class="c-main-visual__bg-img" style="background-image: url(assets/img/dummy/1280x450.png)">
             <h1>タイトル</h1>
           </div>
   </div>
@@ -47,7 +45,7 @@ categories: [components, main-visual]
 
 ```html_example
   <div class="c-main-visual c-main-visual--full">
-       <div class="c-main-visual__bg-img c-main-visual__bg-img--large" style="background-image: url(/assets/img/dummy/1280x450.png)">
+       <div class="c-main-visual__bg-img c-main-visual__bg-img--large" style="background-image: url(assets/img/dummy/1280x450.png)">
             <h1>タイトル</h1>
           </div>
   </div>

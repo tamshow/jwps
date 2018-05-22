@@ -16,7 +16,25 @@ categories: [components, summary]
   <ul class="c-summary-horizontal">
    <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img e-card__img--trim img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img e-card__img--trim img-hover"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+   <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img e-card__img--trim img-hover"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+   <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img e-card__img--trim img-hover"><img src="assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -108,7 +126,29 @@ parent: summary
         <li class="c-summary__item e-media e-media--small">
           <a href="">
             <div class="e-media__img">
-              <img src="/assets/img/dummy/255x255.png" >
+              <img src="assets/img/dummy/255x255.png" >
+              </div>
+            <div class="e-media__body">
+              <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
+              <p class="e-media__text is-text-week">テキスト</p>
+            </div>
+            </a>
+        </li>
+        <li class="c-summary__item e-media e-media--small">
+          <a href="">
+            <div class="e-media__img">
+              <img src="assets/img/dummy/255x255.png" >
+              </div>
+            <div class="e-media__body">
+              <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
+              <p class="e-media__text is-text-week">テキスト</p>
+            </div>
+            </a>
+        </li>
+        <li class="c-summary__item e-media e-media--small">
+          <a href="">
+            <div class="e-media__img">
+              <img src="assets/img/dummy/255x255.png" >
               </div>
             <div class="e-media__body">
               <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
