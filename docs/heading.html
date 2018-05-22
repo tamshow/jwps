@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="/assets/css/base.css" media="all">
+  <script src="/assets/js/index.js"></script>
+</head>
+
+<body class="sg-body">
+
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>Japan Web Production Standards</h1>
+    <nav class="sg-header__nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="richeditor.html">richeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">heading</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#heading">heading</a></li>
+         
+       
+         
+       
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="heading" class="styleguide">heading</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    <h1 class="e-hdg1">情に棹させば流される智に働けば角が立つ</h1>
+<h2 class="e-hdg2">情に棹させば流される智に働けば角が立つ</h2>
+<h3 class="e-hdg3">情に棹させば流される智に働けば角が立つ</h3>
+<h4 class="e-hdg4">情に棹させば流される智に働けば角が立つ</h4>
+<h5 class="e-hdg5">情に棹させば流される智に働けば角が立つ</h5>
+<h6 class="e-hdg6">情に棹させば流される智に働けば角が立つ</h6>
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"e-hdg1"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"e-hdg2"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"e-hdg3"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"e-hdg4"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"e-hdg5"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/h5&gt;</span>
+<span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"e-hdg6"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/h6&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h2 id="heading-type" class="styleguide">heading-type</h2>
+<div class="codeExample">
+  <div class="exampleOutput">
+    <h1 class="e-hdg1 e-hdg1--type2"><span>情に棹させば流される智に働けば角が立つ</span></h1>
+<h2 class="e-hdg2 e-hdg2--type2">情に棹させば流される智に働けば角が立つ</h2>
+<h3 class="e-hdg3 e-hdg3--type2">情に棹させば流される智に働けば角が立つ</h3>
+<h4 class="e-hdg4 e-hdg4--type2">情に棹させば流される智に働けば角が立つ</h4>
+<h5 class="e-hdg5 e-hdg--brand">情に棹させば流される智に働けば角が立つ</h5>
+<h6 class="e-hdg6 e-hdg--bd">情に棹させば流される智に働けば角が立つ</h6>
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"e-hdg1 e-hdg1--type2"</span><span class="nt">&gt;&lt;span&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/span&gt;&lt;/h1&gt;</span>
+<span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"e-hdg2 e-hdg2--type2"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"e-hdg3 e-hdg3--type2"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"e-hdg4 e-hdg4--type2"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"e-hdg5 e-hdg--brand"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/h5&gt;</span>
+<span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"e-hdg6 e-hdg--bd"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/h6&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h2 id="heading-unit" class="styleguide">heading-unit</h2>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+
+<div class="e-hdg-unit">
+  <h3 class="e-hdg3">情に棹させば流される智に働けば角が立つ</h3>
+  <p class="is-text-week"> 6月12日  12:49</p>
+</div>
+
+
+<div class="e-hdg-unit">
+  <h2 class="e-hdg2">情に棹させば流される智に働けば角が立つ</h2>
+  <p class="e-hdg-unit__to-list"><a href="">一覧</a></p>
+</div>
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-hdg-unit"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"e-hdg3"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"is-text-week"</span><span class="nt">&gt;</span> 6月12日  12:49<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-hdg-unit"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"e-hdg2"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-hdg-unit__to-list"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>一覧<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

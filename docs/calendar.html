@@ -37,20 +37,18 @@
 
 
 <div class="sg-container">
-	 <h2 class="sg-heading2"><% if title == 'index' %>このサイトについて<% else %><%= title %><% end %></h2>
+	 <h2 class="sg-heading2">calendar</h2>
 	<div class="sg-widget-head">
 	 <ul class="e-list-inline">
-       <% @blocks.each do |block| %>
-         <% if !block[:parent]%>
-          <li><a href="#<%= block[:name] %>"><%= block[:title] %></a></li>
-         <% end %>
-       <% end %>
+       
+         
+          <li><a href="#calendar">calendar</a></li>
+         
+       
      </ul>
  	</div>
  <div class="sg-content-block">
-<% if @blocks[0][:categories].include?('richEditorWrap') %>	
 
-<% end %>
      
 	 	 
      
@@ -60,4 +58,43 @@
 	 
 	 
 	 
-	 
+	 <h1 id="calendar" class="styleguide">calendar</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+
+<div id="vue-calendar">
+  <calendar-list></calendar-list>
+</div>
+
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"vue-calendar"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;calendar-list&gt;&lt;/calendar-list&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

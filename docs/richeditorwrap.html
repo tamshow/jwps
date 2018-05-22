@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="/assets/css/base.css" media="all">
+  <script src="/assets/js/index.js"></script>
+</head>
+
+<body class="sg-body">
+
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>Japan Web Production Standards</h1>
+    <nav class="sg-header__nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="richeditor.html">richeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">richEditorWrap</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#started">使い方・分類</a></li>
+         
+       
+         
+          <li><a href="#started2">命名規則</a></li>
+         
+       
+         
+          <li><a href="#top">このサイトについて</a></li>
+         
+       
+         
+          <li><a href="#top-designers">デザインリソース</a></li>
+         
+       
+         
+          <li><a href="#top-developers">開発ガイドライン</a></li>
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+	
+
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="started" class="styleguide">使い方・分類</h1>
+
+<div class="rich-editor">
+<h3>Layoutとは</h3>
+<ul>
+<li>ページの基本レイアウト</li>
+<li>Templatesはメインカラムレイアウトの1段組や2段組のパターンを選択します。</li>
+<li>Gridはメインカラム内の段組レイアウトに使用します。</li>
+<li>レイアウトの基本の型は次の並びになります。 <code>.l-main &gt; .l-container &gt; .l-block &gt; .l-unit and .l-grid</code></li>
+<li>外枠に<code>.rich-editor</code>を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。<br>主にCMSのリッチエディタ等で使用するイメージな気がしています。<br><code>.rich-editor</code>内では複雑なclassの装飾は使用出来ません。詳しくは「RichEditor」を確認ください。
+</li>
+</ul>
+<h3>Componentsとは</h3>
+<ul>
+<li>中規模の部品</li>
+<li>主に一覧ページを構成する部品のような気がしています。</li>
+<li>ベースのmargin-bottomとして<code>.is-mb-small</code>が設定されています。</li>
+<li>要素間の間隔を制御する場合の汎用マージンボトムで調整します。<br><code>.is-mb0</code>、<code>.is-mb-xs</code>、<code>.is-mb-small</code>、<code>.is-mb-medium</code>、<code>.is-mb-large</code>
+</li>
+</ul>
+<h3>Elementsとは</h3>
+<ul>
+<li>小規模の部品</li>
+<li>主に詳細ページを構成する部品のような気がしています。</li>
+<li>ベースのmargin-bottomとして<code>.is-mb-small</code>が設定されています。</li>
+<li>要素間の間隔を制御する場合の汎用マージンボトムで調整します。<br><code>.is-mb0</code>、<code>.is-mb-xs</code>、<code>.is-mb-small</code>、<code>.is-mb-medium</code>、<code>.is-mb-large</code>
+</li>
+</ul>
+<h3>Utilityとは</h3>
+<ul>
+<li>ツール、状態管理など</li>
+<li>汎用ツールです。ここぞと言うときに力を発揮してくれる頼もしい味方です。</li>
+</ul>
+<h3>Snippetsとは</h3>
+<ul>
+<li>用途を絞ったパーツ</li>
+<li>コード構造はそのまま使用することを想定しています。</li>
+<li>特定箇所で使用することを想定としていますので汎用的な記述は必要ありません。</li>
+<li>必ず<code>snippets</code>フォルダ内に配置され<code>._snippets</code>という接頭辞のクラスに属しています。</li>
+<li>内包するclass名は<code>._body</code>のようにアンダースコアからはじまる物を使用します。</li>
+<li><code>._snippets-cv-group &gt; ._body</code></li>
+</ul>
+<div class="c-accordion" data-accordion="" data-device-accordion="all">
+<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
+<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
+
+<pre>
+<code>&lt;div class="_snippets-cv-group"&gt;
+&lt;div class="_head"&gt;
+&lt;h2 class-"_title"&gt;タイトル&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="_body"&gt;
+&lt;ul class="_list"&gt;
+&lt;li&gt;テキスト&lt;/li&gt;
+&lt;li&gt;テキスト&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+</div>
+<p class="styleguide"></div>
+<p>使い回せそうなクラスがあったとしても、メンテナンス性を損なうのであれば無理に使い回しません。<br>例えば別のクラスを用意して同じコードを記述します。</p>
+<p>「Elements」や「Utility」のみでページ要素を組み立てることはしません。<br>例えばクラスの組み合わせが3つ以上重複する場合は新たに「Snippets」を作成することを検討します。</p>
+<p>また、新規スタイル追加作業は「Components」などではなく「Snippets」に作成することをお勧めします。</p>
+</div></p>
+<h1 id="started2" class="styleguide">命名規則</h1>
+
+<div class="rich-editor">
+<h3>共通</h3>
+<ul>
+<li>単語の繋ぎはハイフン「 - 」を使用します。</li>
+</ul>
+<h3>HTML</h3>
+<ul>
+<li>ファイル名はページタイトルを英語化します。</li>
+</ul>
+<h3>img</h3>
+<ul>
+<li>固有のClass名がある場合は同じファイル名でも良いです。</li>
+<li><code>[要素]_[属性][連番]</code></li>
+</ul>
+<div class="c-accordion" data-accordion="" data-device-accordion="all">
+<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
+<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
+
+<pre>
+<code>bg_top.png
+ icon_arrow1.png
+</code>
+</pre>
+</div>
+<p class="styleguide"></div></p>
+<h3>CSS</h3>
+
+<h4>記述方法</h4>
+
+<ul>
+<li>接頭辞 + BEM記法、マルチクラス</li>
+<li><code>[接頭辞]-[塊]__[要素]--[属性]</code></li>
+<li>フォルダの先頭の文字を接頭辞として使用します。「assets/sass/以下」</li>
+<li>パーツのメンテナンス性を重視ししてください。重複するパーツを作成しても構いません。</li>
+<li>コンポーネント単位のclass名毎にscssファイルを作成してください。</li>
+<li>新規スタイル追加箇所に迷った場合は「snippets」に作成してください。</li>
+</ul>
+
+<div class="c-accordion" data-accordion="" data-device-accordion="all">
+<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
+<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
+
+<pre>
+<code>&lt;div class="c-unit"&gt;
+&lt;div class="c-unit__head"&gt;
+&lt;h2 class-"c-unit__title"&gt;タイトル&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="c-unit__body"&gt;
+&lt;ul class="e-list e-list--disc"&gt;
+&lt;li&gt;テキスト&lt;/li&gt;
+&lt;li&gt;テキスト&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+</div>
+<p class="styleguide"></div></p>
+<h4>コメント</h4>
+
+<ul>
+<li>コメントは読み安やを考え自由に入れて大丈夫です。</li>
+<li>例えば文脈にそった見出しなど記述してください。</li>
+<li>例えば複雑なコードはなるべくコメントを残してください。</li>
+</ul>
+
+<div class="c-accordion" data-accordion="" data-device-accordion="all">
+<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
+<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
+
+<pre>
+<code>例）
+
+ ==========================================================================
+ #FIME NAME
+ ==========================================================================
+
+ 見だし1
+ ==========================================================================
+
+ 見だし2
+ ------------------------------------------------------------
+
+</code>
+</pre>
+
+</div>
+<p class="styleguide"></div>
+<h4>空白</h4>
+<ul>
+<li>空白は読み安やを考え自由に入れて大丈夫です。</li>
+<li>例えば関連しないブロック間は3つ以上の改行</li>
+<li>例えばセレクタとプロパティの間は改行</li>
+</ul></p>
+<div class="c-accordion" data-accordion="" data-device-accordion="all">
+<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
+<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
+
+<pre>
+<code>例）
+
+ .hoge {
+   margin-top: 10px;
+   padding-top: 10px;
+   display: inline-block;
+
+   &amp;:before,
+  &amp;:after {
+         border-bottom: 0;
+       }
+
+ }
+
+.fuga {
+  display: block;
+}
+
+.fuga--type1 {
+  display: inline-block;
+}
+
+.fuga--type2 {
+  display: table;
+}
+
+</code>
+</pre>
+
+</div>
+<p class="styleguide"></div></p>
+<h4>scssディレクトリ構造</h4>
+
+<p>デフォルトのディレクトリ構造は次のようになります。</p>
+
+<div class="c-accordion" data-accordion="" data-device-accordion="all">
+<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
+<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
+
+<pre>
+<code>sass
+ ├── @jwps
+│    ├── @core
+│    ├── @mixins
+│    ├── @utilities
+│    ├── @variables
+│    ├── components
+│    ├── elements
+│    ├── library
+│    ├── layouts
+│    └── jwps.scss
+│
+├── pages
+├── snippets
+└── base.scss
+
+css
+└── base.css
+
+</code>
+</pre>
+
+</div>
+<p class="styleguide"></div></p>
+<h3>JS</h3>
+
+<h4>jsの分類や作業の判断</h4>
+
+<ul>
+<li>HTMLのclassに当てる場合は「js-●●●」など装飾のclassと区別してください。</li>
+<li>ページ固有のjsは別ファイルを作成します。</li>
+</ul>
+
+<h4>jsディレクトリ構造</h4>
+
+<p>デフォルトのディレクトリ構造は次のようになります。</p>
+
+<div class="c-accordion" data-accordion="" data-device-accordion="all">
+<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
+<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
+<pre>
+<code>js
+├── index.js
+└── top.js
+
+src
+├── @jwps
+│    ├── accordion
+│    ├── allcheck
+│    ├── base
+│    └── ...
+│
+├── index.js
+└── top.js
+</code>
+</pre>
+</div>
+<p class="styleguide"></div></p><p class="styleguide"></div>
+</div></p>
+<h1 id="top" class="styleguide">このサイトについて</h1>
+
+<div class="rich-editor">
+<h2>Webコンポーネント+プロトタイピング+アクセシビリティ+CMS</h2>
+<p>Webサイトを閲覧する目的のほどんどは「情報取得」にあり、また閲覧されているものの約9割は文字情報になります。理想的なWebサイトは作りっぱなしではなく、公開後に成長を続けられるサイトであると思います。<br>
+そのどちらも兼ね備え、また、運用スタッフが公開までにCMSの扱い、拡張の方法を会得できるという特長もあります。</p>
+
+<h3>Webコンポーネントとは</h3>
+<p>統一ルールに基づいたUIデザインパーツを組み合わせてWebページを構築していくというこれから主流になってくるWeb制作の手法です。PC、スマホ共通パーツを用いるレスポンシブデザインと親和性が高いのが特長です。<br>
+パーツは必要最小限になるため運用担当者の学習コストが低く、すぐに扱えるようになります。<br>
+また、デザインが破綻しにくくメンテナンス性も高いものになります。</p>
+
+<h3>プロトタイピングとは</h3>
+<p>デザインを固めてからコーディングに入る従来の方式ではなく、デザイン前に早々にCMSを仮の状態（プロトタイプ）で動かしてしまい原稿やサイト構成を作ってしまうことで、使用した上でのアイデア・問題点（求める制作物との齟齬など）の洗い出し、使用感を伴ったフィードバック、改修を公開前に行うという手法を指します。</p>
+
+<h3>アクセシビリティとは</h3>
+<p>「アクセシビリティ」という言葉からは、障害者への対応というイメージを持たれることが多いですが、それだけではありません。アクセシビリティが向上すれば、アクセスできる人の母数が増えます。アクセシビリティへの配慮を行う事は、障害者や高齢者だけでなく、あらゆる人に恩恵をもたらす可能性があります。また、SEOにも有利になります。</p>
+
+<h3>CMSとは</h3>
+<p>コンテンツ・マネジメント・システムの略で、Webサイトを管理・更新できるシステムのことをいいます。</p>
+</div>
+
+<h1 id="top-designers" class="styleguide">デザインリソース</h1>
+
+<div class="rich-editor">
+<p><img src="https://github.com/tamshow/jwps/blob/images/style-guide.png?raw=true" alt="StyleGuide"></p>
+</div>
+
+<h1 id="top-developers" class="styleguide">開発ガイドライン</h1>
+
+<div class="rich-editor">
+<h3>コーディングマナー</h3>
+<ul>
+<li>メンテナンス性、可読性を意識したコーディングを心がけます。</li>
+<li>拡張性、再利用性、柔軟性、効率を意識したルールを持たせます。</li>
+<li>要素の追加・削除のし易さを心がけます。</li>
+</ul>
+
+<h3>使用するToolについて</h3>
+<ul>
+<li><a href="material-icons.css">material-icons.css</a></li>
+<li><a href="jquery.js">jquery.js</a></li>
+<li><a href="lodash.js">lodash.js</a></li>
+<li><a href="moment.js">moment.js</a></li>
+</ul>
+
+<h4>デバイス判定用</h4>
+<p>デバイスを判定してbodyタグに出力します。   </p>
+<pre><code>data-device=&quot;desktop&quot; data-touch-device=&quot;true&quot;
+</code></pre>
+
+<h3>対応ブラウザ</h3>
+<ul>
+<li>Internet Explorer11、Microsoft Edge 最新ver、Firefox 最新ver、Chrome 最新ver Safari 最新ver</li>
+<li>スマートフォンOSに搭載されている標準のブラウザ</li>
+<li>旧ブラウザは閲覧性を重視します。</li>
+</ul>
+
+<h3>環境構築</h3>
+<h4>必要環境</h4>
+<ul>
+<li>Node 8.4.0</li>
+<li>npm 5.3.0</li>
+<li>yarn 1.3.2</li>
+</ul>
+
+<h4>インストール</h4>
+<pre><code>//通常
+$ cd frontend
+$ yarn install
+
+//hologramを使う場合
+$ bundle install --path vendor/bundle
+</code></pre>
+
+<h4>開発サイクル</h4>
+<pre><code>//開発時
+$ gulp serve
+
+frontend/source/フォルダをルートとしてファイルをwatchします。
+localhost:9000を見に行きます。
+
+
+//公開時
+$ gulp build
+
+JS、CSSなど圧縮、または不要ファイルを削除します。
+画像圧縮はしていません。必要に応じて圧縮してください。
+HTMLファイルは必要に応じてテンプレート等に組み込んで使用してください。
+
+
+//json-server
+$ cd json-server
+$ node server.js
+
+
+//hologram
+$ cd hologram
+$ hologram
+
+</code></pre>
+
+<h4>ディレクトリ構造</h4>
+<pre><code>.
+ ├── frontend
+ │   ├── source
+ │   │   ├── assets（開発用）
+ │   │   │   ├── fonts
+ │   │   │   ├── img
+ │   │   │   ├── src
+ │   │   │   └── sass
+ │   │   │
+ │   │   ├── docs（hologramで作成）
+ │   │   │   ├── index.html
+ │   │   │   ├── started.html
+ │   │   │   └── ....html
+ │   │   │
+ │   │   ├── index.html（htmlファイル必要に応じて追加）
+ │   │   ├── 404.html
+ │   │   └── ....
+ │   │
+ │   ├── package.json
+ │   ├── webpack.config.js
+ │   ├── yarn.lock
+ │   └── gulpfile.js
+ │
+ ├── assets（公開用）
+ ├── LICENSE.txt
+ └── README.md
+</code></pre>
+
+<h4>おおまかに</h4>
+<p>主にassets内（CSS、JSなど）を管理します。<br><code>frontend/source</code>フォルダが作業場所です。<br><code>gulp serve</code>することで<code>frontend/source</code>を開発用ルートとしてファイルをwatchします。<br>
+<code>gulp build</code>することで<code>frontend/source/assets</code>を公開用に調整し<code>frontend/build/assets</code>へ書き出します。<br>画像圧縮はしていません。必要に応じて圧縮してください。 </p>
+</div>
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -37,20 +37,18 @@
 
 
 <div class="sg-container">
-	 <h2 class="sg-heading2"><% if title == 'index' %>このサイトについて<% else %><%= title %><% end %></h2>
+	 <h2 class="sg-heading2">snippets-other</h2>
 	<div class="sg-widget-head">
 	 <ul class="e-list-inline">
-       <% @blocks.each do |block| %>
-         <% if !block[:parent]%>
-          <li><a href="#<%= block[:name] %>"><%= block[:title] %></a></li>
-         <% end %>
-       <% end %>
+       
+         
+          <li><a href="#snippets">snippets</a></li>
+         
+       
      </ul>
  	</div>
  <div class="sg-content-block">
-<% if @blocks[0][:categories].include?('richEditorWrap') %>	
 
-<% end %>
      
 	 	 
      
@@ -60,4 +58,17 @@
 	 
 	 
 	 
-	 
+	 <h1 id="snippets" class="styleguide">snippets</h1>
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

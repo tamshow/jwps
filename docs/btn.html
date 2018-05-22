@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="/assets/css/base.css" media="all">
+  <script src="/assets/js/index.js"></script>
+</head>
+
+<body class="sg-body">
+
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>Japan Web Production Standards</h1>
+    <nav class="sg-header__nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="richeditor.html">richeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">btn</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#btn">btn</a></li>
+         
+       
+         
+       
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="btn" class="styleguide">btn</h1>
+
+<h3 class="styleguide">Default</h3>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+<div class="e-btn-group is-left">
+  <button id="btn1" class="ripple e-btn e-btn--primary" type="button"><i class="material-icons is-left">navigate_before</i>もっと見る<i class="material-icons is-right">navigate_next</i></button>
+  <button class="ripple e-btn e-btn--primary is-hover" type="button">もっと見る
+  </button>
+  <button class="ripple e-btn e-btn--primary is-disabled" type="button">もっと見る</button>
+</div>
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-btn-group is-left"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"btn1"</span> <span class="na">class=</span><span class="s">"ripple e-btn e-btn--primary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"material-icons is-left"</span><span class="nt">&gt;</span>navigate_before<span class="nt">&lt;/i&gt;</span>もっと見る<span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"material-icons is-right"</span><span class="nt">&gt;</span>navigate_next<span class="nt">&lt;/i&gt;&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"ripple e-btn e-btn--primary is-hover"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>もっと見る
+  <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"ripple e-btn e-btn--primary is-disabled"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>もっと見る<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h3 class="styleguide">Secondary</h3>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+<div class="e-btn-group is-left">
+  <button class="e-btn e-btn--secondary" type="button"><i class="material-icons is-left">navigate_before</i>もっと見る<i class="material-icons is-right">navigate_next</i></button>
+  <button class="e-btn e-btn--secondary is-hover" type="button">もっと見る</button>
+  <button class="e-btn e-btn--secondary is-disabled" type="button">もっと見る</button>
+</div>
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-btn-group is-left"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn--secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"material-icons is-left"</span><span class="nt">&gt;</span>navigate_before<span class="nt">&lt;/i&gt;</span>もっと見る<span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"material-icons is-right"</span><span class="nt">&gt;</span>navigate_next<span class="nt">&lt;/i&gt;&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn--secondary is-hover"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>もっと見る<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"e-btn e-btn--secondary is-disabled"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>もっと見る<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="codeBlock">
+  <div class="highlight">
+    <pre>&lt;h2 id="btn-group" class="styleguide"&gt;btn-group&lt;/h2&gt;
+
+```html_example
+&lt;div class="e-btn-group is-left"&gt;
+  &lt;button type="button" class="e-btn"&gt;もっと見る&lt;/button&gt;
+  &lt;button type="button" class="e-btn"&gt;もっと見る&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="e-btn-group"&gt;
+  &lt;button type="button" class="e-btn"&gt;もっと見る&lt;/button&gt;
+  &lt;button type="button" class="e-btn"&gt;もっと見る&lt;/button&gt;
+&lt;/div&gt;</pre>
+  </div>
+</div>
+<h2 id="btn-size" class="styleguide">btn-size</h2>
+<div class="codeExample">
+  <div class="exampleOutput">
+    <div class="e-btn-group e-btn-group--left">
+  <button type="button" class="e-btn e-btn--small">もっと見る</button>
+  <button type="button" class="e-btn e-btn--medium">もっと見る</button>
+  <button type="button" class="e-btn e-btn--large">もっと見る</button>
+  <button type="button" class="e-btn e-btn--xlarge">もっと見る</button>
+</div>
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-btn-group e-btn-group--left"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn e-btn--small"</span><span class="nt">&gt;</span>もっと見る<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn e-btn--medium"</span><span class="nt">&gt;</span>もっと見る<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn e-btn--large"</span><span class="nt">&gt;</span>もっと見る<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn e-btn--xlarge"</span><span class="nt">&gt;</span>もっと見る<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

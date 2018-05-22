@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="/assets/css/base.css" media="all">
+  <script src="/assets/js/index.js"></script>
+</head>
+
+<body class="sg-body">
+
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>Japan Web Production Standards</h1>
+    <nav class="sg-header__nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="richeditor.html">richeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">modal</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#modal">modal</a></li>
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="modal" class="styleguide">modal</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    <!-- ボタン領域 -->
+<div class="e-btn-group is-left">
+<button type="button" class="e-btn" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
+</div>
+<div class="e-box" data-clone-modal="area-modal-dialog1">
+<div class="e-box__body">
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+</div>
+</div>
+
+<!-- コンテンツ領域 -->
+  <div class="c-modal-dialog" id="area-modal-dialog1" data-modal role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="c-modal-dialog__scroll" role="document">
+      <div class="c-modal-dialog__body">
+
+        <h3 class="c-modal-dialog__title">情に棹させば流される智に働けば角が立つ 18px</h3>
+        <div data-append-modal>
+          <!--  data-append-modal内はdata-clone-modal="aria-controls名"を表示 -->
+        </div>
+        <div class="c-modal-dialog__btn-group e-btn-group">
+          <button type="button" class="e-btn e-btn--secondary" data-close-modal aria-expanded="true" aria-label="キャンセル">キャンセル</button>
+          <button type="button" class="e-btn e-btn--secondary" aria-expanded="true" aria-label="実行する">実行する</button>
+        </div>
+
+      </div>
+    </div>
+    <button type="button" class="c-modal-dialog__close material-icons" data-close-modal aria-expanded="true" aria-label="dialogを閉じる">close</button>
+  </div>
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="c">&lt;!-- ボタン領域 --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-btn-group is-left"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn"</span> <span class="na">data-open-modal</span> <span class="na">aria-controls=</span><span class="s">"area-modal-dialog1"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"開く"</span><span class="nt">&gt;</span>Modal Dialogを開く<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box"</span> <span class="na">data-clone-modal=</span><span class="s">"area-modal-dialog1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box__body"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- コンテンツ領域 --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-modal-dialog"</span> <span class="na">id=</span><span class="s">"area-modal-dialog1"</span> <span class="na">data-modal</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-modal-dialog__scroll"</span> <span class="na">role=</span><span class="s">"document"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-modal-dialog__body"</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"c-modal-dialog__title"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ 18px<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">data-append-modal</span><span class="nt">&gt;</span>
+          <span class="c">&lt;!--  data-append-modal内はdata-clone-modal="aria-controls名"を表示 --&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-modal-dialog__btn-group e-btn-group"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn e-btn--secondary"</span> <span class="na">data-close-modal</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"キャンセル"</span><span class="nt">&gt;</span>キャンセル<span class="nt">&lt;/button&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn e-btn--secondary"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"実行する"</span><span class="nt">&gt;</span>実行する<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"c-modal-dialog__close material-icons"</span> <span class="na">data-close-modal</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"dialogを閉じる"</span><span class="nt">&gt;</span>close<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="c-accordion" data-accordion data-device-accordion="all">
+  <button type="button" class="c-accordion__title" aria-expanded="true" aria-label="開く" data-toggle-accordion>Javascript</button>
+    <div class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+  <ul>
+    <li>･data-open-modal</li>
+    <li>･data-modal</li>
+    <li>･data-close-modal</li>
+    <li>･data-clone-modal="aria-controls名"</li>
+    <li>･data-append-modal</li>
+    <li>･背景暗転はjsで作成します。</li>
+  </ul>
+    </div>
+</div>
+
+<div class="c-accordion" data-accordion data-device-accordion="all">
+  <button type="button" class="c-accordion__title" aria-expanded="true" aria-label="開く" data-toggle-accordion>Accessibility</button>
+    <div class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+  <ul>
+    <li>･表示領域の操作はマウスとキーボードの両方で使用可能です。</li>
+    <li>･ボタン領域の属性は、aria-expanded = `true`または`false`を設定します（必須）。</li>
+    <li>･ボタン領域の属性は、aria-label = `開く`または`閉じる`など適宜設定します（必須）。</li>
+    <li>･ボタン領域にaria-controls = `id名`、コンテンツ領域に該当する`id名`を設定し、表示領域の関連付けを設定します（必須）。</li>
+    <li>･コンテンツ領域の属性は、対応するボタン領域の属性に応じて、aria-hidden= `true`を設定します（必須）。</li>
+    <li>･コンテンツ領域の属性は、対応するボタン領域の属性に応じて、tabindex=`-1`または`1`を設定します（必須）。</li>
+    <li>･背景暗転下領域の属性は、対応するボタン領域の属性に応じて、aria-hidden= `true`または`false`を設定します（必須）。</li>
+    <li>･コンテンツ領域は role="dialog"設定します（必須）。</li>
+    <li>･コンテンツのドキュメント領域は role="document"を設定します（必須）。</li>
+  </ul>
+    </div>
+</div>
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>
