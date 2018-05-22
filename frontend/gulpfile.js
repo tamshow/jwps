@@ -41,6 +41,33 @@ gulp.task("js", () => {
       .pipe(gulp.dest('source/assets/js'));
 });
 
+gulp.task('js:not-bundle', () => {
+  return gulp.src([
+    'source/assets/src/@jwps/accordion/accordion.js',
+    'source/assets/src/@jwps/allcheck/allcheck.js',
+    'source/assets/src/@jwps/base/base.js',
+    'source/assets/src/@jwps/form/form.js',
+    'source/assets/src/@jwps/modal/modal.js',
+    'source/assets/src/@jwps/newslist/newslist.js',
+    'source/assets/src/@jwps/opennav/opennav.js',
+    'source/assets/src/@jwps/pagescroll/pagescroll.js',
+    'source/assets/src/@jwps/ripple/ripple.js',
+    'source/assets/src/@jwps/tabs/tabs.js'
+  ])
+      .pipe(gulp.dest('source/assets/js/not-bundle/'));
+});
+
+gulp.task('js:use', () => {
+  return gulp.src([
+    'node_modules/jquery/dist/jquery.js',
+    'node_modules/lodash/lodash.js',
+    'node_modules/swiper/dist/swiper.jquery.js',
+    'node_modules/moment/moment.js'
+  ])
+      .pipe(gulp.dest('source/assets/js/use/'));
+});
+
+
 
 //css
 //=================
@@ -75,6 +102,8 @@ gulp.task('html', (callback) => {
   runSequence(
       'css',
       'js',
+      'js:not-bundle',
+      'js:use',
       callback);
 });
 
