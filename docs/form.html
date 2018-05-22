@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="/assets/css/base.css" media="all">
+  <script src="/assets/js/index.js"></script>
+</head>
+
+<body class="sg-body">
+
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>Japan Web Production Standards</h1>
+    <nav class="sg-header__nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="richeditor.html">richeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">form</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#form">form</a></li>
+         
+       
+         
+       
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="form" class="styleguide">form</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+<h3 class="styleguide">Text Input</h3>
+<input type="text"  class="e-form-control">
+
+<h3 class="styleguide">Textarea</h3>
+<textarea cols="40" rows="10" class="e-form-control"></textarea>
+
+<h3 class="styleguide">Disabled Input</h3>
+<input type="text" disabled class="e-form-control">
+
+
+<h3 class="styleguide">Input with Success</h3>
+<input type="text"  class="e-form-control is-valid">
+
+<h3 class="styleguide">Input with Warning</h3>
+<input type="text"  class="e-form-control is-warning">
+
+<h3 class="styleguide">Input with Error</h3>
+<input type="text"  class="e-form-control is-error">
+
+
+<h3 class="styleguide">Select Menu</h3>
+<select class="e-form-control">
+  <option value="" >都道府県</option>
+  <option value="福岡県">福岡県</option>
+  <option value="...">...</option>
+</select>
+
+
+<h3 class="styleguide">Checkbox</h3>
+<ul class="e-form-rc-box e-form-rc-box--ib" id="checkbox-assy">
+  <li><input type="checkbox" class="e-form-control" id="checkbox1"><label for="checkbox1">default</label></li>
+  <li><input type="checkbox" disabled class="e-form-control" id="checkbox2"><label for="checkbox2">disabled</label></li>
+  <li><input type="checkbox" checked class="e-form-control" id="checkbox3"><label for="checkbox3">checked</label></li>
+  <li><input type="checkbox" disabled checked class="e-form-control" id="checkbox4"><label for="checkbox4">checked & disabled</label></li>
+</ul>
+
+<h3 class="styleguide">Radio Buttons</h3>
+<ul class="e-form-rc-box e-form-rc-box--ib" id="radio-assy">
+  <li><input type="radio" class="e-form-control" id="radio1"><label for="radio1">default</label></li>
+  <li><input type="radio" class="e-form-control" disabled id="radio2"><label for="radio2">disabled</label></li>
+  <li><input type="radio" class="e-form-control" checked id="radio3"><label for="radio3">checked</label></li>
+  <li><input type="radio" class="e-form-control" disabled checked id="radio4"><label for="radio4">checked & disabled</label></li>
+</ul>
+
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"styleguide"</span><span class="nt">&gt;</span>Text Input<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span>  <span class="na">class=</span><span class="s">"e-form-control"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"styleguide"</span><span class="nt">&gt;</span>Textarea<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;textarea</span> <span class="na">cols=</span><span class="s">"40"</span> <span class="na">rows=</span><span class="s">"10"</span> <span class="na">class=</span><span class="s">"e-form-control"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"styleguide"</span><span class="nt">&gt;</span>Disabled Input<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">disabled</span> <span class="na">class=</span><span class="s">"e-form-control"</span><span class="nt">&gt;</span>
+
+
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"styleguide"</span><span class="nt">&gt;</span>Input with Success<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span>  <span class="na">class=</span><span class="s">"e-form-control is-valid"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"styleguide"</span><span class="nt">&gt;</span>Input with Warning<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span>  <span class="na">class=</span><span class="s">"e-form-control is-warning"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"styleguide"</span><span class="nt">&gt;</span>Input with Error<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span>  <span class="na">class=</span><span class="s">"e-form-control is-error"</span><span class="nt">&gt;</span>
+
+
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"styleguide"</span><span class="nt">&gt;</span>Select Menu<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"e-form-control"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span> <span class="nt">&gt;</span>都道府県<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"福岡県"</span><span class="nt">&gt;</span>福岡県<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"..."</span><span class="nt">&gt;</span>...<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+
+
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"styleguide"</span><span class="nt">&gt;</span>Checkbox<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"e-form-rc-box e-form-rc-box--ib"</span> <span class="na">id=</span><span class="s">"checkbox-assy"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"e-form-control"</span> <span class="na">id=</span><span class="s">"checkbox1"</span><span class="nt">&gt;&lt;label</span> <span class="na">for=</span><span class="s">"checkbox1"</span><span class="nt">&gt;</span>default<span class="nt">&lt;/label&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">disabled</span> <span class="na">class=</span><span class="s">"e-form-control"</span> <span class="na">id=</span><span class="s">"checkbox2"</span><span class="nt">&gt;&lt;label</span> <span class="na">for=</span><span class="s">"checkbox2"</span><span class="nt">&gt;</span>disabled<span class="nt">&lt;/label&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">checked</span> <span class="na">class=</span><span class="s">"e-form-control"</span> <span class="na">id=</span><span class="s">"checkbox3"</span><span class="nt">&gt;&lt;label</span> <span class="na">for=</span><span class="s">"checkbox3"</span><span class="nt">&gt;</span>checked<span class="nt">&lt;/label&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">disabled</span> <span class="na">checked</span> <span class="na">class=</span><span class="s">"e-form-control"</span> <span class="na">id=</span><span class="s">"checkbox4"</span><span class="nt">&gt;&lt;label</span> <span class="na">for=</span><span class="s">"checkbox4"</span><span class="nt">&gt;</span>checked <span class="err">&amp;</span> disabled<span class="nt">&lt;/label&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"styleguide"</span><span class="nt">&gt;</span>Radio Buttons<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"e-form-rc-box e-form-rc-box--ib"</span> <span class="na">id=</span><span class="s">"radio-assy"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">class=</span><span class="s">"e-form-control"</span> <span class="na">id=</span><span class="s">"radio1"</span><span class="nt">&gt;&lt;label</span> <span class="na">for=</span><span class="s">"radio1"</span><span class="nt">&gt;</span>default<span class="nt">&lt;/label&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">class=</span><span class="s">"e-form-control"</span> <span class="na">disabled</span> <span class="na">id=</span><span class="s">"radio2"</span><span class="nt">&gt;&lt;label</span> <span class="na">for=</span><span class="s">"radio2"</span><span class="nt">&gt;</span>disabled<span class="nt">&lt;/label&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">class=</span><span class="s">"e-form-control"</span> <span class="na">checked</span> <span class="na">id=</span><span class="s">"radio3"</span><span class="nt">&gt;&lt;label</span> <span class="na">for=</span><span class="s">"radio3"</span><span class="nt">&gt;</span>checked<span class="nt">&lt;/label&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">class=</span><span class="s">"e-form-control"</span> <span class="na">disabled</span> <span class="na">checked</span> <span class="na">id=</span><span class="s">"radio4"</span><span class="nt">&gt;&lt;label</span> <span class="na">for=</span><span class="s">"radio4"</span><span class="nt">&gt;</span>checked <span class="err">&amp;</span> disabled<span class="nt">&lt;/label&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h2 id="form-layout" class="styleguide">form-layout</h2>
+<p class="styleguide">【フォームの基本形】<br>
+<code class="styleguide">.e-form-table</code>         = 大枠<br>
+<code class="styleguide">.e-form-unit</code>          = 1かたまり<br>
+<code class="styleguide">.e-form-head</code>          = 見だし<br>
+<code class="styleguide">.e-form-field</code>         = フィールド<br>
+※<code class="styleguide">.e-form-field</code>の中は<code class="styleguide">.e-form-cols &gt; .e-form-col12</code> 等で囲みその中に<code class="styleguide">inputタグ</code>を記述<br><br></p><p class="styleguide">【レイアウト】<br>
+<code class="styleguide">.e-form-cols</code>      = グリッドレイアウト枠<br>
+<code class="styleguide">.e-form-col[0_5 - 12]</code> = グリッドレイアウト スマホ時は続けて <code class="styleguide">.e-form-col12--sm</code>等を記述<br><br></p><p class="styleguide">【ヘルパー】<br>
+<code class="styleguide">.e-form-control</code>       = input, textarea, selectなどのinput要素<br>
+<code class="styleguide">.e-form-text-dash</code>     = .e-form-field内の「 - 」を囲むタグ<code class="styleguide">.e-form-col0_5</code>の中に記述<br>
+<code class="styleguide">.e-form-inframe</code>       = .e-form-field内インラインフレーム<br>
+<code class="styleguide">[role=&quot;tooltip&quot;]</code>    = 入力タイプ説明をツールチップで紐付ける<br>
+<code class="styleguide">.e-form-req</code>    = 必須<br>
+<code class="styleguide">.e-form-any</code>    = 任意<br>
+<code class="styleguide">.e-form-text</code>    = フォームテキスト<br>
+<code class="styleguide">.e-form-small-text</code>    = フォームスモールテキスト</p>
+<h2 id="form-step" class="styleguide">form-step</h2>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+<div class="e-form-step">
+  <ol class="e-form-step__body">
+    <li class="e-form-step__item is-active"><span>お客様情報の変更</span></li>
+    <li class="e-form-step__item"><span>変更内容の確認</span></li>
+    <li class="e-form-step__item"><span>変更完了</span></li>
+    <li class="e-form-step__item"><span>変更完了</span></li>
+    <li class="e-form-step__item"><span>変更完了</span></li>
+  </ol>
+</div>
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-form-step"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"e-form-step__body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"e-form-step__item is-active"</span><span class="nt">&gt;&lt;span&gt;</span>お客様情報の変更<span class="nt">&lt;/span&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"e-form-step__item"</span><span class="nt">&gt;&lt;span&gt;</span>変更内容の確認<span class="nt">&lt;/span&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"e-form-step__item"</span><span class="nt">&gt;&lt;span&gt;</span>変更完了<span class="nt">&lt;/span&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"e-form-step__item"</span><span class="nt">&gt;&lt;span&gt;</span>変更完了<span class="nt">&lt;/span&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"e-form-step__item"</span><span class="nt">&gt;&lt;span&gt;</span>変更完了<span class="nt">&lt;/span&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ol&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

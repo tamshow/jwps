@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="/assets/css/base.css" media="all">
+  <script src="/assets/js/index.js"></script>
+</head>
+
+<body class="sg-body">
+
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>Japan Web Production Standards</h1>
+    <nav class="sg-header__nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="richeditor.html">richeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">js</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#accordion">accordion</a></li>
+         
+       
+         
+          <li><a href="#calendar">calendar</a></li>
+         
+       
+         
+          <li><a href="#carousel">carousel</a></li>
+         
+       
+         
+          <li><a href="#modal">modal</a></li>
+         
+       
+         
+          <li><a href="#tab">tab</a></li>
+         
+       
+         
+          <li><a href="#to-top">to-top</a></li>
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="accordion" class="styleguide">accordion</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+<div class="c-accordion" data-accordion>
+ <button type="button" class="c-accordion__title" aria-controls="accordion1" aria-expanded="true" aria-label="開く" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - NONE</button>
+ <div id="accordion1" class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+ </div>
+</div>
+
+<div class="c-accordion is-active" data-accordion data-device-accordion="all">
+ <button type="button" class="c-accordion__title" aria-controls="accordion2" aria-expanded="false" aria-label="閉じる" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - ALL</button>
+ <div id="accordion2" class="c-accordion__body" aria-hidden="false" data-body-accordion>
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+ </div>
+</div>
+
+<div class="c-accordion" data-accordion data-device-accordion="pc">
+ <button type="button" class="c-accordion__title" aria-controls="accordion3" aria-expanded="true" aria-label="開く" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - PC</button>
+ <div id="accordion3" class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+ </div>
+</div>
+
+<div class="c-accordion" data-accordion data-device-accordion="tab">
+ <button type="button" class="c-accordion__title" aria-controls="accordion3" aria-expanded="true" aria-label="開く" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - TAB</button>
+ <div id="accordion3" class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+ </div>
+</div>
+
+<div class="c-accordion" data-accordion data-device-accordion="sp">
+ <button type="button" class="c-accordion__title" aria-controls="accordion3" aria-expanded="true" aria-label="開く" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - SP</button>
+ <div id="accordion3" class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+ </div>
+</div>
+
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-accordion"</span> <span class="na">data-accordion</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"c-accordion__title"</span> <span class="na">aria-controls=</span><span class="s">"accordion1"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"開く"</span> <span class="na">data-toggle-accordion</span><span class="nt">&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - NONE<span class="nt">&lt;/button&gt;</span>
+ <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"accordion1"</span> <span class="na">class=</span><span class="s">"c-accordion__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">style=</span><span class="s">"display:none;"</span> <span class="na">data-body-accordion</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。<span class="nt">&lt;/p&gt;</span>
+ <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-accordion is-active"</span> <span class="na">data-accordion</span> <span class="na">data-device-accordion=</span><span class="s">"all"</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"c-accordion__title"</span> <span class="na">aria-controls=</span><span class="s">"accordion2"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"閉じる"</span> <span class="na">data-toggle-accordion</span><span class="nt">&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - ALL<span class="nt">&lt;/button&gt;</span>
+ <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"accordion2"</span> <span class="na">class=</span><span class="s">"c-accordion__body"</span> <span class="na">aria-hidden=</span><span class="s">"false"</span> <span class="na">data-body-accordion</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。<span class="nt">&lt;/p&gt;</span>
+ <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-accordion"</span> <span class="na">data-accordion</span> <span class="na">data-device-accordion=</span><span class="s">"pc"</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"c-accordion__title"</span> <span class="na">aria-controls=</span><span class="s">"accordion3"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"開く"</span> <span class="na">data-toggle-accordion</span><span class="nt">&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - PC<span class="nt">&lt;/button&gt;</span>
+ <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"accordion3"</span> <span class="na">class=</span><span class="s">"c-accordion__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">style=</span><span class="s">"display:none;"</span> <span class="na">data-body-accordion</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。<span class="nt">&lt;/p&gt;</span>
+ <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-accordion"</span> <span class="na">data-accordion</span> <span class="na">data-device-accordion=</span><span class="s">"tab"</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"c-accordion__title"</span> <span class="na">aria-controls=</span><span class="s">"accordion3"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"開く"</span> <span class="na">data-toggle-accordion</span><span class="nt">&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - TAB<span class="nt">&lt;/button&gt;</span>
+ <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"accordion3"</span> <span class="na">class=</span><span class="s">"c-accordion__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">style=</span><span class="s">"display:none;"</span> <span class="na">data-body-accordion</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。<span class="nt">&lt;/p&gt;</span>
+ <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-accordion"</span> <span class="na">data-accordion</span> <span class="na">data-device-accordion=</span><span class="s">"sp"</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"c-accordion__title"</span> <span class="na">aria-controls=</span><span class="s">"accordion3"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"開く"</span> <span class="na">data-toggle-accordion</span><span class="nt">&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - SP<span class="nt">&lt;/button&gt;</span>
+ <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"accordion3"</span> <span class="na">class=</span><span class="s">"c-accordion__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">style=</span><span class="s">"display:none;"</span> <span class="na">data-body-accordion</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。<span class="nt">&lt;/p&gt;</span>
+ <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="c-accordion" data-accordion data-device-accordion="all">
+  <button type="button" class="c-accordion__title" aria-expanded="true" aria-label="開く" data-toggle-accordion>Javascript</button>
+    <div class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+  <ul class="list list--disc">
+    <li>data-accordion class="is-active"</li>
+    <li>data-toggle-accordion</li>
+    <li>data-body-accordion  style="display:none;"</li>
+    <li>data-device-accordion = `all`, `pc`, `tab`, `sp`</li>
+  </ul>
+    </div>
+</div>
+
+<div class="c-accordion" data-accordion data-device-accordion="all">
+  <button type="button" class="c-accordion__title" aria-expanded="true" aria-label="開く" data-toggle-accordion>Accessibility</button>
+    <div class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+  <ul class="list list--disc">
+    <li>表示領域の操作はマウスとキーボードの両方で使用可能です。</li>
+    <li>ボタン領域の属性は、aria-expanded = `true`または`false`を設定します（必須）。</li>
+    <li>ボタン領域の属性は、aria-label = `開く`または`閉じる`を設定します（必須）。</li>
+    <li>ボタン領域にaria-controls = `id名`、コンテンツ領域に該当する`id名`を設定し、表示領域の関連付けを設定します（任意）。</li>
+    <li>コンテンツ領域の属性は、対応するボタン領域の属性に応じて、aria-hidden= `true`または`false`を設定します（必須）。</li>
+  </ul>
+    </div>
+</div>
+
+<h1 id="calendar" class="styleguide">calendar</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+
+<div id="vue-calendar">
+  <calendar-list></calendar-list>
+</div>
+
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"vue-calendar"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;calendar-list&gt;&lt;/calendar-list&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h1 id="carousel" class="styleguide">carousel</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+<div class="swiper-main">
+  <div id="js-swiper-main" class="swiper-container">
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide">
+        <a href=""><img src="/assets/img/dummy/1500x500.png" alt=""></a>
+      </li>
+      <li class="swiper-slide">
+        <a href=""><img src="/assets/img/dummy/1500x500.png" alt=""></a>
+      </li>
+      <li class="swiper-slide">
+        <a href=""><img src="/assets/img/dummy/1500x500.png" alt=""></a>
+      </li>
+    </ul>
+
+    <div class="swiper-controls">
+      <button class="swiper-start on"><i class="material-icons">play_arrow</i></button>
+      <button class="swiper-stop"><i class="material-icons">pause</i></button>
+    </div>
+
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script  src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.js"></script>
+<script>
+
+    var swiperMain = new Swiper('#js-swiper-main', {
+      pagination: '.swiper-main .swiper-pagination',
+      paginationClickable: true,
+      centeredSlides: false,
+      loop: true,
+      loopAdditionalSlides: 1,
+      spaceBetween: 0,
+      slidesPerView: 1,
+      autoplay: 3000,
+      onInit() {
+        var start = $('.swiper-main .swiper-start');
+        var stop = $('.swiper-main .swiper-stop');
+        start.on('click', function()  {
+          if (!start.hasClass('on')) {
+            swiperMain.startAutoplay();
+            start.addClass('on');
+            stop.removeClass('on');
+          }
+        });
+        stop.on('click', function() {
+          if (!stop.hasClass('on')) {
+            swiperMain.stopAutoplay();
+            stop.addClass('on');
+            start.removeClass('on');
+          }
+        });
+      }
+    });
+
+
+</script>
+
+
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swiper-main"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"js-swiper-main"</span> <span class="na">class=</span><span class="s">"swiper-container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"swiper-wrapper"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"swiper-slide"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/assets/img/dummy/1500x500.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"swiper-slide"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/assets/img/dummy/1500x500.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"swiper-slide"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/assets/img/dummy/1500x500.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swiper-controls"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"swiper-start on"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"material-icons"</span><span class="nt">&gt;</span>play_arrow<span class="nt">&lt;/i&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"swiper-stop"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"material-icons"</span><span class="nt">&gt;</span>pause<span class="nt">&lt;/i&gt;&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swiper-pagination"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script  </span><span class="na">src=</span><span class="s">"http://code.jquery.com/jquery-2.2.4.js"</span> <span class="na">integrity=</span><span class="s">"sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+
+    <span class="kd">var</span> <span class="nx">swiperMain</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Swiper</span><span class="p">(</span><span class="s1">'#js-swiper-main'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">pagination</span><span class="p">:</span> <span class="s1">'.swiper-main .swiper-pagination'</span><span class="p">,</span>
+      <span class="na">paginationClickable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">centeredSlides</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="na">loop</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">loopAdditionalSlides</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="na">spaceBetween</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="na">slidesPerView</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="na">autoplay</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+      <span class="nx">onInit</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.swiper-main .swiper-start'</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">stop</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.swiper-main .swiper-stop'</span><span class="p">);</span>
+        <span class="nx">start</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span>  <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">start</span><span class="p">.</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">'on'</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">swiperMain</span><span class="p">.</span><span class="nx">startAutoplay</span><span class="p">();</span>
+            <span class="nx">start</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'on'</span><span class="p">);</span>
+            <span class="nx">stop</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'on'</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+        <span class="nx">stop</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">stop</span><span class="p">.</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">'on'</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">swiperMain</span><span class="p">.</span><span class="nx">stopAutoplay</span><span class="p">();</span>
+            <span class="nx">stop</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'on'</span><span class="p">);</span>
+            <span class="nx">start</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'on'</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+
+
+<span class="nt">&lt;/script&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h1 id="modal" class="styleguide">modal</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    <!-- ボタン領域 -->
+<div class="e-btn-group is-left">
+<button type="button" class="e-btn" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
+</div>
+<div class="e-box" data-clone-modal="area-modal-dialog1">
+<div class="e-box__body">
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
+</div>
+</div>
+
+<!-- コンテンツ領域 -->
+  <div class="c-modal-dialog" id="area-modal-dialog1" data-modal role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="c-modal-dialog__scroll" role="document">
+      <div class="c-modal-dialog__body">
+
+        <h3 class="c-modal-dialog__title">情に棹させば流される智に働けば角が立つ 18px</h3>
+        <div data-append-modal>
+          <!--  data-append-modal内はdata-clone-modal="aria-controls名"を表示 -->
+        </div>
+        <div class="c-modal-dialog__btn-group e-btn-group">
+          <button type="button" class="e-btn e-btn--secondary" data-close-modal aria-expanded="true" aria-label="キャンセル">キャンセル</button>
+          <button type="button" class="e-btn e-btn--secondary" aria-expanded="true" aria-label="実行する">実行する</button>
+        </div>
+
+      </div>
+    </div>
+    <button type="button" class="c-modal-dialog__close material-icons" data-close-modal aria-expanded="true" aria-label="dialogを閉じる">close</button>
+  </div>
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="c">&lt;!-- ボタン領域 --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-btn-group is-left"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn"</span> <span class="na">data-open-modal</span> <span class="na">aria-controls=</span><span class="s">"area-modal-dialog1"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"開く"</span><span class="nt">&gt;</span>Modal Dialogを開く<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box"</span> <span class="na">data-clone-modal=</span><span class="s">"area-modal-dialog1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box__body"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- コンテンツ領域 --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-modal-dialog"</span> <span class="na">id=</span><span class="s">"area-modal-dialog1"</span> <span class="na">data-modal</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-modal-dialog__scroll"</span> <span class="na">role=</span><span class="s">"document"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-modal-dialog__body"</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"c-modal-dialog__title"</span><span class="nt">&gt;</span>情に棹させば流される智に働けば角が立つ 18px<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">data-append-modal</span><span class="nt">&gt;</span>
+          <span class="c">&lt;!--  data-append-modal内はdata-clone-modal="aria-controls名"を表示 --&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-modal-dialog__btn-group e-btn-group"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn e-btn--secondary"</span> <span class="na">data-close-modal</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"キャンセル"</span><span class="nt">&gt;</span>キャンセル<span class="nt">&lt;/button&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn e-btn--secondary"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"実行する"</span><span class="nt">&gt;</span>実行する<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"c-modal-dialog__close material-icons"</span> <span class="na">data-close-modal</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"dialogを閉じる"</span><span class="nt">&gt;</span>close<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="c-accordion" data-accordion data-device-accordion="all">
+  <button type="button" class="c-accordion__title" aria-expanded="true" aria-label="開く" data-toggle-accordion>Javascript</button>
+    <div class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+  <ul>
+    <li>･data-open-modal</li>
+    <li>･data-modal</li>
+    <li>･data-close-modal</li>
+    <li>･data-clone-modal="aria-controls名"</li>
+    <li>･data-append-modal</li>
+    <li>･背景暗転はjsで作成します。</li>
+  </ul>
+    </div>
+</div>
+
+<div class="c-accordion" data-accordion data-device-accordion="all">
+  <button type="button" class="c-accordion__title" aria-expanded="true" aria-label="開く" data-toggle-accordion>Accessibility</button>
+    <div class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+  <ul>
+    <li>･表示領域の操作はマウスとキーボードの両方で使用可能です。</li>
+    <li>･ボタン領域の属性は、aria-expanded = `true`または`false`を設定します（必須）。</li>
+    <li>･ボタン領域の属性は、aria-label = `開く`または`閉じる`など適宜設定します（必須）。</li>
+    <li>･ボタン領域にaria-controls = `id名`、コンテンツ領域に該当する`id名`を設定し、表示領域の関連付けを設定します（必須）。</li>
+    <li>･コンテンツ領域の属性は、対応するボタン領域の属性に応じて、aria-hidden= `true`を設定します（必須）。</li>
+    <li>･コンテンツ領域の属性は、対応するボタン領域の属性に応じて、tabindex=`-1`または`1`を設定します（必須）。</li>
+    <li>･背景暗転下領域の属性は、対応するボタン領域の属性に応じて、aria-hidden= `true`または`false`を設定します（必須）。</li>
+    <li>･コンテンツ領域は role="dialog"設定します（必須）。</li>
+    <li>･コンテンツのドキュメント領域は role="document"を設定します（必須）。</li>
+  </ul>
+    </div>
+</div>
+
+<h1 id="tab" class="styleguide">tab</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+<div class="c-tab" data-tab>
+  <ul class="c-tab__nav" role="tablist">
+    <li id="aria-tab-nav1" role="tab" tabindex="0" aria-selected="true"><button type="button" data-tablist aria-controls="area-tab-panel1">タイトル1</button></li>
+    <li id="aria-tab-nav2" role="tab" tabindex="-1" aria-selected="false"><button type="button" data-tablist aria-controls="area-tab-panel2">タイトル2</button></li>
+    <li id="aria-tab-nav3" role="tab" tabindex="-1" aria-selected="false"><button type="button" data-tablist aria-controls="area-tab-panel3">タイトル3</button></li>
+  </ul>
+  <div class="c-tab__body">
+    <div data-tabpanel id="area-tab-panel1" aria-labelledby="aria-tab-nav1" aria-hidden="false" role="tabpanel">タイトル1</div>
+    <div data-tabpanel id="area-tab-panel2" aria-labelledby="aria-tab-nav2" aria-hidden="true" role="tabpanel">タイトル2</div>
+    <div data-tabpanel id="area-tab-panel3" aria-labelledby="aria-tab-nav3" aria-hidden="true" role="tabpanel">タイトル3</div>
+  </div>
+</div>
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-tab"</span> <span class="na">data-tab</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"c-tab__nav"</span> <span class="na">role=</span><span class="s">"tablist"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"aria-tab-nav1"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-selected=</span><span class="s">"true"</span><span class="nt">&gt;&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-tablist</span> <span class="na">aria-controls=</span><span class="s">"area-tab-panel1"</span><span class="nt">&gt;</span>タイトル1<span class="nt">&lt;/button&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"aria-tab-nav2"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">aria-selected=</span><span class="s">"false"</span><span class="nt">&gt;&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-tablist</span> <span class="na">aria-controls=</span><span class="s">"area-tab-panel2"</span><span class="nt">&gt;</span>タイトル2<span class="nt">&lt;/button&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"aria-tab-nav3"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">aria-selected=</span><span class="s">"false"</span><span class="nt">&gt;&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-tablist</span> <span class="na">aria-controls=</span><span class="s">"area-tab-panel3"</span><span class="nt">&gt;</span>タイトル3<span class="nt">&lt;/button&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-tab__body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">data-tabpanel</span> <span class="na">id=</span><span class="s">"area-tab-panel1"</span> <span class="na">aria-labelledby=</span><span class="s">"aria-tab-nav1"</span> <span class="na">aria-hidden=</span><span class="s">"false"</span> <span class="na">role=</span><span class="s">"tabpanel"</span><span class="nt">&gt;</span>タイトル1<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">data-tabpanel</span> <span class="na">id=</span><span class="s">"area-tab-panel2"</span> <span class="na">aria-labelledby=</span><span class="s">"aria-tab-nav2"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">role=</span><span class="s">"tabpanel"</span><span class="nt">&gt;</span>タイトル2<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">data-tabpanel</span> <span class="na">id=</span><span class="s">"area-tab-panel3"</span> <span class="na">aria-labelledby=</span><span class="s">"aria-tab-nav3"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">role=</span><span class="s">"tabpanel"</span><span class="nt">&gt;</span>タイトル3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h1 id="to-top" class="styleguide">to-top</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    <p class="c-to-top" data-scroll="to-top">
+  <a href="#skippy"><span>ページトップへ</span></a>
+</p>
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"c-to-top"</span> <span class="na">data-scroll=</span><span class="s">"to-top"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#skippy"</span><span class="nt">&gt;&lt;span&gt;</span>ページトップへ<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+<span class="nt">&lt;/p&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

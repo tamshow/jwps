@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="/assets/css/base.css" media="all">
+  <script src="/assets/js/index.js"></script>
+</head>
+
+<body class="sg-body">
+
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>Japan Web Production Standards</h1>
+    <nav class="sg-header__nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="richeditor.html">richeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">table</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#table">table</a></li>
+         
+       
+         
+       
+         
+       
+         
+       
+         
+       
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="table" class="styleguide">table</h1>
+<p class="styleguide"><code class="styleguide">.e-table--center</code></p><p class="styleguide"><code class="styleguide">.e-table--layout-fixed</code></p><div class="codeExample">
+  <div class="exampleOutput">
+      <table class="e-table">
+    <tr>
+      <th>見出し</th>
+      <th>見出し</th>
+      <th>見出し</th>
+    </tr>
+    <tr>
+      <td>テキストが入ります</td>
+      <td>テキストが入りますテキストが入りますテキストが入ります</td>
+      <td>テキストが入ります</td>
+    </tr>
+    <tr>
+      <td>テキストが入ります</td>
+      <td>テキストが入りますテキストが入りますテキストが入ります</td>
+      <td>テキストが入ります</td>
+    </tr>
+  </table>
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入ります<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入りますテキストが入りますテキストが入ります<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入ります<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入ります<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入りますテキストが入りますテキストが入ります<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入ります<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/table&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h2 id="table-borderless" class="styleguide">table-borderless</h2>
+<div class="codeExample">
+  <div class="exampleOutput">
+      <table class="e-table e-table--borderless">
+    <tr>
+      <th>見出し</th>
+      <th>見出し</th>
+      <th>見出し</th>
+    </tr>
+    <tr>
+      <td>テキストが入ります</td>
+      <td>テキストが入りますテキストが入りますテキストが入ります</td>
+      <td>テキストが入ります</td>
+    </tr>
+    <tr>
+      <td>テキストが入ります</td>
+      <td>テキストが入りますテキストが入りますテキストが入ります</td>
+      <td>テキストが入ります</td>
+    </tr>
+  </table>
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table e-table--borderless"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入ります<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入りますテキストが入りますテキストが入ります<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入ります<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入ります<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入りますテキストが入りますテキストが入ります<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入ります<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/table&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h2 id="table-helpers" class="styleguide">table-helpers</h2>
+
+<div class="styleguide-table"></div>
+<table class="styleguide"> <tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+ <tr>
+<td><code class="styleguide">e-th-w--1em</code>, <code class="styleguide">e-td-w--1em</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="styleguide">e-th-w--10p</code>, <code class="styleguide">e-td-w--1em</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="styleguide">e-th-w--15p</code>, <code class="styleguide">e-td-w--15p</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="styleguide">e-th-w--20p</code>, <code class="styleguide">e-td-w--20p</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="styleguide">e-th-w--small</code>, <code class="styleguide">e-td-w--small</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="styleguide">e-th-w--medium</code>, <code class="styleguide">e-td-w--medium</code></td>
+<td></td>
+</tr>
+ </table>
+<h2 id="table-small" class="styleguide">table-small</h2>
+<div class="codeExample">
+  <div class="exampleOutput">
+    <table class="e-table e-table--small e-table--layout-fixed e-table--center">
+  <tr>
+    <th class="e-th-w--small">タイトル</th>
+    <th>タイトル</th>
+    <th>タイトル</th>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td>テキスト</td>
+    <td>テキスト</td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td>テキスト</td>
+    <td>テキスト</td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td>テキスト</td>
+    <td>テキスト</td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td>テキスト</td>
+    <td>テキスト</td>
+  </tr>
+</table>
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table e-table--small e-table--layout-fixed e-table--center"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"e-th-w--small"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th&gt;</span>タイトル<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th&gt;</span>タイトル<span class="nt">&lt;/th&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;th&gt;</span>タイトル<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;th&gt;</span>タイトル<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;th&gt;</span>タイトル<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;th&gt;</span>タイトル<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h2 id="table-sp-block" class="styleguide">table-sp-block</h2>
+<div class="codeExample">
+  <div class="exampleOutput">
+      <table class="e-table e-table--block">
+    <tr>
+      <th>見出し</th>
+      <td>テキストが入ります</td>
+    </tr>
+    <tr>
+      <th>見出し</th>
+      <td>テキストが入ります</td>
+    </tr>
+  </table>
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table e-table--block"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入ります<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストが入ります<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/table&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h2 id="table-sp-scroll" class="styleguide">table-sp-scroll</h2>
+<p class="styleguide"><code class="styleguide">.e-responsive-w-inner--one-half</code></p><div class="codeExample">
+  <div class="exampleOutput">
+    
+
+<div class="e-responsive-table">
+  <table class="e-table">
+    <tr>
+      <th class="e-th-w--10p">タイトル10%</th>
+      <th class="e-th-w--15p">タイトル15%</th>
+      <th class="e-th-w--15p">タイトル15%</th>
+      <th class="e-th-w--15p">タイトル15%</th>
+      <th class="e-th-w--10p">タイトル10%</th>
+      <th>タイトル</th>
+    </tr>
+    <tr>
+      <td>テキストテキスト</td>
+      <td>テキストテキスト</td>
+      <td>テキストテキスト</td>
+      <td>テキストテキスト</td>
+      <td>テキストテキスト</td>
+      <td><div class="e-responsive-w-inner--one-half">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト30vw </div></td>
+    </tr>
+    <tr>
+      <td>テキスト</td>
+      <td>テキスト</td>
+      <td>テキスト</td>
+      <td>テキスト</td>
+      <td>テキスト</td>
+      <td><div class="e-responsive-w-inner--half">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト50vw </div></td>
+    </tr>
+
+  </table>
+</div>
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-responsive-table"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"e-th-w--10p"</span><span class="nt">&gt;</span>タイトル10%<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"e-th-w--15p"</span><span class="nt">&gt;</span>タイトル15%<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"e-th-w--15p"</span><span class="nt">&gt;</span>タイトル15%<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"e-th-w--15p"</span><span class="nt">&gt;</span>タイトル15%<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"e-th-w--10p"</span><span class="nt">&gt;</span>タイトル10%<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>タイトル<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストテキスト<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストテキスト<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストテキスト<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストテキスト<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキストテキスト<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;&lt;div</span> <span class="na">class=</span><span class="s">"e-responsive-w-inner--one-half"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト30vw <span class="nt">&lt;/div&gt;&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;&lt;div</span> <span class="na">class=</span><span class="s">"e-responsive-w-inner--half"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト50vw <span class="nt">&lt;/div&gt;&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+
+  <span class="nt">&lt;/table&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

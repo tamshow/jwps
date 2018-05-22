@@ -28,6 +28,9 @@ const minifier = require('gulp-uglify');
 //書き出し先変更
 const DEST = 'build';
 
+//docs
+const DOCS = '../docs';
+
 
 // js
 //=================
@@ -193,6 +196,55 @@ gulp.task('build', (callback) => {
       'build:clean',
       //'build:js:min',
       'build:css:min',
+      callback);
+});
+
+
+
+
+//========================================================================
+// docsへコピー
+//========================================================================
+
+
+
+
+//削除する
+//=================
+gulp.task('docs:clean', () => {
+  return del([
+    DOCS + '/'
+  ],{force: true});
+});
+
+//移動する
+//=================
+gulp.task('docs:move:assets', () => {
+  return gulp.src([
+    'source/assets/**/*',
+    '!source/assets/js-form/**/*',
+    '!source/assets/sass/**/*',
+    '!source/assets/src/**/*'
+  ])
+      .pipe(gulp.dest(DOCS + '/assets/'));
+});
+
+gulp.task('docs:move:html', () => {
+  return gulp.src([
+    'source/styleguide/**/*'
+  ])
+      .pipe(gulp.dest(DOCS + '/'));
+});
+
+
+
+//
+//==================
+gulp.task('docs', (callback) => {
+  runSequence(
+      'docs:clean',
+      'docs:move:assets',
+      'docs:move:html',
       callback);
 });
 
