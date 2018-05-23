@@ -66,6 +66,12 @@
          
        
          
+          <li><a href="#menu">menu</a></li>
+         
+       
+         
+       
+         
           <li><a href="#pagination">pagination</a></li>
          
        
@@ -512,6 +518,90 @@
             <span class="nt">&lt;h1&gt;</span>タイトル<span class="nt">&lt;/h1&gt;</span>
           <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h1 id="menu" class="styleguide">menu</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    <div class="c-menu-hierarchy-primary" data-accordion data-device-accordion="sp">
+  <h3 class="c-menu-hierarchy-primary__title" aria-controls="accordion1" aria-expanded="true" aria-label="開く" data-toggle-accordion>階層構造メニュー</h3>
+  <ul class="c-menu-hierarchy-primary__list is-hidden--sm" id="accordion1"  aria-hidden="true" data-body-accordion>
+    <li><a href="">タイトル</a></li>
+    <li><a href="" class="is-active">タイトル</a>
+      <ul class="c-menu-hierarchy-primary__list">
+        <li><a href="" class="is-active">タイトル</a></li>
+        <li><a href="">タイトル</a></li>
+        <li><a href="">タイトル</a></li>
+      </ul>
+    </li>
+        <li><a href="">タイトル</a></li>
+        <li><a href="">タイトル</a></li>
+  </ul>
+</div>
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-menu-hierarchy-primary"</span> <span class="na">data-accordion</span> <span class="na">data-device-accordion=</span><span class="s">"sp"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"c-menu-hierarchy-primary__title"</span> <span class="na">aria-controls=</span><span class="s">"accordion1"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"開く"</span> <span class="na">data-toggle-accordion</span><span class="nt">&gt;</span>階層構造メニュー<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"c-menu-hierarchy-primary__list is-hidden--sm"</span> <span class="na">id=</span><span class="s">"accordion1"</span>  <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">data-body-accordion</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"is-active"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"c-menu-hierarchy-primary__list"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"is-active"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h2 id="menu-secondary" class="styleguide">menu-secondary</h2>
+<div class="codeExample">
+  <div class="exampleOutput">
+    <div class="c-menu-hierarchy-secondary" data-accordion data-device-accordion="sp">
+  <h3 class="c-menu-hierarchy-secondary__title" aria-controls="c-menu-hierarchy-secondary" aria-expanded="true" aria-label="開く" data-toggle-accordion>階層構造メニュー secondary</h3>
+  <ul class="c-menu-hierarchy-secondary__list is-hidden--sm" id="c-menu-hierarchy-secondary"  aria-hidden="true" data-body-accordion>
+    <li><a href="">タイトル</a></li>
+    <li><a href="">タイトル</a></li>
+    <li><a href="">タイトル</a></li>
+  </ul>
+</div>
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-menu-hierarchy-secondary"</span> <span class="na">data-accordion</span> <span class="na">data-device-accordion=</span><span class="s">"sp"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"c-menu-hierarchy-secondary__title"</span> <span class="na">aria-controls=</span><span class="s">"c-menu-hierarchy-secondary"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"開く"</span> <span class="na">data-toggle-accordion</span><span class="nt">&gt;</span>階層構造メニュー secondary<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"c-menu-hierarchy-secondary__list is-hidden--sm"</span> <span class="na">id=</span><span class="s">"c-menu-hierarchy-secondary"</span>  <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">data-body-accordion</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
         </div>
       </div>
   </div>
