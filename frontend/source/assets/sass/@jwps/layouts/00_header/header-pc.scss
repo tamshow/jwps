@@ -89,48 +89,6 @@
       }
     }
 
-    ._btn {
-      i {
-        font-size: 22px;
-        position: relative;
-        top: 6px;
-        color: $text-color-sub;
-      }
-
-      padding-left: 10px;
-      a {
-        display: inline-block;
-        font-size: 13px;
-        text-decoration: none;
-        color: $text-color;
-        padding: 13px;
-        max-width: 100%;
-        box-sizing: border-box;
-        transition: all $animation;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        position: relative;
-        vertical-align: middle;
-        background-color: #fff;
-
-        @include elevation(2);
-        @include elevation-transition;
-
-        &:hover,
-        &:focus,
-        &.is-hover {
-          text-decoration: none;
-          @include elevation(4);
-        }
-
-        &:active {
-          text-decoration: none;
-          @include elevation(8);
-        }
-      }
-
-    }
   }
 
   ._search {
@@ -228,8 +186,6 @@
       a.stay,
       a.is-active,
       a:hover {
-        border-bottom-color: $brand-secondary;
-
         transition: $animation;
       }
 
