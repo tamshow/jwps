@@ -81,7 +81,7 @@ CMSで使うことを前提にまとめています。<br>
 <code>gulp serve</code>することで<code>frontend/source</code>を開発用ルートとしてファイルをwatchします。<br>
 <code>gulp build</code>することで<code>frontend/source/assets</code>を公開用に調整し<code>frontend/build/assets</code>へ書き出します。<br>
 画像圧縮はしていません。必要に応じて圧縮してください。<br>
-Sassのmixinは<a href="https://www.bourbon.io/">bourbon</a>を参考にします。<br>
+Sassのmixinは<a href="https://www.bourbon.io/">bourbonファミリー</a>を使用・参考にします。<br>
 JSファイルはwebpackでバンドルした物とバンドルしない物を準備しています。必要に応じて使い分けてください。</p>
 
 <h3>使用する主なToolについて</h3>
