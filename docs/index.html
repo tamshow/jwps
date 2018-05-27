@@ -10,7 +10,9 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="format-detection" content="email=no">
   <link rel="stylesheet" href="assets/css/base.css" media="all">
-  <script src="assets/js/index.js"></script>
+
+  <script src="assets/js/vendor.js"></script>
+  <script src="assets/js/bundle.js"></script>
 </head>
 
 <body class="sg-body">
@@ -44,7 +46,7 @@
          
           <li><a href="#top">「Japan Web Production Standards」について</a></li>
          
-
+       
          
           <li><a href="#top-designers">デザインリソース</a></li>
          
@@ -128,10 +130,10 @@ UIコンポーネントを組み合わせてwebページを構築していく手
 CMSで使うことを前提にまとめています。<br>
 <code>frontend/source</code>フォルダが作業場所です。<br>
 <code>gulp serve</code>することで<code>frontend/source</code>を開発用ルートとしてファイルをwatchします。<br>
-<code>gulp build</code>することで<code>frontend/source/assets</code>を公開用に調整し<code>frontend/build/assets</code>へ書き出します。<br>
+<code>gulp build</code>することで<code>frontend/sourceassets</code>を公開用に調整し<code>frontend/buildassets</code>へ書き出します。<br>
 画像圧縮はしていません。必要に応じて圧縮してください。<br>
 Sassのmixinは<a href="https://www.bourbon.io/">bourbonファミリー</a>を使用・参考にします。<br>
-JSファイルはwebpackでバンドルした物とバンドルしない物を準備しています。必要に応じて使い分けてください。</p>
+JSファイルはバンドルしたパターンとバンドルしないパターンを準備しています。必要に応じて使い分けてください。</p>
 
 <h3>使用する主なToolについて</h3>
 <ul>
@@ -139,7 +141,6 @@ JSファイルはwebpackでバンドルした物とバンドルしない物を�
 <li><a href="https://www.bourbon.io/">bourbon</a></li>
 <li><a href="jquery.js">jquery.js</a></li>
 <li><a href="lodash.js">lodash.js</a></li>
-<li><a href="moment.js">moment.js</a></li>
 </ul>
 
 <h4>デバイス判定用</h4>
@@ -212,7 +213,6 @@ $ hologram
  │   │   └── ....
  │   │
  │   ├── package.json
- │   ├── webpack.config.js
  │   ├── yarn.lock
  │   └── gulpfile.js
  │

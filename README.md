@@ -41,7 +41,7 @@ CMSで使うことを前提にまとめています。
 `gulp build`することで`frontend/source/assets`を公開用に調整し`frontend/build/assets`へ書き出します。   
 画像圧縮はしていません。必要に応じて圧縮してください。   
 Sassのmixinは[bourbonファミリー](https://www.bourbon.io/)を参考・使用します。   
-JSファイルはwebpackでバンドルした物とバンドルしない物を準備しています。必要に応じて使い分けてください。 
+JSファイルはバンドルしたパターンとバンドルしないパターンを準備しています。必要に応じて使い分けてください。 
 
 ### 環境構築
 
@@ -113,7 +113,6 @@ $ hologram
  │   │   └── ....
  │   │
  │   ├── package.json
- │   ├── webpack.config.js
  │   ├── yarn.lock
  │   └── gulpfile.js
  │

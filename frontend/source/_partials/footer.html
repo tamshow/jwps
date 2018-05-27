@@ -1,0 +1,1 @@
+<footer role="contentinfo"></footer>

@@ -1,27 +1,14 @@
-import _ from 'lodash';
-
-export default class Ripple {
-
-  constructor(opts) {
-    this.initialize();
-  }
-
-  initialize() {
-    this.handleEvents();
-  }
-
-  handleEvents() {
-    this.ripples = document.querySelectorAll('.js-ripple');
-    _.each(this.ripples, (elem) => {
-      this.rippleButton(elem);
-    })
-  }
+$(function () {
+  var ripples = document.querySelectorAll('.js-ripple');
+  _.each(this.ripples, function(elem) {
+    rippleButton(elem);
+  });
   
-  rippleButton(btn) {
-    btn.addEventListener('mousedown', (e) => {
-      const dimension = Math.max(btn.clientWidth, btn.clientHeight);
-      const loc = btn.getBoundingClientRect();
-      const circle = document.createElement('span');
+  function rippleButton(btn) {
+    btn.addEventListener('mousedown', function(e) {
+      var dimension = Math.max(btn.clientWidth, btn.clientHeight);
+      var loc = btn.getBoundingClientRect();
+      var circle = document.createElement('span');
       circle.classList.add('js-rp-effect');
       circle.style.width = dimension + 'px';
       circle.style.height = dimension + 'px';
@@ -34,8 +21,7 @@ export default class Ripple {
     })
   }
 
-}
-
+});
 
 
 /*
