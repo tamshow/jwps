@@ -157,16 +157,6 @@ categories: [utilities, icon]
   }
 }
 
-.is-icon-youtube {
-  background: url("#{$img-path}/common/youtube.svg") right center no-repeat;
-  width: 24px;
-  height: 24px;
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-
-}
-
 .is-icon-badge {
   position: relative;
 
@@ -196,20 +186,4 @@ categories: [utilities, icon]
     background-color: #ff0000;
     border: 2px solid #fff;
   }
-}
-
-.is-icon-new {
-
-  //position: relative;
-  color: #000;
-  font-style: normal;
-  display: inline;
-  font-size: 8px;
-  background-color: $brand-secondary;
-  border-radius: 25px;
-  padding: .2em .8em;
-  margin-right: .2em;
-  margin-left: .2em;
-  vertical-align: middle;
-
 }
