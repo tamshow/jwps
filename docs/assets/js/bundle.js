@@ -54,123 +54,6 @@ $(function () {
 });
 $(function () {
 
-  var trigger = '[data-allcheck="trigger"]';
-  var container = '[data-allcheck="container"]';
-
-  var $trigger = $(trigger);
-  var $container = $(container);
-  var $input = $container.find('input');
-  $trigger.on('click', function () {
-    if ($(this).prop('checked') == true) {
-      $input.prop('checked', true);
-    } else {
-      $input.prop('checked', false);
-    }
-  });
-  
-});
-
-
-
-
-
-$(function () {
-
-
-  //initialize
-  var $modalSelector = $('[data-modal]');
-  var $openModalSelector = $('[data-open-modal]');
-  var $closeModalSelector = $('[data-close-modal]');
-  var $appendSelector = $('[data-append-modal]');
-  var $currentScrollY = 0;
-
-  if ($modalSelector.length) {
-
-    $areaHidden = $('header, footer, main');
-    $currentScrollY = null;
-
-    $('body').append('<div class="c-modal-dialog-bg" data-close-modal aria-expanded="true" aria-label="閉じる"></div>');
-    $modalBg = $('.c-modal-dialog-bg');
-    $modalBg.css({
-      display: 'none',
-      width: '100%',
-      height: '100%',
-      backgroundColor: 'rgba(0, 0, 0, .5)',
-      overflow: 'hidden',
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      zIndex: '99998'
-    });
-
-
-
-    //handleEvents
-    $openModalSelector.on('click', function(e) {
-      show(e);
-    });
-
-    $(document).on('keyup', function(e) {
-      var ESCAPE_KEY_CODE = 27;
-      if (e.keyCode === ESCAPE_KEY_CODE) {
-        this.hide(e);
-      }
-    });
-
-    $closeModalSelector.on('click', function(e) {
-      hide(e);
-    });
-
-    $modalBg.on('click', function(e) {
-      hide(e);
-    });
-
-  }
-
-  //function
-  function show(e) {
-    e.preventDefault();
-    var $openButton = $(e.currentTarget);
-    var containerAttr = $openButton.attr('aria-controls');
-    var $container = $('#' + containerAttr );
-
-    this.$modalBg.fadeIn(400);
-    $container.fadeIn(400).attr({'aria-hidden': 'false', 'tabindex': '1'}).focus();
-    this.$areaHidden.attr({'aria-hidden': 'true'});
-    $currentScrollY = $(window).scrollTop();
-
-    $('body').css({
-      position: 'fixed',
-      width: '100%',
-      top: -1 * $currentScrollY
-    });
-
-    var $clone = $('[data-clone-modal="' + containerAttr + '"]');
-
-    if ($clone.length && !$appendSelector.children().attr('data-clone-modal')) {
-      var elem = $clone.clone(true);
-
-      elem.find('.c-modal-dialog-none').remove();
-      elem.removeAttr('style class').find('*').removeAttr('style class');
-      $appendSelector.append(elem);
-    }
-  }
-
-
-  function hide(e) {
-
-    $modalBg.fadeOut(0);
-    $modalSelector.fadeOut(0).attr({'aria-hidden': 'true', 'tabindex': '-1'});
-    $areaHidden.removeAttr('aria-hidden');
-    $('body').attr({style: ''});
-    $('html, body').prop({scrollTop: $currentScrollY});
-    $appendSelector.empty();
-  }
-
-
-});
-$(function () {
-
 
   /*
    ##uaの判定
@@ -316,59 +199,121 @@ $(function () {
 
 $(function () {
 
-/*  sample
+  var trigger = '[data-allcheck="trigger"]';
+  var container = '[data-allcheck="container"]';
 
- <div class="js-posts" data-url="hoge.json">
-   <script type="text/html">
-     <ul class="l-grids-4to2to2">
-       <% _.each(data, function(result) { %>
-         <li class="l-grid c-card">
-           <a href="<%-result.url %>">
-             <div class="c-card__img"><img src="<%- result.image_path %>" alt=""></div>
-             <div class="c-card__body">
-             <p class="c-card__text is-text-week"> <%- result.date %></p>
-             <div class="c-card__label">
-             <% _.each(result.tags, function(key, tag) { %>
-             <span class="e-label <%-key %>"> <%-tag %></span>
-             <% }); %>
-             </div>
-               <p class="c-card__title"><%- result.title %></p>
-             </div>
-           </a>
-         </li>
-       <% }); %>
-     </ul>;
-   </script>
- </div>
-
- */
-
-
-  _.each($('.js-posts'), function (elem) {
-    var url = $(elem).data('url');
-    var templates = _.template($(elem).find('script').html());
-
-    $.ajax({
-      type: 'GET',
-      url: url,
-      dataType: 'json',
-      cache: false
-    }).then(
-        function (data) {
-          $(elem).append(templates({
-            'data': data
-          }));
-        },
-
-        function () {
-          console.log('No Data');
-        });
+  var $trigger = $(trigger);
+  var $container = $(container);
+  var $input = $container.find('input');
+  $trigger.on('click', function () {
+    if ($(this).prop('checked') == true) {
+      $input.prop('checked', true);
+    } else {
+      $input.prop('checked', false);
+    }
   });
+  
 });
 
 
 
 
+
+$(function () {
+
+
+  //initialize
+  var $modalSelector = $('[data-modal]');
+  var $openModalSelector = $('[data-open-modal]');
+  var $closeModalSelector = $('[data-close-modal]');
+  var $appendSelector = $('[data-append-modal]');
+  var $currentScrollY = 0;
+
+  if ($modalSelector.length) {
+
+    $areaHidden = $('header, footer, main');
+    $currentScrollY = null;
+
+    $('body').append('<div class="c-modal-dialog-bg" data-close-modal aria-expanded="true" aria-label="閉じる"></div>');
+    $modalBg = $('.c-modal-dialog-bg');
+    $modalBg.css({
+      display: 'none',
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(0, 0, 0, .5)',
+      overflow: 'hidden',
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      zIndex: '99998'
+    });
+
+
+
+    //handleEvents
+    $openModalSelector.on('click', function(e) {
+      show(e);
+    });
+
+    $(document).on('keyup', function(e) {
+      var ESCAPE_KEY_CODE = 27;
+      if (e.keyCode === ESCAPE_KEY_CODE) {
+        this.hide(e);
+      }
+    });
+
+    $closeModalSelector.on('click', function(e) {
+      hide(e);
+    });
+
+    $modalBg.on('click', function(e) {
+      hide(e);
+    });
+
+  }
+
+  //function
+  function show(e) {
+    e.preventDefault();
+    var $openButton = $(e.currentTarget);
+    var containerAttr = $openButton.attr('aria-controls');
+    var $container = $('#' + containerAttr );
+
+    this.$modalBg.fadeIn(400);
+    $container.fadeIn(400).attr({'aria-hidden': 'false', 'tabindex': '1'}).focus();
+    this.$areaHidden.attr({'aria-hidden': 'true'});
+    $currentScrollY = $(window).scrollTop();
+
+    $('body').css({
+      position: 'fixed',
+      width: '100%',
+      top: -1 * $currentScrollY
+    });
+
+    var $clone = $('[data-clone-modal="' + containerAttr + '"]');
+
+    if ($clone.length && !$appendSelector.children().attr('data-clone-modal')) {
+      var elem = $clone.clone(true);
+
+      elem.find('.c-modal-dialog-none').remove();
+      elem.removeAttr('style class').find('*').removeAttr('style class');
+      $appendSelector.append(elem);
+    }
+  }
+
+
+  function hide(e) {
+
+    $modalBg.fadeOut(0);
+    $modalSelector.fadeOut(0).attr({'aria-hidden': 'true', 'tabindex': '-1'});
+    $areaHidden.removeAttr('aria-hidden');
+    $('body').attr({style: ''});
+    $('html, body').prop({scrollTop: $currentScrollY});
+    $appendSelector.empty();
+  }
+
+
+});
 $(function () {
 
   var selector = '[data-toggle-nav-sp]';
@@ -456,63 +401,68 @@ $(function () {
 
 
 $(function () {
-
-
-  var scrollSelector = '[data-scroll]';
-  var $scrollTotop = $('[data-scroll="to-top"]');
-  var mainH = $('header').height();
-
-
-  $(document).on('click', scrollSelector+'a' , function(e) {
-    scroll(e);
+  var ripples = document.querySelectorAll('.js-ripple');
+  _.each(this.ripples, function(elem) {
+    rippleButton(elem);
   });
-
-
-  $(window).scroll(function(e) {
-    topHide(e);
-  });
-
-
-
-  function scroll(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var targetHref = $target.attr('href');
-
-    if (targetHref.includes('#')) {
-      $target.blur();
-
-      var offset = $(targetHref).offset() || {};
-      var offsetTop = offset.top || 0;
-
-      $('html,body').animate(
-          {scrollTop: offsetTop},
-          {
-            duration: 300, easing: 'swing', complete: function () {
-            if (targetHref !== '#skippy') {
-              window.location.hash = targetHref;
-            }
-          }
-          });
-    }
-  }
-
-  function topHide(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var scrollPos = $target.scrollTop();
-
-    if (scrollPos < mainH) {
-      $scrollTotop.find('a').stop().animate({'bottom': '-100px'}, 200, 'swing');
-    } else {
-      $scrollTotop.find('a').stop().animate({'bottom': '15px'}, 200, 'swing');
-    }
-  }
   
+  function rippleButton(btn) {
+    btn.addEventListener('mousedown', function(e) {
+      var dimension = Math.max(btn.clientWidth, btn.clientHeight);
+      var loc = btn.getBoundingClientRect();
+      var circle = document.createElement('span');
+      circle.classList.add('js-rp-effect');
+      circle.style.width = dimension + 'px';
+      circle.style.height = dimension + 'px';
+      circle.style.left = e.clientX - btn.offsetLeft - (dimension / 2) + 'px';
+      circle.style.top = e.clientY - btn.offsetTop - (dimension / 2) + document.documentElement.scrollTop + 'px';
+      btn.appendChild(circle);
+      setTimeout(function () {
+        btn.removeChild(circle);
+      }, 1000);
+    })
+  }
+
 });
 
 
+/*
 
+ <button class="js-ripple e-btn" type="button">もっと見る</button>
+
+
+ .js-ripple {
+   overflow: hidden;
+   position: relative;
+ }
+
+ .js-rp-effect {
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+   background-color: rgba(255, 255, 255, .5);
+   position: absolute;
+   opacity: 0;
+   transform: scale(0);
+   animation: 500ms ripple-fg forwards, 500ms ripple-fg-opacity-out forwards;
+ }
+
+ @keyframes ripple-fg {
+   to {
+     transform: scale(2.5);
+   }
+ }
+
+ @keyframes ripple-fg-opacity-out {
+   from {
+     animation-timing-function: $animation-sharp-curve-timing-function;
+     opacity: 1;
+   }
+   to {
+     opacity: 0;
+   }
+ }
+ * */
 $(function () {
 
   var containerSelector = '[data-tab]';
@@ -577,65 +527,102 @@ $(function () {
 });
 
 $(function () {
-  var ripples = document.querySelectorAll('.js-ripple');
-  _.each(this.ripples, function(elem) {
-    rippleButton(elem);
+
+
+  var scrollSelector = '[data-scroll]';
+  var $scrollTotop = $('[data-scroll="to-top"]');
+  var mainH = $('header').height();
+
+
+  $(document).on('click', scrollSelector+'a' , function(e) {
+    scroll(e);
   });
-  
-  function rippleButton(btn) {
-    btn.addEventListener('mousedown', function(e) {
-      var dimension = Math.max(btn.clientWidth, btn.clientHeight);
-      var loc = btn.getBoundingClientRect();
-      var circle = document.createElement('span');
-      circle.classList.add('js-rp-effect');
-      circle.style.width = dimension + 'px';
-      circle.style.height = dimension + 'px';
-      circle.style.left = e.clientX - btn.offsetLeft - (dimension / 2) + 'px';
-      circle.style.top = e.clientY - btn.offsetTop - (dimension / 2) + document.documentElement.scrollTop + 'px';
-      btn.appendChild(circle);
-      setTimeout(function () {
-        btn.removeChild(circle);
-      }, 1000);
-    })
+
+
+  $(window).scroll(function(e) {
+    topHide(e);
+  });
+
+
+
+  function scroll(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var targetHref = $target.attr('href');
+
+    if (targetHref.includes('#')) {
+      $target.blur();
+
+      var offset = $(targetHref).offset() || {};
+      var offsetTop = offset.top || 0;
+
+      $('html,body').animate(
+          {scrollTop: offsetTop},
+          {
+            duration: 300, easing: 'swing', complete: function () {
+            if (targetHref !== '#skippy') {
+              window.location.hash = targetHref;
+            }
+          }
+          });
+    }
   }
 
+  function topHide(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var scrollPos = $target.scrollTop();
+
+    if (scrollPos < mainH) {
+      $scrollTotop.find('a').stop().animate({'bottom': '-100px'}, 200, 'swing');
+    } else {
+      $scrollTotop.find('a').stop().animate({'bottom': '15px'}, 200, 'swing');
+    }
+  }
+  
 });
 
 
-/*
 
- <button class="js-ripple e-btn" type="button">もっと見る</button>
+$(function () {
+  var template =
+      '<ul class="l-grids-4to2to2">'+
+        '<% _.each(data, function(result) { %>'+
+        '<li class="l-grid c-card">'+
+          '<a href="<%-result.url %>">'+
+            '<div class="c-card__img"><img src="<%- result.image_path %>" alt=""></div>'+
+            '<div class="c-card__body">'+
+              '<p class="c-card__text is-text-week"> <%- result.date %></p>'+
+              '<div class="c-card__label">'+
+              '<% _.each(result.tags, function(key, tag) { %>'+
+               '<span class="e-label <%-key %>"> <%-tag %></span>'+
+              '<% }); %>'+
+            '</div>'+
+              '<p class="c-card__title"><%- result.title %></p>'+
+            '</div>'+
+          '</a>'+
+        '</li>'+
+        '<% }); %>'+
+      '</ul>';
+
+  var templates = _.template(template);
+
+  _.each($('.js-news-post'), function(ele) {
+    var url = $(ele).data('url');
+    $.ajax({
+      type: 'GET',
+      url: url,
+      dataType: 'json',
+      cache: false
+    }).then(
+        function(data) {
+          $(ele).append(templates({'data': data}));
+        },
+        function() {
+          console.log('No Data');
+        }
+    );
+  });
+});
 
 
- .js-ripple {
-   overflow: hidden;
-   position: relative;
- }
-
- .js-rp-effect {
-   width: 100%;
-   height: 100%;
-   border-radius: 50%;
-   background-color: rgba(255, 255, 255, .5);
-   position: absolute;
-   opacity: 0;
-   transform: scale(0);
-   animation: 500ms ripple-fg forwards, 500ms ripple-fg-opacity-out forwards;
- }
-
- @keyframes ripple-fg {
-   to {
-     transform: scale(2.5);
-   }
- }
-
- @keyframes ripple-fg-opacity-out {
-   from {
-     animation-timing-function: $animation-sharp-curve-timing-function;
-     opacity: 1;
-   }
-   to {
-     opacity: 0;
-   }
- }
- * */

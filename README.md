@@ -79,14 +79,17 @@ JS、CSSなど圧縮、または不要ファイルを削除します。
 HTMLファイルは必要に応じてテンプレート等に組み込んで使用してください。
 
 
-//json-server
+//json-server起動
 $ cd json-server
 $ node server.js
 
 
-//hologram
+//スタイルガイド作成
 $ cd hologram
 $ hologram
+//docsフォルダ作成
+$ gulp docs
+hologramで書き出したファイルをdocsフォルダに移動します。
 
 ```
 
@@ -96,27 +99,36 @@ $ hologram
 ```
 .
  ├── frontend
- │   ├── source
- │   │   ├── assets（開発用）
+ │   ├── source（開発用）
+ │   │   ├── assets
  │   │   │   ├── fonts
  │   │   │   ├── img
  │   │   │   ├── src
  │   │   │   └── sass
  │   │   │
- │   │   ├── docs（hologramで作成）
+ │   │   ├── styleguide（必要に応じてhologramで作成）
  │   │   │   ├── index.html
  │   │   │   ├── started.html
  │   │   │   └── ....html
  │   │   │
- │   │   ├── index.html（htmlファイル必要に応じて追加）
+ │   │   ├── index.html（必要に応じてhtmlファイルを追加）
  │   │   ├── 404.html
+ │   │   ├── _partials
  │   │   └── ....
  │   │
  │   ├── package.json
  │   ├── yarn.lock
  │   └── gulpfile.js
  │
- ├── assets（公開用）
+ ├── build（公開用 assetsのみ書き出される）
+ │   └── assets（圧縮済み）
+ │
+ ├── design（デザインファイル）
+ │   └── JWPS.xd
+ │
+ ├── docs（スタイルガイド表示用 必要に応じて作成）
+ │   └── ...
+ │
  ├── LICENSE.txt
  └── README.md
 ```
