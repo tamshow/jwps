@@ -8,17 +8,18 @@ const runSequence = require('run-sequence');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const csso = require('gulp-csso');
-const packageImporter = require('node-sass-package-importer');
 
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 const stream = browserSync.stream;
 const connectSSI   = require('connect-ssi');
 
-const webpackStream = require("webpack-stream");
-const webpack = require("webpack");
-const webpackConfig = require("./webpack.config");
+// const webpackStream = require("webpack-stream");
+// const webpack = require("webpack");
+// const webpackConfig = require("./webpack.config");
 
+const replace = require('gulp-replace');
+const concat = require('gulp-concat');
 const del = require('del');
 const prettify = require('gulp-prettify');
 const uglifyjs = require('uglify-js');
@@ -35,37 +36,52 @@ const DOCS = '../docs';
 // js
 //=================
 
-gulp.task("js", () => {
-  return webpackStream(webpackConfig, webpack)
-      .pipe(plumber())
-      .pipe(gulp.dest('source/assets/js'));
+// gulp.task("js", () => {
+//   return webpackStream(webpackConfig, webpack)
+//       .pipe(plumber())
+//       .pipe(gulp.dest('source/assets/js'));
+// });
+
+
+//結合
+const jsFileBundle = [
+  'source/assets/src/@jwps/**/*.js'
+];
+gulp.task('js:bundle', () => {
+  return gulp.src(jsFileBundle).pipe(concat('bundle.js'))
+      .pipe(gulp.dest('source/assets/js/'));
 });
+
 
 gulp.task('js:not-bundle', () => {
   return gulp.src([
-    'source/assets/src/@jwps/accordion/accordion.js',
-    'source/assets/src/@jwps/allcheck/allcheck.js',
-    'source/assets/src/@jwps/base/base.js',
-    'source/assets/src/@jwps/form/form.js',
-    'source/assets/src/@jwps/modal/modal.js',
-    'source/assets/src/@jwps/newslist/newslist.js',
-    'source/assets/src/@jwps/opennav/opennav.js',
-    'source/assets/src/@jwps/pagescroll/pagescroll.js',
-    'source/assets/src/@jwps/ripple/ripple.js',
-    'source/assets/src/@jwps/tabs/tabs.js'
+    'source/assets/src/@jwps/**/*.js'
   ])
       .pipe(gulp.dest('source/assets/js/not-bundle/'));
 });
 
-gulp.task('js:use', () => {
-  return gulp.src([
-    'node_modules/jquery/dist/jquery.js',
-    'node_modules/lodash/lodash.js',
-    'node_modules/swiper/dist/swiper.jquery.js',
-    'node_modules/moment/moment.js'
-  ])
-      .pipe(gulp.dest('source/assets/js/use/'));
+
+
+//--------------------
+
+//結合
+const jsFileVendor = [
+  'node_modules/jquery/dist/jquery.js',
+  'node_modules/lodash/lodash.js'
+];
+gulp.task('js:vendor', () => {
+  return gulp.src(jsFileVendor).pipe(concat('vendor.js'))
+      .pipe(gulp.dest('source/assets/js/'));
 });
+
+
+
+//そのまま
+gulp.task('js:not-vendor', () => {
+  return gulp.src(jsFileVendor)
+      .pipe(gulp.dest('source/assets/js/not-vendor/'));
+});
+
 
 
 
@@ -73,7 +89,7 @@ gulp.task('js:use', () => {
 //=================
 gulp.task('css', () => {
   const CSSRC = [
-    'source/assets/sass/base.scss'
+    'source/assets/sass/bundle.scss'
   ];
   const CSSDEST = 'source/assets/css/';
   const browsers = ['last 2 versions', 'ie >= 9', 'iOS >= 9', 'Android >= 4.4'];
@@ -83,10 +99,7 @@ gulp.task('css', () => {
       .pipe(changed(CSSDEST))
       .pipe(sass.sync({
         outputStyle: 'expanded',
-        precision: 10,
-        importer: packageImporter({
-          extensions: ['.sass', '.scss', '.css']
-        })
+        precision: 10
       }).on('error', sass.logError))
       .pipe(postcss([
         require('autoprefixer')({browsers: browsers}),
@@ -101,9 +114,11 @@ gulp.task('css', () => {
 gulp.task('html', (callback) => {
   runSequence(
       'css',
-      'js',
+      //'js',
+      'js:bundle',
+      'js:vendor',
       'js:not-bundle',
-      'js:use',
+      'js:not-vendor',
       callback);
 });
 
@@ -113,7 +128,7 @@ gulp.task('html', (callback) => {
 gulp.task('server', () => {
   browserSync({
     port: 9000,
-    startPath: '/index.html',
+    startPath: '/filelist.html',
     open: 'false',
     server: {
       baseDir: './source',
@@ -137,7 +152,7 @@ gulp.task('serve', ['html', 'server'], () => {
   //js
   gulp.watch([
     'source/assets/src/**/*.js'
-  ], ['js']);
+  ], ['js:bundle']);
 
   //css
   gulp.watch([
@@ -204,15 +219,15 @@ gulp.task('build:css:min', () => {
 //jsの圧縮する
 //==================
 gulp.task('build:js:min', () => {
-  const options = {preserveComments: 'license'};
   return gulp.src([
-    DEST + '/assets/js/**/*.js'
+    DEST + '/assets/js/**/*.js',
+    '!' + DEST + '/assets/js/not-bundle/*.js',
+    '!' + DEST + '/assets/js/not-vendor/*.js'
   ])
       .pipe(plumber())
-      .pipe(minifier(options, uglifyjs))
+      .pipe(minifier({ output:{comments: /^!/}}))
       .pipe(gulp.dest(DEST + '/assets/js/'));
 });
-
 
 
 //実行
@@ -223,7 +238,7 @@ gulp.task('build', (callback) => {
       'build:clean:all',
       'build:move',
       'build:clean',
-      //'build:js:min',
+      'build:js:min',
       'build:css:min',
       callback);
 });
@@ -258,13 +273,13 @@ gulp.task('docs:move:assets', () => {
       .pipe(gulp.dest(DOCS + '/assets/'));
 });
 
-gulp.task('docs:move:html', () => {
-  return gulp.src([
-    'source/styleguide/**/*'
-  ])
+
+//パスの置換 + htmlの移動
+gulp.task('docs:move:replace', () => {
+  gulp.src(['source/styleguide/**/*'])
+      .pipe(replace('/assets', 'assets'))
       .pipe(gulp.dest(DOCS + '/'));
 });
-
 
 
 //
@@ -273,7 +288,7 @@ gulp.task('docs', (callback) => {
   runSequence(
       'docs:clean',
       'docs:move:assets',
-      'docs:move:html',
+      'docs:move:replace',
       callback);
 });
 

@@ -4,10 +4,8 @@
 //lib
 //---------------------------------
 
-@import "~bourbon/core/bourbon";
-
-@import "~normalize.css/normalize";
-@import "~swiper/dist/css/swiper";
+@import "../../../../node_modules/bourbon/core/bourbon";
+@import "normalize";
 
 
 //import
@@ -20,5 +18,5 @@
 @import "@utilities/all";
 
 
-@import "sg-style";
+@import "@styleguide/sg-style";
 

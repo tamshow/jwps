@@ -22,7 +22,7 @@ $(function () {
       iOS = uaOS.match(/iPhone OS (\d_\d)/) || uaOS.match(/iPad; CPU OS (\d_\d)/),
       Android = uaOS.match(/Android (\d\.\d)/);
 
-  let os = '', version = '';
+  var os = '', version = '';
 
   if (Windows) {
     switch (os = "Windows", Windows[1]) {

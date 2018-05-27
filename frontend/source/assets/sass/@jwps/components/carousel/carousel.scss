@@ -17,13 +17,13 @@ categories: [js, carousel]
   <div id="js-swiper-main" class="swiper-container">
     <ul class="swiper-wrapper">
       <li class="swiper-slide">
-        <a href=""><img src="assets/img/dummy/1500x500.png" alt=""></a>
+        <a href=""><img src="/assets/img/dummy/1500x500.png" alt=""></a>
       </li>
       <li class="swiper-slide">
-        <a href=""><img src="assets/img/dummy/1500x500.png" alt=""></a>
+        <a href=""><img src="/assets/img/dummy/1500x500.png" alt=""></a>
       </li>
       <li class="swiper-slide">
-        <a href=""><img src="assets/img/dummy/1500x500.png" alt=""></a>
+        <a href=""><img src="/assets/img/dummy/1500x500.png" alt=""></a>
       </li>
     </ul>
 
@@ -35,7 +35,7 @@ categories: [js, carousel]
   </div>
   <div class="swiper-pagination"></div>
 </div>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css" />
 <script  src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.js"></script>
 <script>
@@ -191,7 +191,7 @@ parent: carousel
     <ul class="swiper-wrapper">
       <li class="swiper-slide e-card">
         <a href="">
-          <div class="e-card__img img-hover"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -200,7 +200,7 @@ parent: carousel
       </li>
       <li class="swiper-slide e-card">
         <a href="">
-          <div class="e-card__img img-hover"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -209,7 +209,7 @@ parent: carousel
       </li>
       <li class="swiper-slide e-card">
         <a href="">
-          <div class="e-card__img img-hover"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -218,7 +218,7 @@ parent: carousel
       </li>
       <li class="swiper-slide e-card">
         <a href="">
-          <div class="e-card__img img-hover"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -232,6 +232,8 @@ parent: carousel
   <div class="swiper-button-prev"></div>
 </div>
 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css" />
 <script  src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.js"></script>
 <script>

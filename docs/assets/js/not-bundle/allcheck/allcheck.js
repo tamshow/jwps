@@ -3,7 +3,7 @@ $(function () {
   var trigger = '[data-allcheck="trigger"]';
   var container = '[data-allcheck="container"]';
 
-  var $trigger = $(rigger);
+  var $trigger = $(trigger);
   var $container = $(container);
   var $input = $container.find('input');
   $trigger.on('click', function () {
