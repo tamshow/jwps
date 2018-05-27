@@ -23,4 +23,4 @@ frontend/build
 # webpack files
 frontend/_webpack.config.js
 frontend/_package.json
-frontend/source/assets/_webpack_src/
+frontend/source/assets/_src/

@@ -185,7 +185,7 @@ gulp.task('build:move', () => {
     'source/assets/**/*',
     '!source/assets/sass/**/*',
     '!source/assets/src/**/*',
-    '!source/assets/_webpack_src/**/*'
+    '!source/assets/_src/**/*'
   ])
       .pipe(gulp.dest(DEST + '/assets/'));
 });
@@ -197,7 +197,7 @@ gulp.task('build:clean', () => {
   return del([
     DEST + '/assets/sass/',
     DEST + '/assets/src/',
-    DEST + '/assets/_webpack_src/'
+    DEST + '/assets/_src/'
   ],{force: true});
 });
 
@@ -267,7 +267,7 @@ gulp.task('docs:move:assets', () => {
     '!source/assets/js-form/**/*',
     '!source/assets/sass/**/*',
     '!source/assets/src/**/*',
-    '!source/assets/_webpack_src/**/*'
+    '!source/assets/_src/**/*'
 
   ])
       .pipe(gulp.dest(DOCS + '/assets/'));
