@@ -11,7 +11,7 @@ UIコンポーネントを組み合わせてwebページを構築していく手
 
 ## デザインリソース (For designers)
 
-![StyleGuide](https://github.com/tamshow/jwps/blob/images/style-guide.png?raw=true)
+![StyleGuide](https://tamshow.github.io/jwps/assets/img/dummy/style-guide.png)
 
  -  [Download design files (XD)](https://github.com/tamshow/jwps/blob/master/design/JWPS.xd)
   
