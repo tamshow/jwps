@@ -294,61 +294,6 @@ $(function () {
 });
 $(function () {
 
-  /*  sample
-
-   <div class="js-posts" data-url="hoge.json">
-   <script type="text/html">
-   <ul class="l-grids-4to2to2">
-   <% _.each(data, function(result) { %>
-   <li class="l-grid c-card">
-   <a href="<%-result.url %>">
-   <div class="c-card__img"><img src="<%- result.image_path %>" alt=""></div>
-   <div class="c-card__body">
-   <p class="c-card__text is-text-week"> <%- result.date %></p>
-   <div class="c-card__label">
-   <% _.each(result.tags, function(key, tag) { %>
-   <span class="e-label <%-key %>"> <%-tag %></span>
-   <% }); %>
-   </div>
-   <p class="c-card__title"><%- result.title %></p>
-   </div>
-   </a>
-   </li>
-   <% }); %>
-   </ul>;
-   </script>
-   </div>
-
-   */
-
-
-  _.each($('.js-posts'), function (elem) {
-    var url = $(elem).data('url');
-    var templates = _.template($(elem).find('script').html());
-
-    $.ajax({
-      type: 'GET',
-      url: url,
-      dataType: 'json',
-      cache: false
-    }).then(
-        function (data) {
-          $(elem).append(templates({
-            'data': data
-          }));
-        },
-
-        function () {
-          console.log('No Data');
-        });
-  });
-});
-
-
-
-
-$(function () {
-
   var selector = '[data-toggle-nav-sp]';
   var bodyContents = '[data-body-nav-sp]';
   var bgSelector = '#js-header-nav-bg-sp';
@@ -435,6 +380,61 @@ $(function () {
 
 $(function () {
 
+  /*  sample
+
+   <div class="js-posts" data-url="hoge.json">
+   <script type="text/html">
+   <ul class="l-grids-4to2to2">
+   <% _.each(data, function(result) { %>
+   <li class="l-grid c-card">
+   <a href="<%-result.url %>">
+   <div class="c-card__img"><img src="<%- result.image_path %>" alt=""></div>
+   <div class="c-card__body">
+   <p class="c-card__text is-text-week"> <%- result.date %></p>
+   <div class="c-card__label">
+   <% _.each(result.tags, function(key, tag) { %>
+   <span class="e-label <%-key %>"> <%-tag %></span>
+   <% }); %>
+   </div>
+   <p class="c-card__title"><%- result.title %></p>
+   </div>
+   </a>
+   </li>
+   <% }); %>
+   </ul>;
+   </script>
+   </div>
+
+   */
+
+
+  _.each($('.js-posts'), function (elem) {
+    var url = $(elem).data('url');
+    var templates = _.template($(elem).find('script').html());
+
+    $.ajax({
+      type: 'GET',
+      url: url,
+      dataType: 'json',
+      cache: false
+    }).then(
+        function (data) {
+          $(elem).append(templates({
+            'data': data
+          }));
+        },
+
+        function () {
+          console.log('No Data');
+        });
+  });
+});
+
+
+
+
+$(function () {
+
 
   var scrollSelector = '[data-scroll]';
   var $scrollTotop = $('[data-scroll="to-top"]');
@@ -490,69 +490,6 @@ $(function () {
 });
 
 
-
-$(function () {
-
-  var containerSelector = '[data-tab]';
-  var tabListSelector = '[data-tablist]';
-  var tabPanelSelector = '[data-tabpanel]';
-
-
-  $(tabListSelector).on('click', function(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    listSelect($target);
-    panelSelect($target);
-  });
-
-  $(document).on('keyup', function(e) {
-    e.preventDefault();
-    tabKeyup(e);
-  });
-
-
-
-  function listSelect($target) {
-    $target.focus();
-    $target.parents('li').attr('aria-selected', 'true').attr('tabindex', '0').focus()
-        .siblings('li').attr('aria-selected', 'false').attr('tabindex', '-1');
-  }
-
-  function panelSelect($target) {
-    var panel = $target.attr('aria-controls');
-    $('#' + panel).attr('aria-hidden', 'false')
-        .siblings(this.tabPanelSelector).attr('aria-hidden', 'true');
-  }
-
-
-  function tabKeyup(e) {
-    var $target = $(e.currentTarget);
-
-    var leftArrow = 37;
-    var rightArrow = 39;
-
-    switch (e.keyCode) {
-
-      case leftArrow:
-        $target = $(e.target).prev().children(this.tabListSelector);
-        break;
-
-      case rightArrow:
-
-        $target = $(e.target).next().children(this.tabListSelector);
-        break;
-
-      default:
-
-        break;
-    }
-    listSelect($target);
-    panelSelect($target);
-  }
-
-
-
-});
 
 $(function () {
   var ripples = document.querySelectorAll('.js-ripple');
@@ -617,6 +554,69 @@ $(function () {
    }
  }
  * */
+$(function () {
+
+  var containerSelector = '[data-tab]';
+  var tabListSelector = '[data-tablist]';
+  var tabPanelSelector = '[data-tabpanel]';
+
+
+  $(tabListSelector).on('click', function(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    listSelect($target);
+    panelSelect($target);
+  });
+
+  $(document).on('keyup', function(e) {
+    e.preventDefault();
+    tabKeyup(e);
+  });
+
+
+
+  function listSelect($target) {
+    $target.focus();
+    $target.parents('li').attr('aria-selected', 'true').attr('tabindex', '0').focus()
+        .siblings('li').attr('aria-selected', 'false').attr('tabindex', '-1');
+  }
+
+  function panelSelect($target) {
+    var panel = $target.attr('aria-controls');
+    $('#' + panel).attr('aria-hidden', 'false')
+        .siblings(this.tabPanelSelector).attr('aria-hidden', 'true');
+  }
+
+
+  function tabKeyup(e) {
+    var $target = $(e.currentTarget);
+
+    var leftArrow = 37;
+    var rightArrow = 39;
+
+    switch (e.keyCode) {
+
+      case leftArrow:
+        $target = $(e.target).prev().children(this.tabListSelector);
+        break;
+
+      case rightArrow:
+
+        $target = $(e.target).next().children(this.tabListSelector);
+        break;
+
+      default:
+
+        break;
+    }
+    listSelect($target);
+    panelSelect($target);
+  }
+
+
+
+});
+
 $(function () {
 
 /*
