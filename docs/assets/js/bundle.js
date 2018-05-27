@@ -1,81 +1,5 @@
 $(function () {
 
-  var $selectorAC = $('[data-toggle-accordion]');
-  var containerAC = '[data-accordion]';
-  var deviceAC = '[data-device-accordion]';//all, pc, tab, sp
-  var bodyAC = '[data-body-accordion]';
-  var tabWidth = '960px';
-  var spWidth = '600px';
-
-  $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
-
-  $selectorAC.on('click E_ENTER_KYE_CODE', function (e) {
-
-    var media = $(e.currentTarget).parents(deviceAC).data('device-accordion') || 'all';
-    var isMobile = window.matchMedia('(max-width:' + spWidth + ')').matches || false;
-    var isTablet = window.matchMedia('(min-width:' + spWidth + ') and (max-width:' + tabWidth + ')').matches || false;
-
-    if (media.match(/all/) ||
-        (media.match(/sp/) && isMobile) ||
-        (media.match(/tab/) && isTablet) ||
-        (media.match(/pc/) && ( !isMobile && !isTablet))
-    ) {
-      toggle(e);
-    }
-  });
-
-  function toggle(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var $containerAC = $target.parents(containerAC);
-    var $bodyAC = $containerAC.find(bodyAC);
-
-    if ($containerAC.hasClass('is-active')) {
-      $containerAC.removeClass('is-active');
-      $target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
-      $bodyAC.stop().slideUp(150).attr('aria-hidden', 'true');
-    } else {
-      $containerAC.addClass('is-active');
-      $target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
-      $bodyAC.stop().slideDown(200).attr('aria-hidden', 'false').focus();
-
-      var offset = $target.offset() || {};
-      var offsetTop = offset.top || 0;
-
-      $('html,body').animate({scrollTop: offsetTop - ($('header').height())}, {
-        duration: 500,
-        easing: 'swing'
-      });
-
-    }
-  }
-
-
-});
-$(function () {
-
-  var trigger = '[data-allcheck="trigger"]';
-  var container = '[data-allcheck="container"]';
-
-  var $trigger = $(trigger);
-  var $container = $(container);
-  var $input = $container.find('input');
-  $trigger.on('click', function () {
-    if ($(this).prop('checked') == true) {
-      $input.prop('checked', true);
-    } else {
-      $input.prop('checked', false);
-    }
-  });
-  
-});
-
-
-
-
-
-$(function () {
-
 
   /*
    ##uaの判定
@@ -316,6 +240,115 @@ $(function () {
 });
 $(function () {
 
+  var $selectorAC = $('[data-toggle-accordion]');
+  var containerAC = '[data-accordion]';
+  var deviceAC = '[data-device-accordion]';//all, pc, tab, sp
+  var bodyAC = '[data-body-accordion]';
+  var tabWidth = '960px';
+  var spWidth = '600px';
+
+  $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
+
+  $selectorAC.on('click E_ENTER_KYE_CODE', function (e) {
+
+    var media = $(e.currentTarget).parents(deviceAC).data('device-accordion') || 'all';
+    var isMobile = window.matchMedia('(max-width:' + spWidth + ')').matches || false;
+    var isTablet = window.matchMedia('(min-width:' + spWidth + ') and (max-width:' + tabWidth + ')').matches || false;
+
+    if (media.match(/all/) ||
+        (media.match(/sp/) && isMobile) ||
+        (media.match(/tab/) && isTablet) ||
+        (media.match(/pc/) && ( !isMobile && !isTablet))
+    ) {
+      toggle(e);
+    }
+  });
+
+  function toggle(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var $containerAC = $target.parents(containerAC);
+    var $bodyAC = $containerAC.find(bodyAC);
+
+    if ($containerAC.hasClass('is-active')) {
+      $containerAC.removeClass('is-active');
+      $target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
+      $bodyAC.stop().slideUp(150).attr('aria-hidden', 'true');
+    } else {
+      $containerAC.addClass('is-active');
+      $target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
+      $bodyAC.stop().slideDown(200).attr('aria-hidden', 'false').focus();
+
+      var offset = $target.offset() || {};
+      var offsetTop = offset.top || 0;
+
+      $('html,body').animate({scrollTop: offsetTop - ($('header').height())}, {
+        duration: 500,
+        easing: 'swing'
+      });
+
+    }
+  }
+
+
+});
+$(function () {
+
+  /*  sample
+
+   <div class="js-posts" data-url="hoge.json">
+   <script type="text/html">
+   <ul class="l-grids-4to2to2">
+   <% _.each(data, function(result) { %>
+   <li class="l-grid c-card">
+   <a href="<%-result.url %>">
+   <div class="c-card__img"><img src="<%- result.image_path %>" alt=""></div>
+   <div class="c-card__body">
+   <p class="c-card__text is-text-week"> <%- result.date %></p>
+   <div class="c-card__label">
+   <% _.each(result.tags, function(key, tag) { %>
+   <span class="e-label <%-key %>"> <%-tag %></span>
+   <% }); %>
+   </div>
+   <p class="c-card__title"><%- result.title %></p>
+   </div>
+   </a>
+   </li>
+   <% }); %>
+   </ul>;
+   </script>
+   </div>
+
+   */
+
+
+  _.each($('.js-posts'), function (elem) {
+    var url = $(elem).data('url');
+    var templates = _.template($(elem).find('script').html());
+
+    $.ajax({
+      type: 'GET',
+      url: url,
+      dataType: 'json',
+      cache: false
+    }).then(
+        function (data) {
+          $(elem).append(templates({
+            'data': data
+          }));
+        },
+
+        function () {
+          console.log('No Data');
+        });
+  });
+});
+
+
+
+
+$(function () {
+
   var selector = '[data-toggle-nav-sp]';
   var bodyContents = '[data-body-nav-sp]';
   var bgSelector = '#js-header-nav-bg-sp';
@@ -402,61 +435,6 @@ $(function () {
 
 $(function () {
 
-  /*  sample
-
-   <div class="js-posts" data-url="hoge.json">
-   <script type="text/html">
-   <ul class="l-grids-4to2to2">
-   <% _.each(data, function(result) { %>
-   <li class="l-grid c-card">
-   <a href="<%-result.url %>">
-   <div class="c-card__img"><img src="<%- result.image_path %>" alt=""></div>
-   <div class="c-card__body">
-   <p class="c-card__text is-text-week"> <%- result.date %></p>
-   <div class="c-card__label">
-   <% _.each(result.tags, function(key, tag) { %>
-   <span class="e-label <%-key %>"> <%-tag %></span>
-   <% }); %>
-   </div>
-   <p class="c-card__title"><%- result.title %></p>
-   </div>
-   </a>
-   </li>
-   <% }); %>
-   </ul>;
-   </script>
-   </div>
-
-   */
-
-
-  _.each($('.js-posts'), function (elem) {
-    var url = $(elem).data('url');
-    var templates = _.template($(elem).find('script').html());
-
-    $.ajax({
-      type: 'GET',
-      url: url,
-      dataType: 'json',
-      cache: false
-    }).then(
-        function (data) {
-          $(elem).append(templates({
-            'data': data
-          }));
-        },
-
-        function () {
-          console.log('No Data');
-        });
-  });
-});
-
-
-
-
-$(function () {
-
 
   var scrollSelector = '[data-scroll]';
   var $scrollTotop = $('[data-scroll="to-top"]');
@@ -512,6 +490,69 @@ $(function () {
 });
 
 
+
+$(function () {
+
+  var containerSelector = '[data-tab]';
+  var tabListSelector = '[data-tablist]';
+  var tabPanelSelector = '[data-tabpanel]';
+
+
+  $(tabListSelector).on('click', function(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    listSelect($target);
+    panelSelect($target);
+  });
+
+  $(document).on('keyup', function(e) {
+    e.preventDefault();
+    tabKeyup(e);
+  });
+
+
+
+  function listSelect($target) {
+    $target.focus();
+    $target.parents('li').attr('aria-selected', 'true').attr('tabindex', '0').focus()
+        .siblings('li').attr('aria-selected', 'false').attr('tabindex', '-1');
+  }
+
+  function panelSelect($target) {
+    var panel = $target.attr('aria-controls');
+    $('#' + panel).attr('aria-hidden', 'false')
+        .siblings(this.tabPanelSelector).attr('aria-hidden', 'true');
+  }
+
+
+  function tabKeyup(e) {
+    var $target = $(e.currentTarget);
+
+    var leftArrow = 37;
+    var rightArrow = 39;
+
+    switch (e.keyCode) {
+
+      case leftArrow:
+        $target = $(e.target).prev().children(this.tabListSelector);
+        break;
+
+      case rightArrow:
+
+        $target = $(e.target).next().children(this.tabListSelector);
+        break;
+
+      default:
+
+        break;
+    }
+    listSelect($target);
+    panelSelect($target);
+  }
+
+
+
+});
 
 $(function () {
   var ripples = document.querySelectorAll('.js-ripple');
@@ -578,63 +619,10 @@ $(function () {
  * */
 $(function () {
 
-  var containerSelector = '[data-tab]';
-  var tabListSelector = '[data-tablist]';
-  var tabPanelSelector = '[data-tabpanel]';
-
-
-  $(tabListSelector).on('click', function(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    listSelect($target);
-    panelSelect($target);
-  });
-
-  $(document).on('keyup', function(e) {
-    e.preventDefault();
-    tabKeyup(e);
-  });
-
-
-
-  function listSelect($target) {
-    $target.focus();
-    $target.parents('li').attr('aria-selected', 'true').attr('tabindex', '0').focus()
-        .siblings('li').attr('aria-selected', 'false').attr('tabindex', '-1');
-  }
-
-  function panelSelect($target) {
-    var panel = $target.attr('aria-controls');
-    $('#' + panel).attr('aria-hidden', 'false')
-        .siblings(this.tabPanelSelector).attr('aria-hidden', 'true');
-  }
-
-
-  function tabKeyup(e) {
-    var $target = $(e.currentTarget);
-
-    var leftArrow = 37;
-    var rightArrow = 39;
-
-    switch (e.keyCode) {
-
-      case leftArrow:
-        $target = $(e.target).prev().children(this.tabListSelector);
-        break;
-
-      case rightArrow:
-
-        $target = $(e.target).next().children(this.tabListSelector);
-        break;
-
-      default:
-
-        break;
-    }
-    listSelect($target);
-    panelSelect($target);
-  }
-
-
+/*
+ * 当ファイルと@jwps/以下は1ファイルに結合して書き出されます。
+ * 当ファイルは@jwps/の最後に追加されます。
+ * 
+ */
 
 });

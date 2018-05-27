@@ -1,0 +1,5 @@
+$(function () {
+
+//snippets/index.js
+
+});

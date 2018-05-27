@@ -45,7 +45,8 @@ const DOCS = '../docs';
 
 //結合
 const jsFileBundle = [
-  'source/assets/src/@jwps/**/*.js'
+  'source/assets/src/@jwps/**/*.js',
+  'source/assets/src/bundle.js'
 ];
 gulp.task('js:bundle', () => {
   return gulp.src(jsFileBundle).pipe(concat('bundle.js'))
@@ -55,7 +56,7 @@ gulp.task('js:bundle', () => {
 
 gulp.task('js:not-bundle', () => {
   return gulp.src([
-    'source/assets/src/@jwps/**/*.js'
+    'source/assets/src/**/*.js'
   ])
       .pipe(gulp.dest('source/assets/js/not-bundle/'));
 });
