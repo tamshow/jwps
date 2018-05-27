@@ -1,4 +1,4 @@
-# vendor
+# vendor files
 vendor
 
 # node modules
@@ -10,8 +10,6 @@ frontend/source/assets/*.css.map
 frontend/source/assets/css
 frontend/source/assets/js
 frontend/source/assets/js-form
-frontend/source/tablefilter
-frontend/source/filelist.html
 frontend/source/ish
 frontend/source/styleguide
 frontend/source/styleguide.html
@@ -21,3 +19,20 @@ frontend/build
 
 # design files
 /design/JWPS_master.xd
+
+# webpack files
+frontend/_webpack.config.js
+frontend/_package.json
+frontend/source/assets/src/_top.js
+frontend/source/assets/src/_index.js
+frontend/source/assets/src/@jwps/accordion/_index.js
+frontend/source/assets/src/@jwps/allcheck/_index.js
+frontend/source/assets/src/@jwps/base/_index.js
+frontend/source/assets/src/@jwps/modal/_index.js
+frontend/source/assets/src/@jwps/form
+frontend/source/assets/src/@jwps/newslist/_index.js
+frontend/source/assets/src/@jwps/opennav/_index.js
+frontend/source/assets/src/@jwps/pagescroll/_index.js
+frontend/source/assets/src/@jwps/ripple/_index.js
+frontend/source/assets/src/@jwps/tabs/_index.js
+frontend/source/assets/src/@jwps/vue/
