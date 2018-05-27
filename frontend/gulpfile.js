@@ -207,7 +207,7 @@ gulp.task('build:clean', () => {
 //==================
 gulp.task('build:css:min', () => {
   return gulp.src([
-    DEST + '/assets/css/**/*.css'
+    DEST + '/assets/css/**/**/*.css'
   ])
       .pipe(plumber())
       .pipe(csso())
@@ -220,8 +220,8 @@ gulp.task('build:css:min', () => {
 gulp.task('build:js:min', () => {
   return gulp.src([
     DEST + '/assets/js/**/*.js',
-    '!' + DEST + '/assets/js/not-bundle/*.js',
-    '!' + DEST + '/assets/js/not-vendor/*.js'
+    '!' + DEST + '/assets/js/not-bundle/**/*.js',
+    '!' + DEST + '/assets/js/not-vendor/**/*.js'
   ])
       .pipe(plumber())
       .pipe(minifier({ output:{comments: /^!/}}))
