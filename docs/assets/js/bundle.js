@@ -54,6 +54,28 @@ $(function () {
 });
 $(function () {
 
+  var trigger = '[data-allcheck="trigger"]';
+  var container = '[data-allcheck="container"]';
+
+  var $trigger = $(trigger);
+  var $container = $(container);
+  var $input = $container.find('input');
+  $trigger.on('click', function () {
+    if ($(this).prop('checked') == true) {
+      $input.prop('checked', true);
+    } else {
+      $input.prop('checked', false);
+    }
+  });
+  
+});
+
+
+
+
+
+$(function () {
+
 
   /*
    ##uaの判定
@@ -193,28 +215,6 @@ $(function () {
   
   
 });
-
-
-
-
-$(function () {
-
-  var trigger = '[data-allcheck="trigger"]';
-  var container = '[data-allcheck="container"]';
-
-  var $trigger = $(trigger);
-  var $container = $(container);
-  var $input = $container.find('input');
-  $trigger.on('click', function () {
-    if ($(this).prop('checked') == true) {
-      $input.prop('checked', true);
-    } else {
-      $input.prop('checked', false);
-    }
-  });
-  
-});
-
 
 
 
@@ -401,6 +401,119 @@ $(function () {
 
 
 $(function () {
+
+  /*  sample
+
+   <div class="js-posts" data-url="hoge.json">
+   <script type="text/html">
+   <ul class="l-grids-4to2to2">
+   <% _.each(data, function(result) { %>
+   <li class="l-grid c-card">
+   <a href="<%-result.url %>">
+   <div class="c-card__img"><img src="<%- result.image_path %>" alt=""></div>
+   <div class="c-card__body">
+   <p class="c-card__text is-text-week"> <%- result.date %></p>
+   <div class="c-card__label">
+   <% _.each(result.tags, function(key, tag) { %>
+   <span class="e-label <%-key %>"> <%-tag %></span>
+   <% }); %>
+   </div>
+   <p class="c-card__title"><%- result.title %></p>
+   </div>
+   </a>
+   </li>
+   <% }); %>
+   </ul>;
+   </script>
+   </div>
+
+   */
+
+
+  _.each($('.js-posts'), function (elem) {
+    var url = $(elem).data('url');
+    var templates = _.template($(elem).find('script').html());
+
+    $.ajax({
+      type: 'GET',
+      url: url,
+      dataType: 'json',
+      cache: false
+    }).then(
+        function (data) {
+          $(elem).append(templates({
+            'data': data
+          }));
+        },
+
+        function () {
+          console.log('No Data');
+        });
+  });
+});
+
+
+
+
+$(function () {
+
+
+  var scrollSelector = '[data-scroll]';
+  var $scrollTotop = $('[data-scroll="to-top"]');
+  var mainH = $('header').height();
+
+
+  $(document).on('click', scrollSelector+'a' , function(e) {
+    scroll(e);
+  });
+
+
+  $(window).scroll(function(e) {
+    topHide(e);
+  });
+
+
+
+  function scroll(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var targetHref = $target.attr('href');
+
+    if (targetHref.includes('#')) {
+      $target.blur();
+
+      var offset = $(targetHref).offset() || {};
+      var offsetTop = offset.top || 0;
+
+      $('html,body').animate(
+          {scrollTop: offsetTop},
+          {
+            duration: 300, easing: 'swing', complete: function () {
+            if (targetHref !== '#skippy') {
+              window.location.hash = targetHref;
+            }
+          }
+          });
+    }
+  }
+
+  function topHide(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var scrollPos = $target.scrollTop();
+
+    if (scrollPos < mainH) {
+      $scrollTotop.find('a').stop().animate({'bottom': '-100px'}, 200, 'swing');
+    } else {
+      $scrollTotop.find('a').stop().animate({'bottom': '15px'}, 200, 'swing');
+    }
+  }
+  
+});
+
+
+
+$(function () {
   var ripples = document.querySelectorAll('.js-ripple');
   _.each(this.ripples, function(elem) {
     rippleButton(elem);
@@ -525,104 +638,3 @@ $(function () {
 
 
 });
-
-$(function () {
-
-
-  var scrollSelector = '[data-scroll]';
-  var $scrollTotop = $('[data-scroll="to-top"]');
-  var mainH = $('header').height();
-
-
-  $(document).on('click', scrollSelector+'a' , function(e) {
-    scroll(e);
-  });
-
-
-  $(window).scroll(function(e) {
-    topHide(e);
-  });
-
-
-
-  function scroll(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var targetHref = $target.attr('href');
-
-    if (targetHref.includes('#')) {
-      $target.blur();
-
-      var offset = $(targetHref).offset() || {};
-      var offsetTop = offset.top || 0;
-
-      $('html,body').animate(
-          {scrollTop: offsetTop},
-          {
-            duration: 300, easing: 'swing', complete: function () {
-            if (targetHref !== '#skippy') {
-              window.location.hash = targetHref;
-            }
-          }
-          });
-    }
-  }
-
-  function topHide(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var scrollPos = $target.scrollTop();
-
-    if (scrollPos < mainH) {
-      $scrollTotop.find('a').stop().animate({'bottom': '-100px'}, 200, 'swing');
-    } else {
-      $scrollTotop.find('a').stop().animate({'bottom': '15px'}, 200, 'swing');
-    }
-  }
-  
-});
-
-
-
-$(function () {
-  var template =
-      '<ul class="l-grids-4to2to2">'+
-        '<% _.each(data, function(result) { %>'+
-        '<li class="l-grid c-card">'+
-          '<a href="<%-result.url %>">'+
-            '<div class="c-card__img"><img src="<%- result.image_path %>" alt=""></div>'+
-            '<div class="c-card__body">'+
-              '<p class="c-card__text is-text-week"> <%- result.date %></p>'+
-              '<div class="c-card__label">'+
-              '<% _.each(result.tags, function(key, tag) { %>'+
-               '<span class="e-label <%-key %>"> <%-tag %></span>'+
-              '<% }); %>'+
-            '</div>'+
-              '<p class="c-card__title"><%- result.title %></p>'+
-            '</div>'+
-          '</a>'+
-        '</li>'+
-        '<% }); %>'+
-      '</ul>';
-
-  var templates = _.template(template);
-
-  _.each($('.js-news-post'), function(ele) {
-    var url = $(ele).data('url');
-    $.ajax({
-      type: 'GET',
-      url: url,
-      dataType: 'json',
-      cache: false
-    }).then(
-        function(data) {
-          $(ele).append(templates({'data': data}));
-        },
-        function() {
-          console.log('No Data');
-        }
-    );
-  });
-});
-
-
