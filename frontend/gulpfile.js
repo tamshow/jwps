@@ -277,7 +277,7 @@ gulp.task('docs:move:assets', () => {
 //パスの置換 + htmlの移動
 gulp.task('docs:move:replace', () => {
   gulp.src(['source/styleguide/**/*'])
-      .pipe(replace('/assets', 'assets'))
+      .pipe(replace('"/assets', '"assets'))
       .pipe(gulp.dest(DOCS + '/'));
 });
 

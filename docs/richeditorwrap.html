@@ -318,6 +318,7 @@ css
 <ul>
 <li>必要そうなJSパーツはあらかじめ準備しています。<a href="js.html">js - components</a>を参考にしてください。</li>
 <li>HTMLのclassに当てる場合は「js-●●●」など装飾のclassと区別してください。</li>
+<li><code>source/assets/src/@jwps/</code>以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。</li>
 <li>ページ固有のjsは別ファイルを作成します。</li>
 </ul>
 
@@ -375,7 +376,7 @@ UIコンポーネントを組み合わせてwebページを構築していく手
 <h1 id="top-designers" class="styleguide">デザインリソース</h1>
 
 <div class="rich-editor">
-<p><img src="https://tamshow.github.io/jwpsassets/img/dummy/style-guide.png" alt="StyleGuide"></p>
+<p><img src="https://tamshow.github.io/jwps/assets/img/dummy/style-guide.png" alt="StyleGuide"></p>
 
 <ul>
   <li><a href="https://github.com/tamshow/jwps/blob/master/design/JWPS.xd" target="_blank">Download design files (XD)</a></li>
@@ -407,10 +408,10 @@ UIコンポーネントを組み合わせてwebページを構築していく手
 CMSで使うことを前提にまとめています。<br>
 <code>frontend/source</code>フォルダが作業場所です。<br>
 <code>gulp serve</code>することで<code>frontend/source</code>を開発用ルートとしてファイルをwatchします。<br>
-<code>gulp build</code>することで<code>frontend/sourceassets</code>を公開用に調整し<code>frontend/buildassets</code>へ書き出します。<br>
+<code>gulp build</code>することで<code>frontend/source/assets</code>を公開用に調整し<code>frontend/build/assets</code>へ書き出します。<br>
 画像圧縮はしていません。必要に応じて圧縮してください。<br>
 Sassのmixinは<a href="https://www.bourbon.io/">bourbonファミリー</a>を使用・参考にします。<br>
-JSファイルはバンドルしたパターンとバンドルしないパターンを準備しています。必要に応じて使い分けてください。</p>
+<code>source/assets/src/@jwps/</code>以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。必要に応じて使い分けてください。</p>
 
 <h3>使用する主なToolについて</h3>
 <ul>
