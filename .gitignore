@@ -23,16 +23,4 @@ frontend/build
 # webpack files
 frontend/_webpack.config.js
 frontend/_package.json
-frontend/source/assets/src/_top.js
-frontend/source/assets/src/_index.js
-frontend/source/assets/src/@jwps/accordion/_index.js
-frontend/source/assets/src/@jwps/allcheck/_index.js
-frontend/source/assets/src/@jwps/base/_index.js
-frontend/source/assets/src/@jwps/modal/_index.js
-frontend/source/assets/src/@jwps/form
-frontend/source/assets/src/@jwps/newslist/_index.js
-frontend/source/assets/src/@jwps/opennav/_index.js
-frontend/source/assets/src/@jwps/pagescroll/_index.js
-frontend/source/assets/src/@jwps/ripple/_index.js
-frontend/source/assets/src/@jwps/tabs/_index.js
-frontend/source/assets/src/@jwps/vue/
+frontend/source/assets/_webpack_src/

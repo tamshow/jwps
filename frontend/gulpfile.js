@@ -174,11 +174,7 @@ gulp.task('serve', ['html', 'server'], () => {
 //=================
 gulp.task('build:clean:all', () => {
   return del([
-    DEST + '/assets/css/',
-    DEST + '/assets/form/',
-    DEST + '/assets/iconfont/',
-    DEST + '/assets/img/',
-    DEST + '/assets/js/'
+    DEST + '/assets/'
   ],{force: true});
 });
 
@@ -188,7 +184,8 @@ gulp.task('build:move', () => {
   return gulp.src([
     'source/assets/**/*',
     '!source/assets/sass/**/*',
-    '!source/assets/src/**/*'
+    '!source/assets/src/**/*',
+    '!source/assets/_webpack_src/**/*'
   ])
       .pipe(gulp.dest(DEST + '/assets/'));
 });
@@ -199,7 +196,8 @@ gulp.task('build:move', () => {
 gulp.task('build:clean', () => {
   return del([
     DEST + '/assets/sass/',
-    DEST + '/assets/src/'
+    DEST + '/assets/src/',
+    DEST + '/assets/_webpack_src/'
   ],{force: true});
 });
 
@@ -268,7 +266,9 @@ gulp.task('docs:move:assets', () => {
     'source/assets/**/*',
     '!source/assets/js-form/**/*',
     '!source/assets/sass/**/*',
-    '!source/assets/src/**/*'
+    '!source/assets/src/**/*',
+    '!source/assets/_webpack_src/**/*'
+
   ])
       .pipe(gulp.dest(DOCS + '/assets/'));
 });

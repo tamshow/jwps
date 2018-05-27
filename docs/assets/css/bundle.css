@@ -7950,15 +7950,6 @@ categories: [utilities, icon]
   background-image: url("../img/common/icon_xls.png");
 }
 
-.is-icon-youtube {
-  background: url("../img/common/youtube.svg") right center no-repeat;
-  width: 24px;
-  height: 24px;
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .is-icon-badge {
   position: relative;
 }
@@ -7988,19 +7979,6 @@ categories: [utilities, icon]
   content: '';
   background-color: #ff0000;
   border: 2px solid #fff;
-}
-
-.is-icon-new {
-  color: #000;
-  font-style: normal;
-  display: inline;
-  font-size: 8px;
-  background-color: #93e9be;
-  border-radius: 25px;
-  padding: .2em .8em;
-  margin-right: .2em;
-  margin-left: .2em;
-  vertical-align: middle;
 }
 
 /*doc
