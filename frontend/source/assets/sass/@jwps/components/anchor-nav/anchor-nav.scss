@@ -7,18 +7,16 @@
 ---
 title: anchor-nav
 name: anchor-nav
-categories: [components, anchor-nav]
+categories: [js, anchor-nav]
 ---
 
 ```html_example
 <div class="c-anchor-nav">
   <div class="c-anchor-nav__body">
     <p class="c-anchor-nav__title">コンテンツ</p>
-    <ul>
-      <li><a href="">見だし</a></li>
-      <li><a href="">見だし</a></li>
-      <li><a href="">見だし</a></li>
-      <li><a href="">見だし</a></li>
+    <ul data-scroll>
+      <li><a href="#accordion">accordion</a></li>
+      <li><a href="#calendar">calendar</a></li>
     </ul>
   </div>
 </div>

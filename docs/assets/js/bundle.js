@@ -198,35 +198,6 @@ $(function () {
 
 });
 $(function () {
-
-  /*  sample
-
-   <div class="js-posts" data-url="hoge.json">
-   <script type="text/html">
-   <ul class="l-grids-4to2to2">
-   <% _.each(data, function(result) { %>
-   <li class="l-grid c-card">
-   <a href="<%-result.url %>">
-   <div class="c-card__img"><img src="<%- result.image_path %>" alt=""></div>
-   <div class="c-card__body">
-   <p class="c-card__text is-text-week"> <%- result.date %></p>
-   <div class="c-card__label">
-   <% _.each(result.tags, function(key, tag) { %>
-   <span class="e-label <%-key %>"> <%-tag %></span>
-   <% }); %>
-   </div>
-   <p class="c-card__title"><%- result.title %></p>
-   </div>
-   </a>
-   </li>
-   <% }); %>
-   </ul>;
-   </script>
-   </div>
-
-   */
-
-
   _.each($('.js-posts'), function (elem) {
     var url = $(elem).data('url');
     var templates = _.template($(elem).find('script').html());
@@ -355,7 +326,7 @@ $(function () {
   var mainH = $('header').height();
 
 
-  $(document).on('click', scrollSelector+'a' , function(e) {
+  $(document).on('click', scrollSelector + ' a' , function(e) {
     scroll(e);
   });
 
@@ -400,20 +371,110 @@ $(function () {
       $scrollTotop.find('a').stop().animate({'bottom': '15px'}, 200, 'swing');
     }
   }
-  
+
 });
 
 
 
 $(function () {
+  var ripples = document.querySelectorAll('.js-ripple');
+  _.each(ripples, function(elem) {
+    rippleButton(elem);
 
-  var selector = '[data-toggle-nav-sp]';
-  var bodyContents = '[data-body-nav-sp]';
-  var bgSelector = '#js-header-nav-bg-sp';
-  var lowerLayerSelector = '.l-footer, .main';
+  });
+
+  function rippleButton(btn) {
+    btn.addEventListener('mousedown', function(e) {
+      var dimension = Math.max(btn.clientWidth, btn.clientHeight);
+      var loc = btn.getBoundingClientRect();
+      var circle = document.createElement('span');
+      circle.classList.add('js-rp-effect');
+      circle.style.width = dimension + 'px';
+      circle.style.height = dimension + 'px';
+      circle.style.left = e.clientX - btn.offsetLeft - (dimension / 2) + 'px';
+      circle.style.top = e.clientY - btn.offsetTop - (dimension / 2) + document.documentElement.scrollTop + 'px';
+      btn.appendChild(circle);
+      setTimeout(function () {
+        btn.removeChild(circle);
+      }, 1000);
+    })
+  }
+
+});
+
+
+$(function () {
+
+  var containerSelector = '[data-tab]';
+  var tabListSelector = '[data-tablist]';
+  var tabPanelSelector = '[data-tabpanel]';
+
+
+  $(tabListSelector).on('click', function(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    listSelect($target);
+    panelSelect($target);
+  });
+
+  $(document).on('keyup', function(e) {
+    e.preventDefault();
+    tabKeyup(e);
+  });
+
+
+
+  function listSelect($target) {
+    $target.focus();
+    $target.parents('li').attr('aria-selected', 'true').attr('tabindex', '0').focus()
+        .siblings('li').attr('aria-selected', 'false').attr('tabindex', '-1');
+  }
+
+  function panelSelect($target) {
+    var panel = $target.attr('aria-controls');
+    $('#' + panel).attr('aria-hidden', 'false')
+        .siblings(this.tabPanelSelector).attr('aria-hidden', 'true');
+  }
+
+
+  function tabKeyup(e) {
+    var $target = $(e.currentTarget);
+
+    var leftArrow = 37;
+    var rightArrow = 39;
+
+    switch (e.keyCode) {
+
+      case leftArrow:
+        $target = $(e.target).prev().children(this.tabListSelector);
+        break;
+
+      case rightArrow:
+
+        $target = $(e.target).next().children(this.tabListSelector);
+        break;
+
+      default:
+
+        break;
+    }
+    listSelect($target);
+    panelSelect($target);
+  }
+
+
+
+});
+
+$(function () {
+
+  var selector = '[data-toggle-offcanvas]';
+  var bodyContents = '[data-body-offcanvas]';
+  var bgSelector = '#js-offcanvas-bg';
+  var lowerLayerSelector = '';//.l-footer, .main
   var iconOpen = 'menu';
   var iconClose = 'close';
-  var focusSelector = '.l-header-search-sp__input';
+  var focusSelector = '';//.l-header-search-sp__input
 
   var currentScrollY = null;
 
@@ -490,132 +551,6 @@ $(function () {
 
 
 
-
-$(function () {
-  var ripples = document.querySelectorAll('.js-ripple');
-  _.each(this.ripples, function(elem) {
-    rippleButton(elem);
-  });
-  
-  function rippleButton(btn) {
-    btn.addEventListener('mousedown', function(e) {
-      var dimension = Math.max(btn.clientWidth, btn.clientHeight);
-      var loc = btn.getBoundingClientRect();
-      var circle = document.createElement('span');
-      circle.classList.add('js-rp-effect');
-      circle.style.width = dimension + 'px';
-      circle.style.height = dimension + 'px';
-      circle.style.left = e.clientX - btn.offsetLeft - (dimension / 2) + 'px';
-      circle.style.top = e.clientY - btn.offsetTop - (dimension / 2) + document.documentElement.scrollTop + 'px';
-      btn.appendChild(circle);
-      setTimeout(function () {
-        btn.removeChild(circle);
-      }, 1000);
-    })
-  }
-
-});
-
-
-/*
-
- <button class="js-ripple e-btn" type="button">もっと見る</button>
-
-
- .js-ripple {
-   overflow: hidden;
-   position: relative;
- }
-
- .js-rp-effect {
-   width: 100%;
-   height: 100%;
-   border-radius: 50%;
-   background-color: rgba(255, 255, 255, .5);
-   position: absolute;
-   opacity: 0;
-   transform: scale(0);
-   animation: 500ms ripple-fg forwards, 500ms ripple-fg-opacity-out forwards;
- }
-
- @keyframes ripple-fg {
-   to {
-     transform: scale(2.5);
-   }
- }
-
- @keyframes ripple-fg-opacity-out {
-   from {
-     animation-timing-function: $animation-sharp-curve-timing-function;
-     opacity: 1;
-   }
-   to {
-     opacity: 0;
-   }
- }
- * */
-$(function () {
-
-  var containerSelector = '[data-tab]';
-  var tabListSelector = '[data-tablist]';
-  var tabPanelSelector = '[data-tabpanel]';
-
-
-  $(tabListSelector).on('click', function(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    listSelect($target);
-    panelSelect($target);
-  });
-
-  $(document).on('keyup', function(e) {
-    e.preventDefault();
-    tabKeyup(e);
-  });
-
-
-
-  function listSelect($target) {
-    $target.focus();
-    $target.parents('li').attr('aria-selected', 'true').attr('tabindex', '0').focus()
-        .siblings('li').attr('aria-selected', 'false').attr('tabindex', '-1');
-  }
-
-  function panelSelect($target) {
-    var panel = $target.attr('aria-controls');
-    $('#' + panel).attr('aria-hidden', 'false')
-        .siblings(this.tabPanelSelector).attr('aria-hidden', 'true');
-  }
-
-
-  function tabKeyup(e) {
-    var $target = $(e.currentTarget);
-
-    var leftArrow = 37;
-    var rightArrow = 39;
-
-    switch (e.keyCode) {
-
-      case leftArrow:
-        $target = $(e.target).prev().children(this.tabListSelector);
-        break;
-
-      case rightArrow:
-
-        $target = $(e.target).next().children(this.tabListSelector);
-        break;
-
-      default:
-
-        break;
-    }
-    listSelect($target);
-    panelSelect($target);
-  }
-
-
-
-});
 
 $(function () {
 
