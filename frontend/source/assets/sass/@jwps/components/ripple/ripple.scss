@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #Ripple
+   ========================================================================== */
+
+/*doc
+---
+title: ripple
+name: ripple
+categories: [js, ripple]
+---
+
+```html_example
+
+ <button class="js-ripple e-btn e-btn--secondary" type="button">もっと見る</button>
+
+```
+
+*/
+
+
+ .js-ripple {
+   overflow: hidden;
+   position: relative;
+ }
+
+ .js-rp-effect {
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+   background-color: rgba(255, 255, 255, .5);
+   position: absolute;
+   opacity: 0;
+   transform: scale(0);
+   animation: 500ms ripple-fg forwards, 500ms ripple-fg-opacity-out forwards;
+ }
+
+ @keyframes ripple-fg {
+   to {
+     transform: scale(2.5);
+   }
+ }
+
+ @keyframes ripple-fg-opacity-out {
+   from {
+     animation-timing-function: $animation-sharp-curve-timing-function;
+     opacity: 1;
+   }
+   to {
+     opacity: 0;
+   }
+ }

@@ -1,12 +1,12 @@
 $(function () {
 
-  var selector = '[data-toggle-nav-sp]';
-  var bodyContents = '[data-body-nav-sp]';
-  var bgSelector = '#js-header-nav-bg-sp';
-  var lowerLayerSelector = '.l-footer, .main';
+  var selector = '[data-toggle-offcanvas]';
+  var bodyContents = '[data-body-offcanvas]';
+  var bgSelector = '#js-offcanvas-bg';
+  var lowerLayerSelector = '';//.l-footer, .main
   var iconOpen = 'menu';
   var iconClose = 'close';
-  var focusSelector = '.l-header-search-sp__input';
+  var focusSelector = '';//.l-header-search-sp__input
 
   var currentScrollY = null;
 

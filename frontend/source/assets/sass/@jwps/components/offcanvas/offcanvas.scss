@@ -1,0 +1,170 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #offcanvas
+   ========================================================================== */
+
+/*doc
+---
+title: offcanvas
+name: offcanvas
+categories: [js, offcanvas]
+---
+
+
+```html_example
+
+    <div class="c-control-offcanvas">
+      <button
+          type="button"
+          aria-controls="aria-offcanvas"
+          aria-expanded="false"
+          aria-label="開く"
+          data-toggle-offcanvas><i class="material-icons">menu</i><span>メニュー</span></button>
+    </div>
+
+  <div class="c-offcanvas" aria-hidden="true" data-body-offcanvas>
+    <div id="aria-offcanvas" class="_body">
+      <nav role="navigation" aria-label="スマートフォン用サイト全体のメニュー">
+        <ul class="_list">
+          <li><a href="/" class="is-active">提供サービス</a></li>
+          <li><a href="/">採用情報</a></li>
+          <li><a href="/">会社案内</a></li>
+          <li><a href="/">お問い合わせ</a></li>
+        </ul>
+        <ul class="_list2">
+          <li><a href="">交通アクセス</a></li>
+          <li><a href="">よくある質問</a></li>
+          <li><a href="">お問い合わせ</a></li>
+        </ul>
+
+      </nav>
+    </div>
+  </div>
+
+
+<div id="js-offcanvas-bg"></div>
+```
+*/
+
+
+
+.c-control-offcanvas {
+  a,
+  button {
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0 auto;
+    white-space: nowrap;
+    appearance: none;
+    user-select: none;
+    outline: none;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 0;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  i {
+    display: block;
+    font-size: 22px;
+    color: $text-color-sub;
+  }
+  span {
+    display: block;
+    font-size: 10px;
+    color: $text-color;
+  }
+}
+
+.c-offcanvas {
+  //open - start
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-257px);
+  width: 256px;
+  background: #fff;
+  display: block;
+  transform-style: preserve-3d;
+  transition-delay: .1s;
+  transition-duration: .2s;
+  transition-property: transform, left;
+  transition-timing-function: $animation-standard-curve-timing-function;
+  z-index: 9999;
+
+  &[aria-hidden="false"] {
+    transform: translateX(0);
+    background: #fff;
+  }
+
+  ._body {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 9999;
+  }
+  //open - end
+
+  nav {
+    padding-top: 10px;
+  }
+
+  ._list,
+  ._list2 {
+    border-bottom: 1px solid $border-color;
+
+    i {
+      font-size: 18px;
+      margin-right: 17px;
+      position: relative;
+      top: 3px;
+    }
+
+    li a {
+      line-height: 1.4;
+      border-radius: 0;
+      font-size: 14px;
+      font-weight: bold;
+      color: $text-color;
+      padding: 16px 22px;
+      display: block;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      &.is-active {
+        background-color: #eef0f4;
+      }
+    }
+  }
+
+  ._list2 {
+    li a {
+      font-weight: normal;
+    }
+  }
+
+  ._list2--2column {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+
+    li {
+      width: 45%;
+    }
+  }
+
+}
+

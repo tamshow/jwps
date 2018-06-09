@@ -4113,7 +4113,7 @@ categories: [elements, btn]
 
 ```
 
-```
+
 */
 .e-btn {
   font-weight: bold;
@@ -6419,18 +6419,16 @@ parent: menu
 ---
 title: anchor-nav
 name: anchor-nav
-categories: [components, anchor-nav]
+categories: [js, anchor-nav]
 ---
 
 ```html_example
 <div class="c-anchor-nav">
   <div class="c-anchor-nav__body">
     <p class="c-anchor-nav__title">コンテンツ</p>
-    <ul>
-      <li><a href="">見だし</a></li>
-      <li><a href="">見だし</a></li>
-      <li><a href="">見だし</a></li>
-      <li><a href="">見だし</a></li>
+    <ul data-scroll>
+      <li><a href="#accordion">accordion</a></li>
+      <li><a href="#calendar">calendar</a></li>
     </ul>
   </div>
 </div>
@@ -7655,6 +7653,247 @@ categories: [js, calendar]
   padding-top: 1%;
 }
 
+/* ==========================================================================
+   #offcanvas
+   ========================================================================== */
+/*doc
+---
+title: offcanvas
+name: offcanvas
+categories: [js, offcanvas]
+---
+
+
+```html_example
+
+    <div class="c-control-offcanvas">
+      <button
+          type="button"
+          aria-controls="aria-offcanvas"
+          aria-expanded="false"
+          aria-label="開く"
+          data-toggle-offcanvas><i class="material-icons">menu</i><span>メニュー</span></button>
+    </div>
+
+  <div class="c-offcanvas" aria-hidden="true" data-body-offcanvas>
+    <div id="aria-offcanvas" class="_body">
+      <nav role="navigation" aria-label="スマートフォン用サイト全体のメニュー">
+        <ul class="_list">
+          <li><a href="/" class="is-active">提供サービス</a></li>
+          <li><a href="/">採用情報</a></li>
+          <li><a href="/">会社案内</a></li>
+          <li><a href="/">お問い合わせ</a></li>
+        </ul>
+        <ul class="_list2">
+          <li><a href="">交通アクセス</a></li>
+          <li><a href="">よくある質問</a></li>
+          <li><a href="">お問い合わせ</a></li>
+        </ul>
+
+      </nav>
+    </div>
+  </div>
+
+
+<div id="js-offcanvas-bg"></div>
+```
+*/
+.c-control-offcanvas a,
+.c-control-offcanvas button {
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0 auto;
+  white-space: nowrap;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  outline: none;
+  vertical-align: middle;
+  background-color: transparent;
+  border: 0;
+}
+
+.c-control-offcanvas a:hover,
+.c-control-offcanvas button:hover {
+  text-decoration: none;
+}
+
+.c-control-offcanvas i {
+  display: block;
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.c-control-offcanvas span {
+  display: block;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.c-offcanvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transform: translateX(-257px);
+      -ms-transform: translateX(-257px);
+          transform: translateX(-257px);
+  width: 256px;
+  background: #fff;
+  display: block;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition-delay: .1s;
+          transition-delay: .1s;
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+  -webkit-transition-property: left, -webkit-transform;
+  transition-property: left, -webkit-transform;
+  transition-property: transform, left;
+  transition-property: transform, left, -webkit-transform;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 9999;
+}
+
+.c-offcanvas[aria-hidden="false"] {
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+  background: #fff;
+}
+
+.c-offcanvas ._body {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 9999;
+}
+
+.c-offcanvas nav {
+  padding-top: 10px;
+}
+
+.c-offcanvas ._list,
+.c-offcanvas ._list2 {
+  border-bottom: 1px solid #ddd;
+}
+
+.c-offcanvas ._list i,
+.c-offcanvas ._list2 i {
+  font-size: 18px;
+  margin-right: 17px;
+  position: relative;
+  top: 3px;
+}
+
+.c-offcanvas ._list li a,
+.c-offcanvas ._list2 li a {
+  line-height: 1.4;
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 16px 22px;
+  display: block;
+}
+
+.c-offcanvas ._list li a:hover,
+.c-offcanvas ._list2 li a:hover {
+  text-decoration: none;
+}
+
+.c-offcanvas ._list li a.is-active,
+.c-offcanvas ._list2 li a.is-active {
+  background-color: #eef0f4;
+}
+
+.c-offcanvas ._list2 li a {
+  font-weight: normal;
+}
+
+.c-offcanvas ._list2--2column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.c-offcanvas ._list2--2column li {
+  width: 45%;
+}
+
+/* ==========================================================================
+   #Ripple
+   ========================================================================== */
+/*doc
+---
+title: ripple
+name: ripple
+categories: [js, ripple]
+---
+
+```html_example
+
+ <button class="js-ripple e-btn e-btn--secondary" type="button">もっと見る</button>
+
+```
+
+*/
+.js-ripple {
+  overflow: hidden;
+  position: relative;
+}
+
+.js-rp-effect {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  opacity: 0;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  -webkit-animation: 500ms ripple-fg forwards, 500ms ripple-fg-opacity-out forwards;
+          animation: 500ms ripple-fg forwards, 500ms ripple-fg-opacity-out forwards;
+}
+
+@keyframes ripple-fg {
+  to {
+    -webkit-transform: scale(2.5);
+            transform: scale(2.5);
+  }
+}
+
+@keyframes ripple-fg-opacity-out {
+  from {
+    -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+            animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -8815,7 +9054,7 @@ categories: [utilities, color]
   top: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  z-index: 9999;
+  z-index: 800;
   background-color: #fff;
 }
 

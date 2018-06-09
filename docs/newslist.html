@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="assets/css/bundle.css" media="all">
+
+  <script src="assets/js/vendor.js"></script>
+  <script src="assets/js/bundle.js"></script>
+</head>
+
+<body class="sg-body">
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>Japan Web Production Standards</h1>
+    <nav class="sg-header__nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="richeditor.html">richeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">newslist</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#newslist">newslist</a></li>
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="newslist" class="styleguide">newslist</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+       <div class="js-posts" data-url="hoge.json">
+     <script type="text/html">
+       <ul class="l-grids-4to2to2">
+         <% _.each(data, function(result) { %>
+         <li class="l-grid c-card">
+           <a href="<%-result.url %>">
+             <div class="c-card__img"><img src="<%- result.image_path %>" alt=""></div>
+               <div class="c-card__body">
+               <p class="c-card__text is-text-week"> <%- result.date %></p>
+               <div class="c-card__label">
+               <% _.each(result.tags, function(key, tag) { %>
+               <span class="e-label <%-key %>"> <%-tag %></span>
+               <% }); %>
+               </div>
+               <p class="c-card__title"><%- result.title %></p>
+             </div>
+           </a>
+         </li>
+         <% }); %>
+       </ul>;
+     </script>
+   </div>
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"js-posts"</span> <span class="na">data-url=</span><span class="s">"hoge.json"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/html"</span><span class="nt">&gt;</span>
+       <span class="o">&lt;</span><span class="nx">ul</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"l-grids-4to2to2"</span><span class="o">&gt;</span>
+         <span class="o">&lt;%</span> <span class="nx">_</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span> <span class="o">%&gt;</span>
+         <span class="o">&lt;</span><span class="nx">li</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"l-grid c-card"</span><span class="o">&gt;</span>
+           <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"&lt;%-result.url %&gt;"</span><span class="o">&gt;</span>
+             <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"c-card__img"</span><span class="o">&gt;&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"&lt;%- result.image_path %&gt;"</span> <span class="nx">alt</span><span class="o">=</span><span class="s2">""</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>               <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"c-card__body"</span><span class="o">&gt;</span>
+               <span class="o">&lt;</span><span class="nx">p</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"c-card__text is-text-week"</span><span class="o">&gt;</span> <span class="o">&lt;%-</span> <span class="nx">result</span><span class="p">.</span><span class="nx">date</span> <span class="o">%&gt;&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>               <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"c-card__label"</span><span class="o">&gt;</span>
+               <span class="o">&lt;%</span> <span class="nx">_</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">tags</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">tag</span><span class="p">)</span> <span class="p">{</span> <span class="o">%&gt;</span>
+               <span class="o">&lt;</span><span class="nx">span</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"e-label &lt;%-key %&gt;"</span><span class="o">&gt;</span> <span class="o">&lt;%-</span><span class="nx">tag</span> <span class="o">%&gt;&lt;</span><span class="sr">/span</span><span class="err">&gt;
+</span>               <span class="o">&lt;%</span> <span class="p">});</span> <span class="o">%&gt;</span>
+               <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>               <span class="o">&lt;</span><span class="nx">p</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"c-card__title"</span><span class="o">&gt;&lt;%-</span> <span class="nx">result</span><span class="p">.</span><span class="nx">title</span> <span class="o">%&gt;&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>             <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>           <span class="o">&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span>         <span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span>         <span class="o">&lt;%</span> <span class="p">});</span> <span class="o">%&gt;</span>
+       <span class="o">&lt;</span><span class="sr">/ul&gt;</span><span class="err">;
+</span>     <span class="nt">&lt;/script&gt;</span>
+   <span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

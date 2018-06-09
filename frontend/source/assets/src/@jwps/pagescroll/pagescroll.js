@@ -6,7 +6,7 @@ $(function () {
   var mainH = $('header').height();
 
 
-  $(document).on('click', scrollSelector+'a' , function(e) {
+  $(document).on('click', scrollSelector + ' a' , function(e) {
     scroll(e);
   });
 
@@ -51,7 +51,7 @@ $(function () {
       $scrollTotop.find('a').stop().animate({'bottom': '15px'}, 200, 'swing');
     }
   }
-  
+
 });
 
 
