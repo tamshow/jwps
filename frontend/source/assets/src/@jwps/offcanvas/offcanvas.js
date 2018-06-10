@@ -3,34 +3,38 @@ $(function () {
   var selector = '[data-toggle-offcanvas]';
   var bodyContents = '[data-body-offcanvas]';
   var bgSelector = '#js-offcanvas-bg';
+  var scrollSelector = '[data-scroll-offcanvas]';
   var lowerLayerSelector = '';//.l-footer, .main
-  var iconOpen = 'menu';
-  var iconClose = 'close';
   var focusSelector = '';//.l-header-search-sp__input
 
   var currentScrollY = null;
 
-  
+
   var $selector = $(selector);
   var $bodyContents = $(bodyContents);
   var $bgSelector = $(bgSelector);
   var $lowerLayerSelector = $(lowerLayerSelector);
   var $focusSelector = $(focusSelector);
+  var $scrollSelector = $(scrollSelector);
 
 
-  $selector.on('click', function(e) {
+  $selector.on('click', function (e) {
+    toggle(e);
+  });
 
-    toggle(e, $selector, $bodyContents, $bgSelector, $lowerLayerSelector, iconOpen, iconClose, $focusSelector);
+  $bgSelector.on('click', function (e) {
+    settingInitialization();
+  });
+
+
+  $bodyContents.on('click', scrollSelector, function (e) {
+    settingInitialization();
+    scrollTo(e);
 
   });
 
-  $bgSelector.on('click', function(e) {
-    settingInitialization($selector, $bodyContents, $bgSelector, $lowerLayerSelector, iconOpen, iconClose, $focusSelector);
-  });
 
-
-
-  function toggle(e, $selector, $bodyContents, $bgSelector, $lowerLayerSelector, iconOpen, iconClose, $focusSelector) {
+  function toggle(e) {
 
     e.preventDefault();
 
@@ -39,7 +43,7 @@ $(function () {
       $bodyContents.attr({'aria-hidden': 'false', 'tabindex': '1'});
       $('input').first().focus();
       //メニューアイコン
-      $selector.attr({'aria-expanded': 'true', 'aria-label': '閉じる'}).find('i').text(iconClose);
+      $selector.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
       //背景黒
       $bgSelector.css({
         display: 'block',
@@ -64,14 +68,14 @@ $(function () {
       });
 
     } else {
-     settingInitialization($selector, $bodyContents, $bgSelector, $lowerLayerSelector, iconOpen, iconClose, $focusSelector);
+      settingInitialization();
     }
   }
 
-  function settingInitialization($selector, $bodyContents, $bgSelector, $lowerLayerSelector, iconOpen, $focusSelector) {
+  function settingInitialization() {
 
     $bodyContents.attr({'aria-hidden': 'true', 'tabindex': '-1'});
-    $selector.attr({'aria-expanded': 'false', 'aria-label': '開く'}).find('i').text(iconOpen);
+    $selector.attr({'aria-expanded': 'false', 'aria-label': '開く'});
     $bgSelector.attr({style: ''});
     $lowerLayerSelector.removeAttr('aria-hidden');
     $('body').attr({style: ''});
@@ -79,6 +83,24 @@ $(function () {
   }
 
 
+  function scrollTo(e) {
+    e.preventDefault();
+
+    var $target = $(e.currentTarget);
+    var targetHref = $target.attr('href');
+
+    if (targetHref.includes('#')) {
+      $target.blur();
+
+      var offset = $(targetHref).offset() || {};
+      var offsetTop = offset.top || 0;
+
+      $('html,body').animate(
+          {scrollTop: offsetTop},
+          {duration: 300, easing: 'swing'});
+    }
+  }
+  
 });
 
 

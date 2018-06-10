@@ -20,19 +20,22 @@ categories: [js, offcanvas]
           aria-controls="aria-offcanvas"
           aria-expanded="false"
           aria-label="開く"
-          data-toggle-offcanvas><i class="material-icons">menu</i><span>メニュー</span></button>
+          data-toggle-offcanvas>
+          <div class="c-control-offcanvas__icon"><span></span><span></span><span></span></div>
+          <span class="c-control-offcanvas__title">メニュー</span>
+         </button>
     </div>
 
   <div class="c-offcanvas" aria-hidden="true" data-body-offcanvas>
-    <div id="aria-offcanvas" class="_body">
+    <div id="aria-offcanvas" class="c-offcanvas__body">
       <nav role="navigation" aria-label="スマートフォン用サイト全体のメニュー">
-        <ul class="_list">
-          <li><a href="/" class="is-active">提供サービス</a></li>
-          <li><a href="/">採用情報</a></li>
+        <ul class="c-offcanvas__list">
+          <li><a href="/" class="is-active">offcanvas</a></li>
+          <li><a href="#ripple" data-scroll-offcanvas>ripple(ページ内スクロール)</a></li>
           <li><a href="/">会社案内</a></li>
           <li><a href="/">お問い合わせ</a></li>
         </ul>
-        <ul class="_list2">
+        <ul class="c-offcanvas__list2">
           <li><a href="">交通アクセス</a></li>
           <li><a href="">よくある質問</a></li>
           <li><a href="">お問い合わせ</a></li>
@@ -41,7 +44,6 @@ categories: [js, offcanvas]
       </nav>
     </div>
   </div>
-
 
 <div id="js-offcanvas-bg"></div>
 ```
@@ -68,16 +70,73 @@ categories: [js, offcanvas]
       text-decoration: none;
     }
   }
-  i {
-    display: block;
-    font-size: 22px;
-    color: $text-color-sub;
+
+  &__title {
+      display: block;
+      font-size: 10px;
+      color: $text-color;
   }
-  span {
-    display: block;
-    font-size: 10px;
-    color: $text-color;
+
+  &__icon {
+      margin-left:3px;
+      width: 33px;
+      height: 30px;
+      transform: rotate(0deg);
+      cursor: pointer;
+      //mix-blend-mode: multiply;
+
+      span {
+
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: $brand-primary;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: 0.25s ease-in-out;
+      }
+
+      span:nth-child(1) {
+        top: 0
+      }
+
+      span:nth-child(2) {
+        top: 10px
+      }
+
+      span:nth-child(3) {
+        top: 20px;
+      }
+
+    [aria-expanded="true"] & {
+
+      span:nth-child(1) {
+        top: 12px;
+        transform: rotate(135deg)
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+        left: -60px
+      }
+
+      span:nth-child(3) {
+        top: 12px;
+        transform: rotate(-135deg)
+      }
+
+    }
+
+
   }
+
+
+
+
+
 }
 
 .c-offcanvas {
@@ -102,7 +161,7 @@ categories: [js, offcanvas]
     background: #fff;
   }
 
-  ._body {
+  &__body {
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
     overflow-y: auto;
@@ -120,8 +179,8 @@ categories: [js, offcanvas]
     padding-top: 10px;
   }
 
-  ._list,
-  ._list2 {
+  &__list,
+  &__list2 {
     border-bottom: 1px solid $border-color;
 
     i {
@@ -150,13 +209,13 @@ categories: [js, offcanvas]
     }
   }
 
-  ._list2 {
+  &__list2 {
     li a {
       font-weight: normal;
     }
   }
 
-  ._list2--2column {
+  &__list2--2column {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
