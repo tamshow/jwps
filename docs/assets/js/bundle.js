@@ -145,86 +145,6 @@ $(function () {
 
 $(function () {
 
-  var $selectorAC = $('[data-toggle-accordion]');
-  var containerAC = '[data-accordion]';
-  var deviceAC = '[data-device-accordion]';//all, pc, tab, sp
-  var bodyAC = '[data-body-accordion]';
-  var tabWidth = '960px';
-  var spWidth = '600px';
-
-  $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
-
-  $selectorAC.on('click E_ENTER_KYE_CODE', function (e) {
-
-    var media = $(e.currentTarget).parents(deviceAC).data('device-accordion') || 'all';
-    var isMobile = window.matchMedia('(max-width:' + spWidth + ')').matches || false;
-    var isTablet = window.matchMedia('(min-width:' + spWidth + ') and (max-width:' + tabWidth + ')').matches || false;
-
-    if (media.match(/all/) ||
-        (media.match(/sp/) && isMobile) ||
-        (media.match(/tab/) && isTablet) ||
-        (media.match(/pc/) && ( !isMobile && !isTablet))
-    ) {
-      toggle(e);
-    }
-  });
-
-  function toggle(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var $containerAC = $target.parents(containerAC);
-    var $bodyAC = $containerAC.find(bodyAC);
-
-    if ($containerAC.hasClass('is-active')) {
-      $containerAC.removeClass('is-active');
-      $target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
-      $bodyAC.stop().slideUp(150).attr('aria-hidden', 'true');
-    } else {
-      $containerAC.addClass('is-active');
-      $target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
-      $bodyAC.stop().slideDown(200).attr('aria-hidden', 'false').focus();
-
-      var offset = $target.offset() || {};
-      var offsetTop = offset.top || 0;
-
-      $('html,body').animate({scrollTop: offsetTop - ($('header').height())}, {
-        duration: 500,
-        easing: 'swing'
-      });
-
-    }
-  }
-
-
-});
-$(function () {
-  _.each($('.js-posts'), function (elem) {
-    var url = $(elem).data('url');
-    var templates = _.template($(elem).find('script').html());
-
-    $.ajax({
-      type: 'GET',
-      url: url,
-      dataType: 'json',
-      cache: false
-    }).then(
-        function (data) {
-          $(elem).append(templates({
-            'data': data
-          }));
-        },
-
-        function () {
-          console.log('No Data');
-        });
-  });
-});
-
-
-
-
-$(function () {
-
 
   //initialize
   var $modalSelector = $('[data-modal]');
@@ -318,6 +238,194 @@ $(function () {
 
 
 });
+$(function () {
+
+  var $selectorAC = $('[data-toggle-accordion]');
+  var containerAC = '[data-accordion]';
+  var deviceAC = '[data-device-accordion]';//all, pc, tab, sp
+  var bodyAC = '[data-body-accordion]';
+  var tabWidth = '960px';
+  var spWidth = '600px';
+
+  $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
+
+  $selectorAC.on('click E_ENTER_KYE_CODE', function (e) {
+
+    var media = $(e.currentTarget).parents(deviceAC).data('device-accordion') || 'all';
+    var isMobile = window.matchMedia('(max-width:' + spWidth + ')').matches || false;
+    var isTablet = window.matchMedia('(min-width:' + spWidth + ') and (max-width:' + tabWidth + ')').matches || false;
+
+    if (media.match(/all/) ||
+        (media.match(/sp/) && isMobile) ||
+        (media.match(/tab/) && isTablet) ||
+        (media.match(/pc/) && ( !isMobile && !isTablet))
+    ) {
+      toggle(e);
+    }
+  });
+
+  function toggle(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var $containerAC = $target.parents(containerAC);
+    var $bodyAC = $containerAC.find(bodyAC);
+
+    if ($containerAC.hasClass('is-active')) {
+      $containerAC.removeClass('is-active');
+      $target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
+      $bodyAC.stop().slideUp(150).attr('aria-hidden', 'true');
+    } else {
+      $containerAC.addClass('is-active');
+      $target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
+      $bodyAC.stop().slideDown(200).attr('aria-hidden', 'false').focus();
+
+      var offset = $target.offset() || {};
+      var offsetTop = offset.top || 0;
+
+      $('html,body').animate({scrollTop: offsetTop - ($('header').height())}, {
+        duration: 500,
+        easing: 'swing'
+      });
+
+    }
+  }
+
+
+});
+$(function () {
+
+  var selector = '[data-toggle-offcanvas]';
+  var bodyContents = '[data-body-offcanvas]';
+  var bgSelector = '#js-offcanvas-bg';
+  var scrollSelector = '[data-scroll-offcanvas]';
+  var lowerLayerSelector = '';//.l-footer, .main
+  var focusSelector = '';//.l-header-search-sp__input
+
+  var currentScrollY = null;
+
+
+  var $selector = $(selector);
+  var $bodyContents = $(bodyContents);
+  var $bgSelector = $(bgSelector);
+  var $lowerLayerSelector = $(lowerLayerSelector);
+  var $focusSelector = $(focusSelector);
+  var $scrollSelector = $(scrollSelector);
+
+
+  $selector.on('click', function (e) {
+    toggle(e);
+  });
+
+  $bgSelector.on('click', function (e) {
+    settingInitialization();
+  });
+
+
+  $bodyContents.on('click', scrollSelector, function (e) {
+    settingInitialization();
+    scrollTo(e);
+
+  });
+
+
+  function toggle(e) {
+
+    e.preventDefault();
+
+    if ($bodyContents.attr('aria-hidden') === 'true') {
+      //ナビゲーションのレイヤーを上にしてスライドイン
+      $bodyContents.attr({'aria-hidden': 'false', 'tabindex': '1'});
+      $('input').first().focus();
+      //メニューアイコン
+      $selector.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
+      //背景黒
+      $bgSelector.css({
+        display: 'block',
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0, 0, 0, .5)',
+        overflow: 'hidden',
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        zIndex: '998'
+      });
+
+      //下のレイヤーをhidden
+      $lowerLayerSelector.attr({'aria-hidden': 'true'});
+      currentScrollY = $(window).scrollTop();
+      //現在地のスクロールを保持
+      $('body').css({
+        position: 'fixed',
+        width: '100%',
+        top: -1 * currentScrollY
+      });
+
+    } else {
+      settingInitialization();
+    }
+  }
+
+  function settingInitialization() {
+
+    $bodyContents.attr({'aria-hidden': 'true', 'tabindex': '-1'});
+    $selector.attr({'aria-expanded': 'false', 'aria-label': '開く'});
+    $bgSelector.attr({style: ''});
+    $lowerLayerSelector.removeAttr('aria-hidden');
+    $('body').attr({style: ''});
+    $('html, body').prop({scrollTop: currentScrollY});
+  }
+
+
+  function scrollTo(e) {
+    e.preventDefault();
+
+    var $target = $(e.currentTarget);
+    var targetHref = $target.attr('href');
+
+    if (targetHref.includes('#')) {
+      $target.blur();
+
+      var offset = $(targetHref).offset() || {};
+      var offsetTop = offset.top || 0;
+
+      $('html,body').animate(
+          {scrollTop: offsetTop},
+          {duration: 300, easing: 'swing'});
+    }
+  }
+  
+});
+
+
+
+
+$(function () {
+  _.each($('.js-posts'), function (elem) {
+    var url = $(elem).data('url');
+    var templates = _.template($(elem).find('script').html());
+
+    $.ajax({
+      type: 'GET',
+      url: url,
+      dataType: 'json',
+      cache: false
+    }).then(
+        function (data) {
+          $(elem).append(templates({
+            'data': data
+          }));
+        },
+
+        function () {
+          console.log('No Data');
+        });
+  });
+});
+
+
+
+
 $(function () {
 
 
@@ -465,92 +573,6 @@ $(function () {
 
 
 });
-
-$(function () {
-
-  var selector = '[data-toggle-offcanvas]';
-  var bodyContents = '[data-body-offcanvas]';
-  var bgSelector = '#js-offcanvas-bg';
-  var lowerLayerSelector = '';//.l-footer, .main
-  var iconOpen = 'menu';
-  var iconClose = 'close';
-  var focusSelector = '';//.l-header-search-sp__input
-
-  var currentScrollY = null;
-
-  
-  var $selector = $(selector);
-  var $bodyContents = $(bodyContents);
-  var $bgSelector = $(bgSelector);
-  var $lowerLayerSelector = $(lowerLayerSelector);
-  var $focusSelector = $(focusSelector);
-
-
-  $selector.on('click', function(e) {
-
-    toggle(e, $selector, $bodyContents, $bgSelector, $lowerLayerSelector, iconOpen, iconClose, $focusSelector);
-
-  });
-
-  $bgSelector.on('click', function(e) {
-    settingInitialization($selector, $bodyContents, $bgSelector, $lowerLayerSelector, iconOpen, iconClose, $focusSelector);
-  });
-
-
-
-  function toggle(e, $selector, $bodyContents, $bgSelector, $lowerLayerSelector, iconOpen, iconClose, $focusSelector) {
-
-    e.preventDefault();
-
-    if ($bodyContents.attr('aria-hidden') === 'true') {
-      //ナビゲーションのレイヤーを上にしてスライドイン
-      $bodyContents.attr({'aria-hidden': 'false', 'tabindex': '1'});
-      $('input').first().focus();
-      //メニューアイコン
-      $selector.attr({'aria-expanded': 'true', 'aria-label': '閉じる'}).find('i').text(iconClose);
-      //背景黒
-      $bgSelector.css({
-        display: 'block',
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0, 0, 0, .5)',
-        overflow: 'hidden',
-        position: 'fixed',
-        top: '0',
-        left: '0',
-        zIndex: '998'
-      });
-
-      //下のレイヤーをhidden
-      $lowerLayerSelector.attr({'aria-hidden': 'true'});
-      currentScrollY = $(window).scrollTop();
-      //現在地のスクロールを保持
-      $('body').css({
-        position: 'fixed',
-        width: '100%',
-        top: -1 * currentScrollY
-      });
-
-    } else {
-     settingInitialization($selector, $bodyContents, $bgSelector, $lowerLayerSelector, iconOpen, iconClose, $focusSelector);
-    }
-  }
-
-  function settingInitialization($selector, $bodyContents, $bgSelector, $lowerLayerSelector, iconOpen, $focusSelector) {
-
-    $bodyContents.attr({'aria-hidden': 'true', 'tabindex': '-1'});
-    $selector.attr({'aria-expanded': 'false', 'aria-label': '開く'}).find('i').text(iconOpen);
-    $bgSelector.attr({style: ''});
-    $lowerLayerSelector.removeAttr('aria-hidden');
-    $('body').attr({style: ''});
-    $('html, body').prop({scrollTop: currentScrollY});
-  }
-
-
-});
-
-
-
 
 $(function () {
 

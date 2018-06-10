@@ -7672,19 +7672,22 @@ categories: [js, offcanvas]
           aria-controls="aria-offcanvas"
           aria-expanded="false"
           aria-label="開く"
-          data-toggle-offcanvas><i class="material-icons">menu</i><span>メニュー</span></button>
+          data-toggle-offcanvas>
+          <div class="c-control-offcanvas__icon"><span></span><span></span><span></span></div>
+          <span class="c-control-offcanvas__title">メニュー</span>
+         </button>
     </div>
 
   <div class="c-offcanvas" aria-hidden="true" data-body-offcanvas>
-    <div id="aria-offcanvas" class="_body">
+    <div id="aria-offcanvas" class="c-offcanvas__body">
       <nav role="navigation" aria-label="スマートフォン用サイト全体のメニュー">
-        <ul class="_list">
-          <li><a href="/" class="is-active">提供サービス</a></li>
-          <li><a href="/">採用情報</a></li>
+        <ul class="c-offcanvas__list">
+          <li><a href="/" class="is-active">offcanvas</a></li>
+          <li><a href="#ripple" data-scroll-offcanvas>ripple(ページ内スクロール)</a></li>
           <li><a href="/">会社案内</a></li>
           <li><a href="/">お問い合わせ</a></li>
         </ul>
-        <ul class="_list2">
+        <ul class="c-offcanvas__list2">
           <li><a href="">交通アクセス</a></li>
           <li><a href="">よくある質問</a></li>
           <li><a href="">お問い合わせ</a></li>
@@ -7693,7 +7696,6 @@ categories: [js, offcanvas]
       </nav>
     </div>
   </div>
-
 
 <div id="js-offcanvas-bg"></div>
 ```
@@ -7723,16 +7725,67 @@ categories: [js, offcanvas]
   text-decoration: none;
 }
 
-.c-control-offcanvas i {
-  display: block;
-  font-size: 22px;
-  color: rgba(0, 0, 0, 0.54);
-}
-
-.c-control-offcanvas span {
+.c-control-offcanvas__title {
   display: block;
   font-size: 10px;
   color: rgba(0, 0, 0, 0.87);
+}
+
+.c-control-offcanvas__icon {
+  margin-left: 3px;
+  width: 33px;
+  height: 30px;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+  cursor: pointer;
+}
+
+.c-control-offcanvas__icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #5b5e63;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.c-control-offcanvas__icon span:nth-child(1) {
+  top: 0;
+}
+
+.c-control-offcanvas__icon span:nth-child(2) {
+  top: 10px;
+}
+
+.c-control-offcanvas__icon span:nth-child(3) {
+  top: 20px;
+}
+
+[aria-expanded="true"] .c-control-offcanvas__icon span:nth-child(1) {
+  top: 12px;
+  -webkit-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+[aria-expanded="true"] .c-control-offcanvas__icon span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+[aria-expanded="true"] .c-control-offcanvas__icon span:nth-child(3) {
+  top: 12px;
+  -webkit-transform: rotate(-135deg);
+      -ms-transform: rotate(-135deg);
+          transform: rotate(-135deg);
 }
 
 .c-offcanvas {
@@ -7768,7 +7821,7 @@ categories: [js, offcanvas]
   background: #fff;
 }
 
-.c-offcanvas ._body {
+.c-offcanvas__body {
   -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
   overflow-y: auto;
@@ -7785,21 +7838,18 @@ categories: [js, offcanvas]
   padding-top: 10px;
 }
 
-.c-offcanvas ._list,
-.c-offcanvas ._list2 {
+.c-offcanvas__list, .c-offcanvas__list2 {
   border-bottom: 1px solid #ddd;
 }
 
-.c-offcanvas ._list i,
-.c-offcanvas ._list2 i {
+.c-offcanvas__list i, .c-offcanvas__list2 i {
   font-size: 18px;
   margin-right: 17px;
   position: relative;
   top: 3px;
 }
 
-.c-offcanvas ._list li a,
-.c-offcanvas ._list2 li a {
+.c-offcanvas__list li a, .c-offcanvas__list2 li a {
   line-height: 1.4;
   border-radius: 0;
   font-size: 14px;
@@ -7809,21 +7859,19 @@ categories: [js, offcanvas]
   display: block;
 }
 
-.c-offcanvas ._list li a:hover,
-.c-offcanvas ._list2 li a:hover {
+.c-offcanvas__list li a:hover, .c-offcanvas__list2 li a:hover {
   text-decoration: none;
 }
 
-.c-offcanvas ._list li a.is-active,
-.c-offcanvas ._list2 li a.is-active {
+.c-offcanvas__list li a.is-active, .c-offcanvas__list2 li a.is-active {
   background-color: #eef0f4;
 }
 
-.c-offcanvas ._list2 li a {
+.c-offcanvas__list2 li a {
   font-weight: normal;
 }
 
-.c-offcanvas ._list2--2column {
+.c-offcanvas__list2--2column {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7836,7 +7884,7 @@ categories: [js, offcanvas]
           justify-content: flex-start;
 }
 
-.c-offcanvas ._list2--2column li {
+.c-offcanvas__list2--2column li {
   width: 45%;
 }
 
