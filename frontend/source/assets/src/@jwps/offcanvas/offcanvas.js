@@ -41,7 +41,7 @@ $(function () {
     if ($bodyContents.attr('aria-hidden') === 'true') {
       //ナビゲーションのレイヤーを上にしてスライドイン
       $bodyContents.attr({'aria-hidden': 'false', 'tabindex': '1'});
-      $('input').first().focus();
+     // $('input').first().focus();
       //メニューアイコン
       $selector.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
       //背景黒
