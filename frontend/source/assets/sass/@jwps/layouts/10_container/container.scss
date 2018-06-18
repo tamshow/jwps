@@ -54,6 +54,35 @@ categories: [layouts, layout]
   </div>
 </div>
 ```
+
+
+<h2 class="styleguide">Sample</h2>
+```html_example
+
+<div class="l-container">
+  <div class="l-block">
+  <h1 class="e-hdg1">h1xxx</h1>
+    <div class="l-unit">
+      <h2 class="e-hdg2 e-hdg2--type2">h2xxx</h2>
+      <p class="e-text">xxxx</p>
+      <h3 class="e-hdg3 e-hdg3--type2">h3xxx</h3>
+    </div>
+    <div class="l-unit">
+      <h2 class="e-hdg2 e-hdg2--type2">h2xxx</h2>
+      <p class="e-text">xxxx</p>
+      <p class="e-text">xxxx</p>
+    </div>
+
+    <hr>
+    <div class="rich-editor">
+      <h2>h2xxx</h2>
+      <p>xxxx</p>
+      <h3>h3xxx</h3>
+    </div>
+  </div>
+</div>
+
+```
 */
 
 .l-container-fluid {
