@@ -15,75 +15,70 @@ categories: [elements, heading]
 ---
 
 ```html_example
-<h1 class="e-hdg1">情に棹させば流される智に働けば角が立つ</h1>
-<h2 class="e-hdg2">情に棹させば流される智に働けば角が立つ</h2>
-<h3 class="e-hdg3">情に棹させば流される智に働けば角が立つ</h3>
-<h4 class="e-hdg4">情に棹させば流される智に働けば角が立つ</h4>
-<h5 class="e-hdg5">情に棹させば流される智に働けば角が立つ</h5>
-<h6 class="e-hdg6">情に棹させば流される智に働けば角が立つ</h6>
+<h1 class="e-hd1">情に棹させば流される智に働けば角が立つ</h1>
+<h2 class="e-hd2">情に棹させば流される智に働けば角が立つ</h2>
+<h3 class="e-hd3">情に棹させば流される智に働けば角が立つ</h3>
+<h4 class="e-hd4">情に棹させば流される智に働けば角が立つ</h4>
+<h5 class="e-hd5">情に棹させば流される智に働けば角が立つ</h5>
+<h6 class="e-hd6">情に棹させば流される智に働けば角が立つ</h6>
 
 ```
 
 */
 
-.rich-editor h1,
-.rich-editor h2,
-.rich-editor h3,
-.rich-editor h4,
-.rich-editor h5,
-.rich-editor h6,
-.e-hdg1,
-.e-hdg2,
-.e-hdg3,
-.e-hdg4,
-.e-hdg5,
-.e-hdg6 {
+.visual-editor h1,
+.visual-editor h2,
+.visual-editor h3,
+.visual-editor h4,
+.visual-editor h5,
+.visual-editor h6,
+.e-hd1,
+.e-hd2,
+.e-hd3,
+.e-hd4,
+.e-hd5,
+.e-hd6 {
   margin-bottom: $fsize-mb-pc;
   font-weight: bold;
   overflow: hidden;
   line-height: $heading-line-height-pc;
 
-  .l-block-primary & {
-    // width: ($screen-main-colum / $screen-pc-max) * 100%;
-  }
 }
 
-.rich-editor h2:not(:first-child),
-.rich-editor h3:not(:first-child),
-.rich-editor h4:not(:first-child),
-.rich-editor h5:not(:first-child),
-.rich-editor h6:not(:first-child) {
+.visual-editor h2:not(:first-child),
+.visual-editor h3:not(:first-child),
+.visual-editor h4:not(:first-child),
+.visual-editor h5:not(:first-child),
+.visual-editor h6:not(:first-child) {
   margin-top: 2.6rem;
-
   @include media-sp-max {
     margin-top: 0;
   }
 }
 
 //連続するタイトルは狭める
-.rich-editor h1 + h2,
-.rich-editor h2 + h2,
-.rich-editor h2 + h3,
-.rich-editor h3 + h3,
-.rich-editor h3 + h4,
-.rich-editor h4 + h4,
-.rich-editor h4 + h5,
-.rich-editor h5 + h5,
-.rich-editor h5 + h6,
-.rich-editor h6 + h6 {
+.visual-editor h1 + h2,
+.visual-editor h2 + h2,
+.visual-editor h2 + h3,
+.visual-editor h3 + h3,
+.visual-editor h3 + h4,
+.visual-editor h4 + h4,
+.visual-editor h4 + h5,
+.visual-editor h5 + h5,
+.visual-editor h5 + h6,
+.visual-editor h6 + h6 {
   margin-top: 0 !important;
 }
 
-.rich-editor h1,
-.e-hdg1 {
+.visual-editor h1,
+.e-hd1 {
   @include fsize($fsize-h1-pc, false, $fsize-h1-sp);
 }
 
-.rich-editor h1,
-.e-hdg1--type2 {
+.visual-editor h1,
+.e-hd1--type2 {
 
   position: relative;
-  //border-bottom: 1px solid $border-color;
   padding-bottom: 1rem;
   margin-bottom: 2.5rem;
 
@@ -122,14 +117,14 @@ categories: [elements, heading]
 
 }
 
-.rich-editor h2,
-.e-hdg2 {
+.visual-editor h2,
+.e-hd2 {
   @include fsize($fsize-h2-pc, false, $fsize-h2-sp);
 
 }
 
-.rich-editor h2,
-.e-hdg2--type2 {
+.visual-editor h2,
+.e-hd2--type2 {
   color: #fff;
   background-color: $brand-primary-light;
   padding: .7rem 1.2rem .6rem;
@@ -142,15 +137,13 @@ categories: [elements, heading]
   }
 }
 
-.rich-editor h3,
-.e-hdg3,
-.e-hdg3--type2 {
+.visual-editor h3,
+.e-hd3 {
   @include fsize($fsize-h3-pc, false, $fsize-h3-sp);
 }
 
-.rich-editor h3,
-.e-hdg3--type2 {
-//  border-left: 5px solid $brand-secondary;
+.visual-editor h3,
+.e-hd3--type2 {
   border-left: 5px solid $brand-primary;
   border-bottom: 1px solid #757575;
   padding-bottom: .6em;
@@ -165,15 +158,13 @@ categories: [elements, heading]
   }
 }
 
-.rich-editor h4,
-.e-hdg4,
-.e-hdg4--type2 {
+.visual-editor h4,
+.e-hd4 {
   @include fsize($fsize-h4-pc, false, $fsize-h4-sp);
 }
 
-.rich-editor h4,
-.e-hdg4--type2 {
-
+.visual-editor h4,
+.e-hd4--type2 {
   border-left: 3px solid $brand-primary;
   padding-left: 1rem;
   padding-top: .1em;
@@ -181,13 +172,13 @@ categories: [elements, heading]
   margin-bottom: .8rem;
 }
 
-.rich-editor h5,
-.e-hdg5 {
+.visual-editor h5,
+.e-hd5 {
   @include fsize($fsize-h5-pc, false, $fsize-h5-sp);
 }
 
-.rich-editor h6,
-.e-hdg6 {
+.visual-editor h6,
+.e-hd6 {
   @include fsize($fsize-h6-pc, false, $fsize-h6-sp);
 }
 
@@ -200,24 +191,18 @@ parent: heading
 ---
 
 ```html_example
-<h1 class="e-hdg1 e-hdg1--type2"><span>情に棹させば流される智に働けば角が立つ</span></h1>
-<h2 class="e-hdg2 e-hdg2--type2">情に棹させば流される智に働けば角が立つ</h2>
-<h3 class="e-hdg3 e-hdg3--type2">情に棹させば流される智に働けば角が立つ</h3>
-<h4 class="e-hdg4 e-hdg4--type2">情に棹させば流される智に働けば角が立つ</h4>
-<h5 class="e-hdg5 e-hdg--brand">情に棹させば流される智に働けば角が立つ</h5>
-<h6 class="e-hdg6 e-hdg--bd">情に棹させば流される智に働けば角が立つ</h6>
+<h1 class="e-hd1 e-hd1--type2"><span>情に棹させば流される智に働けば角が立つ</span></h1>
+<h2 class="e-hd2 e-hd2--type2">情に棹させば流される智に働けば角が立つ</h2>
+<h3 class="e-hd3 e-hd3--type2">情に棹させば流される智に働けば角が立つ</h3>
+<h4 class="e-hd4 e-hd4--type2">情に棹させば流される智に働けば角が立つ</h4>
+<h5 class="e-hd5 is-color-blue">情に棹させば流される智に働けば角が立つ</h5>
+<h6 class="e-hd6 is-bdb">情に棹させば流される智に働けば角が立つ</h6>
 
 ```
 
 */
 
-.e-hdg--brand {
-  color: $brand-primary;
-}
 
-.e-hdg--bd {
-  border-bottom: 1px solid $brand-primary;
-}
 
 /*doc
 ---
@@ -230,22 +215,17 @@ parent: heading
 ```html_example
 
 
-<div class="e-hdg-unit">
-  <h3 class="e-hdg3">情に棹させば流される智に働けば角が立つ</h3>
+<div class="e-hd-unit">
+  <h3 class="e-hd3">情に棹させば流される智に働けば角が立つ</h3>
   <p class="is-text-week"> 6月12日  12:49</p>
 </div>
 
-
-<div class="e-hdg-unit">
-  <h2 class="e-hdg2">情に棹させば流される智に働けば角が立つ</h2>
-  <p class="e-hdg-unit__to-list"><a href="">一覧</a></p>
-</div>
 
 
 ```
 */
 
-.e-hdg-unit {
+.e-hd-unit {
   position: relative;
   padding-right: 4em;
   @include mb-small;
@@ -258,33 +238,6 @@ parent: heading
   h6:not(.hd--bd) {
     margin-top: 0;
     margin-bottom: 0;
-  }
-
-  &__to-list {
-    position: absolute;
-    right: 0;
-    top: 0;
-    a {
-      border-radius: $border-radius-pc;
-      background-color: #eef0f4;
-      padding: .3em .7em;
-      display: inline-block;
-      color: $text-color;
-      @include fsize(14px);
-      @include elevation(2);
-      @include elevation-transition;
-
-      &:hover {
-        text-decoration: none;
-        @include elevation(4);
-      }
-      &:active {
-        text-decoration: none;
-        @include elevation(8);
-      }
-
-    }
-
   }
 
 }

@@ -20,7 +20,6 @@ $table-small-fsize: .7em !default;
     @include mb-small();
   }
 
-
   width: 100%;
   border-top: $table-border;
   border-right: $table-border;
@@ -65,58 +64,6 @@ $table-small-fsize: .7em !default;
 
   }
 
-/*doc
----
-title: table-helpers
-name: table-helpers
-categories: [elements, table]
-parent: table
----
-
-<div class="styleguide-table"></div>
-  Class                                                                      | Description
-  -----------------------------------------------------------------------    | ------------
-  `e-th-w--1em`, `e-td-w--1em`                |         |
-  `e-th-w--10p`, `e-td-w--1em`                |         |
-  `e-th-w--15p`, `e-td-w--15p`                |         |
-  `e-th-w--20p`, `e-td-w--20p`                |         |
-  `e-th-w--small`, `e-td-w--small`                |         |
-  `e-th-w--medium`, `e-td-w--medium`                |         |
-
-*/
-
-  //tools
-
-  th.e-th-w--1em,
-  td.e-td-w--1em {
-    width: 1em;
-  }
-
-  th.e-th-w--10p,
-  td.e-td-w--10p {
-    width: 10%;
-  }
-
-  th.e-th-w--15p,
-  td.e-td-w--15p {
-    width: 15%;
-  }
-
-  th.e-th-w--20p,
-  td.e-td-w--20p {
-    width: 20%;
-  }
-
-  th.e-th-w--small,
-  td.e-td-w--small {
-    width: 20%;
-  }
-
-  th.e-th-w--medium,
-  td.e-td-w--medium {
-    width: 50%;
-  }
-
 }
 
 
@@ -130,10 +77,6 @@ title: table
 name: table
 categories: [elements, table]
 ---
-
-`.e-table--center`
-
-`.e-table--layout-fixed`
 
 ```html_example
   <table class="e-table">
@@ -157,11 +100,8 @@ categories: [elements, table]
 ```
 */
 
-.e-table--layout-fixed {
-  table-layout: fixed;
-}
 
-.rich-editor table,
+.visual-editor table,
 .e-table {
   @extend %table-base;
 
@@ -199,7 +139,7 @@ parent: table
 ```
 */
 
-.rich-editor .e-table--borderless,
+.visual-editor .e-table--borderless,
 .e-table--borderless {
   @extend %table-base;
 
@@ -239,7 +179,7 @@ parent: table
 ```
 */
 
-.rich-editor .e-table--block,
+.visual-editor .e-table--block,
 .e-table--block {
 
   @include media-sp-max {
@@ -253,36 +193,6 @@ parent: table
     th,
     td {
       display: block;
-      width: auto;
-    }
-
-    .th-w--1em,
-    .td-w--1em {
-      width: auto;
-    }
-
-    .th-w--10p,
-    .td-w--10p {
-      width: auto;
-    }
-
-    .th-w--15p,
-    .td-w--15p {
-      width: auto;
-    }
-
-    .th-w--20p,
-    .td-w--20p {
-      width: auto;
-    }
-
-    .th-w--small,
-    .td-w--small {
-      width: auto;
-    }
-
-    .th-w--medium,
-    .td-w--medium {
       width: auto;
     }
 
@@ -300,9 +210,9 @@ parent: table
 ---
 
 ```html_example
-<table class="e-table e-table--small e-table--layout-fixed e-table--center">
+<table class="e-table e-table--small">
   <tr>
-    <th class="e-th-w--small">タイトル</th>
+    <th class="is-cell-25p">タイトル</th>
     <th>タイトル</th>
     <th>タイトル</th>
   </tr>
@@ -331,7 +241,7 @@ parent: table
 ```
 */
 
-.rich-editor .e-table--small,
+.visual-editor .e-table--small,
 .e-table--small {
 
   th,
@@ -352,7 +262,6 @@ categories: [elements, table]
 parent: table
 ---
 
-`.e-responsive-w-inner--one-half`
 
 
 ```html_example
@@ -361,11 +270,11 @@ parent: table
 <div class="e-responsive-table">
   <table class="e-table">
     <tr>
-      <th class="e-th-w--10p">タイトル10%</th>
-      <th class="e-th-w--15p">タイトル15%</th>
-      <th class="e-th-w--15p">タイトル15%</th>
-      <th class="e-th-w--15p">タイトル15%</th>
-      <th class="e-th-w--10p">タイトル10%</th>
+      <th class="is-cell-10p">タイトル10%</th>
+      <th class="is-cell-15p">タイトル15%</th>
+      <th class="is-cell-15p">タイトル15%</th>
+      <th class="is-cell-15p">タイトル15%</th>
+      <th class="is-cell-10p">タイトル10%</th>
       <th>タイトル</th>
     </tr>
     <tr>
@@ -374,7 +283,7 @@ parent: table
       <td>テキストテキスト</td>
       <td>テキストテキスト</td>
       <td>テキストテキスト</td>
-      <td><div class="e-responsive-w-inner--one-half">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト30vw </div></td>
+      <td><div class="is-responsive-cell-30vw">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト30vw </div></td>
     </tr>
     <tr>
       <td>テキスト</td>
@@ -382,7 +291,7 @@ parent: table
       <td>テキスト</td>
       <td>テキスト</td>
       <td>テキスト</td>
-      <td><div class="e-responsive-w-inner--half">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト50vw </div></td>
+      <td><div class="is-responsive-cell-50vw">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト50vw </div></td>
     </tr>
 
   </table>
@@ -390,7 +299,7 @@ parent: table
 ```
 */
 
-.rich-editor .e-responsive-table,
+.visual-editor .e-responsive-table,
 .e-responsive-table {
 
   @include media-sp-max {
@@ -430,17 +339,136 @@ parent: table
       white-space: nowrap;
     }
 
-    .e-responsive-w-inner--short {
-      white-space: normal;
-      width: 30vw;
+
+
+  }
+}
+
+
+/*doc
+---
+title: tool-table
+name: tool-table
+categories: [utilities, tool-table]
+---
+
+<div class="styleguide-table"></div>
+  Class                                                                      | Description
+  -----------------------------------------------------------------------    | ------------
+  `is-layout-fixed`            |         |
+  `is-cell-center`            |         |
+  `is-cell-1em`             |         |
+  `is-cell-10p`             |         |
+  `is-cell-15p`             |         |
+  `is-cell-20p`             |         |
+  `is-cell-25p`             |         |
+  `is-cell-30p`             |         |
+  `is-cell-50p`             |         |
+  `is-responsive-cell-30vw`             |         |
+  `is-responsive-cell-50vw`             |         |
+
+*/
+
+
+
+.is-layout-fixed {
+  table-layout: fixed;
+}
+
+
+th.is-cell-center,
+td.is-cell-center {
+  text-align: center;
+}
+
+th.is-cell-1em,
+td.is-cell-1em {
+  width: 1em;
+}
+
+th.is-cell-10p,
+td.is-cell-10p {
+  width: 10%;
+}
+
+th.is-cell-15p,
+td.is-cell-15p {
+  width: 15%;
+}
+
+th.is-cell-20p,
+td.is-cell-20p {
+  width: 20%;
+}
+th.is-cell-25p,
+td.is-cell-25p {
+  width: 25%;
+}
+th.is-cell-30p,
+td.is-cell-30p {
+  width: 30%;
+}
+th.is-cell-50p,
+td.is-cell-50p {
+  width: 50%;
+}
+
+
+
+.visual-editor .e-table--block,
+.e-table--block {
+  @include media-sp-max {
+
+    th.is-cell-1em,
+    td.is-cell-1em {
+      width: auto;
     }
 
-    .e-responsive-w-inner--one-half {
-      white-space: normal;
-      width: 50vw;
+    th.is-cell-10p,
+    td.is-cell-10p {
+      width: auto;
+    }
+
+    th.is-cell-15p,
+    td.is-cell-15p {
+      width: auto;
+    }
+
+    th.is-cell-20p,
+    td.is-cell-20p {
+      width: auto;
+    }
+    th.is-cell-25p,
+    td.is-cell-25p {
+      width: auto;
+    }
+    th.is-cell-30p,
+    td.is-cell-30p {
+      width: auto;
+    }
+
+    th.is-cell-50p,
+    td.is-cell-50p {
+      width: auto;
     }
 
   }
 }
 
 
+.visual-editor .e-responsive-table,
+.e-responsive-table {
+
+  @include media-sp-max {
+
+    .is-responsive-cell-30vw {
+      white-space: normal;
+      width: 30vw;
+    }
+
+    .is-responsive-cell-50vw {
+      white-space: normal;
+      width: 50vw;
+    }
+  }
+}

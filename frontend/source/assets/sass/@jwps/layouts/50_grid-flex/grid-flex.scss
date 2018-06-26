@@ -18,18 +18,42 @@
 ---
 title: flex
 name: 30_grid-flex
-categories: [layouts, flex]
+categories: [flex]
 ---
 
 ```html_example
 
 <div class="l-flex-boxes">
  <div class="l-flex-box l-flex-box--large"><div class="dummy-box">.l-flex-box--large</div></div>
- <div class="l-flex-box l-flex-box--medium"><div class="dummy-box">.l-flex-box--medium</div></div>
- <div class="l-flex-box l-flex-box--medium"><div class="dummy-box">.l-flex-box--medium</div></div>
+ <div class="l-flex-box"><div class="dummy-box">.l-flex-box</div></div>
+ <div class="l-flex-box"><div class="dummy-box">.l-flex-box</div></div>
  <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box--small</div></div>
- <div class="l-flex-box">  <div class="dummy-box">.l-flex-box</div></div>
- <div class="l-flex-box">  <div class="dummy-box">.l-flex-box</div></div>
+ <div class="l-flex-box l-flex-box--auto">  <div class="dummy-box">.l-flex-box</div></div>
+</div>
+
+
+
+
+
+<div class="l-flex-boxes is-flex-center">
+ <div class="l-flex-box"><div class="dummy-box">.l-flex-box</div></div>
+</div>
+
+
+<div class="l-flex-boxes is-flex-flex-end">
+ <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box</div></div>
+ <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box</div></div>
+</div>
+
+
+<div class="l-flex-boxes .is-flex-flex-start">
+ <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box</div></div>
+ <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box</div></div>
+</div>
+
+<div class="l-flex-boxes is-flex-space-between">
+ <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box</div></div>
+ <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box</div></div>
 </div>
 
 
@@ -37,6 +61,7 @@ categories: [layouts, flex]
 */
 
 //必要な値をgrid-12columnから持ってくる
+
 
 .l-flex-boxes {
   @include clearfix;
@@ -53,10 +78,29 @@ categories: [layouts, flex]
   }
 }
 
+
+.is-flex-center {
+  justify-content: center;
+
+}
+
+.is-flex-flex-end {
+  justify-content: flex-end;
+}
+
+.is-flex-flex-start {
+  justify-content: flex-start;
+}
+
+.is-flex-space-between {
+  justify-content: space-between;
+}
+
+
 .l-flex-box {
   align-self: stretch;
   display: block;
-  flex: 2 2 15em;
+  //flex: 2 2 15em;
   box-sizing: border-box;
 
   margin-right: 1%;
@@ -69,7 +113,10 @@ categories: [layouts, flex]
   //margin-bottom: 1.92%;
   margin-bottom: 16px;
 
+  flex: 0 0 23%;
+
   @include media-sp-max {
+    flex: 0 0 46.5714285714%;
     margin-right: 1.7142857143%;
     margin-left: 1.7142857143%;
     margin-bottom: $width-gap-sp;
@@ -101,4 +148,12 @@ categories: [layouts, flex]
   }
 }
 
+
+.l-flex-box--auto {
+  flex: 2 2 15em;
+
+  @include media-sp-max {
+    flex: 2 2 15em;
+  }
+}
 

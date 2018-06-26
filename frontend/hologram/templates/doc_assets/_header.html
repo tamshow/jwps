@@ -18,14 +18,14 @@
 <body class="sg-body">
 <header class="sg-header">
   <div class="sg-header__inner">
-    <h1>Japan Web Production Standards</h1>
+    <h1>スタイルガイド</h1>
     <nav class="sg-header__nav">
 	  <a href="index.html">Top</a>
       <a href="started.html">Started</a>
       <a href="variables.html">variables</a>
       <a href="mixins.html">mixins</a>
       <a href="layouts.html">layouts</a>
-	   <a href="richeditor.html">richeditor</a>
+	   <a href="visualeditor.html">visualeditor</a>
       <a href="elements.html">elements</a>
       <a href="components.html">components</a>
 	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
@@ -38,7 +38,7 @@
 
 
 <div class="sg-container">
-	 <h2 class="sg-heading2"><% if title == 'index' %>「Japan Web Production Standards」について<% else %><%= title %><% end %></h2>
+	 <h2 class="sg-heading2"><% if title == 'index' %>スタイルガイドについて<% else %><%= title %><% end %></h2>
 	<div class="sg-widget-head">
 	 <ul class="e-list-inline">
        <% @blocks.each do |block| %>
@@ -49,7 +49,7 @@
      </ul>
  	</div>
  <div class="sg-content-block">
-<% if @blocks[0][:categories].include?('richEditorWrap') %>	
+<% if @blocks[0][:categories].include?('visualEditorWrap') %>
 
 <% end %>
      

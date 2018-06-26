@@ -1,14 +1,12 @@
 @charset "utf-8";
 
-@import "00_footer/footer";
-@import "00_header/header";
-@import "00_header/header-pc";
-@import "00_header/header-sp";
+@import "00_footer/footer-v1";
+@import "00_header/header-v1";
 @import "00_main/main";
 @import "10_container/container";
 @import "20_block/block";
 @import "30_unit/unit";
-@import "40_grid/grid";
-@import "40_grid-12column/grid-12column";
-@import "40_grid-flex/grid-flex";
-@import "50_rich-editor/rich-editor";
+@import "40_visual-editor/visual-editor";
+@import "50_grid-12column/grid-12column";
+@import "50_grid-flex/grid-flex";
+

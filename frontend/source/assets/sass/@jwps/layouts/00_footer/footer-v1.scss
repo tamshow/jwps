@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+/* @  Footer Layout
+ * ------------------------------------------------------------ */
+
+.l-footer-v1 {
+  border-top: 5px solid $border-color;
+  background-color: $bg-color;
+
+  @include media-sp-max {
+    border-top-width: 3px;
+    padding-bottom: 5rem;
+  }
+
+
+  //----------------
+  // layout
+  //----------------
+  ._inner {
+    max-width: $width-pc-max;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: $width-gap-pc;
+    padding-left: $width-gap-pc;
+
+    @include media-sp-max {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  ._primary {
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+
+    @include media-sp-max {
+      margin-bottom: 30px;
+      border-bottom-width: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+
+  ._secondary {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 20px;
+
+    @include media-sp-max {
+      display: block;
+      padding-right: $width-gap-sp;
+      padding-left: $width-gap-sp;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+
+  //----------------
+  // part
+  //----------------
+
+  ._nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    font-size: .8em;
+    li {
+      width: 20%;
+      margin-bottom: 20px;
+    }
+
+    @include media-sp-max {
+
+      li {
+        width: 50%;
+        margin-bottom: 0;
+        a {
+          display: block;
+          padding: 1em;
+          border-bottom: 1px solid $border-color;
+        }
+      }
+      li:nth-child(2n -1) a {
+        border-right: 1px solid $border-color;
+      }
+    }
+  }
+
+  ._title {
+    font-weight: bold;
+  }
+
+  ._address {
+    font-size: .8em;
+    margin-bottom: 10px;
+  }
+
+  ._copy {
+    font-size: .8em;
+    margin-bottom: 10px;
+  }
+
+
+
+  //-------------------
+  // sp fixed
+  //-------------------
+
+  ._fixed-sp {
+    display: none;
+    @include media-sp-max {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #fff;
+      border-top: 1px solid $border-color;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+  }
+  ._fixed-button {
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: $border-radius-pc;
+    text-align: center;
+    display: block;
+    vertical-align: middle;
+    background-color: $brand-secondary;
+  }
+
+
+
+}
+

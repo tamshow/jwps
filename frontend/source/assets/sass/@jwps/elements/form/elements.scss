@@ -271,17 +271,3 @@ $form-table-small-fsize: .7em;
 
   }
 
-
-//recaptcha用
-.g-recaptcha {
-  margin-bottom: $margin-small-pc;
-
-  > div {
-    margin: 0 auto;
-  }
-
-  @include media-sp-max {
-    margin-bottom: $margin-small-sp;
-  }
-
-}

@@ -5,17 +5,17 @@
 ---
 title: 使い方・分類
 name: started
-categories: [started, richEditorWrap]
+categories: [started, visualEditorWrap]
 
 ---
-<div class="rich-editor">
+<div class="l-unit visual-editor">
 <h3>Layoutとは</h3>
 <ul>
 <li>ページの基本レイアウト</li>
 <li>Templatesはメインカラムレイアウトの1段組や2段組のパターンを選択します。</li>
 <li>Gridはメインカラム内の段組レイアウトに使用します。</li>
-<li>レイアウトの基本の型は次の並びになります。 <code>.l-main &gt; .l-container &gt; .l-block &gt; .l-unit and .l-grid</code></li>
-<li>外枠に<code>.rich-editor</code>を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。<br>主にCMSのリッチエディタ等で使用するイメージな気がしています。<br><code>.rich-editor</code>内では複雑なclassの装飾は使用出来ません。詳しくは「RichEditor」を確認ください。
+<li>レイアウトの基本の型は次の並びになります。 <code>.l-main &gt; .l-container &gt; .l-block &gt; .l-unit </code></li>
+<li>外枠に<code>.visual-editor</code>を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。<br>主にCMSのリッチエディタ等で使用するイメージな気がしています。<br><code>.visual-editor</code>内では複雑なclassの装飾は使用出来ません。詳しくは「VisualEditor」を確認ください。
 </li>
 </ul>
 <h3>Componentsとは</h3>
@@ -44,37 +44,9 @@ categories: [started, richEditorWrap]
 <li>用途を絞ったパーツ</li>
 <li>コード構造はそのまま使用することを想定しています。</li>
 <li>特定箇所で使用することを想定としていますので汎用的な記述は必要ありません。</li>
-<li>必ず<code>snippets</code>フォルダ内に配置され<code>._snippets</code>という接頭辞のクラスに属しています。</li>
-<li>内包するclass名は<code>._body</code>のようにアンダースコアからはじまる物を使用します。</li>
-<li><code>._snippets-cv-group &gt; ._body</code></li>
 </ul>
-<div class="c-accordion" data-accordion="" data-device-accordion="all">
-<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
-<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
-
-<pre>
-<code>&lt;div class="_snippets-cv-group"&gt;
-&lt;div class="_head"&gt;
-&lt;h2 class-"_title"&gt;タイトル&lt;/h2&gt;
-&lt;/div&gt;
-&lt;div class="_body"&gt;
-&lt;ul class="_list"&gt;
-&lt;li&gt;テキスト&lt;/li&gt;
-&lt;li&gt;テキスト&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</code>
-</pre>
-
-</div>
-</div>
 <p>使い回せそうなクラスがあったとしても、メンテナンス性を損なうのであれば無理に使い回しません。<br>例えば別のクラスを用意して同じコードを記述します。</p>
-<p>「Elements」や「Utility」のみでページ要素を組み立てることはしません。<br>例えばクラスの組み合わせが3つ以上重複する場合は新たに「Snippets」を作成することを検討します。</p>
-<p>また、新規スタイル追加作業は「Components」などではなく「Snippets」に作成することをお勧めします。</p>
 </div>
-
-
 
 
 */
@@ -86,12 +58,12 @@ categories: [started, richEditorWrap]
 ---
 title: 命名規則
 name: started2
-categories: [started, richEditorWrap]
+categories: [started, visualEditorWrap]
 
 ---
 
 
-<div class="rich-editor">
+<div class="l-unit visual-editor">
 <h3>共通</h3>
 <ul>
 <li>単語の繋ぎはハイフン「 - 」を使用します。</li>

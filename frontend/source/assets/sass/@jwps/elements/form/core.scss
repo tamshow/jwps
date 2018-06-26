@@ -11,15 +11,114 @@ categories: [elements, form]
 
 
 
-
-
+```html_example
+<form>
+  <table class="e-form-table">
+    <tr>
+      <th>
+        <label for="name">お名前<span class="e-form-req">必須</span></label>
+      </th>
+      <td>
+        <div class="e-form-cols e-form-cols--break">
+          <div class="e-form-col8">
+            <input type="text" name="name" id="name" value="" class="e-form-control js-required" aria-describedby="name-tip" placeholder="(例) 太郎">
+          </div>
+          <div class="e-form-message-box">
+            <p class="e-form-error-text">お名前を入力してください。</p>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="inquiry">お問い合わせ内容<span class="e-form-any">任意</span></label>
+      </th>
+      <td>
+        <div class="e-form-cols">
+          <div class="e-form-col12">
+            <textarea name="inquiry" id="inquiry" cols="40" rows="10" class="e-form-control" placeholder="お問い合わせ内容を入力してください。"></textarea>
+          </div>
+           <div class="e-form-message-box">
+            <p class="e-form-small-text">お問い合わせ内容を入力してください。</p>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>ご用件種別<span class="e-form-req">必須</span></th>
+      <td>
+        <div class="e-form-cols">
+          <div class="e-form-col12">
+            <ul aria-describedby="description1-1-tip" class="e-form-rc-box" id="description1-1">
+              <li>
+                <input checked type="radio" class="e-form-control is-valid" name="description1-1" id="description1-1_radio1" value="お問い合わせ">
+                <label for="description1-1_radio1">お問い合わせ</label>
+              </li>
+              <li>
+                <input type="radio" class="e-form-control" name="description1-1" id="description1-1_radio2" value="ご利用申し込み">
+                <label for="description1-1_radio2">ご利用申し込み</label>
+              </li>
+              <li>
+                <input type="radio" class="e-form-control" name="description1-1" id="description1-1_radio3" value="ご相談">
+                <label for="description1-1_radio3">ご相談</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>ご用件種別<span class="e-form-req">必須</span></th>
+      <td>
+        <div class="e-form-cols">
+          <div class="e-form-col12">
+            <ul aria-describedby="description1-2-tip" class="e-form-rc-box" id="description1-2">
+              <li>
+                <input type="checkbox" name="description1-2" class="is-valid e-form-control" value="お問い合わせ" id="description1-2_check1">
+                <label for="description1-2_check1">お問い合わせ</label>
+              </li>
+              <li>
+                <input checked type="checkbox" name="description1-2" class="e-form-control" value="ご利用申し込み" id="description1-2_check2">
+                <label for="description1-2_check2">ご利用申し込み</label>
+              </li>
+              <li>
+                <input type="checkbox" name="description1-2" class="e-form-control" value="ご相談" id="description1-2_check3">
+                <label for="description1-2_check3">ご相談</label>
+              </li>
+            </ul>
+            <div class="e-form-message-box">
+              <p class="e-form-error-text">ご用件種別を入力してください。</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>ご用件種別 <span class="e-form-req">必須</span></th>
+      <td>
+        <div class="e-form-row">
+          <div class="e-form-col12">
+            <select name="description1-3" id="description1-3" value="" class="e-form-control">
+              <option value="" >選択してください。</option>
+              <option value="">お問い合わせ</option>
+              <option value="">ご利用申し込み</option>
+              <option value="">ご相談</option>
+            </select>
+                 <div class="e-form-message-box">
+            <p class="e-form-error-text">ご用件種別を入力してください。</p>
+          </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <div class="e-button-group">
+    <button type="submit" class="e-button e-button--xlarge">確認画面へ</button>
+  </div>
+</form>
+```
 ```html_example
 
-<h3 class="styleguide">Text Input</h3>
-<input type="text"  class="e-form-control">
-
-<h3 class="styleguide">Textarea</h3>
-<textarea cols="40" rows="10" class="e-form-control"></textarea>
 
 <h3 class="styleguide">Disabled Input</h3>
 <input type="text" disabled class="e-form-control">
@@ -34,30 +133,6 @@ categories: [elements, form]
 <h3 class="styleguide">Input with Error</h3>
 <input type="text"  class="e-form-control is-error">
 
-
-<h3 class="styleguide">Select Menu</h3>
-<select class="e-form-control">
-  <option value="" >都道府県</option>
-  <option value="福岡県">福岡県</option>
-  <option value="...">...</option>
-</select>
-
-
-<h3 class="styleguide">Checkbox</h3>
-<ul class="e-form-rc-box e-form-rc-box--ib" id="checkbox-assy">
-  <li><input type="checkbox" class="e-form-control" id="checkbox1"><label for="checkbox1">default</label></li>
-  <li><input type="checkbox" disabled class="e-form-control" id="checkbox2"><label for="checkbox2">disabled</label></li>
-  <li><input type="checkbox" checked class="e-form-control" id="checkbox3"><label for="checkbox3">checked</label></li>
-  <li><input type="checkbox" disabled checked class="e-form-control" id="checkbox4"><label for="checkbox4">checked & disabled</label></li>
-</ul>
-
-<h3 class="styleguide">Radio Buttons</h3>
-<ul class="e-form-rc-box e-form-rc-box--ib" id="radio-assy">
-  <li><input type="radio" class="e-form-control" id="radio1"><label for="radio1">default</label></li>
-  <li><input type="radio" class="e-form-control" disabled id="radio2"><label for="radio2">disabled</label></li>
-  <li><input type="radio" class="e-form-control" checked id="radio3"><label for="radio3">checked</label></li>
-  <li><input type="radio" class="e-form-control" disabled checked id="radio4"><label for="radio4">checked & disabled</label></li>
-</ul>
 
 
 

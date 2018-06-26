@@ -8,7 +8,7 @@
    ========================================================================== */
 
 .entry,
-.rich-editor {
+.visual-editor {
   word-break: break-all;
   @include clearfix;
   @include mb-medium;
@@ -22,88 +22,85 @@ categories: [elements, typesetting]
 ---
 
 
-<div class="styleguide-table"></div>
-Class                                                                      | Description
------------------------------------------------------------------------    | ------------
-`e-text`           | <p class="e-text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p> |
-`is-text-sub`           | <p class="is-text-sub">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p> |
-`e-text-week`           | <p class="is-text-week">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p> |
-`e-text-catchcopy`           | <p class="e-text-catchcopy">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p> |
-`is-text-point`               | <p class="is-text-point">ダミーテキストです。ご了承ください。</p>                      |
-`is-text-arrow`               | <p><a href="" class="is-text-arrow">一覧</a></p>                       |
-`is-text-link`                | <div> <p class="e-text">情に棹させば流される。<a href="https://google.com" class="is-text-link">智に働けば角が立つ。</a>どこへ越しても住みにくいと悟った時、詩が生れて、<a href="https://google.com" class="is-text-link">画が出来る</a>。とかくに人の世は住みにくい。<a href="" class="is-text-link">意地を通せば窮屈</a>だ... </p> </div>         |
-`is-dark is-text-link `       | <div class="is-dark" style="background-color: #333;"> <p class="e-text">情に棹させば流される。<a href="https://google.com" class="is-text-link">智に働けば角が立つ。</a>どこへ越しても住みにくいと悟った時、詩が生れて、<a href="https://google.com" class="is-text-link">画が出来る</a>。とかくに人の世は住みにくい。<a href="" class="is-text-link">意地を通せば窮屈</a>だ... </p> </div>        |
-`is-text-bold`           |  太字
-`is-text-strike`         |  打ち消し線
+
+```html_example
+
+<p class="e-text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p>
+<p class="e-text-catchcopy">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p>
+
+
+<p class="e-text">
+<span class="is-text-sub">情に棹させば流される。</span><br>
+<span class="is-text-week">智に働けば角が立つ。</span><br>
+<span class="is-text-point">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</span><br>
+<span class="is-text-arrow">とかくに人の世は住みにくい。</span><br>
+<span class="is-text-bold">意地を通せば窮屈だ。</span><br>
+<span class="is-text-strike">とかくに人の世は住みにくい。 </span></p>
+
+
+```
 
 */
 
-.rich-editor a,
-a.is-text-link {
 
-  &:link {
-    color: $brand-link;
-    text-decoration: none;
-    transition: $animation;
-  }
-
-  &:hover,
-  &:focus,
-  &:visited {
-    transition: $animation;
-    color: $brand-link-hover;
-    text-decoration: none;
-  }
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &:visited {
-    color: $brand-link-visited;
-  }
-
-}
-
-.is-dark {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  li,
-  dt,
-  dd,
-  p,
-  span {
-    color: $brand-white;
-  }
-
-  a.is-text-link {
-    color: $brand-link-dark;
-  }
-
-  a.is-text-link:hover,
-  a.is-text-link:visited {
-    color: $brand-link-dark-visited;
-  }
-
-  a.is-text-link:hover {
-    color: $brand-link-dark-hover;
-  }
-}
-
-.rich-editor p,
+.visual-editor p,
 .e-text {
   @include mb-small;
 }
 
-.rich-editor strong > strong,
+.visual-editor strong > strong,
 .e-text-catchcopy {
   font-weight: bold;
   @include fsize(16px, false, 16px);
   @include mb-small;
+}
+
+
+
+
+// helper
+
+/*doc
+---
+
+title: tool-text
+name: tool-text
+categories: [utilities, tool-text]
+
+---
+
+<div class="styleguide-table"></div>
+Class                                                                      | Description
+-----------------------------------------------------------------------    | ------------
+`is-text-sub`            |                        |
+`is-text-week`           |                        |
+`is-text-point`          |                        |
+`is-text-arrow`          |                        |
+`is-text-link`           |                        |
+`is-text-bold`           |                        |
+`is-text-strike`         |                        |
+`is-text-indent`         |                        |
+`is-text-underline`      |                        |
+`is-text-bdb`            |                        |
+`is-text-left`            |                        |
+`is-text-right`            |                        |
+`is-text-center`            |                        |
+`is-text-justify`            |                        |
+
+*/
+
+
+.is-text-left {
+  text-align: left;
+}
+.is-text-right {
+  text-align: right;
+}
+.is-text-center {
+  text-align: center;
+}
+.is-text-justify {
+  text-align: justify;
 }
 
 .is-text-sub {
@@ -115,6 +112,34 @@ a.is-text-link {
   color: $text-color-week;
   font-size: .8rem;
 }
+
+
+.visual-editor a,
+a.is-text-link {
+
+  &:link {
+    color: $brand-link;
+    //text-decoration: none;
+    transition: $animation;
+  }
+
+  &:hover,
+  &:focus,
+  &:visited {
+    transition: $animation;
+    color: $brand-link-hover;
+    // text-decoration: none;
+  }
+
+  &:hover {
+    // text-decoration: underline;
+  }
+
+  &:visited {
+    color: $brand-link-visited;
+  }
+}
+
 
 .is-text-arrow {
   &:before {
@@ -151,3 +176,14 @@ a.is-text-link {
   text-decoration: line-through;
 }
 
+
+.is-text-indent {
+  text-indent: 1em;
+}
+
+.is-text-underline {
+  text-decoration: underline;
+}
+.is-text-bdb {
+  border-bottom: 1px solid $brand-primary;
+}

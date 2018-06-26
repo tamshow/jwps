@@ -19,7 +19,7 @@ categories: [components, keyword-search]
   <div class="c-keyword-search" role="search">
     <div class="c-keyword-search__body">
       <input type="text" name="#" class="c-keyword-search__input" value="" placeholder="キーワードを入力してください" autocomplete="off" aria-autocomplete="list" role="textbox">
-      <button type="submit" class="c-keyword-search__btn"><i class="material-icons">search</i></button>
+      <button type="submit" class="c-keyword-search__button"><i class="material-icons">search</i></button>
     </div>
   </div>
 ```
@@ -77,7 +77,7 @@ categories: [components, keyword-search]
     box-sizing: border-box;
   }
 
-  &__btn {
+  &__button {
     display: block;
     user-select: none;
     font-weight: normal;
@@ -159,7 +159,7 @@ categories: [components, keyword-search]
 
 .l-block-widget .c-keyword-search {
   @include fsize(14px);
-  &__btn {
+  &__button {
     width: 54px;
   }
 }

@@ -19,9 +19,9 @@ categories: [elements, images]
     情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
 
   <div>
-    <figure class="e-img-box is-left is-one-fourth">
-      <img src="/assets/img/dummy/820x273.png" alt="">
-      <figcaption class="img-caption">情に棹させば流される。智に働けば角が立つ。</figcaption>
+    <figure class="e-img-box is-img-left is-img-w33">
+      <a href="" class="e-img-hover"><img src="/assets/img/dummy/820x273.png" alt=""></a>
+      <figcaption class="e-img-caption">情に棹させば流される。智に働けば角が立つ。</figcaption>
     </figure>
     <p class="e-text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
       情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
@@ -30,10 +30,17 @@ categories: [elements, images]
   </div>
 
 
-  <div class="rich-editor">
-    <figure class="is-left is-one-fourth">
+    <div class="e-responsive-img">
+    <figure class="e-img-box">
       <img src="/assets/img/dummy/820x273.png" alt="">
-      <figcaption class="img-caption">情に棹させば流される。智に働けば角が立つ。</figcaption>
+    </figure>
+   </div>
+
+
+  <div class="l-unit visual-editor">
+    <figure class="is-img-left is-img-w25">
+      <img src="/assets/img/dummy/820x273.png" alt="">
+      <figcaption class="eimg-caption">情に棹させば流される。智に働けば角が立つ。</figcaption>
     </figure>
     <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
       情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
@@ -44,45 +51,72 @@ categories: [elements, images]
 
 ```
 
-
-
-<div class="styleguide-table"></div>
-Class                                                                      | Description
------------------------------------------------------------------------    | ------------
-`e-img-box`                |         |
-`e-img-box.is-left`          |         |
-`e-img-box.is-right`         |         |
-`e-img-box.is-center`        |         |
-`e-img-box.is-one-fourth`    |         |
-`e-img-box.is-one-third`     |         |
-`e-img-box.is-one-half`      |         |
-`e-img-box.is-full`          |         |
-
-
-
-<div class="styleguide-table"></div>
-Class                                                                      | Description
------------------------------------------------------------------------    | ------------
-`e-img-box > e-img-caption`            |         |
-`e-img-box > e-img-frame`            |         |
-`e-img-box > e-img-round`            |         |
-`e-img-box > e-img-circle`            |         |
-`e-img-box > e-img-hover`            |         |
-`e-img-box > .is-one-fourth`    |         |
-`e-img-box > .is-one-third`     |         |
-`e-img-box > .is-one-half`      |         |
-`e-img-box > .is-full`      |         |
-
-
-
-
-
 */
 
-//----------------------------
-.rich-editor figure,
+
+
+.e-img-hover {
+  overflow: hidden;
+
+  img {
+    transition: all $animation;
+  }
+}
+
+.e-img-hover:hover img {
+  transform: scale(1.1);
+  transform-origin: center center;
+}
+
+
+.e-responsive-img {
+
+
+  margin-bottom: $margin-small-pc;
+
+  @include media-sp-max {
+
+
+    .e-img-box {
+      position: relative;
+      width: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+
+      &::-webkit-scrollbar {
+        height: 3px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #d4d4d4;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #333;
+      }
+
+      &:after {
+        display: block;
+        padding-bottom: .5em;
+        font-size: .8em;
+        text-align: center;
+        white-space: nowrap;
+        content: "　";
+      }
+
+    }
+    img {
+      min-width: 520px;
+    }
+
+  }
+
+}
+
+
+.visual-editor figure,
 .e-img-box {
-  margin-bottom: $margin-xs-pc;
+  margin-bottom: $margin-small-pc;
 
   a {
     display: inline-block;
@@ -97,21 +131,43 @@ Class                                                                      | Des
   }
 }
 
-//画像をfloatした場合の処理
-//`img-left img-w40`など付与
-//配置は画像1毎を想定、
 
-//配置
-//.rich-editor .is-left,
-//.rich-editor .is-right,
-.e-img-box.is-left,
-.e-img-box.is-right {
-  margin-top: .3em;
-}
+/*doc
+---
+title: tool-img
+name: tool-img
+categories: [utilities, tool-img]
+---
+
+
+
+
+<div class="styleguide-table"></div>
+Class                                                                      | Description
+-----------------------------------------------------------------------    | ------------
+`is-img-left`                  |         |
+`is-img-right`                 |         |
+`is-img-center`                |         |
+`is-img-w25`                   |         |
+`is-img-w33`                   |         |
+`is-img-w50`                   |         |
+`is-img-w100`                  |         |
+`is-img-frame`                 |         |
+`is-img-round`                 |         |
+`is-img-circle`                |         |
+
+
+
+*/
+
+
+ .is-img-left,
+ .is-img-right {
+   margin-top: .3em;
+ }
 
 //画像左
-.rich-editor .is-left,
-.e-img-box.is-left {
+.is-img-left {
   margin-right: 1rem;
   float: left;
 
@@ -122,8 +178,7 @@ Class                                                                      | Des
 }
 
 //画像右
-.rich-editor .is-right,
-.e-img-box.is-right {
+.is-img-right {
   margin-left: 1rem;
   float: right;
 
@@ -135,46 +190,42 @@ Class                                                                      | Des
 }
 
 //画像中央
-.rich-editor .is-center,
-.e-img-box.is-center {
+.is-img-center {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 
 }
 
-.is-one-fourth {
+.is-img-w25 {
   width: 25%;
 }
 
-.is-one-third {
+.is-img-w33 {
   width: 33.33%;
 }
 
-.is-one-half {
+.is-img-w50 {
   width: 50%;
 }
 
-.is-full {
+.is-img-w100 {
   width: 100%;
 }
 
-.is-clear {
-  @include clearfix;
-}
+
 
 @include media-sp-max {
-  .is-one-fourth,
-  .is-one-third,
-  .is-one-half {
+  .is-img-w25,
+  .is-img-w33,
+  .is-img-w50,
+  .is-img-w100 {
     width: 100%;
   }
 
 }
 
-//--------------
-
-.e-img-frame {
+.is-img-frame {
   height: auto;
   padding: 2px;
   border: 1px solid $border-color;
@@ -182,30 +233,14 @@ Class                                                                      | Des
   box-sizing: border-box;
 }
 
-.e-img-round {
+.is-img-round {
   border-radius: $border-radius-pc;
 }
 
-.e-img-border {
+.is-img-border {
   border: 1px solid $border-color;
 }
 
-.e-img-circle {
+.is-img-circle {
   border-radius: 50%;
 }
-
-//---------------------
-
-.e-img-hover {
-  overflow: hidden;
-
-  img {
-    transition: all $animation;
-  }
-}
-
-a:hover .e-img-hover img {
-  transform: scale(1.1);
-  transform-origin: center center;
-}
-

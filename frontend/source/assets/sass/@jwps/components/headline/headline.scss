@@ -13,25 +13,25 @@ categories: [components, headline]
 
 ```html_example
 
-   <ul class="c-headline-primary">
-    <li class="c-headline-primary__item">
-      <span class="c-headline-primary__date">2017.10.01 </span>
-      <span class="c-headline-primary__label">
+   <ul class="c-headline">
+    <li class="c-headline__item">
+      <span class="c-headline__date">2017.10.01 </span>
+      <span class="c-headline__label">
         <span class="e-label e-label--blue">カテゴリ</span>
         <span class="e-label e-label--blue">カテゴリ</span>
       </span>
-      <p class="c-headline-primary__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
+      <p class="c-headline__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
     </li>
-     <li class="c-headline-primary__item">
-      <span class="c-headline-primary__date">2017.10.01 </span>
-      <span class="c-headline-primary__label">
+     <li class="c-headline__item">
+      <span class="c-headline__date">2017.10.01 </span>
+      <span class="c-headline__label">
         <span class="e-label e-label--blue">カテゴリ</span>
       </span>
-      <p class="c-headline-primary__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
+      <p class="c-headline__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
     </li>
-     <li class="c-headline-primary__item">
-      <span class="c-headline-primary__date">2017.10.01 </span>
-      <p class="c-headline-primary__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
+     <li class="c-headline__item">
+      <span class="c-headline__date">2017.10.01 </span>
+      <p class="c-headline__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
     </li>
 
    </ul>
@@ -39,7 +39,7 @@ categories: [components, headline]
 ```
 */
 
-.c-headline-primary {
+.c-headline {
   @include mb-small;
   &__item {
     margin-bottom: 1em;
@@ -94,71 +94,6 @@ categories: [components, headline]
 
 }
 
-/*doc
----
-title: headline-secondary
-name: headline-secondary
-categories: [components, headline]
-parent: headline
----
-
-```html_example
-
-
-   <ul class="c-headline-secondary">
-     <li class="c-headline-secondary__item">
-       <p class="c-headline-secondary__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
-       <span class="c-headline-secondary__date">開催日：2017.10.31 - 11.01</span>
-    </li>
-     <li class="c-headline-secondary__item">
-       <p class="c-headline-secondary__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
-       <span class="c-headline-secondary__date">開催日：2017.10.31 - 11.01</span>
-    </li>
-     <li class="c-headline-secondary__item">
-       <p class="c-headline-secondary__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
-       <span class="c-headline-secondary__date">開催日：2017.10.31 - 11.01</span>
-    </li>
-  </ul>
-
-
-```
-*/
-
-.c-headline-secondary {
-  @include mb-small;
-  &__item {
-    clear: both;
-    margin-bottom: .8em;
-    line-height: 1.4;
-
-    a {
-      color: $text-color;
-    }
-  }
-
-  &__date {
-    @include fsize(12px);
-    color: $text-color-sub;
-    display: block;
-
-    width: 100%;
-    float: none;
-    margin: 0;
-
-    @include media-sp-max {
-      margin-right: 0;
-      width: 100%;
-      float: none;
-    }
-
-  }
-
-  &__title {
-    @include fsize(14px);
-
-  }
-
-}
 
 /*doc
 ---

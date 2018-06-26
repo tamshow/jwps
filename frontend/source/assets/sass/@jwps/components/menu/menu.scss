@@ -12,19 +12,18 @@ categories: [components, menu]
 ---
 
 ```html_example
-<div class="c-menu-hierarchy-primary" data-accordion data-device-accordion="sp">
-  <h3 class="c-menu-hierarchy-primary__title" aria-controls="accordion1" aria-expanded="true" aria-label="開く" data-toggle-accordion>階層構造メニュー</h3>
-  <ul class="c-menu-hierarchy-primary__list is-hidden--sm" id="accordion1"  aria-hidden="true" data-body-accordion>
-    <li><a href="">タイトル</a></li>
-    <li><a href="" class="is-active">タイトル</a>
-      <ul class="c-menu-hierarchy-primary__list">
+<div class="c-menu">
+  <h3 class="c-menu__title">階層構造メニュー</h3>
+  <ul class="c-menu__list">
+    <li><a href="">タイトル</a>
+    <ul class="c-menu__list">
         <li><a href="" class="is-active">タイトル</a></li>
         <li><a href="">タイトル</a></li>
         <li><a href="">タイトル</a></li>
-      </ul>
+    </ul>
     </li>
-        <li><a href="">タイトル</a></li>
-        <li><a href="">タイトル</a></li>
+    <li><a href="">タイトル</a></li>
+    <li><a href="">タイトル</a></li>
   </ul>
 </div>
 
@@ -35,231 +34,44 @@ categories: [components, menu]
 /* menu
    ========================================================================== */
 
-.c-menu-hierarchy-primary {
+.c-menu {
 
   @include mb-small;
+
+  border-bottom: 1px dotted $border-color;
 
   &__title {
     background: $brand-primary;
-    @include fsize($fsize-h4-pc, false, $fsize-h4-sp);
-    padding: .7em;
-   // text-align: center;
-    font-weight: bold;
     color: #fff;
-  }
-
-  &__list {
-    margin-bottom: 0;
-    border-left: 1px solid $border-color;
-    border-right: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
-
-    a {
-      border-top: 1px solid $border-color;
-      @include fsize(14px);
-      padding: .8em 1.6em;
-      display: block;
-      text-decoration: none;
-      color: $text-color;
-
-      &:hover {
-        background-color: $brand-secondary-light;
-      }
-      &.is-active {
-        font-weight: bold;
-      }
-    }
-
-    ul {
-      margin-left: 1.2em;
-
-      border: 0;
-
-      a {
-        border: 0;
-        padding: .4em 1.5em;
-        text-indent: -.6em;
-
-        &:hover,
-        &.is-active {
-          background-color: $brand-secondary-light;
-          font-weight: normal;
-
-          &:before {
-            color: $brand-secondary;
-            transition: $animation;
-          }
-        }
-
-        &:before {
-          color: $text-color-week;
-          text-decoration: none;
-          @include material-icons;
-          vertical-align: middle;
-          content: "navigate_next";
-          white-space: nowrap;
-          font-size: 1em;
-          //margin-right: .5em;
-        }
-      }
-    }
-  }
-}
-
-//アコーディオン時
-.c-menu-hierarchy-primary__title {
-  position: relative;
-  &:after {
-    color: #fff;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    @include fsize(20px);
-    right: $width-gap-sp;
-    margin: auto;
-    height: 1em;
-    @include material-icons;
-    vertical-align: middle;
-    content: "add";
-    white-space: nowrap;
-    line-height: 1em;
-
-    display: none;
-    @include media-sp-max {
-      display: block;
-    }
-
-  }
-
-  &[aria-expanded="false"]:after {
-    content: "remove";
-  }
-
-}
-
-/*doc
----
-title: menu-secondary
-name: menu-secondary
-categories: [components, menu]
-parent: menu
----
-
-```html_example
-<div class="c-menu-hierarchy-secondary" data-accordion data-device-accordion="sp">
-  <h3 class="c-menu-hierarchy-secondary__title" aria-controls="c-menu-hierarchy-secondary" aria-expanded="true" aria-label="開く" data-toggle-accordion>階層構造メニュー secondary</h3>
-  <ul class="c-menu-hierarchy-secondary__list is-hidden--sm" id="c-menu-hierarchy-secondary"  aria-hidden="true" data-body-accordion>
-    <li><a href="">タイトル</a></li>
-    <li><a href="">タイトル</a></li>
-    <li><a href="">タイトル</a></li>
-  </ul>
-</div>
-
-
-```
-*/
-
-/* menu
-   ========================================================================== */
-
-.c-menu-hierarchy-secondary {
-
-  @include mb-small;
-
-  &__title {
-    background: #f7f7f7;
     @include fsize($fsize-h4-pc, false, $fsize-h4-sp);
-    padding: .7em;
+    padding: .6em 1em;
     font-weight: bold;
   }
 
   &__list {
     margin-bottom: 0;
-    border-bottom: 1px dotted $border-color;
-
-    li:first-child a {
-      border-top-style: solid;
-    }
 
     a {
       border-top: 1px dotted $border-color;
       @include fsize(14px);
-      padding: .8em 1.6em;
+      padding: .6em;
       display: block;
       text-decoration: none;
       color: $text-color;
       &:hover {
-        background-color: $brand-secondary-light;
+        background-color: $brand-primary;
+        color: #fff;
       }
       &.is-active {
         font-weight: bold;
+        background-color: $brand-primary;
+        color: #fff;
+
       }
     }
-
-    .c-menu-hierarchy__list {
+    .c-menu__list {
       margin-left: 1.2em;
-      border: 0;
-
-      a {
-        border: 0;
-        padding: .4em 1.5em;
-        text-indent: -.6em;
-
-        &:hover,
-        &.is-active {
-          background-color: $brand-secondary-light;
-          font-weight: normal;
-
-          &:before {
-            color: $brand-secondary;
-            transition: $animation;
-          }
-
-        }
-
-        &:before {
-          color: $text-color-week;
-          text-decoration: none;
-          @include material-icons;
-          vertical-align: middle;
-          content: "navigate_next";
-          white-space: nowrap;
-          font-size: 1em;
-          //margin-right: .5em;
-
-        }
-      }
     }
   }
-}
-
-//アコーディオン時
-.c-menu-hierarchy-secondary__title {
-  position: relative;
-  &:after {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    @include fsize(20px);
-    right: $width-gap-sp;
-    margin: auto;
-    height: 1em;
-    @include material-icons;
-    vertical-align: middle;
-    content: "add";
-    white-space: nowrap;
-    line-height: 1em;
-
-    display: none;
-    @include media-sp-max {
-      display: block;
-    }
-
-  }
-
-  &[aria-expanded="false"]:after {
-    content: "remove";
-  }
-
 }
 

@@ -1,0 +1,122 @@
+@charset "utf-8";
+/* @ Tool Setting
+ * ------------------------------------------------------------ */
+
+/*doc
+---
+title: tool-margin
+name: tool-margin
+categories: [utilities, tool-margin]
+
+---
+
+
+`--sm`, `--md`, `--lg`
+
+<div class="styleguide-table"></div>
+ Class        |  Description
+ -------------| ----------
+ `is-gapless`             |
+ `is-mb-xs`             |
+ `is-mb-small`          |
+ `is-mb-medium`         |
+ `is-mb-large`          |
+ `is-mb-xl`             |
+ `is-mt0`               |
+ `is-mb0`               |
+
+*/
+
+
+/* @ base layout gap
+ * ------------------------------------------------------------ */
+
+.is-gapless {
+  margin-right: -$width-gap-sp;
+  margin-left: -$width-gap-sp;
+}
+
+@include media-lg-min {
+
+  .is-gapless--lg {
+    margin-right: -$width-gap-sp;
+    margin-left: -$width-gap-sp;
+  }
+}
+
+@include media-tab-max {
+
+  .is-gapless--md {
+    margin-right: -$width-gap-tab;
+    margin-left: -$width-gap-tab;
+  }
+}
+
+@include media-sp-max {
+
+  .is-gapless--sm {
+    margin-right: -$width-gap-sp;
+    margin-left: -$width-gap-sp;
+  }
+}
+
+/* @ base margin
+ * ------------------------------------------------------------ */
+
+@mixin base-margin($name, $val-pc, $val-tab, $val-sp) {
+
+  .#{$name} {
+
+    margin-bottom: $val-pc !important;
+
+    @include media-tab-max {
+      margin-bottom: $val-tab !important;
+    }
+
+    @include media-sp-max {
+      margin-bottom: $val-sp !important;
+    }
+  }
+}
+
+@include base-margin (is-mb-xs, $margin-xs-pc, $margin-xs-tab, $margin-xs-sp);
+@include base-margin (is-mb-small, $margin-small-pc, $margin-small-tab, $margin-small-sp);
+@include base-margin (is-mb-medium, $margin-medium-pc, $margin-medium-tab, $margin-medium-sp);
+@include base-margin (is-mb-large, $margin-large-pc, $margin-large-tab, $margin-large-sp);
+
+.is-mt0 {
+  margin-top: 0 !important;
+}
+
+.is-mb0 {
+  margin-bottom: 0 !important;
+}
+
+
+@include media-lg-min {
+  .is-mt0--lg {
+    margin-top: 0 !important;
+  }
+  .is-mb0--lg {
+    margin-bottom: 0 !important;
+  }
+}
+
+@include media-tab-max {
+  .is-mt0--md {
+    margin-top: 0 !important;
+  }
+  .is-mb0--md {
+    margin-bottom: 0 !important;
+  }
+}
+
+@include media-sp-max {
+  .is-mt0--sm {
+    margin-top: 0 !important;
+  }
+  .is-mb0--sm {
+    margin-bottom: 0 !important;
+  }
+}
+
