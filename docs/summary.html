@@ -18,14 +18,14 @@
 <body class="sg-body">
 <header class="sg-header">
   <div class="sg-header__inner">
-    <h1>Japan Web Production Standards</h1>
+    <h1>スタイルガイド</h1>
     <nav class="sg-header__nav">
 	  <a href="index.html">Top</a>
       <a href="started.html">Started</a>
       <a href="variables.html">variables</a>
       <a href="mixins.html">mixins</a>
       <a href="layouts.html">layouts</a>
-	   <a href="richeditor.html">richeditor</a>
+	   <a href="visualeditor.html">visualeditor</a>
       <a href="elements.html">elements</a>
       <a href="components.html">components</a>
 	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
@@ -65,11 +65,11 @@
 <div class="codeExample">
   <div class="exampleOutput">
     
-<div>
-  <ul class="c-summary-horizontal">
+<div class="c-summary-horizontal">
+  <ul>
    <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img e-card__img--trim img-hover"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -78,7 +78,7 @@
       </li>
    <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img e-card__img--trim img-hover"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -87,7 +87,52 @@
       </li>
    <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img e-card__img--trim img-hover"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -96,17 +141,7 @@
       </li>
   </ul>
 
-<div class="c-pagenavi">
-  <a class="c-previouspostslink" rel="prev" href=""></a>
-  <span class="is-current">1</span>
-  <a href="">2</a>
-  <a href="">3</a>
-  <a href="">4</a>
-  <a href="">5</a>
-  <span class="c-extend">...</span>
-  <a class="c-nextpostslink" rel="next" href=""></a>
-</div>
-</div>
+
 
 
   </div>
@@ -115,11 +150,11 @@
     <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
       <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
         <div class="highlight">
-          <pre><span class="nt">&lt;div&gt;</span>
-  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"c-summary-horizontal"</span><span class="nt">&gt;</span>
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-summary-horizontal"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"c-summary__item e-card"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img e-card__img--trim img-hover"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/400x250.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/400x250.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
           <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__body"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__title"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/p&gt;</span>
             <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__text"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキスト<span class="nt">&lt;/p&gt;</span>
@@ -128,7 +163,7 @@
       <span class="nt">&lt;/li&gt;</span>
    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"c-summary__item e-card"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img e-card__img--trim img-hover"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/400x250.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/400x250.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
           <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__body"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__title"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/p&gt;</span>
             <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__text"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキスト<span class="nt">&lt;/p&gt;</span>
@@ -137,26 +172,59 @@
       <span class="nt">&lt;/li&gt;</span>
    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"c-summary__item e-card"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img e-card__img--trim img-hover"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/400x250.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/400x250.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
           <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__body"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__title"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/p&gt;</span>
             <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__text"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキスト<span class="nt">&lt;/p&gt;</span>
           <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;/a&gt;</span>
       <span class="nt">&lt;/li&gt;</span>
-  <span class="nt">&lt;/ul&gt;</span>
-
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-pagenavi"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"c-previouspostslink"</span> <span class="na">rel=</span><span class="s">"prev"</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;&lt;/a&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-current"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>2<span class="nt">&lt;/a&gt;</span>
-  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>3<span class="nt">&lt;/a&gt;</span>
-  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>4<span class="nt">&lt;/a&gt;</span>
-  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>5<span class="nt">&lt;/a&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"c-extend"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"c-nextpostslink"</span> <span class="na">rel=</span><span class="s">"next"</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;&lt;/a&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span></pre>
+         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"c-summary__item e-card"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/400x250.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__title"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__text"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキスト<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"c-summary__item e-card"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/400x250.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__title"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__text"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキスト<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"c-summary__item e-card"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/400x250.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__title"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__text"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキスト<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"c-summary__item e-card"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/400x250.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__title"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__text"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキスト<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"c-summary__item e-card"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/400x250.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__title"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__text"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキスト<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span></pre>
         </div>
       </div>
   </div>

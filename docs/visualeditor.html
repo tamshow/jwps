@@ -18,14 +18,14 @@
 <body class="sg-body">
 <header class="sg-header">
   <div class="sg-header__inner">
-    <h1>Japan Web Production Standards</h1>
+    <h1>スタイルガイド</h1>
     <nav class="sg-header__nav">
 	  <a href="index.html">Top</a>
       <a href="started.html">Started</a>
       <a href="variables.html">variables</a>
       <a href="mixins.html">mixins</a>
       <a href="layouts.html">layouts</a>
-	   <a href="richeditor.html">richeditor</a>
+	   <a href="visualeditor.html">visualeditor</a>
       <a href="elements.html">elements</a>
       <a href="components.html">components</a>
 	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
@@ -38,12 +38,12 @@
 
 
 <div class="sg-container">
-	 <h2 class="sg-heading2">richeditor</h2>
+	 <h2 class="sg-heading2">visualeditor</h2>
 	<div class="sg-widget-head">
 	 <ul class="e-list-inline">
        
          
-          <li><a href="#richeditor">richeditor</a></li>
+          <li><a href="#visualeditor">visualeditor</a></li>
          
        
      </ul>
@@ -59,16 +59,16 @@
 	 
 	 
 	 
-	 <h1 id="richeditor" class="styleguide">richeditor</h1>
+	 <h1 id="visualeditor" class="styleguide">visualeditor</h1>
 
 <p class="e-text is-mb-medium">
-ニュースの詳細などCMSで直接タグ入力するして更新する場合は外枠のdivに.rich-editorを指定してください。
+ニュースの詳細などCMSで直接タグ入力するして更新する場合は.visual-editorを指定してください。
 こちらのサンプルのような形になり内包するタグ（p,span,table,list,dlなど）にベース装飾を追加します。
-このため.rich-editor内ではサンプル以外のクラス.mediaなどは使用出来ませんのでご注意ください。
+このため.visual-editor内ではサンプル以外のクラス.mediaなどは使用出来ませんのでご注意ください。
 </p>
 <div class="codeExample">
   <div class="exampleOutput">
-               <div class="c-anchor-nav is-mb-large">
+           <div class="c-anchor-nav is-mb-large">
         <div class="c-anchor-nav__body">
           <p class="c-anchor-nav__title">コンテンツ</p>
           <ul data-scroll>
@@ -83,7 +83,7 @@
       </div>
 
 
-      <div class="rich-editor">
+      <div class="l-unit visual-editor">
 
 
         <h2 id="ank1">1. 見出し・段落</h2>
@@ -125,11 +125,7 @@
           <li><a href="#dummy">矢印付きリスト</a></li>
         </ul>
 
-        <ul class="e-list--square">
-          <li>四角リスト</li>
-          <li><a href="#dummy">四角リスト</a></li>
-          <li><a href="#dummy">四角リスト</a></li>
-        </ul>
+
 
         <dl>
           <dt>定義リスト</dt>
@@ -150,9 +146,9 @@
           <br>
           <span>上付き文字（sup）　E=mc<sup>2</sup></span><br>
           <span>下付き文字（sub）　CO<sub>2</sub></span><br>
-          <span class="is-indent" style="display:block">先頭1文字下げ</span>
-          <span class="is-underline">下線（Underline Text）</span><br>
-          <span class="is-point">マーカー線(Marker Yellow)</span><br>
+          <span class="is-text-indent" style="display:block">先頭1文字下げ</span>
+          <span class="is-text-underline">下線（Underline Text）</span><br>
+          <span class="is-text-point">マーカー線(Marker Yellow)</span><br>
           <span class="is-color-orange">重要色文字（Text Orange）</span><br>
           <span class="is-color-red">エラー色文字（Text Red）</span><br>
           <span class="is-color-blue">青色文字（Text Blue）</span><br>
@@ -176,18 +172,18 @@
         </p>
 
         <h3>配置</h3>
-        <p class="is-left">左揃え<br>
+        <p class="is-text-left">左揃え<br>
           吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
         </p>
-        <p class="is-center">
+        <p class="is-text-center">
           中央揃え<br>
           吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
         </p>
-        <p class="is-right">
+        <p class="is-text-right">
           右揃え<br>
           吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
         </p>
-        <p class="is-justify">
+        <p class="is-text-justify">
           両端揃え<br>
           吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
         </p>
@@ -203,20 +199,20 @@
         <figure>
           <img src="assets/img/dummy/840x560.png" alt="">
         </figure>
-        <figure class="is-one-half">
+        <figure class="is-img-w50">
           <img src="assets/img/dummy/840x560.png" alt="">
         </figure>
-        <figure class="is-one-third">
+        <figure class="is-img-w33">
           <img src="assets/img/dummy/840x560.png" alt="">
         </figure>
-        <figure class="is-one-fourth">
+        <figure class="is-img-w25">
           <img src="assets/img/dummy/840x560.png" alt="">
         </figure>
 
 
         <h3>配置</h3>
         <h4>左寄せ（テキスト回り込み）</h4>
-        <figure class="is-left is-one-fourth">
+        <figure class="is-img-left is-img-w25">
           <img src="assets/img/dummy/840x560.png" alt="">
         </figure>
         <p>吾輩は猫である。名前はまだ無い。
@@ -233,12 +229,12 @@
           ​</p>
 
         <h4>中央寄せ</h4>
-        <figure class="is-center is-one-fourth">
+        <figure class="is-img-center is-img-w25">
           <img src="assets/img/dummy/840x560.png" alt="">
         </figure>
 
         <h4>右寄せ（テキスト回り込み）</h4>
-        <figure class="is-right is-one-fourth">
+        <figure class="is-img-right is-img-w25">
           <img src="assets/img/dummy/840x560.png" alt="">
         </figure>
         <p>吾輩は猫である。名前はまだ無い。
@@ -257,21 +253,15 @@
         <h2 id="ank5">5. ボックス</h2>
 
         <div class="e-box e-box--bg">
-          <div class="e-box__body">
             <p>ボックス<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
-          </div>
         </div>
 
         <div class="e-box e-box--error">
-          <div class="e-box__body">
             <p>ボックス（error）<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
-          </div>
         </div>
 
         <div class="e-box e-box--warning">
-          <div class="e-box__body">
             <p>ボックス（warning）<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
-          </div>
         </div>
 
 
@@ -398,7 +388,7 @@
       <span class="nt">&lt;/div&gt;</span>
 
 
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rich-editor"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-unit visual-editor"</span><span class="nt">&gt;</span>
 
 
         <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"ank1"</span><span class="nt">&gt;</span>1. 見出し・段落<span class="nt">&lt;/h2&gt;</span>
@@ -440,11 +430,7 @@
           <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#dummy"</span><span class="nt">&gt;</span>矢印付きリスト<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
         <span class="nt">&lt;/ul&gt;</span>
 
-        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"e-list--square"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;li&gt;</span>四角リスト<span class="nt">&lt;/li&gt;</span>
-          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#dummy"</span><span class="nt">&gt;</span>四角リスト<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#dummy"</span><span class="nt">&gt;</span>四角リスト<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;/ul&gt;</span>
+
 
         <span class="nt">&lt;dl&gt;</span>
           <span class="nt">&lt;dt&gt;</span>定義リスト<span class="nt">&lt;/dt&gt;</span>
@@ -465,9 +451,9 @@
           <span class="nt">&lt;br&gt;</span>
           <span class="nt">&lt;span&gt;</span>上付き文字（sup）　E=mc<span class="nt">&lt;sup&gt;</span>2<span class="nt">&lt;/sup&gt;&lt;/span&gt;&lt;br&gt;</span>
           <span class="nt">&lt;span&gt;</span>下付き文字（sub）　CO<span class="nt">&lt;sub&gt;</span>2<span class="nt">&lt;/sub&gt;&lt;/span&gt;&lt;br&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-indent"</span> <span class="na">style=</span><span class="s">"display:block"</span><span class="nt">&gt;</span>先頭1文字下げ<span class="nt">&lt;/span&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-underline"</span><span class="nt">&gt;</span>下線（Underline Text）<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-point"</span><span class="nt">&gt;</span>マーカー線(Marker Yellow)<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-text-indent"</span> <span class="na">style=</span><span class="s">"display:block"</span><span class="nt">&gt;</span>先頭1文字下げ<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-text-underline"</span><span class="nt">&gt;</span>下線（Underline Text）<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-text-point"</span><span class="nt">&gt;</span>マーカー線(Marker Yellow)<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
           <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-color-orange"</span><span class="nt">&gt;</span>重要色文字（Text Orange）<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
           <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-color-red"</span><span class="nt">&gt;</span>エラー色文字（Text Red）<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
           <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-color-blue"</span><span class="nt">&gt;</span>青色文字（Text Blue）<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
@@ -491,18 +477,18 @@
         <span class="nt">&lt;/p&gt;</span>
 
         <span class="nt">&lt;h3&gt;</span>配置<span class="nt">&lt;/h3&gt;</span>
-        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"is-left"</span><span class="nt">&gt;</span>左揃え<span class="nt">&lt;br&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"is-text-left"</span><span class="nt">&gt;</span>左揃え<span class="nt">&lt;br&gt;</span>
           吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
         <span class="nt">&lt;/p&gt;</span>
-        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"is-center"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"is-text-center"</span><span class="nt">&gt;</span>
           中央揃え<span class="nt">&lt;br&gt;</span>
           吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
         <span class="nt">&lt;/p&gt;</span>
-        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"is-right"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"is-text-right"</span><span class="nt">&gt;</span>
           右揃え<span class="nt">&lt;br&gt;</span>
           吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
         <span class="nt">&lt;/p&gt;</span>
-        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"is-justify"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"is-text-justify"</span><span class="nt">&gt;</span>
           両端揃え<span class="nt">&lt;br&gt;</span>
           吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
         <span class="nt">&lt;/p&gt;</span>
@@ -518,20 +504,20 @@
         <span class="nt">&lt;figure&gt;</span>
           <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/840x560.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
         <span class="nt">&lt;/figure&gt;</span>
-        <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"is-one-half"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"is-img-w50"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/840x560.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
         <span class="nt">&lt;/figure&gt;</span>
-        <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"is-one-third"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"is-img-w33"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/840x560.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
         <span class="nt">&lt;/figure&gt;</span>
-        <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"is-one-fourth"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"is-img-w25"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/840x560.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
         <span class="nt">&lt;/figure&gt;</span>
 
 
         <span class="nt">&lt;h3&gt;</span>配置<span class="nt">&lt;/h3&gt;</span>
         <span class="nt">&lt;h4&gt;</span>左寄せ（テキスト回り込み）<span class="nt">&lt;/h4&gt;</span>
-        <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"is-left is-one-fourth"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"is-img-left is-img-w25"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/840x560.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
         <span class="nt">&lt;/figure&gt;</span>
         <span class="nt">&lt;p&gt;</span>吾輩は猫である。名前はまだ無い。
@@ -548,12 +534,12 @@
           ​<span class="nt">&lt;/p&gt;</span>
 
         <span class="nt">&lt;h4&gt;</span>中央寄せ<span class="nt">&lt;/h4&gt;</span>
-        <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"is-center is-one-fourth"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"is-img-center is-img-w25"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/840x560.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
         <span class="nt">&lt;/figure&gt;</span>
 
         <span class="nt">&lt;h4&gt;</span>右寄せ（テキスト回り込み）<span class="nt">&lt;/h4&gt;</span>
-        <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"is-right is-one-fourth"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"is-img-right is-img-w25"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/dummy/840x560.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
         <span class="nt">&lt;/figure&gt;</span>
         <span class="nt">&lt;p&gt;</span>吾輩は猫である。名前はまだ無い。
@@ -572,21 +558,15 @@
         <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"ank5"</span><span class="nt">&gt;</span>5. ボックス<span class="nt">&lt;/h2&gt;</span>
 
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box e-box--bg"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box__body"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;p&gt;</span>ボックス<span class="nt">&lt;br&gt;</span>選択した部分に背景色と枠線のスタイルがつきます。<span class="nt">&lt;/p&gt;</span>
-          <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
 
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box e-box--error"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box__body"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;p&gt;</span>ボックス（error）<span class="nt">&lt;br&gt;</span>選択した部分に背景色と枠線のスタイルがつきます。<span class="nt">&lt;/p&gt;</span>
-          <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
 
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box e-box--warning"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box__body"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;p&gt;</span>ボックス（warning）<span class="nt">&lt;br&gt;</span>選択した部分に背景色と枠線のスタイルがつきます。<span class="nt">&lt;/p&gt;</span>
-          <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
 
 

@@ -18,14 +18,14 @@
 <body class="sg-body">
 <header class="sg-header">
   <div class="sg-header__inner">
-    <h1>Japan Web Production Standards</h1>
+    <h1>スタイルガイド</h1>
     <nav class="sg-header__nav">
 	  <a href="index.html">Top</a>
       <a href="started.html">Started</a>
       <a href="variables.html">variables</a>
       <a href="mixins.html">mixins</a>
       <a href="layouts.html">layouts</a>
-	   <a href="richeditor.html">richeditor</a>
+	   <a href="visualeditor.html">visualeditor</a>
       <a href="elements.html">elements</a>
       <a href="components.html">components</a>
 	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
@@ -60,53 +60,47 @@
 	 
 	 
 	 <h1 id="typesetting" class="styleguide">typesetting</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+<p class="e-text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p>
+<p class="e-text-catchcopy">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p>
 
-<div class="styleguide-table"></div>
-<table class="styleguide"> <tr>
-<th>Class</th>
-<th>Description</th>
-</tr>
- <tr>
-<td><code class="styleguide">e-text</code></td>
-<td><p class="e-text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p></td>
-</tr>
-<tr>
-<td><code class="styleguide">is-text-sub</code></td>
-<td><p class="is-text-sub">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p></td>
-</tr>
-<tr>
-<td><code class="styleguide">e-text-week</code></td>
-<td><p class="is-text-week">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p></td>
-</tr>
-<tr>
-<td><code class="styleguide">e-text-catchcopy</code></td>
-<td><p class="e-text-catchcopy">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p></td>
-</tr>
-<tr>
-<td><code class="styleguide">is-text-point</code></td>
-<td><p class="is-text-point">ダミーテキストです。ご了承ください。</p></td>
-</tr>
-<tr>
-<td><code class="styleguide">is-text-arrow</code></td>
-<td><p><a href="" class="is-text-arrow">一覧</a></p></td>
-</tr>
-<tr>
-<td><code class="styleguide">is-text-link</code></td>
-<td><div> <p class="e-text">情に棹させば流される。<a href="https://google.com" class="is-text-link">智に働けば角が立つ。</a>どこへ越しても住みにくいと悟った時、詩が生れて、<a href="https://google.com" class="is-text-link">画が出来る</a>。とかくに人の世は住みにくい。<a href="" class="is-text-link">意地を通せば窮屈</a>だ... </p> </div></td>
-</tr>
-<tr>
-<td><code class="styleguide">is-dark is-text-link</code></td>
-<td><div class="is-dark" style="background-color: #333;"> <p class="e-text">情に棹させば流される。<a href="https://google.com" class="is-text-link">智に働けば角が立つ。</a>どこへ越しても住みにくいと悟った時、詩が生れて、<a href="https://google.com" class="is-text-link">画が出来る</a>。とかくに人の世は住みにくい。<a href="" class="is-text-link">意地を通せば窮屈</a>だ... </p> </div></td>
-</tr>
-<tr>
-<td><code class="styleguide">is-text-bold</code></td>
-<td>太字</td>
-</tr>
-<tr>
-<td><code class="styleguide">is-text-strike</code></td>
-<td>打ち消し線</td>
-</tr>
- </table>
+
+<p class="e-text">
+<span class="is-text-sub">情に棹させば流される。</span><br>
+<span class="is-text-week">智に働けば角が立つ。</span><br>
+<span class="is-text-point">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</span><br>
+<span class="is-text-arrow">とかくに人の世は住みにくい。</span><br>
+<span class="is-text-bold">意地を通せば窮屈だ。</span><br>
+<span class="is-text-strike">とかくに人の世は住みにくい。 </span></p>
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-text"</span><span class="nt">&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-text-catchcopy"</span><span class="nt">&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 <span class="nt">&lt;/p&gt;</span>
+
+
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-text"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-text-sub"</span><span class="nt">&gt;</span>情に棹させば流される。<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-text-week"</span><span class="nt">&gt;</span>智に働けば角が立つ。<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-text-point"</span><span class="nt">&gt;</span>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-text-arrow"</span><span class="nt">&gt;</span>とかくに人の世は住みにくい。<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-text-bold"</span><span class="nt">&gt;</span>意地を通せば窮屈だ。<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"is-text-strike"</span><span class="nt">&gt;</span>とかくに人の世は住みにくい。 <span class="nt">&lt;/span&gt;&lt;/p&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
 </div>
 
 </div>

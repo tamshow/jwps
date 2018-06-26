@@ -464,6 +464,24 @@ https://material.io/guidelines/material-design/elevation-shadows.html
 */
 /*doc
 ---
+title: grid
+name: grid
+category: mixins
+---
+
+```
+grid ($className:'.cols', $col:6, $allW:940, $g:30, $sp:false)
+
+@include grid('.c-summary__item', 6, $screen-pc-max, 24);
+
+
+
+```
+
+
+*/
+/*doc
+---
 title: img
 name: img
 category: variables
@@ -877,7 +895,7 @@ pre code,
   display: none;
 }
 
-.l-footer-v1 ._fixed-btn {
+.l-footer-v1 ._fixed-button {
   font-weight: bold;
   text-decoration: none;
   color: #fff;
@@ -965,7 +983,7 @@ pre code,
   margin-right: 16px;
 }
 
-.l-header-v1 ._secondary-pc ._sub-nav ._sub-nav-btn {
+.l-header-v1 ._secondary-pc ._sub-nav ._sub-nav-button {
   margin-right: 0;
 }
 
@@ -1018,9 +1036,6 @@ pre code,
 
 /* @  Content Layout
  * ------------------------------------------------------------ */
-:root {
-  --size: $width-pc-max;
-}
 
 .l-main {
   min-height: 20vh;
@@ -1088,33 +1103,6 @@ categories: [layouts, layout]
 ```
 
 
-<h2 class="styleguide">Sample</h2>
-```html_example
-
-<div class="l-container">
-  <div class="l-block">
-  <h1 class="e-hdg1">h1xxx</h1>
-    <div class="l-unit">
-      <h2 class="e-hdg2 e-hdg2--type2">h2xxx</h2>
-      <p class="e-text">xxxx</p>
-      <h3 class="e-hdg3 e-hdg3--type2">h3xxx</h3>
-    </div>
-    <div class="l-unit">
-      <h2 class="e-hdg2 e-hdg2--type2">h2xxx</h2>
-      <p class="e-text">xxxx</p>
-      <p class="e-text">xxxx</p>
-    </div>
-
-    <hr>
-    <div class="rich-editor">
-      <h2>h2xxx</h2>
-      <p>xxxx</p>
-      <h3>h3xxx</h3>
-    </div>
-  </div>
-</div>
-
-```
 */
 .l-container-fluid::after {
   clear: both;
@@ -1185,213 +1173,354 @@ categories: [layouts, layout]
   margin-bottom: 36px;
 }
 
-.l-unit *:last-child {
-  margin-bottom: 0;
-}
-
-/* ==========================================================================
-   #GRID
-   ========================================================================== */
-/**
- * グリッドレイアウトのスタイルです
- *
- *
- *
- */
-/* cloumn:mixins
-   ========================================================================== */
-/* base
-   ========================================================================== */
-.l-grid {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.rich-editor .l-grid h2,
-.rich-editor .l-grid h3,
-.rich-editor .l-grid h4,
-.rich-editor .l-grid h5,
-.rich-editor .l-grid h6 {
-  margin-top: 0;
-}
-
-.l-grid > *:last-child {
-  margin-bottom: 0;
-}
-
-/* grid-2column
-   ========================================================================== */
+/* @ l-visualeditor
+ * ------------------------------------------------------------ */
 /*doc
 ---
-title: grid
-name: 30_grid
-categories: [layouts, grid]
+title: visualeditor
+name: visualeditor
+category: visualeditor
 ---
-
+<p class="e-text is-mb-medium">
+ニュースの詳細などCMSで直接タグ入力するして更新する場合は.visual-editorを指定してください。
+こちらのサンプルのような形になり内包するタグ（p,span,table,list,dlなど）にベース装飾を追加します。
+このため.visual-editor内ではサンプル以外のクラス.mediaなどは使用出来ませんのでご注意ください。
+</p>
 
 ```html_example
+       <div class="c-anchor-nav is-mb-large">
+        <div class="c-anchor-nav__body">
+          <p class="c-anchor-nav__title">コンテンツ</p>
+          <ul data-scroll>
+            <li><a href="#ank1">見出し・段落</a> </li>
+            <li><a href="#ank2">リスト</a> </li>
+            <li><a href="#ank3">テキスト（装飾・リンク・配置・引用）</a> </li>
+            <li><a href="#ank4">画像（サイズ・配置）</a> </li>
+            <li><a href="#ank5">ボックス</a> </li>
+            <li><a href="#ank6">テーブル</a> </li>
+          </ul>
+        </div>
+      </div>
 
-<div class="l-grids-2to2to1">
- <div class="l-grid"><div class="dummy-box">1/2<br>6 columns</div></div>
- <div class="l-grid"><div class="dummy-box">1/2<br>6 columns</div></div>
-</div>
+
+      <div class="l-unit visual-editor">
 
 
+        <h2 id="ank1">1. 見出し・段落</h2>
+        <h2>見出し2</h2>
+        <h3>見出し3</h3>
+        <h4>見出し4</h4>
+        <h5>見出し5</h5>
+        <h6>見出し6</h6>
+
+        <p>吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。</p>
+
+        <h2 id="ank2">2. リスト</h2>
+
+        <ul>
+          <li>順序がないリスト</li>
+          <li>順序がないリスト
+            <ul>
+              <li>順序がないリスト</li>
+              <li>順序がないリスト</li>
+            </ul>
+          </li>
+          <li>順序がないリスト</li>
+        </ul>
+
+        <ol>
+          <li>順序のあるリスト</li>
+          <li>順序のあるリスト
+            <ol>
+              <li>順序のあるリスト</li>
+              <li>順序のあるリスト</li>
+            </ol>
+          </li>
+          <li>順序のあるリスト</li>
+        </ol>
+
+        <ul class="e-list--arrow">
+          <li>矢印付きリスト</li>
+          <li><a href="#dummy">矢印付きリスト</a></li>
+          <li><a href="#dummy">矢印付きリスト</a></li>
+        </ul>
+
+
+
+        <dl>
+          <dt>定義リスト</dt>
+          <dd>テキストが入ります。テキストが入ります。</dd>
+          <dt>定義リスト</dt>
+          <dd>テキストが入ります。テキストが入ります。</dd>
+          <dt>定義リスト</dt>
+          <dd>テキストが入ります。テキストが入ります。</dd>
+        </dl>
+
+        <h2 id="ank3">3. テキスト（装飾・リンク・配置・引用）</h2>
+        <h3>装飾</h3>
+        <p>
+          <strong>強い強調を表す要素（strong）</strong><br>
+          <em>強調を表す要素（em）</em><br>
+          <s>すでに正確ではなくなった要素、打ち消し線（s）</s><br>
+          <small>注釈や細目を表す要素（small）</small>
+          <br>
+          <span>上付き文字（sup）　E=mc<sup>2</sup></span><br>
+          <span>下付き文字（sub）　CO<sub>2</sub></span><br>
+          <span class="is-text-indent" style="display:block">先頭1文字下げ</span>
+          <span class="is-text-underline">下線（Underline Text）</span><br>
+          <span class="is-text-point">マーカー線(Marker Yellow)</span><br>
+          <span class="is-color-orange">重要色文字（Text Orange）</span><br>
+          <span class="is-color-red">エラー色文字（Text Red）</span><br>
+          <span class="is-color-blue">青色文字（Text Blue）</span><br>
+          <span class="is-color-green">緑色文字（Text Green）</span><br>
+          <span class="is-bg-color-orange">重要色背景（Bg Orange）</span><br>
+          <span class="is-bg-color-red">エラー色背景（Bg Red）</span><br>
+          <span class="is-bg-color-blue">青色背景（Bg Blue）</span><br>
+          <span class="is-bg-color-green">緑色背景（Bg Green）</span><br>
+        </p>
+
+
+        <h3>リンク</h3>
+        <p>
+          <a href="#dummy">標準のリンク</a><br>
+          <a href="#dummy" target="_blank">target="_blank"を指定している場合 </a><br>
+          <a href="#dummy.pdf">pdfへのリンクの場合</a><br>
+          <a href="#dummy.doc">doc、docxへのリンクの場合</a><br>
+          <a href="#dummy.xls">xls、xlsxへのリンクの場合</a><br>
+          <a href="#dummy.ppt">ppt、pptxへのリンクの場合</a><br>
+          <a href="#dummy.ppt" class="is-iconless">aタグに.is-iconlessがあると自動リンクアイコンは表示されません</a>
+        </p>
+
+        <h3>配置</h3>
+        <p class="is-text-left">左揃え<br>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        </p>
+        <p class="is-text-center">
+          中央揃え<br>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        </p>
+        <p class="is-text-right">
+          右揃え<br>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        </p>
+        <p class="is-text-justify">
+          両端揃え<br>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        </p>
+
+        <h3>引用</h3>
+        <blockquote>
+          引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。
+        </blockquote>
+
+        <h2 id="ank4">4. 画像（サイズ・配置）</h2>
+
+        <h3>サイズ</h3>
+        <figure>
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+        <figure class="is-img-w50">
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+        <figure class="is-img-w33">
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+        <figure class="is-img-w25">
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+
+
+        <h3>配置</h3>
+        <h4>左寄せ（テキスト回り込み）</h4>
+        <figure class="is-img-left is-img-w25">
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+        <p>吾輩は猫である。名前はまだ無い。
+          どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+          吾輩はここで始めて人間というものを見た。
+          しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+          この書生というのは時々我々を捕えて煮て食うという話である。
+          しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
+          ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。
+          掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。
+          第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。
+          のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。
+          これが人間の飲む煙草というものである事はようやくこの頃知った。
+          ​</p>
+
+        <h4>中央寄せ</h4>
+        <figure class="is-img-center is-img-w25">
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+
+        <h4>右寄せ（テキスト回り込み）</h4>
+        <figure class="is-img-right is-img-w25">
+          <img src="/assets/img/dummy/840x560.png" alt="">
+        </figure>
+        <p>吾輩は猫である。名前はまだ無い。
+          どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+          吾輩はここで始めて人間というものを見た。
+          しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+          この書生というのは時々我々を捕えて煮て食うという話である。
+          しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
+          ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。
+          掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。
+          第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。
+          のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。
+          これが人間の飲む煙草というものである事はようやくこの頃知った。
+          ​</p>
+
+        <h2 id="ank5">5. ボックス</h2>
+
+        <div class="e-box e-box--bg">
+            <p>ボックス<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
+        </div>
+
+        <div class="e-box e-box--error">
+            <p>ボックス（error）<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
+        </div>
+
+        <div class="e-box e-box--warning">
+            <p>ボックス（warning）<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
+        </div>
+
+
+        <h2 id="ank6">6. テーブル</h2>
+
+        <h3>標準</h3>
+        <table>
+          <tr>
+            <th>見出し</th>
+            <th>見出し</th>
+            <th>見出し</th>
+          </tr>
+          <tr>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+        </table>
+
+
+        <h3>ボーダーレス</h3>
+        <table class="e-table--borderless">
+          <tr>
+            <th>見出し</th>
+            <th>見出し</th>
+            <th>見出し</th>
+          </tr>
+          <tr>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+        </table>
+
+        <h3>文字小さい</h3>
+        <table class="e-table--small">
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+        </table>
+
+        <h3>SP時スクロール</h3>
+        <div class="e-responsive-table">
+          <table>
+            <tr>
+              <th>見出し</th>
+              <th>見出し</th>
+              <th>見出し</th>
+            </tr>
+            <tr>
+              <td>テキストが入ります。</td>
+              <td>テキストが入ります。</td>
+              <td>テキストが入ります。</td>
+            </tr>
+            <tr>
+              <td>テキストが入ります。</td>
+              <td>テキストが入ります。</td>
+              <td>テキストが入ります。</td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
 
 ```
+
+
 */
-.l-grids-2to2to1 {
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+.visual-editor p,
+.visual-editor table,
+.visual-editor ul,
+.visual-editor ol,
+.visual-editor dl,
+.visual-editor blockquote,
+.visual-editor figure,
+.visual-editor .e-box-bordered,
+.visual-editor hr {
+  margin-bottom: 24px;
+}
+
+.visual-editor p:empty {
+  display: none;
+}
+
+.visual-editor strong > strong {
+  color: #e75a00;
+}
+
+.visual-editor s {
+  opacity: .54;
+}
+
+.visual-editor em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+.clearfloat {
   clear: both;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-left: -1%;
-  margin-right: -1%;
-}
-
-.l-grids-2to2to1 .l-grid {
-  width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
-}
-
-.l-grids-2to2to1 .l-grid {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 48%;
-          flex: 0 0 48%;
-  margin-left: 1%;
-  margin-right: 1%;
-  margin-bottom: 16px;
-}
-
-/* grid-3column
-   ========================================================================== */
-/*doc
----
-title: grid-3column
-name: grid-3column
-categories: [layouts, grid]
-parent: 30_grid
----
-
-
-```html_example
-
-<div class="l-grids-3to2to1">
- <div class="l-grid l-grid__tile"><div class="dummy-box">1/3<br>4 columns</div></div>
- <div class="l-grid l-grid__tile"><div class="dummy-box">1/3<br>4 columns</div></div>
- <div class="l-grid l-grid__tile"><div class="dummy-box">1/3<br>4 columns</div></div>
- <div class="l-grid l-grid__tile"><div class="dummy-box">1/3<br>4 columns</div></div>
-</div>
-
-
-```
-*/
-.l-grids-3to2to1 {
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  clear: both;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-left: -1%;
-  margin-right: -1%;
-}
-
-.l-grids-3to2to1 .l-grid {
-  width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
-}
-
-.l-grids-3to2to1 .l-grid {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 31.3333333333%;
-          flex: 0 0 31.3333333333%;
-  margin-left: 1%;
-  margin-right: 1%;
-  margin-bottom: 16px;
-}
-
-/* grid-4column
-   ========================================================================== */
-/*doc
----
-title: grid-4column
-name: grid-4column
-categories: [layouts, grid]
-parent: 30_grid
----
-
-
-```html_example
-
-<div class="l-grids-4to2to2">
- <div class="l-grid"><div class="dummy-box">1/4<br>3 columns</div></div>
- <div class="l-grid"><div class="dummy-box">1/4<br>3 columns</div></div>
- <div class="l-grid"><div class="dummy-box">1/4<br>3 columns</div></div>
- <div class="l-grid"><div class="dummy-box">1/4<br>3 columns</div></div>
-</div>
-
-
-```
-*/
-.l-grids-4to2to2 {
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  clear: both;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-left: -1%;
-  margin-right: -1%;
-}
-
-.l-grids-4to2to2 .l-grid {
-  width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
-}
-
-.l-grids-4to2to2 .l-grid {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 23%;
-          flex: 0 0 23%;
-  margin-left: 1%;
-  margin-right: 1%;
-  margin-bottom: 16px;
 }
 
 /* ==========================================================================
@@ -1463,7 +1592,8 @@ categories: [layouts, grid-12column]
 ---
 title: Inside - Column
 name: grid-12column2-inner
-category: grid-12column
+categories: [layouts, grid-12column]
+parent: grid-12column
 ---
 
 ```html_example
@@ -2060,18 +2190,42 @@ parent: grid-12column
 ---
 title: flex
 name: 30_grid-flex
-categories: [layouts, flex]
+categories: [flex]
 ---
 
 ```html_example
 
 <div class="l-flex-boxes">
  <div class="l-flex-box l-flex-box--large"><div class="dummy-box">.l-flex-box--large</div></div>
- <div class="l-flex-box l-flex-box--medium"><div class="dummy-box">.l-flex-box--medium</div></div>
- <div class="l-flex-box l-flex-box--medium"><div class="dummy-box">.l-flex-box--medium</div></div>
+ <div class="l-flex-box"><div class="dummy-box">.l-flex-box</div></div>
+ <div class="l-flex-box"><div class="dummy-box">.l-flex-box</div></div>
  <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box--small</div></div>
- <div class="l-flex-box">  <div class="dummy-box">.l-flex-box</div></div>
- <div class="l-flex-box">  <div class="dummy-box">.l-flex-box</div></div>
+ <div class="l-flex-box l-flex-box--auto">  <div class="dummy-box">.l-flex-box</div></div>
+</div>
+
+
+
+
+
+<div class="l-flex-boxes is-flex-center">
+ <div class="l-flex-box"><div class="dummy-box">.l-flex-box</div></div>
+</div>
+
+
+<div class="l-flex-boxes is-flex-flex-end">
+ <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box</div></div>
+ <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box</div></div>
+</div>
+
+
+<div class="l-flex-boxes .is-flex-flex-start">
+ <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box</div></div>
+ <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box</div></div>
+</div>
+
+<div class="l-flex-boxes is-flex-space-between">
+ <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box</div></div>
+ <div class="l-flex-box l-flex-box--small"><div class="dummy-box">.l-flex-box</div></div>
 </div>
 
 
@@ -2097,18 +2251,42 @@ categories: [layouts, flex]
   display: block;
 }
 
+.is-flex-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.is-flex-flex-end {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.is-flex-flex-start {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.is-flex-space-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .l-flex-box {
   -ms-flex-item-align: stretch;
       align-self: stretch;
   display: block;
-  -webkit-box-flex: 2;
-      -ms-flex: 2 2 15em;
-          flex: 2 2 15em;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-right: 1%;
   margin-left: 1%;
   margin-bottom: 16px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 23%;
+          flex: 0 0 23%;
 }
 
 .l-flex-box > *:last-child {
@@ -2133,360 +2311,10 @@ categories: [layouts, flex]
           flex: 1 1 31.3333333333%;
 }
 
-/*doc
----
-title: richeditor
-name: richeditor
-category: richeditor
----
-<p class="e-text is-mb-medium">
-ニュースの詳細などCMSで直接タグ入力するして更新する場合は外枠のdivに.rich-editorを指定してください。
-こちらのサンプルのような形になり内包するタグ（p,span,table,list,dlなど）にベース装飾を追加します。
-このため.rich-editor内ではサンプル以外のクラス.mediaなどは使用出来ませんのでご注意ください。
-</p>
-
-```html_example
-           <div class="c-anchor-nav is-mb-large">
-        <div class="c-anchor-nav__body">
-          <p class="c-anchor-nav__title">コンテンツ</p>
-          <ul data-scroll>
-            <li><a href="#ank1">見出し・段落</a> </li>
-            <li><a href="#ank2">リスト</a> </li>
-            <li><a href="#ank3">テキスト（装飾・リンク・配置・引用）</a> </li>
-            <li><a href="#ank4">画像（サイズ・配置）</a> </li>
-            <li><a href="#ank5">ボックス</a> </li>
-            <li><a href="#ank6">テーブル</a> </li>
-          </ul>
-        </div>
-      </div>
-
-
-      <div class="rich-editor">
-
-
-        <h2 id="ank1">1. 見出し・段落</h2>
-        <h2>見出し2</h2>
-        <h3>見出し3</h3>
-        <h4>見出し4</h4>
-        <h5>見出し5</h5>
-        <h6>見出し6</h6>
-
-        <p>吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。</p>
-
-        <h2 id="ank2">2. リスト</h2>
-
-        <ul>
-          <li>順序がないリスト</li>
-          <li>順序がないリスト
-            <ul>
-              <li>順序がないリスト</li>
-              <li>順序がないリスト</li>
-            </ul>
-          </li>
-          <li>順序がないリスト</li>
-        </ul>
-
-        <ol>
-          <li>順序のあるリスト</li>
-          <li>順序のあるリスト
-            <ol>
-              <li>順序のあるリスト</li>
-              <li>順序のあるリスト</li>
-            </ol>
-          </li>
-          <li>順序のあるリスト</li>
-        </ol>
-
-        <ul class="e-list--arrow">
-          <li>矢印付きリスト</li>
-          <li><a href="#dummy">矢印付きリスト</a></li>
-          <li><a href="#dummy">矢印付きリスト</a></li>
-        </ul>
-
-        <ul class="e-list--square">
-          <li>四角リスト</li>
-          <li><a href="#dummy">四角リスト</a></li>
-          <li><a href="#dummy">四角リスト</a></li>
-        </ul>
-
-        <dl>
-          <dt>定義リスト</dt>
-          <dd>テキストが入ります。テキストが入ります。</dd>
-          <dt>定義リスト</dt>
-          <dd>テキストが入ります。テキストが入ります。</dd>
-          <dt>定義リスト</dt>
-          <dd>テキストが入ります。テキストが入ります。</dd>
-        </dl>
-
-        <h2 id="ank3">3. テキスト（装飾・リンク・配置・引用）</h2>
-        <h3>装飾</h3>
-        <p>
-          <strong>強い強調を表す要素（strong）</strong><br>
-          <em>強調を表す要素（em）</em><br>
-          <s>すでに正確ではなくなった要素、打ち消し線（s）</s><br>
-          <small>注釈や細目を表す要素（small）</small>
-          <br>
-          <span>上付き文字（sup）　E=mc<sup>2</sup></span><br>
-          <span>下付き文字（sub）　CO<sub>2</sub></span><br>
-          <span class="is-indent" style="display:block">先頭1文字下げ</span>
-          <span class="is-underline">下線（Underline Text）</span><br>
-          <span class="is-point">マーカー線(Marker Yellow)</span><br>
-          <span class="is-color-orange">重要色文字（Text Orange）</span><br>
-          <span class="is-color-red">エラー色文字（Text Red）</span><br>
-          <span class="is-color-blue">青色文字（Text Blue）</span><br>
-          <span class="is-color-green">緑色文字（Text Green）</span><br>
-          <span class="is-bg-color-orange">重要色背景（Bg Orange）</span><br>
-          <span class="is-bg-color-red">エラー色背景（Bg Red）</span><br>
-          <span class="is-bg-color-blue">青色背景（Bg Blue）</span><br>
-          <span class="is-bg-color-green">緑色背景（Bg Green）</span><br>
-        </p>
-
-
-        <h3>リンク</h3>
-        <p>
-          <a href="#dummy">標準のリンク</a><br>
-          <a href="#dummy" target="_blank">target="_blank"を指定している場合 </a><br>
-          <a href="#dummy.pdf">pdfへのリンクの場合</a><br>
-          <a href="#dummy.doc">doc、docxへのリンクの場合</a><br>
-          <a href="#dummy.xls">xls、xlsxへのリンクの場合</a><br>
-          <a href="#dummy.ppt">ppt、pptxへのリンクの場合</a><br>
-          <a href="#dummy.ppt" class="is-iconless">aタグに.is-iconlessがあると自動リンクアイコンは表示されません</a>
-        </p>
-
-        <h3>配置</h3>
-        <p class="is-left">左揃え<br>
-          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
-        </p>
-        <p class="is-center">
-          中央揃え<br>
-          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
-        </p>
-        <p class="is-right">
-          右揃え<br>
-          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
-        </p>
-        <p class="is-justify">
-          両端揃え<br>
-          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
-        </p>
-
-        <h3>引用</h3>
-        <blockquote>
-          引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。
-        </blockquote>
-
-        <h2 id="ank4">4. 画像（サイズ・配置）</h2>
-
-        <h3>サイズ</h3>
-        <figure>
-          <img src="/assets/img/dummy/840x560.png" alt="">
-        </figure>
-        <figure class="is-one-half">
-          <img src="/assets/img/dummy/840x560.png" alt="">
-        </figure>
-        <figure class="is-one-third">
-          <img src="/assets/img/dummy/840x560.png" alt="">
-        </figure>
-        <figure class="is-one-fourth">
-          <img src="/assets/img/dummy/840x560.png" alt="">
-        </figure>
-
-
-        <h3>配置</h3>
-        <h4>左寄せ（テキスト回り込み）</h4>
-        <figure class="is-left is-one-fourth">
-          <img src="/assets/img/dummy/840x560.png" alt="">
-        </figure>
-        <p>吾輩は猫である。名前はまだ無い。
-          どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
-          吾輩はここで始めて人間というものを見た。
-          しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
-          この書生というのは時々我々を捕えて煮て食うという話である。
-          しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
-          ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。
-          掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。
-          第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。
-          のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。
-          これが人間の飲む煙草というものである事はようやくこの頃知った。
-          ​</p>
-
-        <h4>中央寄せ</h4>
-        <figure class="is-center is-one-fourth">
-          <img src="/assets/img/dummy/840x560.png" alt="">
-        </figure>
-
-        <h4>右寄せ（テキスト回り込み）</h4>
-        <figure class="is-right is-one-fourth">
-          <img src="/assets/img/dummy/840x560.png" alt="">
-        </figure>
-        <p>吾輩は猫である。名前はまだ無い。
-          どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
-          吾輩はここで始めて人間というものを見た。
-          しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
-          この書生というのは時々我々を捕えて煮て食うという話である。
-          しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
-          ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。
-          掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。
-          第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。
-          のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。
-          これが人間の飲む煙草というものである事はようやくこの頃知った。
-          ​</p>
-
-        <h2 id="ank5">5. ボックス</h2>
-
-        <div class="e-box e-box--bg">
-          <div class="e-box__body">
-            <p>ボックス<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
-          </div>
-        </div>
-
-        <div class="e-box e-box--error">
-          <div class="e-box__body">
-            <p>ボックス（error）<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
-          </div>
-        </div>
-
-        <div class="e-box e-box--warning">
-          <div class="e-box__body">
-            <p>ボックス（warning）<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
-          </div>
-        </div>
-
-
-        <h2 id="ank6">6. テーブル</h2>
-
-        <h3>標準</h3>
-        <table>
-          <tr>
-            <th>見出し</th>
-            <th>見出し</th>
-            <th>見出し</th>
-          </tr>
-          <tr>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-          <tr>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-        </table>
-
-        <table>
-          <tr>
-            <th>見出し</th>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-          <tr>
-            <th>見出し</th>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-          <tr>
-            <th>見出し</th>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-        </table>
-
-
-        <h3>ボーダーレス</h3>
-        <table class="e-table--borderless">
-          <tr>
-            <th>見出し</th>
-            <th>見出し</th>
-            <th>見出し</th>
-          </tr>
-          <tr>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-          <tr>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-        </table>
-
-        <h3>文字小さい</h3>
-        <table class="e-table--small">
-          <tr>
-            <th>見出し</th>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-          <tr>
-            <th>見出し</th>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-          <tr>
-            <th>見出し</th>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-        </table>
-
-        <h3>SP時スクロール</h3>
-        <div class="e-responsive-table">
-          <table>
-            <tr>
-              <th>見出し</th>
-              <th>見出し</th>
-              <th>見出し</th>
-            </tr>
-            <tr>
-              <td>テキストが入ります。</td>
-              <td>テキストが入ります。</td>
-              <td>テキストが入ります。</td>
-            </tr>
-            <tr>
-              <td>テキストが入ります。</td>
-              <td>テキストが入ります。</td>
-              <td>テキストが入ります。</td>
-            </tr>
-          </table>
-        </div>
-
-      </div>
-
-```
-*/
-.rich-editor p,
-.rich-editor table,
-.rich-editor ul,
-.rich-editor ol,
-.rich-editor dl,
-.rich-editor blockquote,
-.rich-editor figure,
-.rich-editor .e-box-bordered,
-.rich-editor hr {
-  margin-bottom: 24px;
-}
-
-.rich-editor p:empty {
-  display: none;
-}
-
-.rich-editor strong > strong {
-  color: #e75a00;
-}
-
-.rich-editor s {
-  opacity: .54;
-}
-
-.rich-editor em {
-  font-weight: bold;
-  font-style: normal;
-}
-
-.clearfloat {
-  clear: both;
+.l-flex-box--auto {
+  -webkit-box-flex: 2;
+      -ms-flex: 2 2 15em;
+          flex: 2 2 15em;
 }
 
 /* ==========================================================================
@@ -2712,7 +2540,7 @@ categories: [elements, blockquote]
 
 ```
 */
-.rich-editor blockquote,
+.visual-editor blockquote,
 .e-blockquote {
   background-color: #f2f3f5;
   line-height: 1.8;
@@ -2722,7 +2550,7 @@ categories: [elements, blockquote]
   margin-bottom: 16px;
 }
 
-.rich-editor blockquote:before, .rich-editor blockquote:after,
+.visual-editor blockquote:before, .visual-editor blockquote:after,
 .e-blockquote:before,
 .e-blockquote:after {
   display: block;
@@ -2732,14 +2560,14 @@ categories: [elements, blockquote]
   position: absolute;
 }
 
-.rich-editor blockquote:before,
+.visual-editor blockquote:before,
 .e-blockquote:before {
   background-image: url("../img/common/blockquote1.svg");
   top: 1rem;
   left: 1rem;
 }
 
-.rich-editor blockquote:after,
+.visual-editor blockquote:after,
 .e-blockquote:after {
   background-image: url("../img/common/blockquote2.svg");
   right: 1rem;
@@ -2759,77 +2587,77 @@ categories: [elements, heading]
 ---
 
 ```html_example
-<h1 class="e-hdg1">情に棹させば流される智に働けば角が立つ</h1>
-<h2 class="e-hdg2">情に棹させば流される智に働けば角が立つ</h2>
-<h3 class="e-hdg3">情に棹させば流される智に働けば角が立つ</h3>
-<h4 class="e-hdg4">情に棹させば流される智に働けば角が立つ</h4>
-<h5 class="e-hdg5">情に棹させば流される智に働けば角が立つ</h5>
-<h6 class="e-hdg6">情に棹させば流される智に働けば角が立つ</h6>
+<h1 class="e-hd1">情に棹させば流される智に働けば角が立つ</h1>
+<h2 class="e-hd2">情に棹させば流される智に働けば角が立つ</h2>
+<h3 class="e-hd3">情に棹させば流される智に働けば角が立つ</h3>
+<h4 class="e-hd4">情に棹させば流される智に働けば角が立つ</h4>
+<h5 class="e-hd5">情に棹させば流される智に働けば角が立つ</h5>
+<h6 class="e-hd6">情に棹させば流される智に働けば角が立つ</h6>
 
 ```
 
 */
-.rich-editor h1,
-.rich-editor h2,
-.rich-editor h3,
-.rich-editor h4,
-.rich-editor h5,
-.rich-editor h6,
-.e-hdg1,
-.e-hdg2,
-.e-hdg3,
-.e-hdg4,
-.e-hdg5,
-.e-hdg6 {
+.visual-editor h1,
+.visual-editor h2,
+.visual-editor h3,
+.visual-editor h4,
+.visual-editor h5,
+.visual-editor h6,
+.e-hd1,
+.e-hd2,
+.e-hd3,
+.e-hd4,
+.e-hd5,
+.e-hd6 {
   margin-bottom: 1rem;
   font-weight: bold;
   overflow: hidden;
   line-height: 1.4;
 }
 
-.rich-editor h2:not(:first-child),
-.rich-editor h3:not(:first-child),
-.rich-editor h4:not(:first-child),
-.rich-editor h5:not(:first-child),
-.rich-editor h6:not(:first-child) {
+.visual-editor h2:not(:first-child),
+.visual-editor h3:not(:first-child),
+.visual-editor h4:not(:first-child),
+.visual-editor h5:not(:first-child),
+.visual-editor h6:not(:first-child) {
   margin-top: 2.6rem;
 }
 
-.rich-editor h1 + h2,
-.rich-editor h2 + h2,
-.rich-editor h2 + h3,
-.rich-editor h3 + h3,
-.rich-editor h3 + h4,
-.rich-editor h4 + h4,
-.rich-editor h4 + h5,
-.rich-editor h5 + h5,
-.rich-editor h5 + h6,
-.rich-editor h6 + h6 {
+.visual-editor h1 + h2,
+.visual-editor h2 + h2,
+.visual-editor h2 + h3,
+.visual-editor h3 + h3,
+.visual-editor h3 + h4,
+.visual-editor h4 + h4,
+.visual-editor h4 + h5,
+.visual-editor h5 + h5,
+.visual-editor h5 + h6,
+.visual-editor h6 + h6 {
   margin-top: 0 !important;
 }
 
-.rich-editor h1,
-.e-hdg1 {
+.visual-editor h1,
+.e-hd1 {
   font-size: 26px;
   font-size: 1.625rem;
 }
 
-.rich-editor h1,
-.e-hdg1--type2 {
+.visual-editor h1,
+.e-hd1--type2 {
   position: relative;
   padding-bottom: 1rem;
   margin-bottom: 2.5rem;
 }
 
-.rich-editor h1:before,
-.e-hdg1--type2:before {
+.visual-editor h1:before,
+.e-hd1--type2:before {
   padding-top: 1.375rem;
   display: block;
   content: "";
 }
 
-.rich-editor h1:after,
-.e-hdg1--type2:after {
+.visual-editor h1:after,
+.e-hd1--type2:after {
   position: absolute;
   width: 100%;
   top: 0;
@@ -2841,29 +2669,28 @@ categories: [elements, heading]
   content: "";
 }
 
-.rich-editor h2,
-.e-hdg2 {
+.visual-editor h2,
+.e-hd2 {
   font-size: 22px;
   font-size: 1.375rem;
 }
 
-.rich-editor h2,
-.e-hdg2--type2 {
+.visual-editor h2,
+.e-hd2--type2 {
   color: #fff;
   background-color: #919499;
   padding: .7rem 1.2rem .6rem;
   margin-bottom: 1.9rem;
 }
 
-.rich-editor h3,
-.e-hdg3,
-.e-hdg3--type2 {
+.visual-editor h3,
+.e-hd3 {
   font-size: 18px;
   font-size: 1.125rem;
 }
 
-.rich-editor h3,
-.e-hdg3--type2 {
+.visual-editor h3,
+.e-hd3--type2 {
   border-left: 5px solid #5b5e63;
   border-bottom: 1px solid #757575;
   padding-bottom: .6em;
@@ -2872,15 +2699,14 @@ categories: [elements, heading]
   margin-bottom: 16px;
 }
 
-.rich-editor h4,
-.e-hdg4,
-.e-hdg4--type2 {
+.visual-editor h4,
+.e-hd4 {
   font-size: 16px;
   font-size: 1rem;
 }
 
-.rich-editor h4,
-.e-hdg4--type2 {
+.visual-editor h4,
+.e-hd4--type2 {
   border-left: 3px solid #5b5e63;
   padding-left: 1rem;
   padding-top: .1em;
@@ -2888,14 +2714,14 @@ categories: [elements, heading]
   margin-bottom: .8rem;
 }
 
-.rich-editor h5,
-.e-hdg5 {
+.visual-editor h5,
+.e-hd5 {
   font-size: 16px;
   font-size: 1rem;
 }
 
-.rich-editor h6,
-.e-hdg6 {
+.visual-editor h6,
+.e-hd6 {
   font-size: 14px;
   font-size: 0.875rem;
 }
@@ -2909,24 +2735,16 @@ parent: heading
 ---
 
 ```html_example
-<h1 class="e-hdg1 e-hdg1--type2"><span>情に棹させば流される智に働けば角が立つ</span></h1>
-<h2 class="e-hdg2 e-hdg2--type2">情に棹させば流される智に働けば角が立つ</h2>
-<h3 class="e-hdg3 e-hdg3--type2">情に棹させば流される智に働けば角が立つ</h3>
-<h4 class="e-hdg4 e-hdg4--type2">情に棹させば流される智に働けば角が立つ</h4>
-<h5 class="e-hdg5 e-hdg--brand">情に棹させば流される智に働けば角が立つ</h5>
-<h6 class="e-hdg6 e-hdg--bd">情に棹させば流される智に働けば角が立つ</h6>
+<h1 class="e-hd1 e-hd1--type2"><span>情に棹させば流される智に働けば角が立つ</span></h1>
+<h2 class="e-hd2 e-hd2--type2">情に棹させば流される智に働けば角が立つ</h2>
+<h3 class="e-hd3 e-hd3--type2">情に棹させば流される智に働けば角が立つ</h3>
+<h4 class="e-hd4 e-hd4--type2">情に棹させば流される智に働けば角が立つ</h4>
+<h5 class="e-hd5 is-color-blue">情に棹させば流される智に働けば角が立つ</h5>
+<h6 class="e-hd6 is-bdb">情に棹させば流される智に働けば角が立つ</h6>
 
 ```
 
 */
-.e-hdg--brand {
-  color: #5b5e63;
-}
-
-.e-hdg--bd {
-  border-bottom: 1px solid #5b5e63;
-}
-
 /*doc
 ---
 title: heading-unit
@@ -2938,69 +2756,29 @@ parent: heading
 ```html_example
 
 
-<div class="e-hdg-unit">
-  <h3 class="e-hdg3">情に棹させば流される智に働けば角が立つ</h3>
+<div class="e-hd-unit">
+  <h3 class="e-hd3">情に棹させば流される智に働けば角が立つ</h3>
   <p class="is-text-week"> 6月12日  12:49</p>
 </div>
 
 
-<div class="e-hdg-unit">
-  <h2 class="e-hdg2">情に棹させば流される智に働けば角が立つ</h2>
-  <p class="e-hdg-unit__to-list"><a href="">一覧</a></p>
-</div>
-
 
 ```
 */
-.e-hdg-unit {
+.e-hd-unit {
   position: relative;
   padding-right: 4em;
   margin-bottom: 16px;
 }
 
-.e-hdg-unit h1:not(.hd--bd),
-.e-hdg-unit h2:not(.hd--bd),
-.e-hdg-unit h3:not(.hd--bd),
-.e-hdg-unit h4:not(.hd--bd),
-.e-hdg-unit h5:not(.hd--bd),
-.e-hdg-unit h6:not(.hd--bd) {
+.e-hd-unit h1:not(.hd--bd),
+.e-hd-unit h2:not(.hd--bd),
+.e-hd-unit h3:not(.hd--bd),
+.e-hd-unit h4:not(.hd--bd),
+.e-hd-unit h5:not(.hd--bd),
+.e-hd-unit h6:not(.hd--bd) {
   margin-top: 0;
   margin-bottom: 0;
-}
-
-.e-hdg-unit__to-list {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.e-hdg-unit__to-list a {
-  border-radius: 3px;
-  background-color: #eef0f4;
-  padding: .3em .7em;
-  display: inline-block;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 14px;
-  font-size: 0.875rem;
-  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  -webkit-transition: -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: box-shadow;
-}
-
-.e-hdg-unit__to-list a:hover {
-  text-decoration: none;
-  -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-          box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-}
-
-.e-hdg-unit__to-list a:active {
-  text-decoration: none;
-  -webkit-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-          box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 /* @ img
@@ -3022,9 +2800,9 @@ categories: [elements, images]
     情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
 
   <div>
-    <figure class="e-img-box is-left is-one-fourth">
-      <img src="/assets/img/dummy/820x273.png" alt="">
-      <figcaption class="img-caption">情に棹させば流される。智に働けば角が立つ。</figcaption>
+    <figure class="e-img-box is-img-left is-img-w33">
+      <a href="" class="e-img-hover"><img src="/assets/img/dummy/820x273.png" alt=""></a>
+      <figcaption class="e-img-caption">情に棹させば流される。智に働けば角が立つ。</figcaption>
     </figure>
     <p class="e-text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
       情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
@@ -3033,10 +2811,17 @@ categories: [elements, images]
   </div>
 
 
-  <div class="rich-editor">
-    <figure class="is-left is-one-fourth">
+    <div class="e-responsive-img">
+    <figure class="e-img-box">
       <img src="/assets/img/dummy/820x273.png" alt="">
-      <figcaption class="img-caption">情に棹させば流される。智に働けば角が立つ。</figcaption>
+    </figure>
+   </div>
+
+
+  <div class="l-unit visual-editor">
+    <figure class="is-img-left is-img-w25">
+      <img src="/assets/img/dummy/820x273.png" alt="">
+      <figcaption class="eimg-caption">情に棹させば流される。智に働けば角が立つ。</figcaption>
     </figure>
     <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
       情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
@@ -3047,128 +2832,7 @@ categories: [elements, images]
 
 ```
 
-
-
-<div class="styleguide-table"></div>
-Class                                                                      | Description
------------------------------------------------------------------------    | ------------
-`e-img-box`                          |         |
-`.e-responsive-img .e-img-box`       |         |
-`e-img-box.is-left`                  |         |
-`e-img-box.is-right`                 |         |
-`e-img-box.is-center`                |         |
-`e-img-box.is-one-fourth`            |         |
-`e-img-box.is-one-third`             |         |
-`e-img-box.is-one-half`              |         |
-`e-img-box.is-full`                  |         |
-
-
-
-<div class="styleguide-table"></div>
-Class                                                                      | Description
------------------------------------------------------------------------    | ------------
-`e-img-box > e-img-caption`          |         |
-`e-img-box > e-img-frame`            |         |
-`e-img-box > e-img-round`            |         |
-`e-img-box > e-img-circle`           |         |
-`e-img-box > e-img-hover`            |         |
-`e-img-box > .is-one-fourth`         |         |
-`e-img-box > .is-one-third`          |         |
-`e-img-box > .is-one-half`           |         |
-`e-img-box > .is-full`               |         |
-
-
-
-
-
 */
-.rich-editor figure,
-.e-img-box {
-  margin-bottom: 16px;
-}
-
-.rich-editor figure a,
-.e-img-box a {
-  display: inline-block;
-}
-
-.rich-editor figure figcaption,
-.rich-editor figure .e-img-caption,
-.e-img-box figcaption,
-.e-img-box .e-img-caption {
-  margin-top: .5em;
-  color: rgba(0, 0, 0, 0.54);
-  font-size: .9rem;
-  line-height: 1.5;
-}
-
-.e-img-box.is-left,
-.e-img-box.is-right {
-  margin-top: .3em;
-}
-
-.rich-editor .is-left,
-.e-img-box.is-left {
-  margin-right: 1rem;
-  float: left;
-}
-
-.rich-editor .is-right,
-.e-img-box.is-right {
-  margin-left: 1rem;
-  float: right;
-}
-
-.rich-editor .is-center,
-.e-img-box.is-center {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.is-one-fourth {
-  width: 25%;
-}
-
-.is-one-third {
-  width: 33.33%;
-}
-
-.is-one-half {
-  width: 50%;
-}
-
-.is-full {
-  width: 100%;
-}
-
-.is-clear::after {
-  clear: both;
-  content: "";
-  display: block;
-}
-
-.e-img-frame {
-  height: auto;
-  padding: 2px;
-  border: 1px solid #ddd;
-  background-color: #fff;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.e-img-round {
-  border-radius: 3px;
-}
-
-.e-img-border {
-  border: 1px solid #ddd;
-}
-
-.e-img-circle {
-  border-radius: 50%;
-}
-
 .e-img-hover {
   overflow: hidden;
 }
@@ -3178,7 +2842,7 @@ Class                                                                      | Des
   transition: all 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-a:hover .e-img-hover img {
+.e-img-hover:hover img {
   -webkit-transform: scale(1.1);
       -ms-transform: scale(1.1);
           transform: scale(1.1);
@@ -3191,19 +2855,124 @@ a:hover .e-img-hover img {
   margin-bottom: 16px;
 }
 
+.visual-editor figure,
+.e-img-box {
+  margin-bottom: 16px;
+}
+
+.visual-editor figure a,
+.e-img-box a {
+  display: inline-block;
+}
+
+.visual-editor figure figcaption,
+.visual-editor figure .e-img-caption,
+.e-img-box figcaption,
+.e-img-box .e-img-caption {
+  margin-top: .5em;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+/*doc
+---
+title: tool-img
+name: tool-img
+categories: [utilities, tool-img]
+---
+
+
+
+
+<div class="styleguide-table"></div>
+Class                                                                      | Description
+-----------------------------------------------------------------------    | ------------
+`is-img-left`                  |         |
+`is-img-right`                 |         |
+`is-img-center`                |         |
+`is-img-w25`                   |         |
+`is-img-w33`                   |         |
+`is-img-w50`                   |         |
+`is-img-w100`                  |         |
+`is-img-frame`                 |         |
+`is-img-round`                 |         |
+`is-img-circle`                |         |
+
+
+
+*/
+.is-img-left,
+.is-img-right {
+  margin-top: .3em;
+}
+
+.is-img-left {
+  margin-right: 1rem;
+  float: left;
+}
+
+.is-img-right {
+  margin-left: 1rem;
+  float: right;
+}
+
+.is-img-center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.is-img-w25 {
+  width: 25%;
+}
+
+.is-img-w33 {
+  width: 33.33%;
+}
+
+.is-img-w50 {
+  width: 50%;
+}
+
+.is-img-w100 {
+  width: 100%;
+}
+
+.is-img-frame {
+  height: auto;
+  padding: 2px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.is-img-round {
+  border-radius: 3px;
+}
+
+.is-img-border {
+  border: 1px solid #ddd;
+}
+
+.is-img-circle {
+  border-radius: 50%;
+}
+
 /* ==========================================================================
    #Tppesetting
    ========================================================================== */
 /* 枠
    ========================================================================== */
 .entry,
-.rich-editor {
+.visual-editor {
   word-break: break-all;
   margin-bottom: 24px;
 }
 
 .entry::after,
-.rich-editor::after {
+.visual-editor::after {
   clear: both;
   content: "";
   display: block;
@@ -3217,80 +2986,80 @@ categories: [elements, typesetting]
 ---
 
 
-<div class="styleguide-table"></div>
-Class                                                                      | Description
------------------------------------------------------------------------    | ------------
-`e-text`           | <p class="e-text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p> |
-`is-text-sub`           | <p class="is-text-sub">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p> |
-`e-text-week`           | <p class="is-text-week">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p> |
-`e-text-catchcopy`           | <p class="e-text-catchcopy">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p> |
-`is-text-point`               | <p class="is-text-point">ダミーテキストです。ご了承ください。</p>                      |
-`is-text-arrow`               | <p><a href="" class="is-text-arrow">一覧</a></p>                       |
-`is-text-link`                | <div> <p class="e-text">情に棹させば流される。<a href="https://google.com" class="is-text-link">智に働けば角が立つ。</a>どこへ越しても住みにくいと悟った時、詩が生れて、<a href="https://google.com" class="is-text-link">画が出来る</a>。とかくに人の世は住みにくい。<a href="" class="is-text-link">意地を通せば窮屈</a>だ... </p> </div>         |
-`is-dark is-text-link `       | <div class="is-dark" style="background-color: #333;"> <p class="e-text">情に棹させば流される。<a href="https://google.com" class="is-text-link">智に働けば角が立つ。</a>どこへ越しても住みにくいと悟った時、詩が生れて、<a href="https://google.com" class="is-text-link">画が出来る</a>。とかくに人の世は住みにくい。<a href="" class="is-text-link">意地を通せば窮屈</a>だ... </p> </div>        |
-`is-text-bold`           |  太字
-`is-text-strike`         |  打ち消し線
+
+```html_example
+
+<p class="e-text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p>
+<p class="e-text-catchcopy">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。 </p>
+
+
+<p class="e-text">
+<span class="is-text-sub">情に棹させば流される。</span><br>
+<span class="is-text-week">智に働けば角が立つ。</span><br>
+<span class="is-text-point">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</span><br>
+<span class="is-text-arrow">とかくに人の世は住みにくい。</span><br>
+<span class="is-text-bold">意地を通せば窮屈だ。</span><br>
+<span class="is-text-strike">とかくに人の世は住みにくい。 </span></p>
+
+
+```
 
 */
-.rich-editor a:link,
-a.is-text-link:link {
-  color: #477DCA;
-  -webkit-transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.rich-editor a:hover, .rich-editor a:focus, .rich-editor a:visited,
-a.is-text-link:hover,
-a.is-text-link:focus,
-a.is-text-link:visited {
-  -webkit-transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  color: #3A5898;
-}
-
-.rich-editor a:visited,
-a.is-text-link:visited {
-  color: #3A5898;
-}
-
-.is-dark h1,
-.is-dark h2,
-.is-dark h3,
-.is-dark h4,
-.is-dark h5,
-.is-dark h6,
-.is-dark li,
-.is-dark dt,
-.is-dark dd,
-.is-dark p,
-.is-dark span {
-  color: #fff;
-}
-
-.is-dark a.is-text-link {
-  color: #d6d7d9;
-}
-
-.is-dark a.is-text-link:hover,
-.is-dark a.is-text-link:visited {
-  color: #fff;
-}
-
-.is-dark a.is-text-link:hover {
-  color: #fff;
-}
-
-.rich-editor p,
+.visual-editor p,
 .e-text {
   margin-bottom: 16px;
 }
 
-.rich-editor strong > strong,
+.visual-editor strong > strong,
 .e-text-catchcopy {
   font-weight: bold;
   font-size: 16px;
   font-size: 1rem;
   margin-bottom: 16px;
+}
+
+/*doc
+---
+
+title: tool-text
+name: tool-text
+categories: [utilities, tool-text]
+
+---
+
+<div class="styleguide-table"></div>
+Class                                                                      | Description
+-----------------------------------------------------------------------    | ------------
+`is-text-sub`            |                        |
+`is-text-week`           |                        |
+`is-text-point`          |                        |
+`is-text-arrow`          |                        |
+`is-text-link`           |                        |
+`is-text-bold`           |                        |
+`is-text-strike`         |                        |
+`is-text-indent`         |                        |
+`is-text-underline`      |                        |
+`is-text-bdb`            |                        |
+`is-text-left`            |                        |
+`is-text-right`            |                        |
+`is-text-center`            |                        |
+`is-text-justify`            |                        |
+
+*/
+.is-text-left {
+  text-align: left;
+}
+
+.is-text-right {
+  text-align: right;
+}
+
+.is-text-center {
+  text-align: center;
+}
+
+.is-text-justify {
+  text-align: justify;
 }
 
 .is-text-sub {
@@ -3301,6 +3070,27 @@ a.is-text-link:visited {
 .is-text-week {
   color: rgba(0, 0, 0, 0.38);
   font-size: .8rem;
+}
+
+.visual-editor a:link,
+a.is-text-link:link {
+  color: #477DCA;
+  -webkit-transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.visual-editor a:hover, .visual-editor a:focus, .visual-editor a:visited,
+a.is-text-link:hover,
+a.is-text-link:focus,
+a.is-text-link:visited {
+  -webkit-transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: #3A5898;
+}
+
+.visual-editor a:visited,
+a.is-text-link:visited {
+  color: #3A5898;
 }
 
 .is-text-arrow:before {
@@ -3348,21 +3138,33 @@ a.is-text-link:visited {
   text-decoration: line-through;
 }
 
+.is-text-indent {
+  text-indent: 1em;
+}
+
+.is-text-underline {
+  text-decoration: underline;
+}
+
+.is-text-bdb {
+  border-bottom: 1px solid #5b5e63;
+}
+
 /* ==========================================================================
    #LIST
    ========================================================================== */
 /* list
    ========================================================================== */
-.rich-editor ul,
-.rich-editor ol,
+.visual-editor ul,
+.visual-editor ol,
 .e-list {
   margin-bottom: 16px;
 }
 
-.rich-editor ul ul,
-.rich-editor ul ol,
-.rich-editor ol ul,
-.rich-editor ol ol,
+.visual-editor ul ul,
+.visual-editor ul ol,
+.visual-editor ol ul,
+.visual-editor ol ol,
 .e-list ul,
 .e-list ol {
   margin-bottom: 0;
@@ -3393,7 +3195,7 @@ categories: [elements, list]
 </ul>
 ```
 */
-.rich-editor ul,
+.visual-editor ul,
 .e-list--disc {
   margin-left: 1.4em;
   list-style-type: disc;
@@ -3418,7 +3220,7 @@ parent: list
 </ol>
 ```
 */
-.rich-editor ol,
+.visual-editor ol,
 .e-list--decimal {
   margin-left: 1.4em;
   list-style-type: decimal;
@@ -3443,24 +3245,24 @@ parent: list
 </ul>
 ```
 */
-.rich-editor .e-list--arrow,
+.visual-editor .e-list--arrow,
 .e-list--arrow {
   margin-left: 0;
   list-style-type: none;
 }
 
-.rich-editor .e-list--arrow a:hover:before,
+.visual-editor .e-list--arrow a:hover:before,
 .e-list--arrow a:hover:before {
   text-decoration: none;
 }
 
-.rich-editor .e-list--arrow li,
+.visual-editor .e-list--arrow li,
 .e-list--arrow li {
   text-indent: -.6em;
   padding-left: .8em;
 }
 
-.rich-editor .e-list--arrow li:before,
+.visual-editor .e-list--arrow li:before,
 .e-list--arrow li:before {
   color: #757575;
   font-family: "Material Icons";
@@ -3486,86 +3288,6 @@ parent: list
   font-size: 1.2em;
 }
 
-/* リスト square
-   ========================================================================== */
-/*doc
----
-title: list-square
-name: list-square
-categories: [elements, list]
-parent: list
----
-
-```html_example
-<ul class="e-list e-list--square">
-  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
-  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
-  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
-  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
-</ul>
-
-
-```
-*/
-.rich-editor .e-list--square,
-.e-list--square {
-  margin-left: 0;
-  list-style-type: none;
-}
-
-.rich-editor .e-list--square a:hover:before,
-.e-list--square a:hover:before {
-  text-decoration: none;
-}
-
-.rich-editor .e-list--square li,
-.e-list--square li {
-  text-indent: -.8em;
-  padding-left: .8em;
-}
-
-.rich-editor .e-list--square li:before,
-.e-list--square li:before {
-  background-color: #919499;
-  width: .5em;
-  height: .5em;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: .3em;
-  margin-top: -.1em;
-  content: '';
-}
-
-/* リスト img
-   ========================================================================== */
-/*doc
----
-title: list-img
-name: list-img
-categories: [elements, list]
-parent: list
----
-
-```html_example
-<ul class="e-list e-list--img">
-  <li><a href=""><img src="/assets/img/dummy/300x100.png" alt=""></a></li>
-  <li><a href=""><img src="/assets/img/dummy/300x100.png" alt=""></a></li>
-  <li><a href=""><img src="/assets/img/dummy/300x100.png" alt=""></a></li>
-</ul>
-
-
-```
-*/
-.e-list--img li {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.e-list--img a {
-  display: block;
-  text-decoration: none;
-}
-
 /* 定義リスト
    ========================================================================== */
 /*doc
@@ -3588,24 +3310,24 @@ parent: list
 </dl>
 ```
 */
-.rich-editor dl,
+.visual-editor dl,
 .e-dl {
   margin-bottom: 16px;
 }
 
-.rich-editor dl dt,
+.visual-editor dl dt,
 .e-dl dt {
   font-weight: bold;
   margin-top: .7em;
   margin-bottom: .1em;
 }
 
-.rich-editor dl dt:first-child,
+.visual-editor dl dt:first-child,
 .e-dl dt:first-child {
   margin-top: 0;
 }
 
-.rich-editor dl dd,
+.visual-editor dl dd,
 .e-dl dd {
   margin-left: 1.3em;
 }
@@ -3657,121 +3379,13 @@ parent: list
   display: none;
 }
 
-/*doc
----
-title: list-btn
-name: list-btn
-categories: [elements, list]
-parent: list
----
-
-```html_example
-  <ul class="e-btn-list">
-    <li><a href="" class="is-active"><span class="is-icon-target-blank">智に働けば<br>智に働けば</span></a></li>
-    <li><a href="">智に働けば</a></li>
-    <li><a href="">智に働けば</a></li>
-    <li><a href="">智に働けば</a></li>
-    <li><a href="">智に働けば</a></li>
-    <li><a href="">智に働けば</a></li>
-
-
-  </ul>
-
-```
-*/
-.e-btn-list {
-  margin-bottom: 16px;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  clear: both;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-right: -1%;
-  margin-left: -1%;
-}
-
-.e-btn-list::after {
-  clear: both;
-  content: "";
-  display: block;
-}
-
-.e-btn-list li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 23%;
-          flex: 0 0 23%;
-  max-width: 23%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin-right: 1%;
-  margin-left: 1%;
-  margin-bottom: 16px;
-  border-radius: 3px;
-}
-
-.e-btn-list li a {
-  height: 60px;
-  padding: 1em .5em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  background-color: #fff;
-  font-size: 14px;
-  font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.87);
-  max-width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-transition: all 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-font-smoothing: antialiased;
-  text-align: center;
-  text-decoration: none;
-  position: relative;
-  vertical-align: middle;
-  line-height: 1.4;
-  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  -webkit-transition: -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: box-shadow;
-}
-
-.e-btn-list li a:hover, .e-btn-list li a:focus, .e-btn-list li a.is-active {
-  text-decoration: none;
-  -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-          box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-}
-
-.e-btn-list li a:active {
-  text-decoration: none;
-  -webkit-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-          box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-}
-
 /* ==========================================================================
    #TABLE
    ========================================================================== */
 /* table:base
    ========================================================================== */
-.rich-editor table,
-.e-table, .rich-editor .e-table--borderless,
+.visual-editor table,
+.e-table, .visual-editor .e-table--borderless,
 .e-table--borderless {
   width: 100%;
   border-top: 1px solid #ddd;
@@ -3779,42 +3393,21 @@ parent: list
   border-collapse: separate;
   border-spacing: 0;
   margin-bottom: 16px;
-  /*doc
----
-title: table-helpers
-name: table-helpers
-categories: [elements, table]
-parent: table
----
-
-<div class="styleguide-table"></div>
-  Class                                                                      | Description
-  -----------------------------------------------------------------------    | ------------
-  `is-center`            |         |
-  `is-w-1em`             |         |
-  `is-w-10p`             |         |
-  `is-w-15p`             |         |
-  `is-w-20p`             |         |
-  `is-w-25p`             |         |
-  `is-w-small`           |         |
-  `is-w-medium`          |         |
-
-*/
 }
 
-.rich-editor table caption, .e-table caption, .rich-editor .e-table--borderless caption, .e-table--borderless caption {
+.visual-editor table caption, .e-table caption, .visual-editor .e-table--borderless caption, .e-table--borderless caption {
   color: rgba(0, 0, 0, 0.54);
   margin-bottom: 16px;
 }
 
-.rich-editor table tr, .e-table tr, .rich-editor .e-table--borderless tr, .e-table--borderless tr,
-.rich-editor table td,
+.visual-editor table tr, .e-table tr, .visual-editor .e-table--borderless tr, .e-table--borderless tr,
+.visual-editor table td,
 .e-table td,
-.rich-editor .e-table--borderless td,
+.visual-editor .e-table--borderless td,
 .e-table--borderless td,
-.rich-editor table th,
+.visual-editor table th,
 .e-table th,
-.rich-editor .e-table--borderless th,
+.visual-editor .e-table--borderless th,
 .e-table--borderless th {
   text-align: left;
   vertical-align: top;
@@ -3822,9 +3415,9 @@ parent: table
 }
 
 
-.rich-editor table th,
+.visual-editor table th,
 .e-table th,
-.rich-editor .e-table--borderless th,
+.visual-editor .e-table--borderless th,
 .e-table--borderless th {
   padding: 0.68em 1.4em;
   border-bottom: 1px solid #ddd;
@@ -3835,69 +3428,13 @@ parent: table
 }
 
 
-.rich-editor table td,
+.visual-editor table td,
 .e-table td,
-.rich-editor .e-table--borderless td,
+.visual-editor .e-table--borderless td,
 .e-table--borderless td {
   padding: 0.68em 1.4em;
   border-bottom: 1px solid #ddd;
   border-left: 1px solid #ddd;
-}
-
-.rich-editor table th.is-center, .e-table th.is-center, .e-table--borderless th.is-center,
-.rich-editor table td.is-center,
-.e-table td.is-center,
-.e-table--borderless td.is-center {
-  text-align: center;
-}
-
-.rich-editor table th.is-w-1em, .e-table th.is-w-1em, .e-table--borderless th.is-w-1em,
-.rich-editor table td.is-w-1em,
-.e-table td.is-w-1em,
-.e-table--borderless td.is-w-1em {
-  width: 1em;
-}
-
-.rich-editor table th.is-w-10p, .e-table th.is-w-10p, .e-table--borderless th.is-w-10p,
-.rich-editor table td.is-w-10p,
-.e-table td.is-w-10p,
-.e-table--borderless td.is-w-10p {
-  width: 10%;
-}
-
-.rich-editor table th.is-w-15p, .e-table th.is-w-15p, .e-table--borderless th.is-w-15p,
-.rich-editor table td.is-w-15p,
-.e-table td.is-w-15p,
-.e-table--borderless td.is-w-15p {
-  width: 15%;
-}
-
-.rich-editor table th.is-w-20p, .e-table th.is-w-20p, .e-table--borderless th.is-w-20p,
-.rich-editor table td.is-w-20p,
-.e-table td.is-w-20p,
-.e-table--borderless td.is-w-20p {
-  width: 20%;
-}
-
-.rich-editor table th.is-w-25p, .e-table th.is-w-25p, .e-table--borderless th.is-w-25p,
-.rich-editor table td.is-w-25p,
-.e-table td.is-w-25p,
-.e-table--borderless td.is-w-25p {
-  width: 25%;
-}
-
-.rich-editor table th.is-w-small, .e-table th.is-w-small, .e-table--borderless th.is-w-small,
-.rich-editor table td.is-w-small,
-.e-table td.is-w-small,
-.e-table--borderless td.is-w-small {
-  width: 20%;
-}
-
-.rich-editor table th.is-w-medium, .e-table th.is-w-medium, .e-table--borderless th.is-w-medium,
-.rich-editor table td.is-w-medium,
-.e-table td.is-w-medium,
-.e-table--borderless td.is-w-medium {
-  width: 50%;
 }
 
 /*  Bordered
@@ -3908,8 +3445,6 @@ title: table
 name: table
 categories: [elements, table]
 ---
-
-`.e-table--layout-fixed`
 
 ```html_example
   <table class="e-table">
@@ -3932,10 +3467,6 @@ categories: [elements, table]
 
 ```
 */
-.e-table--layout-fixed {
-  table-layout: fixed;
-}
-
 /*  Borderless
    ========================================================================== */
 /*doc
@@ -3967,17 +3498,17 @@ parent: table
 
 ```
 */
-.rich-editor .e-table--borderless,
+.visual-editor .e-table--borderless,
 .e-table--borderless {
   border-right: 0;
 }
 
-.rich-editor .e-table--borderless th,
+.visual-editor .e-table--borderless th,
 .e-table--borderless th {
   border-left: 0;
 }
 
-.rich-editor .e-table--borderless td,
+.visual-editor .e-table--borderless td,
 .e-table--borderless td {
   border-left: 0;
 }
@@ -4017,9 +3548,9 @@ parent: table
 ---
 
 ```html_example
-<table class="e-table e-table--small e-table--layout-fixed">
+<table class="e-table e-table--small">
   <tr>
-    <th class="is-w-small">タイトル</th>
+    <th class="is-cell-25p">タイトル</th>
     <th>タイトル</th>
     <th>タイトル</th>
   </tr>
@@ -4047,8 +3578,8 @@ parent: table
 
 ```
 */
-.rich-editor .e-table--small th,
-.rich-editor .e-table--small td,
+.visual-editor .e-table--small th,
+.visual-editor .e-table--small td,
 .e-table--small th,
 .e-table--small td {
   font-size: 0.7em;
@@ -4064,7 +3595,6 @@ categories: [elements, table]
 parent: table
 ---
 
-`.e-responsive-w-inner--one-half`
 
 
 ```html_example
@@ -4073,11 +3603,11 @@ parent: table
 <div class="e-responsive-table">
   <table class="e-table">
     <tr>
-      <th class="is-w-10p">タイトル10%</th>
-      <th class="is-w-15p">タイトル15%</th>
-      <th class="is-w-15p">タイトル15%</th>
-      <th class="is-w-15p">タイトル15%</th>
-      <th class="is-w-10p">タイトル10%</th>
+      <th class="is-cell-10p">タイトル10%</th>
+      <th class="is-cell-15p">タイトル15%</th>
+      <th class="is-cell-15p">タイトル15%</th>
+      <th class="is-cell-15p">タイトル15%</th>
+      <th class="is-cell-10p">タイトル10%</th>
       <th>タイトル</th>
     </tr>
     <tr>
@@ -4086,7 +3616,7 @@ parent: table
       <td>テキストテキスト</td>
       <td>テキストテキスト</td>
       <td>テキストテキスト</td>
-      <td><div class="e-responsive-w-inner--one-half">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト30vw </div></td>
+      <td><div class="is-responsive-cell-30vw">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト30vw </div></td>
     </tr>
     <tr>
       <td>テキスト</td>
@@ -4094,13 +3624,80 @@ parent: table
       <td>テキスト</td>
       <td>テキスト</td>
       <td>テキスト</td>
-      <td><div class="e-responsive-w-inner--half">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト50vw </div></td>
+      <td><div class="is-responsive-cell-50vw">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト50vw </div></td>
     </tr>
 
   </table>
 </div>
 ```
 */
+
+/*doc
+---
+title: tool-table
+name: tool-table
+categories: [utilities, tool-table]
+---
+
+<div class="styleguide-table"></div>
+  Class                                                                      | Description
+  -----------------------------------------------------------------------    | ------------
+  `is-layout-fixed`            |         |
+  `is-cell-center`            |         |
+  `is-cell-1em`             |         |
+  `is-cell-10p`             |         |
+  `is-cell-15p`             |         |
+  `is-cell-20p`             |         |
+  `is-cell-25p`             |         |
+  `is-cell-30p`             |         |
+  `is-cell-50p`             |         |
+  `is-responsive-cell-30vw`             |         |
+  `is-responsive-cell-50vw`             |         |
+
+*/
+.is-layout-fixed {
+  table-layout: fixed;
+}
+
+th.is-cell-center,
+td.is-cell-center {
+  text-align: center;
+}
+
+th.is-cell-1em,
+td.is-cell-1em {
+  width: 1em;
+}
+
+th.is-cell-10p,
+td.is-cell-10p {
+  width: 10%;
+}
+
+th.is-cell-15p,
+td.is-cell-15p {
+  width: 15%;
+}
+
+th.is-cell-20p,
+td.is-cell-20p {
+  width: 20%;
+}
+
+th.is-cell-25p,
+td.is-cell-25p {
+  width: 25%;
+}
+
+th.is-cell-30p,
+td.is-cell-30p {
+  width: 30%;
+}
+
+th.is-cell-50p,
+td.is-cell-50p {
+  width: 50%;
+}
 
 /* ==========================================================================
    #BOX
@@ -4115,14 +3712,7 @@ categories: [elements, box]
 ```html_example
 
 <div class="e-box">
-  <div class="e-box__head">
-    <h3 class="e-box__title">タイトル</h3>
-     <p class="e-box__to-list"><a href="">一覧を見る</a></p>
-  </div>
-
-  <div class="e-box__body">
-    <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。</p>
-  </div>
+  <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。</p>
 </div>
 
 ```
@@ -4131,49 +3721,39 @@ categories: [elements, box]
 ```html_example
 
 <div class="e-box e-box--error">
-  <div class="e-box__body">
     <p>ボックス（error）<br>このように、選択した部分に背景色と枠線のスタイルがつきます。</p>
-  </div>
 </div>
 
 <div class="e-box e-box--warning">
-  <div class="e-box__body">
     <p>ボックス（warning）<br>このように、選択した部分に背景色と枠線のスタイルがつきます。</p>
-  </div>
 </div>
 
 
 <div class="e-box e-box--info">
-  <div class="e-box__body">
     <p>ボックス（info）<br>このように、選択した部分に背景色と枠線のスタイルがつきます。</p>
-  </div>
 </div>
 
 
 <div class="e-box e-box--success">
-  <div class="e-box__body">
     <p>ボックス（success）<br>このように、選択した部分に背景色と枠線のスタイルがつきます。</p>
-  </div>
 </div>
 
 
 <div class="e-box e-box--bg">
-  <div class="e-box__body">
     <p>ボックス（$bg-color）<br>このように、選択した部分に背景色と枠線のスタイルがつきます。</p>
-  </div>
 </div>
 
 
 ```
 
 */
-.rich-editor .e-box h1,
-.rich-editor .e-box h2,
-.rich-editor .e-box h3,
-.rich-editor .e-box h4,
-.rich-editor .e-box h5,
-.rich-editor .e-box h6,
-.rich-editor .e-box p {
+.visual-editor .e-box h1,
+.visual-editor .e-box h2,
+.visual-editor .e-box h3,
+.visual-editor .e-box h4,
+.visual-editor .e-box h5,
+.visual-editor .e-box h6,
+.visual-editor .e-box p {
   margin-top: 0;
   margin-bottom: .2rem;
 }
@@ -4183,63 +3763,14 @@ categories: [elements, box]
   background: #fff;
   border: solid 1px #ddd;
   margin-bottom: 16px;
-}
-
-.e-box__head {
-  margin: 1rem 1.5rem 0;
-  padding-bottom: .6em;
-  border-bottom: 1px solid #ddd;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  padding: 1rem 1.5rem;
 }
 
 .e-box__title {
   font-weight: bold;
-  font-size: 18px;
 }
 
-.e-box__to-list a {
-  border-radius: 3px;
-  background-color: #eef0f4;
-  padding: .3em .7em;
-  display: inline-block;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 14px;
-  font-size: 0.875rem;
-  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  -webkit-transition: -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: box-shadow;
-}
-
-.e-box__to-list a:hover {
-  text-decoration: none;
-  -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-          box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-}
-
-.e-box__to-list a:active {
-  text-decoration: none;
-  -webkit-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-          box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-}
-
-.e-box__body {
-  padding: 1rem 1.5rem;
-}
-
-.e-box__body > *:last-child {
+.e-box > *:last-child {
   margin-bottom: 0;
 }
 
@@ -4268,62 +3799,6 @@ categories: [elements, box]
   border-color: #f1f5e8;
 }
 
-/*doc
----
-title: box-bordered
-name: box-bordered
-categories: [elements, box]
-parent: box
----
-
-```html_example
-
-<div class="e-box-bordered">
-  <div class="e-box-bordered__body">
-    <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。とかくに人の世は住みにくい。</p>
-  </div>
-</div>
-
-
-```
-*/
-.rich-editor .e-box-bordered h1,
-.rich-editor .e-box-bordered h2,
-.rich-editor .e-box-bordered h3,
-.rich-editor .e-box-bordered h4,
-.rich-editor .e-box-bordered h5,
-.rich-editor .e-box-bordered h6,
-.rich-editor .e-box-bordered p {
-  margin-top: 0;
-  margin-bottom: .2rem;
-}
-
-.rich-editor .e-box-bordered {
-  margin-left: 24px;
-  margin-right: 24px;
-}
-
-.e-box-bordered {
-  display: block;
-  background: #f7f7f7;
-  border-left: 5px solid #b2b2b2;
-  border-radius: 0;
-  margin-bottom: 16px;
-}
-
-.e-box-bordered__body {
-  padding: 1.1rem 1.5rem;
-}
-
-.e-box-bordered__body > *:last-child {
-  margin-bottom: 0;
-}
-
-.e-box-bordered__title {
-  font-weight: bold;
-  font-size: 1rem;
-}
-
 /* ==========================================================================
    #BUTTONS
    ========================================================================== */
@@ -4331,9 +3806,9 @@ parent: box
    ========================================================================== */
 /*doc
 ---
-title: btn
-name: btn
-categories: [elements, btn]
+title: button
+name: button
+categories: [elements, button]
 ---
 
 
@@ -4341,11 +3816,11 @@ categories: [elements, btn]
 
 ```html_example
 
-<div class="e-btn-group is-left">
-  <button id="btn1" class="ripple e-btn e-btn--primary" type="button"><i class="material-icons is-left">navigate_before</i>もっと見る<i class="material-icons is-right">navigate_next</i></button>
-  <button class="ripple e-btn e-btn--primary is-hover" type="button">もっと見る
+<div class="e-button-group">
+  <button id="button1" class="ripple e-button e-button--primary" type="button"><i class="material-icons is-icon-left">navigate_before</i>もっと見る<i class="material-icons is-icon-right">navigate_next</i></button>
+  <button class="ripple e-button e-button--primary is-hover" type="button">もっと見る
   </button>
-  <button class="ripple e-btn e-btn--primary is-disabled" type="button">もっと見る</button>
+  <button class="ripple e-button e-button--primary is-disabled" type="button">もっと見る</button>
 </div>
 
 ```
@@ -4355,17 +3830,17 @@ categories: [elements, btn]
 
 ```html_example
 
-<div class="e-btn-group is-left">
-  <button class="e-btn e-btn--secondary" type="button"><i class="material-icons is-left">navigate_before</i>もっと見る<i class="material-icons is-right">navigate_next</i></button>
-  <button class="e-btn e-btn--secondary is-hover" type="button">もっと見る</button>
-  <button class="e-btn e-btn--secondary is-disabled" type="button">もっと見る</button>
+<div class="e-button-group">
+  <button class="e-button e-button--secondary" type="button"><i class="material-icons is-icon-left">navigate_before</i>もっと見る<i class="material-icons is-icon-right">navigate_next</i></button>
+  <button class="e-button e-button--secondary is-hover" type="button">もっと見る</button>
+  <button class="e-button e-button--secondary is-disabled" type="button">もっと見る</button>
 </div>
 
 ```
 
 
 */
-.e-btn {
+.e-button {
   font-weight: bold;
   text-decoration: none !important;
   color: rgba(0, 0, 0, 0.87) !important;
@@ -4404,19 +3879,19 @@ categories: [elements, btn]
   will-change: box-shadow;
 }
 
-.e-btn:hover, .e-btn:focus, .e-btn.is-hover {
+.e-button:hover, .e-button:focus, .e-button.is-hover {
   text-decoration: none;
   -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
           box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
-.e-btn:active {
+.e-button:active {
   text-decoration: none;
   -webkit-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
           box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
-.e-btn:disabled, .e-btn.is-disabled {
+.e-button:disabled, .e-button.is-disabled {
   cursor: not-allowed;
   background-color: #eee;
   border: 1px solid #ddd;
@@ -4425,8 +3900,8 @@ categories: [elements, btn]
           box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
 }
 
-.e-btn .is-left,
-.e-btn .is-right {
+.e-button .is-icon-left,
+.e-button .is-icon-right {
   position: absolute;
   top: 0;
   margin: auto;
@@ -4435,15 +3910,15 @@ categories: [elements, btn]
   width: 1em;
 }
 
-.e-btn .is-left {
+.e-button .is-icon-left {
   left: .5em;
 }
 
-.e-btn .is-right {
+.e-button .is-icon-right {
   right: .5em;
 }
 
-.e-btn--secondary {
+.e-button--secondary {
   background-color: #5b5e63;
   color: #fff !important;
 }
@@ -4452,28 +3927,28 @@ categories: [elements, btn]
    ========================================================================== */
 /*doc
 ---
-title: btn-group
-name: btn-group
-categories: [elements, btn]
-parent: btn
+title: button-group
+name: button-group
+categories: [elements, button]
+parent: button
 ---
 
 ```html_example
-<div class="e-btn-group is-left">
-  <button type="button" class="e-btn">もっと見る</button>
-  <button type="button" class="e-btn">もっと見る</button>
+<div class="e-button-group">
+  <button type="button" class="e-button">もっと見る</button>
+  <button type="button" class="e-button">もっと見る</button>
 </div>
 
-<div class="e-btn-group">
-  <button type="button" class="e-btn">もっと見る</button>
-  <button type="button" class="e-btn">もっと見る</button>
+<div class="e-button-group">
+  <button type="button" class="e-button">もっと見る</button>
+  <button type="button" class="e-button">もっと見る</button>
 </div>
 
 
 ```
 
 */
-.e-btn-group {
+.e-button-group {
   margin-right: -16px;
   margin-left: -16px;
   text-align: center;
@@ -4493,13 +3968,13 @@ parent: btn
   margin-bottom: 16px;
 }
 
-.e-btn-group .e-btn {
+.e-button-group .e-button {
   margin-bottom: 10px;
   margin-right: 16px;
   margin-left: 16px;
 }
 
-.e-btn-group--one-half .e-btn {
+.e-button-group--one-half .e-button {
   width: 50%;
 }
 
@@ -4507,36 +3982,36 @@ parent: btn
    ========================================================================== */
 /*doc
 ---
-title: btn-size
-name: btn-size
-categories: [elements, btn]
-parent: btn
+title: button-size
+name: button-size
+categories: [elements, button]
+parent: button
 ---
 
 ```html_example
-<div class="e-btn-group e-btn-group--left">
-  <button type="button" class="e-btn e-btn--small">もっと見る</button>
-  <button type="button" class="e-btn e-btn--medium">もっと見る</button>
-  <button type="button" class="e-btn e-btn--large">もっと見る</button>
-  <button type="button" class="e-btn e-btn--xlarge">もっと見る</button>
+<div class="e-button-group">
+  <button type="button" class="e-button e-button--small">もっと見る</button>
+  <button type="button" class="e-button e-button--medium">もっと見る</button>
+  <button type="button" class="e-button e-button--large">もっと見る</button>
+  <button type="button" class="e-button e-button--xlarge">もっと見る</button>
 </div>
 
 ```
 
 */
-.e-btn--small {
+.e-button--small {
   padding: 0.36rem 0.88rem;
   font-size: .75em;
   font-weight: normal;
 }
 
-.e-btn--large {
+.e-button--large {
   padding: 1.26rem 1.6rem;
   font-size: 1.2em;
   font-weight: bold;
 }
 
-.e-btn--xlarge {
+.e-button--xlarge {
   padding: 1.35rem 1.6rem;
   font-size: 1.4em;
   font-weight: bold;
@@ -4598,7 +4073,7 @@ parent: btn
   }
 }
 
-/* @ btn
+/* @ button
  * ------------------------------------------------------------ */
 /*doc
 ---
@@ -4693,15 +4168,114 @@ categories: [elements, form]
 
 
 
-
-
+```html_example
+<form>
+  <table class="e-form-table">
+    <tr>
+      <th>
+        <label for="name">お名前<span class="e-form-req">必須</span></label>
+      </th>
+      <td>
+        <div class="e-form-cols e-form-cols--break">
+          <div class="e-form-col8">
+            <input type="text" name="name" id="name" value="" class="e-form-control js-required" aria-describedby="name-tip" placeholder="(例) 太郎">
+          </div>
+          <div class="e-form-message-box">
+            <p class="e-form-error-text">お名前を入力してください。</p>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="inquiry">お問い合わせ内容<span class="e-form-any">任意</span></label>
+      </th>
+      <td>
+        <div class="e-form-cols">
+          <div class="e-form-col12">
+            <textarea name="inquiry" id="inquiry" cols="40" rows="10" class="e-form-control" placeholder="お問い合わせ内容を入力してください。"></textarea>
+          </div>
+           <div class="e-form-message-box">
+            <p class="e-form-small-text">お問い合わせ内容を入力してください。</p>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>ご用件種別<span class="e-form-req">必須</span></th>
+      <td>
+        <div class="e-form-cols">
+          <div class="e-form-col12">
+            <ul aria-describedby="description1-1-tip" class="e-form-rc-box" id="description1-1">
+              <li>
+                <input checked type="radio" class="e-form-control is-valid" name="description1-1" id="description1-1_radio1" value="お問い合わせ">
+                <label for="description1-1_radio1">お問い合わせ</label>
+              </li>
+              <li>
+                <input type="radio" class="e-form-control" name="description1-1" id="description1-1_radio2" value="ご利用申し込み">
+                <label for="description1-1_radio2">ご利用申し込み</label>
+              </li>
+              <li>
+                <input type="radio" class="e-form-control" name="description1-1" id="description1-1_radio3" value="ご相談">
+                <label for="description1-1_radio3">ご相談</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>ご用件種別<span class="e-form-req">必須</span></th>
+      <td>
+        <div class="e-form-cols">
+          <div class="e-form-col12">
+            <ul aria-describedby="description1-2-tip" class="e-form-rc-box" id="description1-2">
+              <li>
+                <input type="checkbox" name="description1-2" class="is-valid e-form-control" value="お問い合わせ" id="description1-2_check1">
+                <label for="description1-2_check1">お問い合わせ</label>
+              </li>
+              <li>
+                <input checked type="checkbox" name="description1-2" class="e-form-control" value="ご利用申し込み" id="description1-2_check2">
+                <label for="description1-2_check2">ご利用申し込み</label>
+              </li>
+              <li>
+                <input type="checkbox" name="description1-2" class="e-form-control" value="ご相談" id="description1-2_check3">
+                <label for="description1-2_check3">ご相談</label>
+              </li>
+            </ul>
+            <div class="e-form-message-box">
+              <p class="e-form-error-text">ご用件種別を入力してください。</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>ご用件種別 <span class="e-form-req">必須</span></th>
+      <td>
+        <div class="e-form-row">
+          <div class="e-form-col12">
+            <select name="description1-3" id="description1-3" value="" class="e-form-control">
+              <option value="" >選択してください。</option>
+              <option value="">お問い合わせ</option>
+              <option value="">ご利用申し込み</option>
+              <option value="">ご相談</option>
+            </select>
+                 <div class="e-form-message-box">
+            <p class="e-form-error-text">ご用件種別を入力してください。</p>
+          </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <div class="e-button-group">
+    <button type="submit" class="e-button e-button--xlarge">確認画面へ</button>
+  </div>
+</form>
+```
 ```html_example
 
-<h3 class="styleguide">Text Input</h3>
-<input type="text"  class="e-form-control">
-
-<h3 class="styleguide">Textarea</h3>
-<textarea cols="40" rows="10" class="e-form-control"></textarea>
 
 <h3 class="styleguide">Disabled Input</h3>
 <input type="text" disabled class="e-form-control">
@@ -4716,30 +4290,6 @@ categories: [elements, form]
 <h3 class="styleguide">Input with Error</h3>
 <input type="text"  class="e-form-control is-error">
 
-
-<h3 class="styleguide">Select Menu</h3>
-<select class="e-form-control">
-  <option value="" >都道府県</option>
-  <option value="福岡県">福岡県</option>
-  <option value="...">...</option>
-</select>
-
-
-<h3 class="styleguide">Checkbox</h3>
-<ul class="e-form-rc-box e-form-rc-box--ib" id="checkbox-assy">
-  <li><input type="checkbox" class="e-form-control" id="checkbox1"><label for="checkbox1">default</label></li>
-  <li><input type="checkbox" disabled class="e-form-control" id="checkbox2"><label for="checkbox2">disabled</label></li>
-  <li><input type="checkbox" checked class="e-form-control" id="checkbox3"><label for="checkbox3">checked</label></li>
-  <li><input type="checkbox" disabled checked class="e-form-control" id="checkbox4"><label for="checkbox4">checked & disabled</label></li>
-</ul>
-
-<h3 class="styleguide">Radio Buttons</h3>
-<ul class="e-form-rc-box e-form-rc-box--ib" id="radio-assy">
-  <li><input type="radio" class="e-form-control" id="radio1"><label for="radio1">default</label></li>
-  <li><input type="radio" class="e-form-control" disabled id="radio2"><label for="radio2">disabled</label></li>
-  <li><input type="radio" class="e-form-control" checked id="radio3"><label for="radio3">checked</label></li>
-  <li><input type="radio" class="e-form-control" disabled checked id="radio4"><label for="radio4">checked & disabled</label></li>
-</ul>
 
 
 
@@ -5234,66 +4784,8 @@ parent: form
   border-bottom: 1px solid #ddd;
 }
 
-.g-recaptcha {
-  margin-bottom: 16px;
-}
-
-.g-recaptcha > div {
-  margin: 0 auto;
-}
-
 /* @ Layout
  * ------------------------------------------------------------ */
-/* Layout
-   ========================================================================== */
-/*doc
----
-title: form-layout
-name: form-layout
-categories: [elements, form]
-parent: form
----
-
-
-
-【フォームの基本形】<br>
-`.e-form-table`         = 大枠<br>
-`.e-form-unit`          = 1かたまり<br>
-`.e-form-head`          = 見だし<br>
-`.e-form-field`         = フィールド<br>
-※`.e-form-field`の中は`.e-form-cols > .e-form-col12` 等で囲みその中に`inputタグ`を記述<br><br>
-
-
-【レイアウト】<br>
-`.e-form-cols`      = グリッドレイアウト枠<br>
-`.e-form-col[0_5 - 12]` = グリッドレイアウト スマホ時は続けて `.e-form-col12--sm`等を記述<br><br>
-
-
-
-【ヘルパー】<br>
-`.e-form-control`       = input, textarea, selectなどのinput要素<br>
-`.e-form-text-dash`     = .e-form-field内の「 - 」を囲むタグ`.e-form-col0_5`の中に記述<br>
-`.e-form-inframe`       = .e-form-field内インラインフレーム<br>
-`[role="tooltip"]`    = 入力タイプ説明をツールチップで紐付ける<br>
-`.e-form-req`    = 必須<br>
-`.e-form-any`    = 任意<br>
-`.e-form-text`    = フォームテキスト<br>
-`.e-form-small-text`    = フォームスモールテキスト
-
-
-*/
-.e-form-unit {
-  opacity: 1;
-}
-
-.e-form-head {
-  opacity: 1;
-}
-
-.e-form-field {
-  opacity: 1;
-}
-
 .e-form-cols {
   margin-right: -1.5%;
   margin-left: -1.5%;
@@ -5304,18 +4796,6 @@ parent: form
   clear: both;
   content: "";
   display: block;
-}
-
-.e-form-inline {
-  display: inline;
-}
-
-.e-form-block {
-  display: block;
-}
-
-.e-form-center {
-  text-align: center;
 }
 
 .e-form-col0_5,
@@ -5464,8 +4944,7 @@ categories: [elements, media]
 
 <h3 class="styleguide">Default</h3>
 
-`.e-media--small`
-<br>
+
 
 ```html_example
 
@@ -5582,15 +5061,13 @@ categories: [elements, card]
 ---
 
 <h3 class="styleguide">Default</h3>
-`.e-card__img--trim`
 
-<br>
 
 ```html_example
 
 <div class="e-card">
   <a href="">
-    <div class="e-card__img e-card__img--trim"><img src="/assets/img/dummy/820x273.png" alt=""></div>
+    <div class="e-card__img"><img src="/assets/img/dummy/820x273.png" alt=""></div>
     <div class="e-card__body">
       <p class="e-card__title">情に棹させば流される智に働けば角が立つ</p>
       <p class="e-card__text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
@@ -5624,7 +5101,7 @@ categories: [elements, card]
   will-change: box-shadow;
 }
 
-.e-card > a:hover, .e-card > a:focus, .e-card > a.is-hover {
+.e-card > a:hover, .e-card > a:focus {
   -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
           box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
@@ -5640,39 +5117,9 @@ categories: [elements, card]
   text-align: center;
 }
 
-.e-card__img--trim {
-  position: relative;
-  overflow: hidden;
-  width: auto;
-  height: 138px;
-}
-
-.e-card__img--trim img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-}
-
 .e-card__body {
   padding: .6rem 1rem;
   position: relative;
-}
-
-.e-card__label {
-  position: absolute;
-  right: 1rem;
-  top: .6rem;
-  margin-bottom: .3rem;
-  line-height: 1;
-}
-
-.e-card__label .e-label {
-  margin-right: .3em;
 }
 
 .e-card__title, .e-card__text {
@@ -5688,38 +5135,6 @@ categories: [elements, card]
 
 .e-card__text + .e-card__text {
   margin-top: 16px;
-}
-
-.e-card--small .e-card__title {
-  font-size: 14px;
-  font-size: 0.875rem;
-}
-
-/*doc
----
-title: card-bg
-name: card-bg
-categories: [elements, card]
-parent: card
----
-
-<h3 class="styleguide">with Background</h3>
-```html_example
-
-<div class="e-card e-card--bg">
-  <a href="">
-    <div class="e-card__body">
-      <p class="e-card__title">情に棹させば流される智に働けば角が立つ</p>
-      <p class="e-card__text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
-    </div>
-    </a>
-</div>
-
-```
-
-*/
-.e-card--bg {
-  background-color: #f2f3f5;
 }
 
 /* ==========================================================================
@@ -6000,8 +5415,8 @@ parent: pagination
 
   <div class="c-pager">
     <ul class="c-pager__inner">
-      <li class="c-pager__prev"><a href="javascript:void(0)" class="e-btn is-disabled">前の記事を読む</a></li>
-      <li class="c-pager__next"><a href="javascript:void(0)" class="e-btn">次の記事を読む</a></li>
+      <li class="c-pager__prev"><a href="javascript:void(0)" class="e-button is-disabled">前の記事を読む</a></li>
+      <li class="c-pager__next"><a href="javascript:void(0)" class="e-button">次の記事を読む</a></li>
     </ul>
   </div>
 
@@ -6049,51 +5464,21 @@ name: main-visual
 categories: [components, main-visual]
 ---
 
-<h3 class="styleguide">Main Visual Full</h3>
-<br>
-
-```html_example
-  <div class="c-main-visual c-main-visual--full">
-      <img src="/assets/img/dummy/1280x450.png" alt="">
-  </div>
-
-```
-
-<h3 class="styleguide">Main Visual Default</h3>
-<br>
-
-```html_example
-  <div class="c-main-visual is-gapless--sm">
-      <a href=""><img src="/assets/img/dummy/1280x450.png" alt=""></a>
-  </div>
-```
 
 <h3 class="styleguide">Main Visual Background</h3>
-<br>
 
 ```html_example
-  <div class="c-main-visual c-main-visual--full">
-       <div class="c-main-visual__bg-img" style="background-image: url(/assets/img/dummy/1280x450.png)">
-            <h1>タイトル</h1>
-          </div>
+  <div class="c-main-visual">
+    <div class="c-main-visual__bg-img" style="background-image: url(/assets/img/dummy/1280x450.png)">
+       <h1>タイトル</h1>
+    </div>
   </div>
 ```
 
 
-<h3 class="styleguide">Main Visual Background Large</h3>
-<br>
-
-```html_example
-  <div class="c-main-visual c-main-visual--full">
-       <div class="c-main-visual__bg-img c-main-visual__bg-img--large" style="background-image: url(/assets/img/dummy/1280x450.png)">
-            <h1>タイトル</h1>
-          </div>
-  </div>
-```
 
 */
 .c-main-visual {
-  margin-top: -24px;
   text-align: center;
   margin-bottom: 16px;
 }
@@ -6119,21 +5504,8 @@ categories: [components, main-visual]
           align-items: center;
 }
 
-.c-main-visual__bg-img--large {
-  min-height: 400px;
-}
-
 .c-main-visual__title {
   margin-bottom: 0;
-}
-
-.c-main-visual--full {
-  overflow: hidden;
-  max-height: 30rem;
-}
-
-.c-main-visual--full img {
-  width: 100%;
 }
 
 /* ==========================================================================
@@ -6148,36 +5520,36 @@ categories: [components, headline]
 
 ```html_example
 
-   <ul class="c-headline-primary">
-    <li class="c-headline-primary__item">
-      <span class="c-headline-primary__date">2017.10.01 </span>
-      <span class="c-headline-primary__label">
+   <ul class="c-headline">
+    <li class="c-headline__item">
+      <span class="c-headline__date">2017.10.01 </span>
+      <span class="c-headline__label">
         <span class="e-label e-label--blue">カテゴリ</span>
         <span class="e-label e-label--blue">カテゴリ</span>
       </span>
-      <p class="c-headline-primary__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
+      <p class="c-headline__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
     </li>
-     <li class="c-headline-primary__item">
-      <span class="c-headline-primary__date">2017.10.01 </span>
-      <span class="c-headline-primary__label">
+     <li class="c-headline__item">
+      <span class="c-headline__date">2017.10.01 </span>
+      <span class="c-headline__label">
         <span class="e-label e-label--blue">カテゴリ</span>
       </span>
-      <p class="c-headline-primary__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
+      <p class="c-headline__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
     </li>
-     <li class="c-headline-primary__item">
-      <span class="c-headline-primary__date">2017.10.01 </span>
-      <p class="c-headline-primary__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
+     <li class="c-headline__item">
+      <span class="c-headline__date">2017.10.01 </span>
+      <p class="c-headline__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
     </li>
 
    </ul>
 
 ```
 */
-.c-headline-primary {
+.c-headline {
   margin-bottom: 16px;
 }
 
-.c-headline-primary__item {
+.c-headline__item {
   margin-bottom: 1em;
   line-height: 1.4;
   display: -webkit-box;
@@ -6192,11 +5564,11 @@ categories: [components, headline]
           justify-content: flex-start;
 }
 
-.c-headline-primary__item a {
+.c-headline__item a {
   color: rgba(0, 0, 0, 0.87);
 }
 
-.c-headline-primary__date {
+.c-headline__date {
   margin: .1em 1em .1em 0;
   font-size: 12px;
   font-size: 0.75rem;
@@ -6204,7 +5576,7 @@ categories: [components, headline]
   min-width: 6em;
 }
 
-.c-headline-primary__label {
+.c-headline__label {
   margin-right: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6221,74 +5593,16 @@ categories: [components, headline]
           justify-content: flex-start;
 }
 
-.c-headline-primary__label span {
+.c-headline__label span {
   white-space: nowrap;
   margin-right: .3em;
 }
 
-.c-headline-primary__label span:last-child {
+.c-headline__label span:last-child {
   margin-right: 0;
 }
 
-.c-headline-primary__title {
-  font-size: 14px;
-  font-size: 0.875rem;
-}
-
-/*doc
----
-title: headline-secondary
-name: headline-secondary
-categories: [components, headline]
-parent: headline
----
-
-```html_example
-
-
-   <ul class="c-headline-secondary">
-     <li class="c-headline-secondary__item">
-       <p class="c-headline-secondary__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
-       <span class="c-headline-secondary__date">開催日：2017.10.31 - 11.01</span>
-    </li>
-     <li class="c-headline-secondary__item">
-       <p class="c-headline-secondary__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
-       <span class="c-headline-secondary__date">開催日：2017.10.31 - 11.01</span>
-    </li>
-     <li class="c-headline-secondary__item">
-       <p class="c-headline-secondary__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
-       <span class="c-headline-secondary__date">開催日：2017.10.31 - 11.01</span>
-    </li>
-  </ul>
-
-
-```
-*/
-.c-headline-secondary {
-  margin-bottom: 16px;
-}
-
-.c-headline-secondary__item {
-  clear: both;
-  margin-bottom: .8em;
-  line-height: 1.4;
-}
-
-.c-headline-secondary__item a {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.c-headline-secondary__date {
-  font-size: 12px;
-  font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.54);
-  display: block;
-  width: 100%;
-  float: none;
-  margin: 0;
-}
-
-.c-headline-secondary__title {
+.c-headline__title {
   font-size: 14px;
   font-size: 0.875rem;
 }
@@ -6363,168 +5677,16 @@ categories: [components, menu]
 ---
 
 ```html_example
-<div class="c-menu-hierarchy-primary" data-accordion data-device-accordion="sp">
-  <h3 class="c-menu-hierarchy-primary__title" aria-controls="accordion1" aria-expanded="true" aria-label="開く" data-toggle-accordion>階層構造メニュー</h3>
-  <ul class="c-menu-hierarchy-primary__list is-hidden--sm" id="accordion1"  aria-hidden="true" data-body-accordion>
-    <li><a href="">タイトル</a></li>
-    <li><a href="" class="is-active">タイトル</a>
-      <ul class="c-menu-hierarchy-primary__list">
+<div class="c-menu">
+  <h3 class="c-menu__title">階層構造メニュー</h3>
+  <ul class="c-menu__list">
+    <li><a href="">タイトル</a>
+    <ul class="c-menu__list">
         <li><a href="" class="is-active">タイトル</a></li>
         <li><a href="">タイトル</a></li>
         <li><a href="">タイトル</a></li>
-      </ul>
+    </ul>
     </li>
-        <li><a href="">タイトル</a></li>
-        <li><a href="">タイトル</a></li>
-  </ul>
-</div>
-
-
-```
-*/
-/* menu
-   ========================================================================== */
-.c-menu-hierarchy-primary {
-  margin-bottom: 16px;
-}
-
-.c-menu-hierarchy-primary__title {
-  background: #5b5e63;
-  font-size: 16px;
-  font-size: 1rem;
-  padding: .7em;
-  font-weight: bold;
-  color: #fff;
-}
-
-.c-menu-hierarchy-primary__list {
-  margin-bottom: 0;
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-}
-
-.c-menu-hierarchy-primary__list a {
-  border-top: 1px solid #ddd;
-  font-size: 14px;
-  font-size: 0.875rem;
-  padding: .8em 1.6em;
-  display: block;
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.c-menu-hierarchy-primary__list a:hover {
-  background-color: #d7e8df;
-}
-
-.c-menu-hierarchy-primary__list a.is-active {
-  font-weight: bold;
-}
-
-.c-menu-hierarchy-primary__list ul {
-  margin-left: 1.2em;
-  border: 0;
-}
-
-.c-menu-hierarchy-primary__list ul a {
-  border: 0;
-  padding: .4em 1.5em;
-  text-indent: -.6em;
-}
-
-.c-menu-hierarchy-primary__list ul a:hover, .c-menu-hierarchy-primary__list ul a.is-active {
-  background-color: #d7e8df;
-  font-weight: normal;
-}
-
-.c-menu-hierarchy-primary__list ul a:hover:before, .c-menu-hierarchy-primary__list ul a.is-active:before {
-  color: #93e9be;
-  -webkit-transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.c-menu-hierarchy-primary__list ul a:before {
-  color: rgba(0, 0, 0, 0.38);
-  text-decoration: none;
-  font-family: "Material Icons";
-  font-weight: 400;
-  font-style: normal;
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-feature-settings: 'liga';
-          font-feature-settings: 'liga';
-  font-size: inherit;
-  display: none\9;
-  vertical-align: middle;
-  content: "navigate_next";
-  white-space: nowrap;
-  font-size: 1em;
-}
-
-.c-menu-hierarchy-primary__title {
-  position: relative;
-}
-
-.c-menu-hierarchy-primary__title:after {
-  color: #fff;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  font-size: 20px;
-  font-size: 1.25rem;
-  right: 16px;
-  margin: auto;
-  height: 1em;
-  font-family: "Material Icons";
-  font-weight: 400;
-  font-style: normal;
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-feature-settings: 'liga';
-          font-feature-settings: 'liga';
-  font-size: inherit;
-  display: none\9;
-  vertical-align: middle;
-  content: "add";
-  white-space: nowrap;
-  line-height: 1em;
-  display: none;
-}
-
-.c-menu-hierarchy-primary__title[aria-expanded="false"]:after {
-  content: "remove";
-}
-
-/*doc
----
-title: menu-secondary
-name: menu-secondary
-categories: [components, menu]
-parent: menu
----
-
-```html_example
-<div class="c-menu-hierarchy-secondary" data-accordion data-device-accordion="sp">
-  <h3 class="c-menu-hierarchy-secondary__title" aria-controls="c-menu-hierarchy-secondary" aria-expanded="true" aria-label="開く" data-toggle-accordion>階層構造メニュー secondary</h3>
-  <ul class="c-menu-hierarchy-secondary__list is-hidden--sm" id="c-menu-hierarchy-secondary"  aria-hidden="true" data-body-accordion>
-    <li><a href="">タイトル</a></li>
     <li><a href="">タイトル</a></li>
     <li><a href="">タイトル</a></li>
   </ul>
@@ -6535,132 +5697,47 @@ parent: menu
 */
 /* menu
    ========================================================================== */
-.c-menu-hierarchy-secondary {
+.c-menu {
   margin-bottom: 16px;
-}
-
-.c-menu-hierarchy-secondary__title {
-  background: #f7f7f7;
-  font-size: 16px;
-  font-size: 1rem;
-  padding: .7em;
-  font-weight: bold;
-}
-
-.c-menu-hierarchy-secondary__list {
-  margin-bottom: 0;
   border-bottom: 1px dotted #ddd;
 }
 
-.c-menu-hierarchy-secondary__list li:first-child a {
-  border-top-style: solid;
+.c-menu__title {
+  background: #5b5e63;
+  color: #fff;
+  font-size: 16px;
+  font-size: 1rem;
+  padding: .6em 1em;
+  font-weight: bold;
 }
 
-.c-menu-hierarchy-secondary__list a {
+.c-menu__list {
+  margin-bottom: 0;
+}
+
+.c-menu__list a {
   border-top: 1px dotted #ddd;
   font-size: 14px;
   font-size: 0.875rem;
-  padding: .8em 1.6em;
+  padding: .6em;
   display: block;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.87);
 }
 
-.c-menu-hierarchy-secondary__list a:hover {
-  background-color: #d7e8df;
+.c-menu__list a:hover {
+  background-color: #5b5e63;
+  color: #fff;
 }
 
-.c-menu-hierarchy-secondary__list a.is-active {
+.c-menu__list a.is-active {
   font-weight: bold;
+  background-color: #5b5e63;
+  color: #fff;
 }
 
-.c-menu-hierarchy-secondary__list .c-menu-hierarchy__list {
+.c-menu__list .c-menu__list {
   margin-left: 1.2em;
-  border: 0;
-}
-
-.c-menu-hierarchy-secondary__list .c-menu-hierarchy__list a {
-  border: 0;
-  padding: .4em 1.5em;
-  text-indent: -.6em;
-}
-
-.c-menu-hierarchy-secondary__list .c-menu-hierarchy__list a:hover, .c-menu-hierarchy-secondary__list .c-menu-hierarchy__list a.is-active {
-  background-color: #d7e8df;
-  font-weight: normal;
-}
-
-.c-menu-hierarchy-secondary__list .c-menu-hierarchy__list a:hover:before, .c-menu-hierarchy-secondary__list .c-menu-hierarchy__list a.is-active:before {
-  color: #93e9be;
-  -webkit-transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.c-menu-hierarchy-secondary__list .c-menu-hierarchy__list a:before {
-  color: rgba(0, 0, 0, 0.38);
-  text-decoration: none;
-  font-family: "Material Icons";
-  font-weight: 400;
-  font-style: normal;
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-feature-settings: 'liga';
-          font-feature-settings: 'liga';
-  font-size: inherit;
-  display: none\9;
-  vertical-align: middle;
-  content: "navigate_next";
-  white-space: nowrap;
-  font-size: 1em;
-}
-
-.c-menu-hierarchy-secondary__title {
-  position: relative;
-}
-
-.c-menu-hierarchy-secondary__title:after {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  font-size: 20px;
-  font-size: 1.25rem;
-  right: 16px;
-  margin: auto;
-  height: 1em;
-  font-family: "Material Icons";
-  font-weight: 400;
-  font-style: normal;
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-feature-settings: 'liga';
-          font-feature-settings: 'liga';
-  font-size: inherit;
-  display: none\9;
-  vertical-align: middle;
-  content: "add";
-  white-space: nowrap;
-  line-height: 1em;
-  display: none;
-}
-
-.c-menu-hierarchy-secondary__title[aria-expanded="false"]:after {
-  content: "remove";
 }
 
 /* Anchor Nav
@@ -6759,11 +5836,11 @@ categories: [components, summary]
 
 ```html_example
 
-<div>
-  <ul class="c-summary-horizontal">
+<div class="c-summary-horizontal">
+  <ul>
    <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img e-card__img--trim img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -6772,7 +5849,7 @@ categories: [components, summary]
       </li>
    <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img e-card__img--trim img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -6781,7 +5858,52 @@ categories: [components, summary]
       </li>
    <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img e-card__img--trim img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -6790,21 +5912,15 @@ categories: [components, summary]
       </li>
   </ul>
 
-<div class="c-pagenavi">
-  <a class="c-previouspostslink" rel="prev" href=""></a>
-  <span class="is-current">1</span>
-  <a href="">2</a>
-  <a href="">3</a>
-  <a href="">4</a>
-  <a href="">5</a>
-  <span class="c-extend">...</span>
-  <a class="c-nextpostslink" rel="next" href=""></a>
-</div>
-</div>
+
 
 ```
 */
 .c-summary-horizontal {
+  margin-bottom: 24px;
+}
+
+.c-summary-horizontal ul {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
@@ -6818,7 +5934,7 @@ categories: [components, summary]
   margin-left: -1%;
 }
 
-.c-summary-horizontal::after {
+.c-summary-horizontal ul::after {
   clear: both;
   content: "";
   display: block;
@@ -6930,7 +6046,7 @@ categories: [components, keyword-search]
   <div class="c-keyword-search" role="search">
     <div class="c-keyword-search__body">
       <input type="text" name="#" class="c-keyword-search__input" value="" placeholder="キーワードを入力してください" autocomplete="off" aria-autocomplete="list" role="textbox">
-      <button type="submit" class="c-keyword-search__btn"><i class="material-icons">search</i></button>
+      <button type="submit" class="c-keyword-search__button"><i class="material-icons">search</i></button>
     </div>
   </div>
 ```
@@ -6992,7 +6108,7 @@ categories: [components, keyword-search]
           box-sizing: border-box;
 }
 
-.c-keyword-search__btn {
+.c-keyword-search__button {
   display: block;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -7086,7 +6202,7 @@ categories: [components, keyword-search]
   font-size: 0.875rem;
 }
 
-.l-block-widget .c-keyword-search__btn {
+.l-block-widget .c-keyword-search__button {
   width: 54px;
 }
 
@@ -7103,13 +6219,13 @@ categories: [js, accordion]
 ```html_example
 
 <div class="c-accordion" data-accordion>
- <button type="button" class="c-accordion__title" aria-controls="accordion1" aria-expanded="true" aria-label="開く" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - NONE</button>
+ <button type="button" class="c-accordion__title" aria-controls="accordion1" aria-expanded="true" aria-label="開く" data-toggle-accordion> 情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - NONE</button>
  <div id="accordion1" class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
   <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
  </div>
 </div>
 
-<div class="c-accordion is-active" data-accordion data-device-accordion="all">
+<div class="c-accordion c-accordion--faq is-active" data-accordion data-device-accordion="all">
  <button type="button" class="c-accordion__title" aria-controls="accordion2" aria-expanded="false" aria-label="閉じる" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - ALL</button>
  <div id="accordion2" class="c-accordion__body" aria-hidden="false" data-body-accordion>
   <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
@@ -7209,11 +6325,11 @@ categories: [js, accordion]
   background-color: #f2f3f5;
 }
 
-.c-accordion__title, .c-accordion-title-icon {
+.c-accordion__title {
   position: relative;
 }
 
-.c-accordion__title:after, .c-accordion-title-icon:after {
+.c-accordion__title:after {
   color: #5b5e63;
   position: absolute;
   top: 0;
@@ -7244,7 +6360,7 @@ categories: [js, accordion]
   line-height: 1em;
 }
 
-.c-accordion__title[aria-expanded="false"]:after, .c-accordion-title-icon[aria-expanded="false"]:after {
+.c-accordion__title[aria-expanded="false"]:after {
   content: "expand_less";
 }
 
@@ -7252,6 +6368,51 @@ categories: [js, accordion]
   border: 1px solid #ddd;
   border-top: 0;
   padding: 25px 20px;
+}
+
+.c-accordion--faq .c-accordion__title {
+  padding-left: 3.6rem;
+}
+
+.c-accordion--faq .c-accordion__title:before {
+  width: 2rem;
+  height: 2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  content: 'Q';
+  color: #fff;
+  display: inline-block;
+  border-radius: 100px;
+  background-color: #477CCB;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 2rem;
+  position: absolute;
+  left: 15px;
+  top: 12px;
+}
+
+.c-accordion--faq .c-accordion__body {
+  padding-left: 3.6rem;
+  position: relative;
+}
+
+.c-accordion--faq .c-accordion__body:before {
+  width: 2rem;
+  height: 2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  content: 'A';
+  color: #fff;
+  display: inline-block;
+  border-radius: 100px;
+  background-color: #FD95A1;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 2rem;
+  position: absolute;
+  left: 15px;
+  top: 25px;
 }
 
 /* ==========================================================================
@@ -7419,8 +6580,8 @@ categories: [js, modal]
 
 ```html_example
 <!-- ボタン領域 -->
-<div class="e-btn-group is-left">
-<button type="button" class="e-btn" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
+<div class="e-button-group is-left">
+<button type="button" class="e-button" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
 </div>
 <div class="e-box" data-clone-modal="area-modal-dialog1">
 <div class="e-box__body">
@@ -7439,9 +6600,9 @@ categories: [js, modal]
         <div data-append-modal>
           <!--  data-append-modal内はdata-clone-modal="aria-controls名"を表示 -->
         </div>
-        <div class="c-modal-dialog__btn-group e-btn-group">
-          <button type="button" class="e-btn e-btn--secondary" data-close-modal aria-expanded="true" aria-label="キャンセル">キャンセル</button>
-          <button type="button" class="e-btn e-btn--secondary" aria-expanded="true" aria-label="実行する">実行する</button>
+        <div class="c-modal-dialog__button-group e-button-group">
+          <button type="button" class="e-button e-button--secondary" data-close-modal aria-expanded="true" aria-label="キャンセル">キャンセル</button>
+          <button type="button" class="e-button e-button--secondary" aria-expanded="true" aria-label="実行する">実行する</button>
         </div>
 
       </div>
@@ -7553,7 +6714,7 @@ categories: [js, modal]
   font-size: 1.125rem;
 }
 
-.c-modal-dialog__btn-group {
+.c-modal-dialog__button-group {
   margin-top: 16px;
 }
 
@@ -8154,7 +7315,7 @@ categories: [js, ripple]
 
 ```html_example
 
- <button class="js-ripple e-btn e-btn--secondary" type="button">もっと見る</button>
+ <button class="js-ripple e-button e-button--secondary" type="button">もっと見る</button>
 
 ```
 
@@ -8421,7 +7582,7 @@ categories: [utilities, icon]
 }
 
 .is-icon-target-blank:after,
-.rich-editor [target="_blank"]:after {
+.visual-editor [target="_blank"]:after {
   font-family: "Material Icons";
   font-weight: 400;
   font-style: normal;
@@ -8448,16 +7609,16 @@ categories: [utilities, icon]
 }
 
 .is-icon-pdf:after,
-.rich-editor a[href$=".pdf"]:after,
+.visual-editor a[href$=".pdf"]:after,
 .is-icon-doc:after,
-.rich-editor a[href$=".doc"]:after,
-.rich-editor a[href$=".docx"]:after,
+.visual-editor a[href$=".doc"]:after,
+.visual-editor a[href$=".docx"]:after,
 .is-icon-ppt:after,
-.rich-editor a[href$=".ppt"]:after,
-.rich-editor a[href$=".pptx"]:after,
+.visual-editor a[href$=".ppt"]:after,
+.visual-editor a[href$=".pptx"]:after,
 .is-icon-xls:after,
-.rich-editor a[href$=".xls"]:after,
-.rich-editor a[href$=".xlsx"]:after {
+.visual-editor a[href$=".xls"]:after,
+.visual-editor a[href$=".xlsx"]:after {
   background: url("../img/common/icon_pdf.png") right center no-repeat;
   background-size: 15.5px 15.5px;
   width: 15.5px;
@@ -8469,25 +7630,25 @@ categories: [utilities, icon]
 }
 
 .is-icon-pdf:after,
-.rich-editor a[href$=".pdf"]:after {
+.visual-editor a[href$=".pdf"]:after {
   background-image: url("../img/common/icon_pdf.png");
 }
 
 .is-icon-doc:after,
-.rich-editor a[href$=".doc"]:after,
-.rich-editor a[href$=".docx"]:after {
+.visual-editor a[href$=".doc"]:after,
+.visual-editor a[href$=".docx"]:after {
   background-image: url("../img/common/icon_doc.png");
 }
 
 .is-icon-ppt:after,
-.rich-editor a[href$=".ppt"]:after,
-.rich-editor a[href$=".pptx"]:after {
+.visual-editor a[href$=".ppt"]:after,
+.visual-editor a[href$=".pptx"]:after {
   background-image: url("../img/common/icon_ppt.png");
 }
 
 .is-icon-xls:after,
-.rich-editor a[href$=".xls"]:after,
-.rich-editor a[href$=".xlsx"]:after {
+.visual-editor a[href$=".xls"]:after,
+.visual-editor a[href$=".xlsx"]:after {
   background-image: url("../img/common/icon_xls.png");
 }
 
@@ -8666,42 +7827,26 @@ parent: texture
  * ------------------------------------------------------------ */
 /*doc
 ---
-title: helpers
-name: helpers
-categories: [utilities, helpers]
+title: tool-base
+name: tool-base
+categories: [utilities, tool-base]
 
 ---
 
 
-`--sm`, `--md`, `--lg`
-
 <div class="styleguide-table"></div>
  Class        |  Description
  -------------| ----------
-  `is-prompt`            |  古いIEへ警告など
- `is-visible`            |  表示
- `is-hidden`             |  非表示
- `is-gapless`           |
- `is-mb-xs`             |
- `is-mb-small`          |
- `is-mb-medium`         |
- `is-mb-large`          |
- `is-mb-xl`             |
- `is-mt0`               |
- `is-mb0`               |
- `is-w100p`             |
- `is-left`               |  左揃え
- `is-right`              |  右揃え
- `is-center`             |  中央揃え
- `is-layout-center`      |  要素中央揃え
- `is-ib`                 |  表示
- `is-block`              |  表示
- `is-br`                 |  表示
- `is-indent`            |
- `is-underline`         |
- `is-point`             |
+ `is-prompt`            |  古いIEへ警告など
 
 */
+body[data-touch-device="false"] a[href^="tel:"],
+body[data-device="desktop"] a[href^="tel:"] {
+  pointer-events: none;
+  color: inherit;
+  text-decoration: none;
+}
+
 [v-cloak] {
   display: none;
 }
@@ -8712,106 +7857,6 @@ categories: [utilities, helpers]
 
 .swiper-container.swiper-container-horizontal {
   display: block;
-}
-
-/* @ base layout gap
- * ------------------------------------------------------------ */
-.is-gapless {
-  margin-right: -16px;
-  margin-left: -16px;
-}
-
-/* @ base margin
- * ------------------------------------------------------------ */
-.is-mb-xs {
-  margin-bottom: 10px !important;
-}
-
-.is-mb-small {
-  margin-bottom: 16px !important;
-}
-
-.is-mb-medium {
-  margin-bottom: 24px !important;
-}
-
-.is-mb-large {
-  margin-bottom: 36px !important;
-}
-
-.is-mt0 {
-  margin-top: 0 !important;
-}
-
-.is-mb0 {
-  margin-bottom: 0 !important;
-}
-
-.is-w100p {
-  width: 100% !important;
-}
-
-/* @ 装飾
- * ------------------------------------------------------------ */
-.is-point {
-  display: inline;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, transparent), color-stop(60%, #f6bb42), color-stop(90%, #f6bb42), color-stop(90%, transparent));
-  background: linear-gradient(transparent 60%, #f6bb42 60%, #f6bb42 90%, transparent 90%);
-  padding: .2em;
-}
-
-.is-indent {
-  text-indent: 1em;
-}
-
-.is-underline {
-  text-decoration: underline;
-}
-
-.is-center {
-  text-align: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.is-layout-center {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.is-left {
-  text-align: left;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.is-right {
-  text-align: right;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-.is-justify {
-  text-align: justify;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.is-ib {
-  display: inline-block;
-}
-
-.is-block {
-  display: block;
-}
-
-.is-br:after {
-  white-space: pre;
-  content: "\A";
 }
 
 .is-prompt {
@@ -8830,34 +7875,13 @@ categories: [utilities, helpers]
   text-decoration: none;
 }
 
-.is-visible {
-  display: block;
-}
-
-.is-hidden {
-  display: none;
-}
-
-.is-visible--sm,
-.is-visible--md,
-.is-visible--lg {
-  display: none;
-}
-
-body[data-touch-device="false"] a[href^="tel:"],
-body[data-device="desktop"] a[href^="tel:"] {
-  pointer-events: none;
-  color: inherit;
-  text-decoration: none;
-}
-
 /* @ color
  * ------------------------------------------------------------ */
 /*doc
 ---
-title: color
-name: color
-categories: [utilities, color]
+title: tool-color
+name: tool-color
+categories: [utilities, tool-color]
 ---
 
 
@@ -9222,6 +8246,161 @@ categories: [utilities, color]
   font-style: normal;
   font-weight: 900;
   src: url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Black.woff2) format("woff2"), url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Black.woff) format("woff"), url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Black.otf) format("opentype");
+}
+
+/* @ Tool Setting
+ * ------------------------------------------------------------ */
+/*doc
+---
+title: tool-view
+name: tool-view
+categories: [utilities, tool-view]
+
+---
+
+
+`--sm`, `--md`, `--lg`
+
+<div class="styleguide-table"></div>
+ Class        |  Description
+ -------------| ----------
+ `is-visible`            |  表示
+ `is-hidden`             |  非表示
+ `is-left`               |  左揃え
+ `is-right`              |  右揃え
+ `is-center`             |  中央揃え
+ `is-flex-start`        |
+ `is-flex-end`          |
+ `is-space-between`     |
+ `is-ib`                |
+ `is-block`             |
+ `is-br`                |
+ `is-clear`                |
+
+*/
+.is-visible {
+  display: block;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.is-visible--sm,
+.is-visible--md,
+.is-visible--lg {
+  display: none;
+}
+
+.is-clear::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.is-center {
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.is-left {
+  text-align: left;
+}
+
+.is-right {
+  text-align: right;
+}
+
+.is-flex-start {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.is-flex-end {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.is-space-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.is-ib {
+  display: inline-block;
+}
+
+.is-block {
+  display: block;
+}
+
+.is-br:after {
+  white-space: pre;
+  content: "\A";
+}
+
+/* @ Tool Setting
+ * ------------------------------------------------------------ */
+/*doc
+---
+title: tool-margin
+name: tool-margin
+categories: [utilities, tool-margin]
+
+---
+
+
+`--sm`, `--md`, `--lg`
+
+<div class="styleguide-table"></div>
+ Class        |  Description
+ -------------| ----------
+ `is-gapless`             |
+ `is-mb-xs`             |
+ `is-mb-small`          |
+ `is-mb-medium`         |
+ `is-mb-large`          |
+ `is-mb-xl`             |
+ `is-mt0`               |
+ `is-mb0`               |
+
+*/
+/* @ base layout gap
+ * ------------------------------------------------------------ */
+.is-gapless {
+  margin-right: -16px;
+  margin-left: -16px;
+}
+
+/* @ base margin
+ * ------------------------------------------------------------ */
+.is-mb-xs {
+  margin-bottom: 10px !important;
+}
+
+.is-mb-small {
+  margin-bottom: 16px !important;
+}
+
+.is-mb-medium {
+  margin-bottom: 24px !important;
+}
+
+.is-mb-large {
+  margin-bottom: 36px !important;
+}
+
+.is-mt0 {
+  margin-top: 0 !important;
+}
+
+.is-mb0 {
+  margin-bottom: 0 !important;
 }
 
 /* @ スタイルガイド用
@@ -9705,18 +8884,11 @@ category: snippets-other
   html {
     font-size: 16px;
   }
-  .is-gapless--lg {
-    margin-right: -16px;
-    margin-left: -16px;
+  .is-visible--lg {
+    display: block;
   }
-  .is-mt0--lg {
-    margin-top: 0 !important;
-  }
-  .is-mb0--lg {
-    margin-bottom: 0 !important;
-  }
-  .is-w100p--lg {
-    width: 100% !important;
+  .is-hidden--lg {
+    display: none;
   }
   .is-center--lg {
     text-align: center;
@@ -9726,18 +8898,21 @@ category: snippets-other
   }
   .is-left--lg {
     text-align: left;
+  }
+  .is-right--lg {
+    text-align: right;
+  }
+  .is-flex-start--lg {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
   }
-  .is-right--lg {
-    text-align: right;
+  .is-flex-end--lg {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
-  .is-justify--lg {
-    text-align: justify;
+  .is-space-between--lg {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -9752,11 +8927,15 @@ category: snippets-other
     white-space: pre;
     content: "\A";
   }
-  .is-visible--lg {
-    display: block;
+  .is-gapless--lg {
+    margin-right: -16px;
+    margin-left: -16px;
   }
-  .is-hidden--lg {
-    display: none;
+  .is-mt0--lg {
+    margin-top: 0 !important;
+  }
+  .is-mb0--lg {
+    margin-bottom: 0 !important;
   }
 }
 @media screen and (min-width: 60em) {
@@ -9793,51 +8972,15 @@ category: snippets-other
   .l-block-secondary {
     margin-bottom: 16px;
   }
-  .l-grids-2to2to1 {
-    margin-left: -1.2500013021%;
-    margin-right: -1.2500013021%;
-  }
-  .l-grids-2to2to1 .l-grid {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 47.4999973958%;
-            flex: 0 0 47.4999973958%;
-    margin-left: 1.2500013021%;
-    margin-right: 1.2500013021%;
-    margin-bottom: 16px;
-  }
-  .l-grids-3to2to1 {
-    margin-left: -1.2500013021%;
-    margin-right: -1.2500013021%;
-  }
-  .l-grids-3to2to1 .l-grid {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 47.4999973958%;
-            flex: 0 0 47.4999973958%;
-    margin-left: 1.2500013021%;
-    margin-right: 1.2500013021%;
-    margin-bottom: 16px;
-  }
-  .l-grids-4to2to2 {
-    margin-left: -1.2500013021%;
-    margin-right: -1.2500013021%;
-  }
-  .l-grids-4to2to2 .l-grid {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 47.4999973958%;
-            flex: 0 0 47.4999973958%;
-    margin-left: 1.2500013021%;
-    margin-right: 1.2500013021%;
-    margin-bottom: 16px;
-  }
-  .rich-editor p,
-  .rich-editor table,
-  .rich-editor ul,
-  .rich-editor ol,
-  .rich-editor dl,
-  .rich-editor blockquote,
-  .rich-editor figure,
-  .rich-editor .e-box-bordered,
-  .rich-editor hr {
+  .visual-editor p,
+  .visual-editor table,
+  .visual-editor ul,
+  .visual-editor ol,
+  .visual-editor dl,
+  .visual-editor blockquote,
+  .visual-editor figure,
+  .visual-editor .e-box-bordered,
+  .visual-editor hr {
     margin-bottom: 24px;
   }
   .e-box-alert {
@@ -9849,59 +8992,53 @@ category: snippets-other
   .e-gmap {
     margin-bottom: 16px;
   }
-  .rich-editor blockquote,
+  .visual-editor blockquote,
   .e-blockquote {
     margin-bottom: 16px;
   }
-  .rich-editor h3,
-  .e-hdg3--type2 {
+  .visual-editor h3,
+  .e-hd3--type2 {
     margin-bottom: 16px;
   }
-  .e-hdg-unit {
+  .e-hd-unit {
     margin-bottom: 16px;
   }
   .entry,
-  .rich-editor {
+  .visual-editor {
     margin-bottom: 24px;
   }
-  .rich-editor p,
+  .visual-editor p,
   .e-text {
     margin-bottom: 16px;
   }
-  .rich-editor strong > strong,
+  .visual-editor strong > strong,
   .e-text-catchcopy {
     margin-bottom: 16px;
   }
-  .rich-editor ul,
-  .rich-editor ol,
+  .visual-editor ul,
+  .visual-editor ol,
   .e-list {
     margin-bottom: 16px;
   }
-  .rich-editor dl,
+  .visual-editor dl,
   .e-dl {
     margin-bottom: 16px;
   }
   .e-list-inline {
     margin-bottom: 16px;
   }
-  .e-btn-list {
+  .visual-editor table caption, .e-table caption, .visual-editor .e-table--borderless caption, .e-table--borderless caption {
     margin-bottom: 16px;
   }
-  .rich-editor table caption, .e-table caption, .rich-editor .e-table--borderless caption, .e-table--borderless caption {
-    margin-bottom: 16px;
-  }
-  .rich-editor table,
-  .e-table, .rich-editor .e-table--borderless,
+  .visual-editor table,
+  .e-table, .visual-editor .e-table--borderless,
   .e-table--borderless {
     margin-bottom: 16px;
   }
   .e-box {
     margin-bottom: 16px;
   }
-  .e-box-bordered {
-    margin-bottom: 16px;
-  }
-  .e-btn-group {
+  .e-button-group {
     margin-bottom: 16px;
   }
   .e-form-table {
@@ -9919,10 +9056,7 @@ category: snippets-other
   .c-main-visual {
     margin-bottom: 16px;
   }
-  .c-headline-primary {
-    margin-bottom: 16px;
-  }
-  .c-headline-secondary {
+  .c-headline {
     margin-bottom: 16px;
   }
   .c-headline-search {
@@ -9931,14 +9065,14 @@ category: snippets-other
   .c-headline-search__item {
     margin-bottom: 24px;
   }
-  .c-menu-hierarchy-primary {
-    margin-bottom: 16px;
-  }
-  .c-menu-hierarchy-secondary {
+  .c-menu {
     margin-bottom: 16px;
   }
   .c-anchor-nav {
     margin-bottom: 16px;
+  }
+  .c-summary-horizontal {
+    margin-bottom: 24px;
   }
   .c-summary-vertical .c-summary__item {
     margin-bottom: 24px;
@@ -9961,6 +9095,49 @@ category: snippets-other
   .swiper-3to2to1 {
     margin-bottom: 16px;
   }
+  .is-visible--md {
+    display: block;
+  }
+  .is-hidden--md {
+    display: none;
+  }
+  .is-center--md {
+    text-align: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .is-left--md {
+    text-align: left;
+  }
+  .is-right--md {
+    text-align: right;
+  }
+  .is-flex-start--md {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .is-flex-end--md {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .is-space-between--md {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .is-ib--md {
+    display: inline-block;
+  }
+  .is-block--md {
+    display: block;
+  }
+  .is-br--md:after {
+    white-space: pre;
+    content: "\A";
+  }
   .is-gapless--md {
     margin-right: -16px;
     margin-left: -16px;
@@ -9982,49 +9159,6 @@ category: snippets-other
   }
   .is-mb0--md {
     margin-bottom: 0 !important;
-  }
-  .is-w100p--md {
-    width: 100% !important;
-  }
-  .is-center--md {
-    text-align: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .is-left--md {
-    text-align: left;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-  }
-  .is-right--md {
-    text-align: right;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-  }
-  .is-justify--md {
-    text-align: justify;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .is-ib--md {
-    display: inline-block;
-  }
-  .is-block--md {
-    display: block;
-  }
-  .is-br--md:after {
-    white-space: pre;
-    content: "\A";
-  }
-  .is-visible--md {
-    display: block;
-  }
-  .is-hidden--md {
-    display: none;
   }
   .sg-content-block {
     width: 100%;
@@ -10146,9 +9280,6 @@ category: snippets-other
     top: 17px;
     z-index: 99999;
   }
-  :root {
-    --size: $width-sp-min;
-  }
   body,
   html {
     min-width: 320px;
@@ -10196,42 +9327,17 @@ category: snippets-other
     width: 100%;
   }
   .l-unit {
-    margin-bottom: 0;
-  }
-  .l-grids-2to2to1 {
-    margin-left: -1.7142881633%;
-    margin-right: -1.7142881633%;
-  }
-  .l-grids-2to2to1 .l-grid {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 96.5714236735%;
-            flex: 0 0 96.5714236735%;
-    margin-left: 1.7142881633%;
-    margin-right: 1.7142881633%;
     margin-bottom: 16px;
   }
-  .l-grids-3to2to1 {
-    margin-left: -1.7142881633%;
-    margin-right: -1.7142881633%;
-  }
-  .l-grids-3to2to1 .l-grid {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 96.5714236735%;
-            flex: 0 0 96.5714236735%;
-    margin-left: 1.7142881633%;
-    margin-right: 1.7142881633%;
-    margin-bottom: 16px;
-  }
-  .l-grids-4to2to2 {
-    margin-left: -1.7142881633%;
-    margin-right: -1.7142881633%;
-  }
-  .l-grids-4to2to2 .l-grid {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 46.5714236735%;
-            flex: 0 0 46.5714236735%;
-    margin-left: 1.7142881633%;
-    margin-right: 1.7142881633%;
+  .visual-editor p,
+  .visual-editor table,
+  .visual-editor ul,
+  .visual-editor ol,
+  .visual-editor dl,
+  .visual-editor blockquote,
+  .visual-editor figure,
+  .visual-editor .e-box-bordered,
+  .visual-editor hr {
     margin-bottom: 16px;
   }
   .l-cols--break {
@@ -10279,6 +9385,9 @@ category: snippets-other
     margin-left: -1.7142857143%;
   }
   .l-flex-box {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 46.5714285714%;
+            flex: 0 0 46.5714285714%;
     margin-right: 1.7142857143%;
     margin-left: 1.7142857143%;
     margin-bottom: 16px;
@@ -10298,16 +9407,10 @@ category: snippets-other
         -ms-flex: 1 1 96.5714285714%;
             flex: 1 1 96.5714285714%;
   }
-  .rich-editor p,
-  .rich-editor table,
-  .rich-editor ul,
-  .rich-editor ol,
-  .rich-editor dl,
-  .rich-editor blockquote,
-  .rich-editor figure,
-  .rich-editor .e-box-bordered,
-  .rich-editor hr {
-    margin-bottom: 16px;
+  .l-flex-box--auto {
+    -webkit-box-flex: 2;
+        -ms-flex: 2 2 15em;
+            flex: 2 2 15em;
   }
   .e-box-alert {
     font-size: 16px;
@@ -10325,99 +9428,82 @@ category: snippets-other
   .e-gmap iframe {
     height: 30vh;
   }
-  .rich-editor blockquote,
+  .visual-editor blockquote,
   .e-blockquote {
     margin-bottom: 16px;
   }
-  .rich-editor blockquote,
+  .visual-editor blockquote,
   .e-blockquote {
     padding: 3.4rem 1rem;
   }
-  .rich-editor h2:not(:first-child),
-  .rich-editor h3:not(:first-child),
-  .rich-editor h4:not(:first-child),
-  .rich-editor h5:not(:first-child),
-  .rich-editor h6:not(:first-child) {
+  .visual-editor h2:not(:first-child),
+  .visual-editor h3:not(:first-child),
+  .visual-editor h4:not(:first-child),
+  .visual-editor h5:not(:first-child),
+  .visual-editor h6:not(:first-child) {
     margin-top: 0;
   }
-  .rich-editor h1,
-  .e-hdg1 {
+  .visual-editor h1,
+  .e-hd1 {
     font-size: 20px;
     font-size: 1.4285714286rem;
   }
-  .rich-editor h1,
-  .e-hdg1--type2 {
+  .visual-editor h1,
+  .e-hd1--type2 {
     margin-bottom: 1.4rem;
   }
-  .rich-editor h1:before,
-  .e-hdg1--type2:before {
+  .visual-editor h1:before,
+  .e-hd1--type2:before {
     padding-top: 1.15rem;
   }
-  .rich-editor h1,
-  .e-hdg1--type2 {
+  .visual-editor h1,
+  .e-hd1--type2 {
     margin-right: -16px;
     margin-left: -16px;
     padding-left: 16px;
     padding-right: 16px;
   }
-  .rich-editor h2,
-  .e-hdg2 {
+  .visual-editor h2,
+  .e-hd2 {
     font-size: 18px;
     font-size: 1.2857142857rem;
   }
-  .rich-editor h2,
-  .e-hdg2--type2 {
+  .visual-editor h2,
+  .e-hd2--type2 {
     margin-bottom: 1.4rem;
   }
-  .rich-editor h3,
-  .e-hdg3,
-  .e-hdg3--type2 {
+  .visual-editor h3,
+  .e-hd3 {
     font-size: 16px;
     font-size: 1.1428571429rem;
   }
-  .rich-editor h3,
-  .e-hdg3--type2 {
+  .visual-editor h3,
+  .e-hd3--type2 {
     margin-bottom: 16px;
   }
-  .rich-editor h3,
-  .e-hdg3--type2 {
+  .visual-editor h3,
+  .e-hd3--type2 {
     padding-bottom: .8em;
     padding-left: 1.1em;
     padding-top: .7em;
   }
-  .rich-editor h4,
-  .e-hdg4,
-  .e-hdg4--type2 {
+  .visual-editor h4,
+  .e-hd4 {
     font-size: 14px;
     font-size: 1rem;
   }
-  .rich-editor h5,
-  .e-hdg5 {
+  .visual-editor h5,
+  .e-hd5 {
     font-size: 14px;
     font-size: 1rem;
   }
-  .rich-editor h6,
-  .e-hdg6 {
+  .visual-editor h6,
+  .e-hd6 {
     font-size: 14px;
     font-size: 1rem;
   }
-  .e-hdg-unit {
+  .e-hd-unit {
     margin-bottom: 16px;
-  }
-  .rich-editor .is-left,
-  .e-img-box.is-left {
-    float: none;
-    margin-right: 0;
-  }
-  .rich-editor .is-right,
-  .e-img-box.is-right {
-    float: none;
-    margin-left: 0;
-  }
-  .is-one-fourth,
-  .is-one-third,
-  .is-one-half {
-    width: 100%;
   }
   .e-responsive-img .e-img-box {
     position: relative;
@@ -10445,118 +9531,80 @@ category: snippets-other
   .e-responsive-img img {
     min-width: 520px;
   }
+  .is-img-left {
+    float: none;
+    margin-right: 0;
+  }
+  .is-img-right {
+    float: none;
+    margin-left: 0;
+  }
+  .is-img-w25,
+  .is-img-w33,
+  .is-img-w50,
+  .is-img-w100 {
+    width: 100%;
+  }
   .entry,
-  .rich-editor {
+  .visual-editor {
     margin-bottom: 16px;
   }
-  .rich-editor p,
+  .visual-editor p,
   .e-text {
     margin-bottom: 16px;
   }
-  .rich-editor strong > strong,
+  .visual-editor strong > strong,
   .e-text-catchcopy {
     font-size: 16px;
     font-size: 1.1428571429rem;
   }
-  .rich-editor strong > strong,
+  .visual-editor strong > strong,
   .e-text-catchcopy {
     margin-bottom: 16px;
   }
   .is-text-point {
     padding-right: 0;
   }
-  .rich-editor ul,
-  .rich-editor ol,
+  .visual-editor ul,
+  .visual-editor ol,
   .e-list {
     margin-bottom: 16px;
   }
-  .rich-editor dl,
+  .visual-editor dl,
   .e-dl {
     margin-bottom: 16px;
   }
   .e-list-inline {
     margin-bottom: 16px;
   }
-  .e-btn-list {
+  .visual-editor table caption, .e-table caption, .visual-editor .e-table--borderless caption, .e-table--borderless caption {
     margin-bottom: 16px;
   }
-  .e-btn-list {
-    margin-right: -1.7142857143%;
-    margin-left: -1.7142857143%;
-  }
-  .e-btn-list li {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 46.5714285714%;
-            flex: 0 0 46.5714285714%;
-    max-width: 46.5714285714%;
-    margin-right: 1.7142857143%;
-    margin-left: 1.7142857143%;
-    margin-bottom: 16px;
-  }
-  .rich-editor table caption, .e-table caption, .rich-editor .e-table--borderless caption, .e-table--borderless caption {
-    margin-bottom: 16px;
-  }
-  .rich-editor table,
-  .e-table, .rich-editor .e-table--borderless,
+  .visual-editor table,
+  .e-table, .visual-editor .e-table--borderless,
   .e-table--borderless {
     margin-bottom: 16px;
   }
   
-  .rich-editor table th,
+  .visual-editor table th,
   .e-table th,
-  .rich-editor .e-table--borderless th,
+  .visual-editor .e-table--borderless th,
   .e-table--borderless th {
     width: 30%;
   }
-  .rich-editor .e-table--block th,
+  .visual-editor .e-table--block th,
   .e-table--block th {
     border-bottom: 0;
     padding-bottom: 0;
   }
-  .rich-editor .e-table--block th,
-  .rich-editor .e-table--block td,
+  .visual-editor .e-table--block th,
+  .visual-editor .e-table--block td,
   .e-table--block th,
   .e-table--block td {
     display: block;
     width: auto;
   }
-  .rich-editor .e-table--block th.is-w-1em,
-  .rich-editor .e-table--block td.is-w-1em,
-  .e-table--block th.is-w-1em,
-  .e-table--block td.is-w-1em {
-    width: auto;
-  }
-  .rich-editor .e-table--block th.is-w-10p,
-  .rich-editor .e-table--block td.is-w-10p,
-  .e-table--block th.is-w-10p,
-  .e-table--block td.is-w-10p {
-    width: auto;
-  }
-  .rich-editor .e-table--block th.is-w-15p,
-  .rich-editor .e-table--block td.is-w-15p,
-  .e-table--block th.is-w-15p,
-  .e-table--block td.is-w-15p {
-    width: auto;
-  }
-  .rich-editor .e-table--block th.is-w-20p,
-  .rich-editor .e-table--block td.is-w-20p,
-  .e-table--block th.is-w-20p,
-  .e-table--block td.is-w-20p {
-    width: auto;
-  }
-  .rich-editor .e-table--block th.is-w-small,
-  .rich-editor .e-table--block td.is-w-small,
-  .e-table--block th.is-w-small,
-  .e-table--block td.is-w-small {
-    width: auto;
-  }
-  .rich-editor .e-table--block th.is-w-medium,
-  .rich-editor .e-table--block td.is-w-medium,
-  .e-table--block th.is-w-medium,
-  .e-table--block td.is-w-medium {
-    width: auto;
-  }
-  .rich-editor .e-responsive-table,
+  .visual-editor .e-responsive-table,
   .e-responsive-table {
     position: relative;
     margin-bottom: 16px;
@@ -10564,19 +9612,19 @@ category: snippets-other
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .rich-editor .e-responsive-table::-webkit-scrollbar,
+  .visual-editor .e-responsive-table::-webkit-scrollbar,
   .e-responsive-table::-webkit-scrollbar {
     height: 3px;
   }
-  .rich-editor .e-responsive-table::-webkit-scrollbar-track,
+  .visual-editor .e-responsive-table::-webkit-scrollbar-track,
   .e-responsive-table::-webkit-scrollbar-track {
     background: #d4d4d4;
   }
-  .rich-editor .e-responsive-table::-webkit-scrollbar-thumb,
+  .visual-editor .e-responsive-table::-webkit-scrollbar-thumb,
   .e-responsive-table::-webkit-scrollbar-thumb {
     background: #333;
   }
-  .rich-editor .e-responsive-table:after,
+  .visual-editor .e-responsive-table:after,
   .e-responsive-table:after {
     display: block;
     padding-bottom: .5em;
@@ -10585,62 +9633,90 @@ category: snippets-other
     white-space: nowrap;
     content: "← この表は左右に動かせます。 →";
   }
-  .rich-editor .e-responsive-table table,
+  .visual-editor .e-responsive-table table,
   .e-responsive-table table {
     width: auto;
   }
-  .rich-editor .e-responsive-table th,
-  .rich-editor .e-responsive-table td,
+  .visual-editor .e-responsive-table th,
+  .visual-editor .e-responsive-table td,
   .e-responsive-table th,
   .e-responsive-table td {
     white-space: nowrap;
   }
-  .rich-editor .e-responsive-table .e-responsive-w-inner--short,
-  .e-responsive-table .e-responsive-w-inner--short {
+  .visual-editor .e-table--block th.is-cell-1em,
+  .visual-editor .e-table--block td.is-cell-1em,
+  .e-table--block th.is-cell-1em,
+  .e-table--block td.is-cell-1em {
+    width: auto;
+  }
+  .visual-editor .e-table--block th.is-cell-10p,
+  .visual-editor .e-table--block td.is-cell-10p,
+  .e-table--block th.is-cell-10p,
+  .e-table--block td.is-cell-10p {
+    width: auto;
+  }
+  .visual-editor .e-table--block th.is-cell-15p,
+  .visual-editor .e-table--block td.is-cell-15p,
+  .e-table--block th.is-cell-15p,
+  .e-table--block td.is-cell-15p {
+    width: auto;
+  }
+  .visual-editor .e-table--block th.is-cell-20p,
+  .visual-editor .e-table--block td.is-cell-20p,
+  .e-table--block th.is-cell-20p,
+  .e-table--block td.is-cell-20p {
+    width: auto;
+  }
+  .visual-editor .e-table--block th.is-cell-25p,
+  .visual-editor .e-table--block td.is-cell-25p,
+  .e-table--block th.is-cell-25p,
+  .e-table--block td.is-cell-25p {
+    width: auto;
+  }
+  .visual-editor .e-table--block th.is-cell-30p,
+  .visual-editor .e-table--block td.is-cell-30p,
+  .e-table--block th.is-cell-30p,
+  .e-table--block td.is-cell-30p {
+    width: auto;
+  }
+  .visual-editor .e-table--block th.is-cell-50p,
+  .visual-editor .e-table--block td.is-cell-50p,
+  .e-table--block th.is-cell-50p,
+  .e-table--block td.is-cell-50p {
+    width: auto;
+  }
+  .visual-editor .e-responsive-table .is-responsive-cell-30vw,
+  .e-responsive-table .is-responsive-cell-30vw {
     white-space: normal;
     width: 30vw;
   }
-  .rich-editor .e-responsive-table .e-responsive-w-inner--one-half,
-  .e-responsive-table .e-responsive-w-inner--one-half {
+  .visual-editor .e-responsive-table .is-responsive-cell-50vw,
+  .e-responsive-table .is-responsive-cell-50vw {
     white-space: normal;
     width: 50vw;
   }
   .e-box {
     margin-bottom: 16px;
   }
-  .e-box__head {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-  .e-box__body {
+  .e-box {
     padding: 1rem;
   }
-  .rich-editor .e-box-bordered {
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-  .e-box-bordered {
-    margin-bottom: 16px;
-  }
-  .e-box-bordered__body {
-    padding: .8rem 1.1rem;
-  }
-  .e-btn {
+  .e-button {
     padding: 0.9rem 1.28rem;
   }
-  .e-btn-group {
+  .e-button-group {
     margin-bottom: 16px;
   }
-  .e-btn-group .e-btn {
+  .e-button-group .e-button {
     width: 100%;
   }
-  .e-btn--small {
+  .e-button--small {
     padding: 0.36rem 0.64rem;
   }
-  .e-btn--large {
+  .e-button--large {
     padding: 1.26rem 1.6rem;
   }
-  .e-btn--xlarge {
+  .e-button--xlarge {
     padding: 1.26rem 1.6rem;
   }
   .e-form-step {
@@ -10680,8 +9756,41 @@ category: snippets-other
     padding-top: 0.7em;
     padding-bottom: 1.2em;
   }
-  .g-recaptcha {
-    margin-bottom: 16px;
+  .e-form-cols--break {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .e-form-cols--break > .e-form-col1,
+  .e-form-cols--break > .e-form-col2,
+  .e-form-cols--break > .e-form-col3,
+  .e-form-cols--break > .e-form-col4,
+  .e-form-cols--break > .e-form-col5,
+  .e-form-cols--break > .e-form-col6,
+  .e-form-cols--break > .e-form-col7,
+  .e-form-cols--break > .e-form-col8,
+  .e-form-cols--break > .e-form-col9,
+  .e-form-cols--break > .e-form-col10,
+  .e-form-cols--break > .e-form-col11,
+  .e-form-cols--break > .e-form-col12 {
+    width: auto;
+    float: none;
+    clear: both;
+  }
+  .e-form-cols--break > .e-form-col1::after,
+  .e-form-cols--break > .e-form-col2::after,
+  .e-form-cols--break > .e-form-col3::after,
+  .e-form-cols--break > .e-form-col4::after,
+  .e-form-cols--break > .e-form-col5::after,
+  .e-form-cols--break > .e-form-col6::after,
+  .e-form-cols--break > .e-form-col7::after,
+  .e-form-cols--break > .e-form-col8::after,
+  .e-form-cols--break > .e-form-col9::after,
+  .e-form-cols--break > .e-form-col10::after,
+  .e-form-cols--break > .e-form-col11::after,
+  .e-form-cols--break > .e-form-col12::after {
+    clear: both;
+    content: "";
+    display: block;
   }
   .e-form-col0_5--sm {
     width: 4.1666666665%;
@@ -10766,12 +9875,6 @@ category: snippets-other
   .e-card {
     max-width: inherit;
   }
-  .e-card__img--trim {
-    height: 125px;
-  }
-  .e-card__label {
-    position: static;
-  }
   .e-card__title {
     font-size: 14px;
     font-size: 1rem;
@@ -10779,13 +9882,11 @@ category: snippets-other
   .e-card__text + .e-card__text {
     margin-top: 16px;
   }
-  .e-card--small .e-card__title {
-    font-size: 14px;
-    font-size: 1rem;
-  }
   .c-breadcrumb {
     border-top: 1px solid #ddd;
     width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -10818,25 +9919,17 @@ category: snippets-other
   .c-main-visual__bg-img {
     min-height: 100px;
   }
-  .c-headline-primary {
+  .c-headline {
     margin-bottom: 16px;
   }
-  .c-headline-primary__item {
+  .c-headline__item {
     display: block;
   }
-  .c-headline-primary__label {
+  .c-headline__label {
     display: inline;
   }
-  .c-headline-primary__title {
+  .c-headline__title {
     margin-top: .4em;
-  }
-  .c-headline-secondary {
-    margin-bottom: 16px;
-  }
-  .c-headline-secondary__date {
-    margin-right: 0;
-    width: 100%;
-    float: none;
   }
   .c-headline-search {
     margin-bottom: 16px;
@@ -10847,41 +9940,38 @@ category: snippets-other
   .c-headline-search__title {
     margin-bottom: 0;
   }
-  .c-menu-hierarchy-primary {
+  .c-menu {
     margin-bottom: 16px;
   }
-  .c-menu-hierarchy-primary__title {
+  .c-menu__title {
     font-size: 14px;
     font-size: 1rem;
-  }
-  .c-menu-hierarchy-primary__title:after {
-    display: block;
-  }
-  .c-menu-hierarchy-secondary {
-    margin-bottom: 16px;
-  }
-  .c-menu-hierarchy-secondary__title {
-    font-size: 14px;
-    font-size: 1rem;
-  }
-  .c-menu-hierarchy-secondary__title:after {
-    display: block;
   }
   .c-anchor-nav {
     margin-bottom: 16px;
   }
   .c-summary-horizontal {
+    margin-bottom: 16px;
+  }
+  .c-summary-horizontal {
+    padding-left: 16px;
+    margin-right: -16px;
+    margin-left: -16px;
+  }
+  .c-summary-horizontal ul {
     margin-right: -1.7142857143%;
     margin-left: -1.7142857143%;
+    overflow: scroll;
+    -ms-flex-flow: nowrap;
+        flex-flow: nowrap;
   }
   .c-summary-horizontal .c-summary__item {
     margin-right: 1.7142857143%;
     margin-left: 1.7142857143%;
-    margin-bottom: 16px;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 96.5714285714%;
-            flex: 1 1 96.5714285714%;
-    max-width: 96.5714285714%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 240px;
+            flex: 0 0 240px;
+    max-width: none;
   }
   .c-summary-vertical .c-summary__item {
     margin-bottom: 16px;
@@ -10901,11 +9991,11 @@ category: snippets-other
   .c-accordion + .c-accordion {
     margin-top: -16px;
   }
-  .c-accordion__title:after, .c-accordion-title-icon:after {
+  .c-accordion__title:after {
     font-size: 20px;
     font-size: 1.4285714286rem;
   }
-  .c-accordion__title:after, .c-accordion-title-icon:after {
+  .c-accordion__title:after {
     right: 5px;
   }
   .c-tab {
@@ -10934,7 +10024,7 @@ category: snippets-other
     font-size: 16px;
     font-size: 1.1428571429rem;
   }
-  .c-modal-dialog__btn-group {
+  .c-modal-dialog__button-group {
     margin-top: 16px;
   }
   .swiper-main {
@@ -10970,6 +10060,49 @@ category: snippets-other
   .swiper-3to2to1 .swiper-pagination-bullets {
     display: none;
   }
+  .is-visible--sm {
+    display: block;
+  }
+  .is-hidden--sm {
+    display: none;
+  }
+  .is-center--sm {
+    text-align: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .is-left--sm {
+    text-align: left;
+  }
+  .is-right--sm {
+    text-align: right;
+  }
+  .is-flex-start--sp {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .is-flex-end--sm {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .is-space-between--sm {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .is-ib--sm {
+    display: inline-block;
+  }
+  .is-block--sm {
+    display: block;
+  }
+  .is-br--sm:after {
+    white-space: pre;
+    content: "\A";
+  }
   .is-gapless--sm {
     margin-right: -16px;
     margin-left: -16px;
@@ -10991,49 +10124,6 @@ category: snippets-other
   }
   .is-mb0--sm {
     margin-bottom: 0 !important;
-  }
-  .is-w100p--sm {
-    width: 100% !important;
-  }
-  .is-center--sm {
-    text-align: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .is-left--sm {
-    text-align: left;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-  }
-  .is-right--sm {
-    text-align: right;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-  }
-  .is-justify--sm {
-    text-align: justify;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .is-ib--sm {
-    display: inline-block;
-  }
-  .is-block--sm {
-    display: block;
-  }
-  .is-br--sm:after {
-    white-space: pre;
-    content: "\A";
-  }
-  .is-visible--sm {
-    display: block;
-  }
-  .is-hidden--sm {
-    display: none;
   }
   .sg-html {
     margin-top: 0;
@@ -11076,12 +10166,6 @@ category: snippets-other
 @media screen and (min-width: 43.75em) and (max-width: 59.9999375em) {
   .c-breadcrumb {
     margin-top: 16px;
-  }
-  .c-summary-horizontal .c-summary__item {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 48%;
-            flex: 0 0 48%;
-    max-width: 48%;
   }
 }
 @media screen and (max-width: 75em) {

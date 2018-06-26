@@ -18,14 +18,14 @@
 <body class="sg-body">
 <header class="sg-header">
   <div class="sg-header__inner">
-    <h1>Japan Web Production Standards</h1>
+    <h1>スタイルガイド</h1>
     <nav class="sg-header__nav">
 	  <a href="index.html">Top</a>
       <a href="started.html">Started</a>
       <a href="variables.html">variables</a>
       <a href="mixins.html">mixins</a>
       <a href="layouts.html">layouts</a>
-	   <a href="richeditor.html">richeditor</a>
+	   <a href="visualeditor.html">visualeditor</a>
       <a href="elements.html">elements</a>
       <a href="components.html">components</a>
 	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
@@ -102,13 +102,13 @@
   <div class="exampleOutput">
     
 <div class="c-accordion" data-accordion>
- <button type="button" class="c-accordion__title" aria-controls="accordion1" aria-expanded="true" aria-label="開く" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - NONE</button>
+ <button type="button" class="c-accordion__title" aria-controls="accordion1" aria-expanded="true" aria-label="開く" data-toggle-accordion> 情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - NONE</button>
  <div id="accordion1" class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
   <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
  </div>
 </div>
 
-<div class="c-accordion is-active" data-accordion data-device-accordion="all">
+<div class="c-accordion c-accordion--faq is-active" data-accordion data-device-accordion="all">
  <button type="button" class="c-accordion__title" aria-controls="accordion2" aria-expanded="false" aria-label="閉じる" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - ALL</button>
  <div id="accordion2" class="c-accordion__body" aria-hidden="false" data-body-accordion>
   <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
@@ -146,13 +146,13 @@
       <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
         <div class="highlight">
           <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-accordion"</span> <span class="na">data-accordion</span><span class="nt">&gt;</span>
- <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"c-accordion__title"</span> <span class="na">aria-controls=</span><span class="s">"accordion1"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"開く"</span> <span class="na">data-toggle-accordion</span><span class="nt">&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - NONE<span class="nt">&lt;/button&gt;</span>
+ <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"c-accordion__title"</span> <span class="na">aria-controls=</span><span class="s">"accordion1"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"開く"</span> <span class="na">data-toggle-accordion</span><span class="nt">&gt;</span> 情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - NONE<span class="nt">&lt;/button&gt;</span>
  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"accordion1"</span> <span class="na">class=</span><span class="s">"c-accordion__body"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">style=</span><span class="s">"display:none;"</span> <span class="na">data-body-accordion</span><span class="nt">&gt;</span>
   <span class="nt">&lt;p&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。<span class="nt">&lt;/p&gt;</span>
  <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-accordion is-active"</span> <span class="na">data-accordion</span> <span class="na">data-device-accordion=</span><span class="s">"all"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-accordion c-accordion--faq is-active"</span> <span class="na">data-accordion</span> <span class="na">data-device-accordion=</span><span class="s">"all"</span><span class="nt">&gt;</span>
  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"c-accordion__title"</span> <span class="na">aria-controls=</span><span class="s">"accordion2"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"閉じる"</span> <span class="na">data-toggle-accordion</span><span class="nt">&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - ALL<span class="nt">&lt;/button&gt;</span>
  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"accordion2"</span> <span class="na">class=</span><span class="s">"c-accordion__body"</span> <span class="na">aria-hidden=</span><span class="s">"false"</span> <span class="na">data-body-accordion</span><span class="nt">&gt;</span>
   <span class="nt">&lt;p&gt;</span>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。<span class="nt">&lt;/p&gt;</span>
@@ -580,8 +580,8 @@
 <div class="codeExample">
   <div class="exampleOutput">
     <!-- ボタン領域 -->
-<div class="e-btn-group is-left">
-<button type="button" class="e-btn" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
+<div class="e-button-group is-left">
+<button type="button" class="e-button" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
 </div>
 <div class="e-box" data-clone-modal="area-modal-dialog1">
 <div class="e-box__body">
@@ -600,9 +600,9 @@
         <div data-append-modal>
           <!--  data-append-modal内はdata-clone-modal="aria-controls名"を表示 -->
         </div>
-        <div class="c-modal-dialog__btn-group e-btn-group">
-          <button type="button" class="e-btn e-btn--secondary" data-close-modal aria-expanded="true" aria-label="キャンセル">キャンセル</button>
-          <button type="button" class="e-btn e-btn--secondary" aria-expanded="true" aria-label="実行する">実行する</button>
+        <div class="c-modal-dialog__button-group e-button-group">
+          <button type="button" class="e-button e-button--secondary" data-close-modal aria-expanded="true" aria-label="キャンセル">キャンセル</button>
+          <button type="button" class="e-button e-button--secondary" aria-expanded="true" aria-label="実行する">実行する</button>
         </div>
 
       </div>
@@ -619,8 +619,8 @@
       <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
         <div class="highlight">
           <pre><span class="c">&lt;!-- ボタン領域 --&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-btn-group is-left"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn"</span> <span class="na">data-open-modal</span> <span class="na">aria-controls=</span><span class="s">"area-modal-dialog1"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"開く"</span><span class="nt">&gt;</span>Modal Dialogを開く<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-button-group is-left"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-button"</span> <span class="na">data-open-modal</span> <span class="na">aria-controls=</span><span class="s">"area-modal-dialog1"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"開く"</span><span class="nt">&gt;</span>Modal Dialogを開く<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box"</span> <span class="na">data-clone-modal=</span><span class="s">"area-modal-dialog1"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box__body"</span><span class="nt">&gt;</span>
@@ -639,9 +639,9 @@
         <span class="nt">&lt;div</span> <span class="na">data-append-modal</span><span class="nt">&gt;</span>
           <span class="c">&lt;!--  data-append-modal内はdata-clone-modal="aria-controls名"を表示 --&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-modal-dialog__btn-group e-btn-group"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn e-btn--secondary"</span> <span class="na">data-close-modal</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"キャンセル"</span><span class="nt">&gt;</span>キャンセル<span class="nt">&lt;/button&gt;</span>
-          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn e-btn--secondary"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"実行する"</span><span class="nt">&gt;</span>実行する<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-modal-dialog__button-group e-button-group"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-button e-button--secondary"</span> <span class="na">data-close-modal</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"キャンセル"</span><span class="nt">&gt;</span>キャンセル<span class="nt">&lt;/button&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-button e-button--secondary"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"実行する"</span><span class="nt">&gt;</span>実行する<span class="nt">&lt;/button&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
 
       <span class="nt">&lt;/div&gt;</span>
@@ -691,9 +691,9 @@
   <div class="exampleOutput">
        <div class="js-posts" data-url="hoge.json">
      <script type="text/html">
-       <ul class="l-grids-4to2to2">
+       <ul class="c-summary-horizontal">
          <% _.each(data, function(result) { %>
-         <li class="l-grid c-card">
+         <li class="c-summary__item c-card">
            <a href="<%-result.url %>">
              <div class="c-card__img"><img src="<%- result.image_path %>" alt=""></div>
                <div class="c-card__body">
@@ -721,9 +721,9 @@
         <div class="highlight">
           <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"js-posts"</span> <span class="na">data-url=</span><span class="s">"hoge.json"</span><span class="nt">&gt;</span>
      <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/html"</span><span class="nt">&gt;</span>
-       <span class="o">&lt;</span><span class="nx">ul</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"l-grids-4to2to2"</span><span class="o">&gt;</span>
+       <span class="o">&lt;</span><span class="nx">ul</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"c-summary-horizontal"</span><span class="o">&gt;</span>
          <span class="o">&lt;%</span> <span class="nx">_</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span> <span class="o">%&gt;</span>
-         <span class="o">&lt;</span><span class="nx">li</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"l-grid c-card"</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="nx">li</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"c-summary__item c-card"</span><span class="o">&gt;</span>
            <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"&lt;%-result.url %&gt;"</span><span class="o">&gt;</span>
              <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"c-card__img"</span><span class="o">&gt;&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"&lt;%- result.image_path %&gt;"</span> <span class="nx">alt</span><span class="o">=</span><span class="s2">""</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>               <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"c-card__body"</span><span class="o">&gt;</span>
@@ -838,7 +838,7 @@
 <div class="codeExample">
   <div class="exampleOutput">
     
- <button class="js-ripple e-btn e-btn--secondary" type="button">もっと見る</button>
+ <button class="js-ripple e-button e-button--secondary" type="button">もっと見る</button>
 
 
   </div>
@@ -847,7 +847,7 @@
     <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
       <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
         <div class="highlight">
-          <pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"js-ripple e-btn e-btn--secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>もっと見る<span class="nt">&lt;/button&gt;</span></pre>
+          <pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"js-ripple e-button e-button--secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>もっと見る<span class="nt">&lt;/button&gt;</span></pre>
         </div>
       </div>
   </div>
