@@ -14,13 +14,13 @@ categories: [js, accordion]
 ```html_example
 
 <div class="c-accordion" data-accordion>
- <button type="button" class="c-accordion__title" aria-controls="accordion1" aria-expanded="true" aria-label="開く" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - NONE</button>
+ <button type="button" class="c-accordion__title" aria-controls="accordion1" aria-expanded="true" aria-label="開く" data-toggle-accordion> 情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - NONE</button>
  <div id="accordion1" class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
   <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
  </div>
 </div>
 
-<div class="c-accordion is-active" data-accordion data-device-accordion="all">
+<div class="c-accordion c-accordion--faq is-active" data-accordion data-device-accordion="all">
  <button type="button" class="c-accordion__title" aria-controls="accordion2" aria-expanded="false" aria-label="閉じる" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - ALL</button>
  <div id="accordion2" class="c-accordion__body" aria-hidden="false" data-body-accordion>
   <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
@@ -81,6 +81,7 @@ categories: [js, accordion]
 
 */
 
+
 .c-accordion {
   border-bottom: 0;
   background: $brand-white;
@@ -124,8 +125,8 @@ categories: [js, accordion]
     }
   }
 
-  &__title,
-  &-title-icon {
+  //icon
+  &__title {
     position: relative;
     &:after {
       color: $brand-primary;
@@ -163,3 +164,49 @@ categories: [js, accordion]
   }
 }
 
+
+.c-accordion--faq {
+
+  .c-accordion__title {
+    padding-left: 3.6rem;
+  }
+  .c-accordion__title:before {
+    width:2rem;
+    height:2rem;
+    box-sizing: border-box;
+    content: 'Q';
+    color: #fff;
+    display: inline-block;
+    border-radius: 100px;
+    background-color: #477CCB;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 2rem;
+    position: absolute;
+    left: 15px;
+    top: 12px;
+  }
+
+  .c-accordion__body {
+    padding-left: 3.6rem;
+    position: relative;
+  }
+  .c-accordion__body:before {
+    width:2rem;
+    height:2rem;
+    box-sizing: border-box;
+    content: 'A';
+    color: #fff;
+    display: inline-block;
+    border-radius: 100px;
+    background-color: #FD95A1;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 2rem;
+    position: absolute;
+    left: 15px;
+    top: 25px;
+  }
+
+
+}

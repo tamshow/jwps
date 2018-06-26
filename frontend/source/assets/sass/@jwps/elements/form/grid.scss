@@ -4,79 +4,12 @@
 /* @ Layout
  * ------------------------------------------------------------ */
 
-
-/* Layout
-   ========================================================================== */
-/*doc
----
-title: form-layout
-name: form-layout
-categories: [elements, form]
-parent: form
----
-
-
-
-【フォームの基本形】<br>
-`.e-form-table`         = 大枠<br>
-`.e-form-unit`          = 1かたまり<br>
-`.e-form-head`          = 見だし<br>
-`.e-form-field`         = フィールド<br>
-※`.e-form-field`の中は`.e-form-cols > .e-form-col12` 等で囲みその中に`inputタグ`を記述<br><br>
-
-
-【レイアウト】<br>
-`.e-form-cols`      = グリッドレイアウト枠<br>
-`.e-form-col[0_5 - 12]` = グリッドレイアウト スマホ時は続けて `.e-form-col12--sm`等を記述<br><br>
-
-
-
-【ヘルパー】<br>
-`.e-form-control`       = input, textarea, selectなどのinput要素<br>
-`.e-form-text-dash`     = .e-form-field内の「 - 」を囲むタグ`.e-form-col0_5`の中に記述<br>
-`.e-form-inframe`       = .e-form-field内インラインフレーム<br>
-`[role="tooltip"]`    = 入力タイプ説明をツールチップで紐付ける<br>
-`.e-form-req`    = 必須<br>
-`.e-form-any`    = 任意<br>
-`.e-form-text`    = フォームテキスト<br>
-`.e-form-small-text`    = フォームスモールテキスト
-
-
-*/
-
-
-
-.e-form-unit {
-  opacity: 1;
-}
-
-.e-form-head {
-  opacity: 1;
-}
-
-.e-form-field {
-  opacity: 1;
-
-}
-
 .e-form-cols {
   //margin-top: -.8rem;
   margin-right: -1.5%;
   margin-left: -1.5%;
   @include clearfix;
   display: block;
-}
-
-.e-form-inline {
-  display: inline;
-}
-
-.e-form-block {
-  display: block;
-}
-
-.e-form-center {
-  text-align: center;
 }
 
 .e-form-col0_5,
@@ -163,6 +96,35 @@ $col-width: 8.333333333;
  // float: none;
  // display: inline-block;
 }
+
+
+@include media-sp-max {
+
+  .e-form-cols--break {
+
+    margin-right: 0;
+    margin-left: 0;
+
+    > .e-form-col1,
+    > .e-form-col2,
+    > .e-form-col3,
+    > .e-form-col4,
+    > .e-form-col5,
+    > .e-form-col6,
+    > .e-form-col7,
+    > .e-form-col8,
+    > .e-form-col9,
+    > .e-form-col10,
+    > .e-form-col11,
+    > .e-form-col12 {
+      width: auto;
+      float: none;
+      @include clearfix;
+      clear: both;
+    }
+  }
+}
+
 
 @include media-sp-max {
 

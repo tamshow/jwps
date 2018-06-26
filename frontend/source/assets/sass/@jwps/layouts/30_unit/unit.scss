@@ -8,11 +8,12 @@
   margin-bottom: $margin-large-pc;
 
   *:last-child {
-    margin-bottom: 0;
+    //margin-bottom: 0;
   }
 
   @include media-sp-max {
-    margin-bottom: 0;
+    margin-bottom: $margin-large-sp;
   }
 
 }
+

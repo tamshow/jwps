@@ -7,8 +7,8 @@
 /* list
    ========================================================================== */
 
-.rich-editor ul,
-.rich-editor ol,
+.visual-editor ul,
+.visual-editor ol,
 .e-list {
   @include mb-small;
 
@@ -46,7 +46,7 @@ categories: [elements, list]
 ```
 */
 
-.rich-editor ul,
+.visual-editor ul,
 .e-list--disc {
   margin-left: 1.4em;
   list-style-type: disc;
@@ -73,7 +73,7 @@ parent: list
 ```
 */
 
-.rich-editor ol,
+.visual-editor ol,
 .e-list--decimal {
   margin-left: 1.4em;
   list-style-type: decimal;
@@ -100,7 +100,7 @@ parent: list
 ```
 */
 
-.rich-editor .e-list--arrow,
+.visual-editor .e-list--arrow,
 .e-list--arrow {
 
   margin-left: 0;
@@ -127,96 +127,6 @@ parent: list
 
 
 
-/* リスト square
-   ========================================================================== */
-
-/*doc
----
-title: list-square
-name: list-square
-categories: [elements, list]
-parent: list
----
-
-```html_example
-<ul class="e-list e-list--square">
-  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
-  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
-  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
-  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
-</ul>
-
-
-```
-*/
-
-
-.rich-editor .e-list--square,
-.e-list--square {
-
-  margin-left: 0;
-  list-style-type: none;
-
-  a:hover:before {
-    text-decoration: none;
-  }
-
-  li {
-    text-indent: -.8em;
-    padding-left: .8em;
-
-    &:before {
-      background-color: $brand-primary-light;
-      width: .5em;
-      height:.5em;
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: .3em;
-      margin-top: -.1em;
-      content: '';
-    }
-  }
-}
-
-
-
-
-/* リスト img
-   ========================================================================== */
-
-/*doc
----
-title: list-img
-name: list-img
-categories: [elements, list]
-parent: list
----
-
-```html_example
-<ul class="e-list e-list--img">
-  <li><a href=""><img src="/assets/img/dummy/300x100.png" alt=""></a></li>
-  <li><a href=""><img src="/assets/img/dummy/300x100.png" alt=""></a></li>
-  <li><a href=""><img src="/assets/img/dummy/300x100.png" alt=""></a></li>
-</ul>
-
-
-```
-*/
-
-.e-list--img {
-
-  li {
-    text-align: center;
-    margin-bottom: $margin-xs-pc;
-  }
-
-  a {
-    display: block;
-    text-decoration: none;
-  }
-
-}
-
 /* 定義リスト
    ========================================================================== */
 
@@ -241,7 +151,7 @@ parent: list
 ```
 */
 
-.rich-editor dl,
+.visual-editor dl,
 .e-dl {
 
   @include mb-small;
@@ -309,102 +219,6 @@ parent: list
     &:last-child:after {
       display: none;
     }
-  }
-}
-
-/*doc
----
-title: list-btn
-name: list-btn
-categories: [elements, list]
-parent: list
----
-
-```html_example
-  <ul class="e-btn-list">
-    <li><a href="" class="is-active"><span class="is-icon-target-blank">智に働けば<br>智に働けば</span></a></li>
-    <li><a href="">智に働けば</a></li>
-    <li><a href="">智に働けば</a></li>
-    <li><a href="">智に働けば</a></li>
-    <li><a href="">智に働けば</a></li>
-    <li><a href="">智に働けば</a></li>
-
-
-  </ul>
-
-```
-*/
-
-.e-btn-list {
-  @include clearfix;
-  @include mb-small;
-  align-items: stretch;
-  clear: both;
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -1%;
-  margin-left: -1%;
-  @include media-sp-max {
-    margin-right: -1.7142857143%;
-    margin-left: -1.7142857143%;
-  }
-
-  li {
-    display: flex;
-    flex: 0 0 23%;
-    max-width: 23%;
-    box-sizing: border-box;
-    margin-right: 1%;
-    margin-left: 1%;
-    // margin-bottom: 1.92%;
-    margin-bottom: 16px;
-    border-radius: $border-radius-pc;
-
-    @include media-sp-max {
-      flex: 0 0 46.5714285714%;
-      max-width: 46.5714285714%;
-      margin-right: 1.7142857143%;
-      margin-left: 1.7142857143%;
-      margin-bottom: $width-gap-sp;
-    }
-
-    a {
-      height: 60px;
-      padding: 1em .5em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      background-color: #fff;
-      @include fsize(14px);
-      color: $text-color;
-      max-width: 100%;
-      box-sizing: border-box;
-      transition: all $animation;
-      -webkit-font-smoothing: antialiased;
-      text-align: center;
-      text-decoration: none;
-      position: relative;
-      vertical-align: middle;
-      line-height: 1.4;
-
-      @include elevation(2);
-      @include elevation-transition;
-
-      &:hover,
-      &:focus,
-      &.is-active {
-        text-decoration: none;
-        @include elevation(4);
-      }
-
-      &:active {
-        text-decoration: none;
-        @include elevation(8);
-      }
-
-    }
-
   }
 }
 

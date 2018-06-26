@@ -19,6 +19,9 @@
 
 html {
   line-height: $line-height-pc;
+  //min-width: $width-pc-max;
+
+
   @include media-lg-min {
     font-size: $fsize-pc;
   }

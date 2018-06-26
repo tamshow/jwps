@@ -37,7 +37,7 @@ $(function () {
     $(document).on('keyup', function(e) {
       var ESCAPE_KEY_CODE = 27;
       if (e.keyCode === ESCAPE_KEY_CODE) {
-        this.hide(e);
+        hide(e);
       }
     });
 

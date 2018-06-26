@@ -13,8 +13,8 @@ categories: [js, modal]
 
 ```html_example
 <!-- ボタン領域 -->
-<div class="e-btn-group is-left">
-<button type="button" class="e-btn" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
+<div class="e-button-group is-left">
+<button type="button" class="e-button" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
 </div>
 <div class="e-box" data-clone-modal="area-modal-dialog1">
 <div class="e-box__body">
@@ -33,9 +33,9 @@ categories: [js, modal]
         <div data-append-modal>
           <!--  data-append-modal内はdata-clone-modal="aria-controls名"を表示 -->
         </div>
-        <div class="c-modal-dialog__btn-group e-btn-group">
-          <button type="button" class="e-btn e-btn--secondary" data-close-modal aria-expanded="true" aria-label="キャンセル">キャンセル</button>
-          <button type="button" class="e-btn e-btn--secondary" aria-expanded="true" aria-label="実行する">実行する</button>
+        <div class="c-modal-dialog__button-group e-button-group">
+          <button type="button" class="e-button e-button--secondary" data-close-modal aria-expanded="true" aria-label="キャンセル">キャンセル</button>
+          <button type="button" class="e-button e-button--secondary" aria-expanded="true" aria-label="実行する">実行する</button>
         </div>
 
       </div>
@@ -150,7 +150,7 @@ categories: [js, modal]
 
   }
 
-  &__btn-group {
+  &__button-group {
 
     margin-top: $margin-small-pc;
 

@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+/*doc
+---
+title: grid
+name: grid
+category: mixins
+---
+
+```
+grid ($className:'.cols', $col:6, $allW:940, $g:30, $sp:false)
+
+@include grid('.c-summary__item', 6, $screen-pc-max, 24);
+
+
+
+```
+
+
+*/
+
+
+@mixin grid ($className:'.cols', $col:6, $allW:940, $g:30) {
+  $grid: 12;
+  $gap: $g / 2;
+
+  $columns-auto: ($allW / $grid) - (2 * $gap);
+  $grid-auto: ($gap * ($grid * 2)) + ($columns-auto * $grid);
+  $this-width: ((($columns-auto * $col) + ($gap * ($col - 1)) + ($gap * ($col - 1))) / $grid-auto * 100%);
+
+  margin-left: - percentage($gap / $grid-auto);
+  margin-right: - percentage($gap / $grid-auto);
+
+  align-items: stretch;
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+
+  #{$className} {
+    flex: 0 0 $this-width;
+    margin-left: percentage($gap / $grid-auto);
+    margin-right: percentage($gap / $grid-auto);
+    //margin-bottom: percentage(($gap / $grid-auto) * 2);
+
+    width: 100%;
+    box-sizing: border-box;
+    //高さ揃え
+    display: flex;
+    flex-flow: column wrap;
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+
+//  @include grid-col(2, $screen-pc-max, 30);
+//
+//  @include media-tab-max {
+//    @include grid-col(2, $screen-tab-max, 30);
+//  }
+//
+//  @include media-sp-max {
+//    @include grid-col(1);
+//  }
+//
+//@mixin grid-col($col: 6, $w: 940, $g: 20, $direction:left) {
+//  &:nth-child(1n) {
+//    clear: none;
+//  }
+//
+//  @if $col == 1 {
+//    width: auto;
+//    float: none;
+//
+//    &:nth-child(1n) {
+//      margin-#{$direction}: 0;
+//      clear: both;
+//    }
+//  } @else {
+//    $one-col: ($w - ($g * ($col - 1))) / $col;
+//    width: ($one-col / $w) * 100%;
+//    min-height: 1px;
+//    float: left;
+//
+//    &:nth-child(1n) {
+//      margin-#{$direction}: ($g / $w) * 100%;
+//    }
+//
+//    &:nth-child(#{$col}n+1) {
+//      margin-#{$direction}: 0;
+//      clear: both;
+//    }
+//
+//    &__tile {
+//      margin-bottom: ($g / $w) * 100%;
+//    }
+//
+//  }
+//}
+

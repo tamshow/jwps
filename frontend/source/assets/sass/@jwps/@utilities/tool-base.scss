@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* @ Tool Setting
+ * ------------------------------------------------------------ */
+
+/*doc
+---
+title: tool-base
+name: tool-base
+categories: [utilities, tool-base]
+
+---
+
+
+<div class="styleguide-table"></div>
+ Class        |  Description
+ -------------| ----------
+ `is-prompt`            |  古いIEへ警告など
+
+*/
+
+
+//a tel の状態を制御
+
+body[data-touch-device="false"] a[href^="tel:"],
+body[data-device="desktop"] a[href^="tel:"] {
+  pointer-events: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+//vue用
+[v-cloak] {
+  display: none;
+}
+
+//swipe js初期非表示
+.swiper-container {
+  display: none;
+
+  &.swiper-container-horizontal {
+    display: block;
+  }
+}
+
+
+
+//古いIEへ警告
+.is-prompt {
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #aaa;
+  color: $brand-white;
+  text-align: center;
+
+  a {
+    text-decoration: underline;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+

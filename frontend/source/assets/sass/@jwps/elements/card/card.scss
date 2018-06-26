@@ -12,15 +12,13 @@ categories: [elements, card]
 ---
 
 <h3 class="styleguide">Default</h3>
-`.e-card__img--trim`
 
-<br>
 
 ```html_example
 
 <div class="e-card">
   <a href="">
-    <div class="e-card__img e-card__img--trim"><img src="/assets/img/dummy/820x273.png" alt=""></div>
+    <div class="e-card__img"><img src="/assets/img/dummy/820x273.png" alt=""></div>
     <div class="e-card__body">
       <p class="e-card__title">情に棹させば流される智に働けば角が立つ</p>
       <p class="e-card__text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
@@ -33,7 +31,6 @@ categories: [elements, card]
 */
 
 .e-card {
-  //max-width: 400px;
   color: inherit;
   background-color: #fff;
   margin-right: auto;
@@ -45,7 +42,7 @@ categories: [elements, card]
   }
 
   > a {
-    width:100%;
+    width: 100%;
     display: block;
     color: inherit;
     height: inherit;
@@ -55,8 +52,7 @@ categories: [elements, card]
     @include elevation-transition;
 
     &:hover,
-    &:focus,
-    &.is-hover {
+    &:focus {
       @include elevation(4);
     }
 
@@ -72,49 +68,9 @@ categories: [elements, card]
 
   }
 
-  &__img--trim {
-
-    position: relative;
-    overflow: hidden;
-    width: auto;
-
-    height: 138px;
-    @include media-sp-max {
-      height: 125px;
-    }
-
-    img {
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      margin: auto;
-    }
-
-  }
-
   &__body {
     padding: .6rem 1rem;
     position: relative;
-  }
-
-  &__label {
-    position: absolute;
-    right: 1rem;
-    top: .6rem;
-    margin-bottom: .3rem;
-    line-height: 1;
-
-    .e-label {
-      margin-right: .3em;
-    }
-
-    @include media-sp-max {
-      position: static;
-    }
-
   }
 
   &__title,
@@ -140,40 +96,5 @@ categories: [elements, card]
 
 }
 
-.e-card--small {
-
-  .e-card__title {
-    @include fsize(14px, false, 14px);
-  }
-
-}
-
-/*doc
----
-title: card-bg
-name: card-bg
-categories: [elements, card]
-parent: card
----
-
-<h3 class="styleguide">with Background</h3>
-```html_example
-
-<div class="e-card e-card--bg">
-  <a href="">
-    <div class="e-card__body">
-      <p class="e-card__title">情に棹させば流される智に働けば角が立つ</p>
-      <p class="e-card__text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
-    </div>
-    </a>
-</div>
-
-```
-
-*/
-
-.e-card--bg {
-  background-color: $bg-color;
-}
 
 

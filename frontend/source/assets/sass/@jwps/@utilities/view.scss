@@ -1,0 +1,299 @@
+@charset "utf-8";
+/* @ Tool Setting
+ * ------------------------------------------------------------ */
+
+/*doc
+---
+title: tool-view
+name: tool-view
+categories: [utilities, tool-view]
+
+---
+
+
+`--sm`, `--md`, `--lg`
+
+<div class="styleguide-table"></div>
+ Class        |  Description
+ -------------| ----------
+ `is-visible`            |  表示
+ `is-hidden`             |  非表示
+ `is-left`               |  左揃え
+ `is-right`              |  右揃え
+ `is-center`             |  中央揃え
+ `is-flex-start`        |
+ `is-flex-end`          |
+ `is-space-between`     |
+ `is-ib`                |
+ `is-block`             |
+ `is-br`                |
+ `is-clear`                |
+
+*/
+
+
+// 表示,非表示
+.is-visible {
+  display: block;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.is-visible--sm,
+.is-visible--md,
+.is-visible--lg {
+  display: none;
+}
+
+@include media-lg-min {
+  .is-visible--lg {
+    display: block;
+  }
+  .is-hidden--lg {
+    display: none;
+  }
+}
+
+@include media-tab-max {
+  .is-visible--md {
+    display: block;
+  }
+  .is-hidden--md {
+    display: none;
+  }
+}
+
+@include media-sp-max {
+  .is-visible--sm {
+    display: block;
+  }
+  .is-hidden--sm {
+    display: none;
+  }
+}
+
+
+
+
+.is-clear {
+  @include clearfix;
+}
+
+.is-center {
+  text-align: center;
+  justify-content: center;
+}
+@include media-lg-min {
+  .is-center--lg {
+    text-align: center;
+    justify-content: center;
+  }
+}
+@include media-tab-max {
+
+  .is-center--md {
+    text-align: center;
+    justify-content: center;
+  }
+}
+@include media-sp-max {
+
+  .is-center--sm {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+//-------------------
+
+
+
+.is-left {
+  text-align: left;
+}
+@include media-lg-min {
+  .is-left--lg {
+    text-align: left;
+  }
+}
+@include media-tab-max {
+
+  .is-left--md {
+    text-align: left;
+  }
+}
+@include media-sp-max {
+  .is-left--sm {
+    text-align: left;
+  }
+}
+//----------------
+
+
+
+.is-right {
+  text-align: right;
+}
+@include media-lg-min {
+  .is-right--lg {
+    text-align: right;
+  }
+}
+@include media-tab-max {
+
+  .is-right--md {
+    text-align: right;
+  }
+}
+@include media-sp-max {
+  .is-right--sm {
+    text-align: right;
+  }
+}
+
+//------------------------
+
+.is-flex-start {
+  justify-content: flex-start;
+}
+
+@include media-lg-min {
+  .is-flex-start--lg {
+    justify-content: flex-start;
+  }
+}
+@include media-tab-max {
+
+  .is-flex-start--md {
+    justify-content: flex-start;
+  }
+}
+@include media-sp-max {
+  .is-flex-start--sp {
+    justify-content: flex-start;
+  }
+}
+//--------------------------
+
+.is-flex-end {
+  justify-content: flex-end;
+}
+
+@include media-lg-min {
+  .is-flex-end--lg {
+    justify-content: flex-end;
+  }
+}
+@include media-tab-max {
+
+  .is-flex-end--md {
+    justify-content: flex-end;
+  }
+}
+@include media-sp-max {
+  .is-flex-end--sm {
+    justify-content: flex-end;
+  }
+}
+
+
+//---------------------------
+
+
+.is-space-between {
+  justify-content: space-between;
+}
+
+@include media-lg-min {
+  .is-space-between--lg {
+    justify-content: space-between;
+  }
+}
+@include media-tab-max {
+
+  .is-space-between--md {
+    justify-content: space-between;
+  }
+}
+@include media-sp-max {
+  .is-space-between--sm {
+    justify-content: space-between;
+  }
+}
+
+
+//-------------------------
+
+.is-ib {
+  display: inline-block;
+}
+@include media-lg-min {
+  .is-ib--lg {
+    display: inline-block;
+  }
+}
+@include media-tab-max {
+
+  .is-ib--md {
+    display: inline-block;
+  }
+}
+@include media-sp-max {
+  .is-ib--sm {
+    display: inline-block;
+  }
+}
+
+
+//-----------------
+
+
+
+
+.is-block {
+  display: block;
+}
+
+@include media-lg-min {
+  .is-block--lg {
+    display: block;
+  }
+}
+@include media-tab-max {
+  .is-block--md {
+    display: block;
+  }
+}
+@include media-sp-max {
+  .is-block--sm {
+    display: block;
+  }
+}
+
+//-------------------
+
+.is-br:after {
+  white-space: pre;
+  content: "\A";
+}
+
+@include media-lg-min {
+  .is-br--lg:after {
+    white-space: pre;
+    content: "\A";
+  }
+}
+@include media-tab-max {
+  .is-br--md:after {
+    white-space: pre;
+    content: "\A";
+  }
+}
+@include media-sp-max {
+  .is-br--sm:after {
+    white-space: pre;
+    content: "\A";
+  }
+}

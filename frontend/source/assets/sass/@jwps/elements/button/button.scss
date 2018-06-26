@@ -9,9 +9,9 @@
 
 /*doc
 ---
-title: btn
-name: btn
-categories: [elements, btn]
+title: button
+name: button
+categories: [elements, button]
 ---
 
 
@@ -19,11 +19,11 @@ categories: [elements, btn]
 
 ```html_example
 
-<div class="e-btn-group is-left">
-  <button id="btn1" class="ripple e-btn e-btn--primary" type="button"><i class="material-icons is-left">navigate_before</i>もっと見る<i class="material-icons is-right">navigate_next</i></button>
-  <button class="ripple e-btn e-btn--primary is-hover" type="button">もっと見る
+<div class="e-button-group">
+  <button id="button1" class="ripple e-button e-button--primary" type="button"><i class="material-icons is-icon-left">navigate_before</i>もっと見る<i class="material-icons is-icon-right">navigate_next</i></button>
+  <button class="ripple e-button e-button--primary is-hover" type="button">もっと見る
   </button>
-  <button class="ripple e-btn e-btn--primary is-disabled" type="button">もっと見る</button>
+  <button class="ripple e-button e-button--primary is-disabled" type="button">もっと見る</button>
 </div>
 
 ```
@@ -33,10 +33,10 @@ categories: [elements, btn]
 
 ```html_example
 
-<div class="e-btn-group is-left">
-  <button class="e-btn e-btn--secondary" type="button"><i class="material-icons is-left">navigate_before</i>もっと見る<i class="material-icons is-right">navigate_next</i></button>
-  <button class="e-btn e-btn--secondary is-hover" type="button">もっと見る</button>
-  <button class="e-btn e-btn--secondary is-disabled" type="button">もっと見る</button>
+<div class="e-button-group">
+  <button class="e-button e-button--secondary" type="button"><i class="material-icons is-icon-left">navigate_before</i>もっと見る<i class="material-icons is-icon-right">navigate_next</i></button>
+  <button class="e-button e-button--secondary is-hover" type="button">もっと見る</button>
+  <button class="e-button e-button--secondary is-disabled" type="button">もっと見る</button>
 </div>
 
 ```
@@ -44,25 +44,25 @@ categories: [elements, btn]
 
 */
 
-// .rich-editor 内でもつかるように btn のcolor とtext-decoration は 「!important」とします
+// .visual-editor 内でもつかるように button のcolor とtext-decoration は 「!important」とします
 
-$btn-padding-vertical: .9rem !default;
-$btn-padding-horizon: 1.6rem !default;
-$btn-line-height: 1.2 !default;
-$btn-border: 0 !default;
-$btn-border-radius: 2px !default;
+$button-padding-vertical: .9rem !default;
+$button-padding-horizon: 1.6rem !default;
+$button-line-height: 1.2 !default;
+$button-border: 0 !default;
+$button-border-radius: 2px !default;
 
-.e-btn {
+.e-button {
 
   font-weight: bold;
   text-decoration: none !important;
   color: $text-color !important;
-  padding: $btn-padding-vertical $btn-padding-horizon;
+  padding: $button-padding-vertical $button-padding-horizon;
   min-width: 64px;
   max-width: 100%;
   box-sizing: border-box;
   transition: all $animation;
-  border-radius: $btn-border-radius;
+  border-radius: $button-border-radius;
   -webkit-font-smoothing: antialiased;
   text-align: center;
   white-space: nowrap;
@@ -73,12 +73,12 @@ $btn-border-radius: 2px !default;
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  line-height: $btn-line-height;
+  line-height: $button-line-height;
   background-color: #fff;
-  border: $btn-border;
+  border: $button-border;
 
   @include media-sp-max {
-    padding: ($btn-padding-vertical) ($btn-padding-horizon * .8);
+    padding: ($button-padding-vertical) ($button-padding-horizon * .8);
   }
 
   @include elevation(2);
@@ -107,8 +107,9 @@ $btn-border-radius: 2px !default;
     @include elevation(0);
   }
 
-  .is-left,
-  .is-right {
+
+  .is-icon-left,
+  .is-icon-right {
     position: absolute;
     top: 0;
     margin: auto;
@@ -117,19 +118,23 @@ $btn-border-radius: 2px !default;
     width: 1em;
   }
 
-  .is-left {
+  .is-icon-left {
     left: .5em;
   }
 
-  .is-right {
+  .is-icon-right {
     right: .5em;
   }
 
+
 }
 
-//.e-btn--primary {  }
 
-.e-btn--secondary {
+
+
+//.e-button--primary {  }
+
+.e-button--secondary {
 
   background-color: $brand-primary;
   color: #fff !important;
@@ -140,21 +145,21 @@ $btn-border-radius: 2px !default;
    ========================================================================== */
 /*doc
 ---
-title: btn-group
-name: btn-group
-categories: [elements, btn]
-parent: btn
+title: button-group
+name: button-group
+categories: [elements, button]
+parent: button
 ---
 
 ```html_example
-<div class="e-btn-group is-left">
-  <button type="button" class="e-btn">もっと見る</button>
-  <button type="button" class="e-btn">もっと見る</button>
+<div class="e-button-group">
+  <button type="button" class="e-button">もっと見る</button>
+  <button type="button" class="e-button">もっと見る</button>
 </div>
 
-<div class="e-btn-group">
-  <button type="button" class="e-btn">もっと見る</button>
-  <button type="button" class="e-btn">もっと見る</button>
+<div class="e-button-group">
+  <button type="button" class="e-button">もっと見る</button>
+  <button type="button" class="e-button">もっと見る</button>
 </div>
 
 
@@ -162,7 +167,7 @@ parent: btn
 
 */
 
-.e-btn-group {
+.e-button-group {
   margin-right: -$screen-gap-pc + px;
   margin-left: -$screen-gap-pc + px;
   text-align: center;
@@ -172,7 +177,7 @@ parent: btn
   align-items: flex-end;
   @include mb-small;
 
-  .e-btn {
+  .e-button {
     margin-bottom: $margin-xs-pc;
     margin-right: $screen-gap-pc + px;
     margin-left: $screen-gap-pc + px;
@@ -183,8 +188,8 @@ parent: btn
   }
 }
 
-.e-btn-group--one-half {
-  .e-btn {
+.e-button-group--one-half {
+  .e-button {
     width: 50%;
   }
 }
@@ -194,57 +199,57 @@ parent: btn
 
 /*doc
 ---
-title: btn-size
-name: btn-size
-categories: [elements, btn]
-parent: btn
+title: button-size
+name: button-size
+categories: [elements, button]
+parent: button
 ---
 
 ```html_example
-<div class="e-btn-group e-btn-group--left">
-  <button type="button" class="e-btn e-btn--small">もっと見る</button>
-  <button type="button" class="e-btn e-btn--medium">もっと見る</button>
-  <button type="button" class="e-btn e-btn--large">もっと見る</button>
-  <button type="button" class="e-btn e-btn--xlarge">もっと見る</button>
+<div class="e-button-group">
+  <button type="button" class="e-button e-button--small">もっと見る</button>
+  <button type="button" class="e-button e-button--medium">もっと見る</button>
+  <button type="button" class="e-button e-button--large">もっと見る</button>
+  <button type="button" class="e-button e-button--xlarge">もっと見る</button>
 </div>
 
 ```
 
 */
 
-.e-btn--small {
-  padding: ($btn-padding-vertical * .4) ($btn-padding-horizon * .55);
+.e-button--small {
+  padding: ($button-padding-vertical * .4) ($button-padding-horizon * .55);
   font-size: .75em;
   font-weight: normal;
 
   @include media-sp-max {
-    padding: ($btn-padding-vertical * .4) ($btn-padding-horizon * .4);
+    padding: ($button-padding-vertical * .4) ($button-padding-horizon * .4);
   }
 }
 
-.e-btn--medium {
+.e-button--medium {
   //
 }
 
-.e-btn--large {
-  padding: ($btn-padding-vertical * 1.4) ($btn-padding-horizon);
+.e-button--large {
+  padding: ($button-padding-vertical * 1.4) ($button-padding-horizon);
   font-size: 1.2em;
   font-weight: bold;
 
   @include media-sp-max {
-    padding: ($btn-padding-vertical * 1.4) ($btn-padding-horizon);
+    padding: ($button-padding-vertical * 1.4) ($button-padding-horizon);
   }
 
 }
 
-.e-btn--xlarge {
-  padding: ($btn-padding-vertical * 1.5) ($btn-padding-horizon);
+.e-button--xlarge {
+  padding: ($button-padding-vertical * 1.5) ($button-padding-horizon);
   font-size: 1.4em;
   font-weight: bold;
   min-width: 30%;
 
   @include media-sp-max {
-    padding: ($btn-padding-vertical * 1.4) ($btn-padding-horizon);
+    padding: ($button-padding-vertical * 1.4) ($button-padding-horizon);
   }
 
 }

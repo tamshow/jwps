@@ -14,9 +14,9 @@ categories: [js, newslist]
 ```html_example
    <div class="js-posts" data-url="hoge.json">
      <script type="text/html">
-       <ul class="l-grids-4to2to2">
+       <ul class="c-summary-horizontal">
          <% _.each(data, function(result) { %>
-         <li class="l-grid c-card">
+         <li class="c-summary__item c-card">
            <a href="<%-result.url %>">
              <div class="c-card__img"><img src="<%- result.image_path %>" alt=""></div>
                <div class="c-card__body">

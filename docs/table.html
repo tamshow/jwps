@@ -18,14 +18,14 @@
 <body class="sg-body">
 <header class="sg-header">
   <div class="sg-header__inner">
-    <h1>Japan Web Production Standards</h1>
+    <h1>スタイルガイド</h1>
     <nav class="sg-header__nav">
 	  <a href="index.html">Top</a>
       <a href="started.html">Started</a>
       <a href="variables.html">variables</a>
       <a href="mixins.html">mixins</a>
       <a href="layouts.html">layouts</a>
-	   <a href="richeditor.html">richeditor</a>
+	   <a href="visualeditor.html">visualeditor</a>
       <a href="elements.html">elements</a>
       <a href="components.html">components</a>
 	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
@@ -54,8 +54,6 @@
        
          
        
-         
-       
      </ul>
  	</div>
  <div class="sg-content-block">
@@ -70,7 +68,7 @@
 	 
 	 
 	 <h1 id="table" class="styleguide">table</h1>
-<p class="styleguide"><code class="styleguide">.e-table--center</code></p><p class="styleguide"><code class="styleguide">.e-table--layout-fixed</code></p><div class="codeExample">
+<div class="codeExample">
   <div class="exampleOutput">
       <table class="e-table">
     <tr>
@@ -173,44 +171,12 @@
 
 
 
-<h2 id="table-helpers" class="styleguide">table-helpers</h2>
-
-<div class="styleguide-table"></div>
-<table class="styleguide"> <tr>
-<th>Class</th>
-<th>Description</th>
-</tr>
- <tr>
-<td><code class="styleguide">e-th-w--1em</code>, <code class="styleguide">e-td-w--1em</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code class="styleguide">e-th-w--10p</code>, <code class="styleguide">e-td-w--1em</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code class="styleguide">e-th-w--15p</code>, <code class="styleguide">e-td-w--15p</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code class="styleguide">e-th-w--20p</code>, <code class="styleguide">e-td-w--20p</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code class="styleguide">e-th-w--small</code>, <code class="styleguide">e-td-w--small</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code class="styleguide">e-th-w--medium</code>, <code class="styleguide">e-td-w--medium</code></td>
-<td></td>
-</tr>
- </table>
 <h2 id="table-small" class="styleguide">table-small</h2>
 <div class="codeExample">
   <div class="exampleOutput">
-    <table class="e-table e-table--small e-table--layout-fixed e-table--center">
+    <table class="e-table e-table--small">
   <tr>
-    <th class="e-th-w--small">タイトル</th>
+    <th class="is-cell-25p">タイトル</th>
     <th>タイトル</th>
     <th>タイトル</th>
   </tr>
@@ -243,9 +209,9 @@
     <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
       <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
         <div class="highlight">
-          <pre><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table e-table--small e-table--layout-fixed e-table--center"</span><span class="nt">&gt;</span>
+          <pre><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table e-table--small"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tr&gt;</span>
-    <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"e-th-w--small"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"is-cell-25p"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/th&gt;</span>
     <span class="nt">&lt;th&gt;</span>タイトル<span class="nt">&lt;/th&gt;</span>
     <span class="nt">&lt;th&gt;</span>タイトル<span class="nt">&lt;/th&gt;</span>
   <span class="nt">&lt;/tr&gt;</span>
@@ -315,18 +281,18 @@
 
 
 <h2 id="table-sp-scroll" class="styleguide">table-sp-scroll</h2>
-<p class="styleguide"><code class="styleguide">.e-responsive-w-inner--one-half</code></p><div class="codeExample">
+<div class="codeExample">
   <div class="exampleOutput">
     
 
 <div class="e-responsive-table">
   <table class="e-table">
     <tr>
-      <th class="e-th-w--10p">タイトル10%</th>
-      <th class="e-th-w--15p">タイトル15%</th>
-      <th class="e-th-w--15p">タイトル15%</th>
-      <th class="e-th-w--15p">タイトル15%</th>
-      <th class="e-th-w--10p">タイトル10%</th>
+      <th class="is-cell-10p">タイトル10%</th>
+      <th class="is-cell-15p">タイトル15%</th>
+      <th class="is-cell-15p">タイトル15%</th>
+      <th class="is-cell-15p">タイトル15%</th>
+      <th class="is-cell-10p">タイトル10%</th>
       <th>タイトル</th>
     </tr>
     <tr>
@@ -335,7 +301,7 @@
       <td>テキストテキスト</td>
       <td>テキストテキスト</td>
       <td>テキストテキスト</td>
-      <td><div class="e-responsive-w-inner--one-half">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト30vw </div></td>
+      <td><div class="is-responsive-cell-30vw">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト30vw </div></td>
     </tr>
     <tr>
       <td>テキスト</td>
@@ -343,7 +309,7 @@
       <td>テキスト</td>
       <td>テキスト</td>
       <td>テキスト</td>
-      <td><div class="e-responsive-w-inner--half">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト50vw </div></td>
+      <td><div class="is-responsive-cell-50vw">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト50vw </div></td>
     </tr>
 
   </table>
@@ -358,11 +324,11 @@
           <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-responsive-table"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"e-table"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;tr&gt;</span>
-      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"e-th-w--10p"</span><span class="nt">&gt;</span>タイトル10%<span class="nt">&lt;/th&gt;</span>
-      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"e-th-w--15p"</span><span class="nt">&gt;</span>タイトル15%<span class="nt">&lt;/th&gt;</span>
-      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"e-th-w--15p"</span><span class="nt">&gt;</span>タイトル15%<span class="nt">&lt;/th&gt;</span>
-      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"e-th-w--15p"</span><span class="nt">&gt;</span>タイトル15%<span class="nt">&lt;/th&gt;</span>
-      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"e-th-w--10p"</span><span class="nt">&gt;</span>タイトル10%<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"is-cell-10p"</span><span class="nt">&gt;</span>タイトル10%<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"is-cell-15p"</span><span class="nt">&gt;</span>タイトル15%<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"is-cell-15p"</span><span class="nt">&gt;</span>タイトル15%<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"is-cell-15p"</span><span class="nt">&gt;</span>タイトル15%<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"is-cell-10p"</span><span class="nt">&gt;</span>タイトル10%<span class="nt">&lt;/th&gt;</span>
       <span class="nt">&lt;th&gt;</span>タイトル<span class="nt">&lt;/th&gt;</span>
     <span class="nt">&lt;/tr&gt;</span>
     <span class="nt">&lt;tr&gt;</span>
@@ -371,7 +337,7 @@
       <span class="nt">&lt;td&gt;</span>テキストテキスト<span class="nt">&lt;/td&gt;</span>
       <span class="nt">&lt;td&gt;</span>テキストテキスト<span class="nt">&lt;/td&gt;</span>
       <span class="nt">&lt;td&gt;</span>テキストテキスト<span class="nt">&lt;/td&gt;</span>
-      <span class="nt">&lt;td&gt;&lt;div</span> <span class="na">class=</span><span class="s">"e-responsive-w-inner--one-half"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト30vw <span class="nt">&lt;/div&gt;&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;&lt;div</span> <span class="na">class=</span><span class="s">"is-responsive-cell-30vw"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト30vw <span class="nt">&lt;/div&gt;&lt;/td&gt;</span>
     <span class="nt">&lt;/tr&gt;</span>
     <span class="nt">&lt;tr&gt;</span>
       <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
@@ -379,7 +345,7 @@
       <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
       <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
       <span class="nt">&lt;td&gt;</span>テキスト<span class="nt">&lt;/td&gt;</span>
-      <span class="nt">&lt;td&gt;&lt;div</span> <span class="na">class=</span><span class="s">"e-responsive-w-inner--half"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト50vw <span class="nt">&lt;/div&gt;&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;&lt;div</span> <span class="na">class=</span><span class="s">"is-responsive-cell-50vw"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト50vw <span class="nt">&lt;/div&gt;&lt;/td&gt;</span>
     <span class="nt">&lt;/tr&gt;</span>
 
   <span class="nt">&lt;/table&gt;</span>

@@ -18,14 +18,14 @@
 <body class="sg-body">
 <header class="sg-header">
   <div class="sg-header__inner">
-    <h1>Japan Web Production Standards</h1>
+    <h1>スタイルガイド</h1>
     <nav class="sg-header__nav">
 	  <a href="index.html">Top</a>
       <a href="started.html">Started</a>
       <a href="variables.html">variables</a>
       <a href="mixins.html">mixins</a>
       <a href="layouts.html">layouts</a>
-	   <a href="richeditor.html">richeditor</a>
+	   <a href="visualeditor.html">visualeditor</a>
       <a href="elements.html">elements</a>
       <a href="components.html">components</a>
 	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
@@ -63,16 +63,18 @@
 <div class="codeExample">
   <div class="exampleOutput">
     
+<div style="background:#5b5e63; padding: 1em;">
     <div class="c-control-offcanvas">
-      <button
-          type="button"
-          aria-controls="aria-offcanvas"
-          aria-expanded="false"
-          aria-label="開く"
-          data-toggle-offcanvas>
-          <div class="c-control-offcanvas__icon"><span></span><span></span><span></span></div>
-          <span class="c-control-offcanvas__title">メニュー</span>
-         </button>
+          <button
+              type="button"
+              aria-controls="aria-offcanvas"
+              aria-expanded="false"
+              aria-label="開く"
+              data-toggle-offcanvas>
+            <span class="c-control-offcanvas__icon"><span></span><span></span><span></span></span>
+            <span class="c-control-offcanvas__title">メニュー</span>
+          </button>
+    </div>
     </div>
 
   <div class="c-offcanvas" aria-hidden="true" data-body-offcanvas>
@@ -102,16 +104,18 @@
     <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
       <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
         <div class="highlight">
-          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-control-offcanvas"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;button</span>
-          <span class="na">type=</span><span class="s">"button"</span>
-          <span class="na">aria-controls=</span><span class="s">"aria-offcanvas"</span>
-          <span class="na">aria-expanded=</span><span class="s">"false"</span>
-          <span class="na">aria-label=</span><span class="s">"開く"</span>
-          <span class="na">data-toggle-offcanvas</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-control-offcanvas__icon"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"c-control-offcanvas__title"</span><span class="nt">&gt;</span>メニュー<span class="nt">&lt;/span&gt;</span>
-         <span class="nt">&lt;/button&gt;</span>
+          <pre><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"background:#5b5e63; padding: 1em;"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-control-offcanvas"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span>
+              <span class="na">type=</span><span class="s">"button"</span>
+              <span class="na">aria-controls=</span><span class="s">"aria-offcanvas"</span>
+              <span class="na">aria-expanded=</span><span class="s">"false"</span>
+              <span class="na">aria-label=</span><span class="s">"開く"</span>
+              <span class="na">data-toggle-offcanvas</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"c-control-offcanvas__icon"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"c-control-offcanvas__title"</span><span class="nt">&gt;</span>メニュー<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-offcanvas"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">data-body-offcanvas</span><span class="nt">&gt;</span>

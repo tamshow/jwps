@@ -76,6 +76,7 @@ categories: [components, breadcrumb]
   @include media-sp-max {
     border-top: 1px solid $border-color;
     width: 100%;
+    box-sizing: border-box;
     position: absolute;
     bottom: 0;
     left: 0;

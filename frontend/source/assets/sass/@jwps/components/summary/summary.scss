@@ -12,11 +12,11 @@ categories: [components, summary]
 
 ```html_example
 
-<div>
-  <ul class="c-summary-horizontal">
+<div class="c-summary-horizontal">
+  <ul>
    <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img e-card__img--trim img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -25,7 +25,7 @@ categories: [components, summary]
       </li>
    <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img e-card__img--trim img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -34,7 +34,52 @@ categories: [components, summary]
       </li>
    <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img e-card__img--trim img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+         <li class="c-summary__item e-card">
+        <a href="">
+          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -43,34 +88,49 @@ categories: [components, summary]
       </li>
   </ul>
 
-<div class="c-pagenavi">
-  <a class="c-previouspostslink" rel="prev" href=""></a>
-  <span class="is-current">1</span>
-  <a href="">2</a>
-  <a href="">3</a>
-  <a href="">4</a>
-  <a href="">5</a>
-  <span class="c-extend">...</span>
-  <a class="c-nextpostslink" rel="next" href=""></a>
-</div>
-</div>
+
 
 ```
 */
 
 .c-summary-horizontal {
 
-  @include clearfix;
-  align-items: stretch;
-  clear: both;
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -1%;
-  margin-left: -1%;
+  //@include grid('.c-summary__item', 4, $screen-pc-max, 24);
 
   @include media-sp-max {
-    margin-right: -1.7142857143%;
-    margin-left: -1.7142857143%;
+  //  @include grid('.c-summary__item', 12, $screen-sp-max, 24);
+  }
+
+}
+
+
+.c-summary-horizontal {
+
+  @include mb-medium;
+
+  @include media-sp-max {
+    padding-left: $width-gap-sp;
+    margin-right:-$width-gap-sp;
+    margin-left:-$width-gap-sp;
+
+  }
+
+  ul{
+
+    @include clearfix;
+    align-items: stretch;
+    clear: both;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -1%;
+    margin-left: -1%;
+
+    @include media-sp-max {
+      margin-right: -1.7142857143%;
+      margin-left: -1.7142857143%;
+      overflow: scroll;
+      flex-flow: nowrap;
+    }
   }
 
   .c-summary__item {
@@ -89,21 +149,17 @@ categories: [components, summary]
     flex: 1 1 31.3333333333%;
     max-width: 31.3333333333%;
 
-    @include media-tab-only {
-      flex: 0 0 48%;
-      max-width: 48%;
-    }
-
     @include media-sp-max {
       margin-right: 1.7142857143%;
       margin-left: 1.7142857143%;
-      margin-bottom: $width-gap-sp;
-      flex: 1 1 96.5714285714%;
-      max-width: 96.5714285714%;
-
+      flex: 0 0 240px;
+      // width:240px;
+      max-width: none;
     }
   }
 }
+
+
 
 
 

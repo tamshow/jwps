@@ -1,5 +1,5 @@
 @charset "utf-8";
-/* @ btn
+/* @ button
  * ------------------------------------------------------------ */
 
 /*doc
@@ -23,7 +23,7 @@ categories: [elements, label]
 ```
 */
 
-// .rich-editor 内でもつかるように label のcolor とtext-decoration は 「!important」とします
+// .visual-editor 内でもつかるように label のcolor とtext-decoration は 「!important」とします
 
 $label-padding-vertical: .25rem !default;
 $label-padding-horizon: .25rem !default;

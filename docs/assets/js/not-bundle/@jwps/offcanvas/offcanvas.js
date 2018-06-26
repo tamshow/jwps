@@ -4,7 +4,7 @@ $(function () {
   var bodyContents = '[data-body-offcanvas]';
   var bgSelector = '#js-offcanvas-bg';
   var scrollSelector = '[data-scroll-offcanvas]';
-  var lowerLayerSelector = '';//.l-footer, .main
+  var lowerLayerSelector = '';//footer, main
   var focusSelector = '';//.l-header-search-sp__input
 
   var currentScrollY = null;

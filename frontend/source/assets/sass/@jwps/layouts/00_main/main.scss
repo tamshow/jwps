@@ -4,12 +4,12 @@
  * ------------------------------------------------------------ */
 
 :root {
-  --size: $width-pc-max;
+  //--size: $width-pc-max;
 }
 
 @include media-sp-max {
   :root {
-    --size: $width-sp-min;
+    //--size: $width-sp-min;
   }
 }
 

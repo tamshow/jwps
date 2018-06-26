@@ -5,19 +5,19 @@ $(function () {
 
   });
 
-  function rippleButton(btn) {
-    btn.addEventListener('mousedown', function(e) {
-      var dimension = Math.max(btn.clientWidth, btn.clientHeight);
-      var loc = btn.getBoundingClientRect();
+  function rippleButton(button) {
+    button.addEventListener('mousedown', function(e) {
+      var dimension = Math.max(button.clientWidth, button.clientHeight);
+      var loc = button.getBoundingClientRect();
       var circle = document.createElement('span');
       circle.classList.add('js-rp-effect');
       circle.style.width = dimension + 'px';
       circle.style.height = dimension + 'px';
-      circle.style.left = e.clientX - btn.offsetLeft - (dimension / 2) + 'px';
-      circle.style.top = e.clientY - btn.offsetTop - (dimension / 2) + document.documentElement.scrollTop + 'px';
-      btn.appendChild(circle);
+      circle.style.left = e.clientX - button.offsetLeft - (dimension / 2) + 'px';
+      circle.style.top = e.clientY - button.offsetTop - (dimension / 2) + document.documentElement.scrollTop + 'px';
+      button.appendChild(circle);
       setTimeout(function () {
-        btn.removeChild(circle);
+        button.removeChild(circle);
       }, 1000);
     })
   }

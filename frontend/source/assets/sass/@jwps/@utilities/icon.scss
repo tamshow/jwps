@@ -91,7 +91,7 @@ categories: [utilities, icon]
 
 
 .is-icon-target-blank,
-.rich-editor [target="_blank"] {
+.visual-editor [target="_blank"] {
   &:after {
     @include material-icons;
     vertical-align: middle;
@@ -104,16 +104,16 @@ categories: [utilities, icon]
 }
 
 .is-icon-pdf,
-.rich-editor a[href$=".pdf"],
+.visual-editor a[href$=".pdf"],
 .is-icon-doc,
-.rich-editor a[href$=".doc"],
-.rich-editor a[href$=".docx"],
+.visual-editor a[href$=".doc"],
+.visual-editor a[href$=".docx"],
 .is-icon-ppt,
-.rich-editor a[href$=".ppt"],
-.rich-editor a[href$=".pptx"],
+.visual-editor a[href$=".ppt"],
+.visual-editor a[href$=".pptx"],
 .is-icon-xls,
-.rich-editor a[href$=".xls"],
-.rich-editor a[href$=".xlsx"] {
+.visual-editor a[href$=".xls"],
+.visual-editor a[href$=".xlsx"] {
   &:after {
     background: url("#{$img-path}/common/icon_pdf.png") right center no-repeat;
     background-size: 15.5px 15.5px;
@@ -127,31 +127,31 @@ categories: [utilities, icon]
 }
 
 .is-icon-pdf,
-.rich-editor a[href$=".pdf"] {
+.visual-editor a[href$=".pdf"] {
   &:after {
     background-image: url("#{$img-path}/common/icon_pdf.png");
   }
 }
 
 .is-icon-doc,
-.rich-editor a[href$=".doc"],
-.rich-editor a[href$=".docx"] {
+.visual-editor a[href$=".doc"],
+.visual-editor a[href$=".docx"] {
   &:after {
     background-image: url("#{$img-path}/common/icon_doc.png");
   }
 }
 
 .is-icon-ppt,
-.rich-editor a[href$=".ppt"],
-.rich-editor a[href$=".pptx"] {
+.visual-editor a[href$=".ppt"],
+.visual-editor a[href$=".pptx"] {
   &:after {
     background-image: url("#{$img-path}/common/icon_ppt.png");
   }
 }
 
 .is-icon-xls,
-.rich-editor a[href$=".xls"],
-.rich-editor a[href$=".xlsx"] {
+.visual-editor a[href$=".xls"],
+.visual-editor a[href$=".xlsx"] {
   &:after {
     background-image: url("#{$img-path}/common/icon_xls.png");
   }

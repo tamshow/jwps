@@ -18,14 +18,14 @@
 <body class="sg-body">
 <header class="sg-header">
   <div class="sg-header__inner">
-    <h1>Japan Web Production Standards</h1>
+    <h1>スタイルガイド</h1>
     <nav class="sg-header__nav">
 	  <a href="index.html">Top</a>
       <a href="started.html">Started</a>
       <a href="variables.html">variables</a>
       <a href="mixins.html">mixins</a>
       <a href="layouts.html">layouts</a>
-	   <a href="richeditor.html">richeditor</a>
+	   <a href="visualeditor.html">visualeditor</a>
       <a href="elements.html">elements</a>
       <a href="components.html">components</a>
 	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
@@ -63,8 +63,8 @@
 <div class="codeExample">
   <div class="exampleOutput">
     <!-- ボタン領域 -->
-<div class="e-btn-group is-left">
-<button type="button" class="e-btn" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
+<div class="e-button-group is-left">
+<button type="button" class="e-button" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
 </div>
 <div class="e-box" data-clone-modal="area-modal-dialog1">
 <div class="e-box__body">
@@ -83,9 +83,9 @@
         <div data-append-modal>
           <!--  data-append-modal内はdata-clone-modal="aria-controls名"を表示 -->
         </div>
-        <div class="c-modal-dialog__btn-group e-btn-group">
-          <button type="button" class="e-btn e-btn--secondary" data-close-modal aria-expanded="true" aria-label="キャンセル">キャンセル</button>
-          <button type="button" class="e-btn e-btn--secondary" aria-expanded="true" aria-label="実行する">実行する</button>
+        <div class="c-modal-dialog__button-group e-button-group">
+          <button type="button" class="e-button e-button--secondary" data-close-modal aria-expanded="true" aria-label="キャンセル">キャンセル</button>
+          <button type="button" class="e-button e-button--secondary" aria-expanded="true" aria-label="実行する">実行する</button>
         </div>
 
       </div>
@@ -102,8 +102,8 @@
       <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
         <div class="highlight">
           <pre><span class="c">&lt;!-- ボタン領域 --&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-btn-group is-left"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn"</span> <span class="na">data-open-modal</span> <span class="na">aria-controls=</span><span class="s">"area-modal-dialog1"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"開く"</span><span class="nt">&gt;</span>Modal Dialogを開く<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-button-group is-left"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-button"</span> <span class="na">data-open-modal</span> <span class="na">aria-controls=</span><span class="s">"area-modal-dialog1"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"開く"</span><span class="nt">&gt;</span>Modal Dialogを開く<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box"</span> <span class="na">data-clone-modal=</span><span class="s">"area-modal-dialog1"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-box__body"</span><span class="nt">&gt;</span>
@@ -122,9 +122,9 @@
         <span class="nt">&lt;div</span> <span class="na">data-append-modal</span><span class="nt">&gt;</span>
           <span class="c">&lt;!--  data-append-modal内はdata-clone-modal="aria-controls名"を表示 --&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-modal-dialog__btn-group e-btn-group"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn e-btn--secondary"</span> <span class="na">data-close-modal</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"キャンセル"</span><span class="nt">&gt;</span>キャンセル<span class="nt">&lt;/button&gt;</span>
-          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-btn e-btn--secondary"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"実行する"</span><span class="nt">&gt;</span>実行する<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-modal-dialog__button-group e-button-group"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-button e-button--secondary"</span> <span class="na">data-close-modal</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"キャンセル"</span><span class="nt">&gt;</span>キャンセル<span class="nt">&lt;/button&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"e-button e-button--secondary"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span> <span class="na">aria-label=</span><span class="s">"実行する"</span><span class="nt">&gt;</span>実行する<span class="nt">&lt;/button&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
 
       <span class="nt">&lt;/div&gt;</span>
