@@ -13,7 +13,7 @@ categories: [js, modal]
 
 ```html_example
 <!-- ボタン領域 -->
-<div class="e-button-group is-left">
+<div class="e-button-group">
 <button type="button" class="e-button" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
 </div>
 <div class="e-box" data-clone-modal="area-modal-dialog1">
@@ -145,7 +145,7 @@ categories: [js, modal]
 
   &__title {
     font-weight: bold;
-    margin-bottom: $fsize-mb-pc;
+    margin-bottom: 1rem;
     @include fsize($fsize-h3-pc, false, $fsize-h3-sp);
 
   }

@@ -1127,8 +1127,8 @@ categories: [layouts, layout]
 }
 
 .l-container--pdg {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .l-container--bg {
@@ -1182,9 +1182,10 @@ name: visualeditor
 category: visualeditor
 ---
 <p class="e-text is-mb-medium">
-ニュースの詳細などCMSで直接タグ入力するして更新する場合は.visual-editorを指定してください。
+詳細ページやCMSで直接タグ入力するして更新する箇所に.visual-editorを指定してください。
 こちらのサンプルのような形になり内包するタグ（p,span,table,list,dlなど）にベース装飾を追加します。
 このため.visual-editor内ではサンプル以外のクラス.mediaなどは使用出来ませんのでご注意ください。
+複雑な装飾がある場合は.visual-editorを使わず直接classを指定してください。
 </p>
 
 ```html_example
@@ -1490,6 +1491,18 @@ category: visualeditor
 
 
 */
+.entry,
+.visual-editor {
+  word-break: break-all;
+}
+
+.entry::after,
+.visual-editor::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
 .visual-editor p,
 .visual-editor table,
 .visual-editor ul,
@@ -1499,7 +1512,7 @@ category: visualeditor
 .visual-editor figure,
 .visual-editor .e-box-bordered,
 .visual-editor hr {
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 
 .visual-editor p:empty {
@@ -1683,7 +1696,7 @@ parent: grid-12column
 .l-cols--outside > .l-col12 {
   margin-left: 1%;
   margin-right: 1%;
-  margin-bottom: 1.92%;
+  margin-bottom: 2.4%;
 }
 
 .l-cols > .l-col1 > *:last-child,
@@ -1737,7 +1750,7 @@ parent: grid-12column
 .l-cols--outside > .l-col10 > .l-cols--inside,
 .l-cols--outside > .l-col11 > .l-cols--inside,
 .l-cols--outside > .l-col12 > .l-cols--inside {
-  margin-bottom: -3.744%;
+  margin-bottom: -4.32%;
 }
 
 .l-cols--inside {
@@ -1759,7 +1772,7 @@ parent: grid-12column
 .l-cols--inside > .l-col12 {
   margin-left: 1.7142857143%;
   margin-right: 1.7142857143%;
-  margin-bottom: 3.744%;
+  margin-bottom: 4.32%;
 }
 
 .l-cols--inside > .l-col1 > *:last-child,
@@ -2620,7 +2633,7 @@ categories: [elements, heading]
 .visual-editor h4:not(:first-child),
 .visual-editor h5:not(:first-child),
 .visual-editor h6:not(:first-child) {
-  margin-top: 2.6rem;
+  margin-top: 1.6rem;
 }
 
 .visual-editor h1 + h2,
@@ -2645,28 +2658,8 @@ categories: [elements, heading]
 .visual-editor h1,
 .e-hd1--type2 {
   position: relative;
-  padding-bottom: 1rem;
-  margin-bottom: 2.5rem;
-}
-
-.visual-editor h1:before,
-.e-hd1--type2:before {
-  padding-top: 1.375rem;
-  display: block;
-  content: "";
-}
-
-.visual-editor h1:after,
-.e-hd1--type2:after {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: -webkit-gradient(linear, left top, right top, color-stop(35%, #5b5e63), color-stop(35%, #5b5e63));
-  background: linear-gradient(to right, #5b5e63 35%, #5b5e63 35%);
-  display: block;
-  height: 3px;
-  content: "";
+  font-weight: bold;
+  color: #5b5e63;
 }
 
 .visual-editor h2,
@@ -2677,10 +2670,11 @@ categories: [elements, heading]
 
 .visual-editor h2,
 .e-hd2--type2 {
-  color: #fff;
-  background-color: #919499;
-  padding: .7rem 1.2rem .6rem;
-  margin-bottom: 1.9rem;
+  border-left: 3px solid #5b5e63;
+  background-color: #f2f3f5;
+  padding: 1rem 1.5rem .9rem;
+  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .visual-editor h3,
@@ -2689,29 +2683,10 @@ categories: [elements, heading]
   font-size: 1.125rem;
 }
 
-.visual-editor h3,
-.e-hd3--type2 {
-  border-left: 5px solid #5b5e63;
-  border-bottom: 1px solid #757575;
-  padding-bottom: .6em;
-  padding-left: .9em;
-  padding-top: .5em;
-  margin-bottom: 16px;
-}
-
 .visual-editor h4,
 .e-hd4 {
   font-size: 16px;
   font-size: 1rem;
-}
-
-.visual-editor h4,
-.e-hd4--type2 {
-  border-left: 3px solid #5b5e63;
-  padding-left: 1rem;
-  padding-top: .1em;
-  padding-bottom: .1em;
-  margin-bottom: .8rem;
 }
 
 .visual-editor h5,
@@ -2737,10 +2712,10 @@ parent: heading
 ```html_example
 <h1 class="e-hd1 e-hd1--type2"><span>情に棹させば流される智に働けば角が立つ</span></h1>
 <h2 class="e-hd2 e-hd2--type2">情に棹させば流される智に働けば角が立つ</h2>
-<h3 class="e-hd3 e-hd3--type2">情に棹させば流される智に働けば角が立つ</h3>
-<h4 class="e-hd4 e-hd4--type2">情に棹させば流される智に働けば角が立つ</h4>
-<h5 class="e-hd5 is-color-blue">情に棹させば流される智に働けば角が立つ</h5>
-<h6 class="e-hd6 is-bdb">情に棹させば流される智に働けば角が立つ</h6>
+<h3 class="e-hd3 is-color-blue">情に棹させば流される智に働けば角が立つ</h3>
+<h4 class="e-hd4 is-text-center">情に棹させば流される智に働けば角が立つ</h4>
+<h5 class="e-hd5 is-bdb">情に棹させば流される智に働けば角が立つ</h5>
+<h6 class="e-hd6">情に棹させば流される智に働けば角が立つ</h6>
 
 ```
 
@@ -2756,29 +2731,41 @@ parent: heading
 ```html_example
 
 
-<div class="e-hd-unit">
+<div class="e-hd-group">
   <h3 class="e-hd3">情に棹させば流される智に働けば角が立つ</h3>
-  <p class="is-text-week"> 6月12日  12:49</p>
+  <p class="e-hd-date"> 6月12日  12:49</p>
 </div>
 
 
 
 ```
 */
-.e-hd-unit {
-  position: relative;
-  padding-right: 4em;
+.e-hd-date {
   margin-bottom: 16px;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: .8em;
 }
 
-.e-hd-unit h1:not(.hd--bd),
-.e-hd-unit h2:not(.hd--bd),
-.e-hd-unit h3:not(.hd--bd),
-.e-hd-unit h4:not(.hd--bd),
-.e-hd-unit h5:not(.hd--bd),
-.e-hd-unit h6:not(.hd--bd) {
-  margin-top: 0;
-  margin-bottom: 0;
+.e-hd-date a {
+  color: #477DCA;
+  text-decoration: underline;
+}
+
+.e-hd-date a:hover {
+  text-decoration: none;
+}
+
+.e-hd-group {
+  margin-bottom: 36px;
+}
+
+.e-hd-group h1,
+.e-hd-group h2,
+.e-hd-group h3,
+.e-hd-group h4,
+.e-hd-group h5,
+.e-hd-group h6 {
+  margin-bottom: .5em;
 }
 
 /* @ img
@@ -2858,6 +2845,7 @@ categories: [elements, images]
 .visual-editor figure,
 .e-img-box {
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .visual-editor figure a,
@@ -2869,6 +2857,7 @@ categories: [elements, images]
 .visual-editor figure .e-img-caption,
 .e-img-box figcaption,
 .e-img-box .e-img-caption {
+  text-align: left;
   margin-top: .5em;
   color: rgba(0, 0, 0, 0.54);
   font-size: .9rem;
@@ -2963,21 +2952,6 @@ Class                                                                      | Des
 /* ==========================================================================
    #Tppesetting
    ========================================================================== */
-/* 枠
-   ========================================================================== */
-.entry,
-.visual-editor {
-  word-break: break-all;
-  margin-bottom: 24px;
-}
-
-.entry::after,
-.visual-editor::after {
-  clear: both;
-  content: "";
-  display: block;
-}
-
 /*doc
 ---
 title: typesetting
@@ -3030,6 +3004,7 @@ categories: [utilities, tool-text]
 <div class="styleguide-table"></div>
 Class                                                                      | Description
 -----------------------------------------------------------------------    | ------------
+`is-text-small`            |                        |
 `is-text-sub`            |                        |
 `is-text-week`           |                        |
 `is-text-point`          |                        |
@@ -3060,6 +3035,10 @@ Class                                                                      | Des
 
 .is-text-justify {
   text-align: justify;
+}
+
+.is-text-small {
+  font-size: .8rem;
 }
 
 .is-text-sub {
@@ -3357,6 +3336,11 @@ parent: list
 </ul>
 ```
 */
+.visual-editor .e-list-inline {
+  margin-left: 0;
+  list-style-type: none;
+}
+
 .e-list-inline {
   margin-bottom: 16px;
 }
@@ -3752,8 +3736,7 @@ categories: [elements, box]
 .visual-editor .e-box h3,
 .visual-editor .e-box h4,
 .visual-editor .e-box h5,
-.visual-editor .e-box h6,
-.visual-editor .e-box p {
+.visual-editor .e-box h6 {
   margin-top: 0;
   margin-bottom: .2rem;
 }
@@ -4018,61 +4001,6 @@ parent: button
   min-width: 30%;
 }
 
-.js-ripple {
-  overflow: hidden;
-  position: relative;
-}
-
-.js-rp-effect {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
-  position: absolute;
-  opacity: 0;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  -webkit-animation: 500ms ripple-fg forwards, 500ms ripple-fg-opacity-out forwards;
-          animation: 500ms ripple-fg forwards, 500ms ripple-fg-opacity-out forwards;
-}
-
-@-webkit-keyframes ripple-fg {
-  to {
-    -webkit-transform: scale(2.5);
-            transform: scale(2.5);
-  }
-}
-
-@keyframes ripple-fg {
-  to {
-    -webkit-transform: scale(2.5);
-            transform: scale(2.5);
-  }
-}
-
-@-webkit-keyframes ripple-fg-opacity-out {
-  from {
-    -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
-            animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes ripple-fg-opacity-out {
-  from {
-    -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
-            animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 /* @ button
  * ------------------------------------------------------------ */
 /*doc
@@ -4102,14 +4030,14 @@ categories: [elements, label]
           box-sizing: border-box;
   min-width: 3rem;
   display: inline-block;
-  padding: 0.25rem 0.25rem;
+  padding: 5px 6px;
   border: 0;
   border-radius: 3px;
   background-color: #aaa;
-  font-size: .8rem;
+  font-size: 11px;
   line-height: 1.2;
   text-align: center;
-  vertical-align: text-top;
+  vertical-align: top;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -5632,7 +5560,7 @@ parent: headline
 }
 
 .c-headline-search__item {
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 
 .c-headline-search__title {
@@ -5678,7 +5606,10 @@ categories: [components, menu]
 
 ```html_example
 <div class="c-menu">
+<div class="c-menu__title-group">
   <h3 class="c-menu__title">階層構造メニュー</h3>
+  <span class="c-menu__title-to-list"><a href="" class="e-button e-button--small">一覧へ</a></span>
+</div>
   <ul class="c-menu__list">
     <li><a href="">タイトル</a>
     <ul class="c-menu__list">
@@ -5700,6 +5631,22 @@ categories: [components, menu]
 .c-menu {
   margin-bottom: 16px;
   border-bottom: 1px dotted #ddd;
+}
+
+.c-menu__title-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .c-menu__title {
@@ -5836,8 +5783,8 @@ categories: [components, summary]
 
 ```html_example
 
-<div class="c-summary-horizontal">
-  <ul>
+<div>
+  <ul class="c-summary-horizontal">
    <li class="c-summary__item e-card">
         <a href="">
           <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
@@ -5917,10 +5864,9 @@ categories: [components, summary]
 ```
 */
 .c-summary-horizontal {
-  margin-bottom: 24px;
-}
-
-.c-summary-horizontal ul {
+  margin-bottom: 30px;
+  margin-left: -1%;
+  margin-right: -1%;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
@@ -5930,33 +5876,28 @@ categories: [components, summary]
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-right: -1%;
-  margin-left: -1%;
-}
-
-.c-summary-horizontal ul::after {
-  clear: both;
-  content: "";
-  display: block;
 }
 
 .c-summary-horizontal .c-summary__item {
-  -ms-flex-item-align: stretch;
-      align-self: stretch;
-  display: block;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 23%;
+          flex: 0 0 23%;
+  margin-left: 1%;
+  margin-right: 1%;
+  width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin-right: 1%;
-  margin-left: 1%;
-  margin-bottom: 16px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 31.3333333333%;
-          flex: 1 1 31.3333333333%;
-  max-width: 31.3333333333%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
 }
 
 .c-summary-horizontal .c-summary__item > *:last-child {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 }
 
 /* @ vertical
@@ -6025,7 +5966,7 @@ parent: summary
 ```
 */
 .c-summary-vertical .c-summary__item {
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 
 /* ==========================================================================
@@ -6318,7 +6259,6 @@ categories: [js, accordion]
   cursor: pointer;
   -webkit-transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  line-height: 1.8;
 }
 
 .c-accordion__title:hover, .c-accordion__title:focus {
@@ -6580,7 +6520,7 @@ categories: [js, modal]
 
 ```html_example
 <!-- ボタン領域 -->
-<div class="e-button-group is-left">
+<div class="e-button-group">
 <button type="button" class="e-button" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
 </div>
 <div class="e-box" data-clone-modal="area-modal-dialog1">
@@ -7339,10 +7279,28 @@ categories: [js, ripple]
           animation: 500ms ripple-fg forwards, 500ms ripple-fg-opacity-out forwards;
 }
 
+@-webkit-keyframes ripple-fg {
+  to {
+    -webkit-transform: scale(2.5);
+            transform: scale(2.5);
+  }
+}
+
 @keyframes ripple-fg {
   to {
     -webkit-transform: scale(2.5);
             transform: scale(2.5);
+  }
+}
+
+@-webkit-keyframes ripple-fg-opacity-out {
+  from {
+    -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+            animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
@@ -8266,16 +8224,17 @@ categories: [utilities, tool-view]
  -------------| ----------
  `is-visible`            |  表示
  `is-hidden`             |  非表示
- `is-left`               |  左揃え
- `is-right`              |  右揃え
- `is-center`             |  中央揃え
+ `is-float-left`        |
+ `is-float-right`        |
+ `is-float-clear`                |
+  `is-flex-center`        |
  `is-flex-start`        |
  `is-flex-end`          |
  `is-space-between`     |
  `is-ib`                |
  `is-block`             |
  `is-br`                |
- `is-clear`                |
+ `is-w100p`                |
 
 */
 .is-visible {
@@ -8292,25 +8251,24 @@ categories: [utilities, tool-view]
   display: none;
 }
 
-.is-clear::after {
+.is-float-clear::after {
   clear: both;
   content: "";
   display: block;
 }
 
-.is-center {
-  text-align: center;
+.is-flex-center {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.is-left {
-  text-align: left;
+.is-float-left {
+  float: left;
 }
 
-.is-right {
-  text-align: right;
+.is-float-right {
+  float: right;
 }
 
 .is-flex-start {
@@ -8342,6 +8300,10 @@ categories: [utilities, tool-view]
 .is-br:after {
   white-space: pre;
   content: "\A";
+}
+
+.is-w100p {
+  width: 100%;
 }
 
 /* @ Tool Setting
@@ -8388,7 +8350,7 @@ categories: [utilities, tool-margin]
 }
 
 .is-mb-medium {
-  margin-bottom: 24px !important;
+  margin-bottom: 30px !important;
 }
 
 .is-mb-large {
@@ -8890,17 +8852,16 @@ category: snippets-other
   .is-hidden--lg {
     display: none;
   }
-  .is-center--lg {
-    text-align: center;
+  .is-flex-center--lg {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .is-left--lg {
-    text-align: left;
+  .is-float-left--lg {
+    float: left;
   }
-  .is-right--lg {
-    text-align: right;
+  .is-float-right--lg {
+    float: right;
   }
   .is-flex-start--lg {
     -webkit-box-pack: start;
@@ -8981,7 +8942,7 @@ category: snippets-other
   .visual-editor figure,
   .visual-editor .e-box-bordered,
   .visual-editor hr {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
   }
   .e-box-alert {
     margin-bottom: 16px;
@@ -8996,16 +8957,11 @@ category: snippets-other
   .e-blockquote {
     margin-bottom: 16px;
   }
-  .visual-editor h3,
-  .e-hd3--type2 {
+  .e-hd-date {
     margin-bottom: 16px;
   }
-  .e-hd-unit {
-    margin-bottom: 16px;
-  }
-  .entry,
-  .visual-editor {
-    margin-bottom: 24px;
+  .e-hd-group {
+    margin-bottom: 36px;
   }
   .visual-editor p,
   .e-text {
@@ -9063,7 +9019,7 @@ category: snippets-other
     margin-bottom: 16px;
   }
   .c-headline-search__item {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
   }
   .c-menu {
     margin-bottom: 16px;
@@ -9072,10 +9028,10 @@ category: snippets-other
     margin-bottom: 16px;
   }
   .c-summary-horizontal {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
   }
   .c-summary-vertical .c-summary__item {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
   }
   .c-keyword-search {
     margin-bottom: 16px;
@@ -9101,17 +9057,16 @@ category: snippets-other
   .is-hidden--md {
     display: none;
   }
-  .is-center--md {
-    text-align: center;
+  .is-flex-center--md {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .is-left--md {
-    text-align: left;
+  .is-float-left--md {
+    float: left;
   }
-  .is-right--md {
-    text-align: right;
+  .is-float-right--md {
+    float: right;
   }
   .is-flex-start--md {
     -webkit-box-pack: start;
@@ -9149,7 +9104,7 @@ category: snippets-other
     margin-bottom: 16px !important;
   }
   .is-mb-medium {
-    margin-bottom: 24px !important;
+    margin-bottom: 30px !important;
   }
   .is-mb-large {
     margin-bottom: 36px !important;
@@ -9450,18 +9405,7 @@ category: snippets-other
   }
   .visual-editor h1,
   .e-hd1--type2 {
-    margin-bottom: 1.4rem;
-  }
-  .visual-editor h1:before,
-  .e-hd1--type2:before {
-    padding-top: 1.15rem;
-  }
-  .visual-editor h1,
-  .e-hd1--type2 {
-    margin-right: -16px;
-    margin-left: -16px;
-    padding-left: 16px;
-    padding-right: 16px;
+    text-align: center;
   }
   .visual-editor h2,
   .e-hd2 {
@@ -9470,22 +9414,17 @@ category: snippets-other
   }
   .visual-editor h2,
   .e-hd2--type2 {
-    margin-bottom: 1.4rem;
+    font-size: 15px;
+    font-size: 1.0714285714rem;
+  }
+  .visual-editor h2,
+  .e-hd2--type2 {
+    padding: .7rem 1.2rem .6rem;
   }
   .visual-editor h3,
   .e-hd3 {
     font-size: 16px;
     font-size: 1.1428571429rem;
-  }
-  .visual-editor h3,
-  .e-hd3--type2 {
-    margin-bottom: 16px;
-  }
-  .visual-editor h3,
-  .e-hd3--type2 {
-    padding-bottom: .8em;
-    padding-left: 1.1em;
-    padding-top: .7em;
   }
   .visual-editor h4,
   .e-hd4 {
@@ -9502,13 +9441,16 @@ category: snippets-other
     font-size: 14px;
     font-size: 1rem;
   }
-  .e-hd-unit {
+  .e-hd-date {
+    margin-bottom: 16px;
+  }
+  .e-hd-group {
     margin-bottom: 16px;
   }
   .e-responsive-img .e-img-box {
     position: relative;
     width: 100%;
-    overflow: auto;
+    overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
   }
   .e-responsive-img .e-img-box::-webkit-scrollbar {
@@ -9522,11 +9464,11 @@ category: snippets-other
   }
   .e-responsive-img .e-img-box:after {
     display: block;
-    padding-bottom: .5em;
+    padding: .5em 0;
     font-size: .8em;
     text-align: center;
     white-space: nowrap;
-    content: "　";
+    content: "← この画像は左右に動かせます。 →";
   }
   .e-responsive-img img {
     min-width: 520px;
@@ -9544,10 +9486,6 @@ category: snippets-other
   .is-img-w50,
   .is-img-w100 {
     width: 100%;
-  }
-  .entry,
-  .visual-editor {
-    margin-bottom: 16px;
   }
   .visual-editor p,
   .e-text {
@@ -9609,7 +9547,7 @@ category: snippets-other
     position: relative;
     margin-bottom: 16px;
     width: 100%;
-    overflow: auto;
+    overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
   }
   .visual-editor .e-responsive-table::-webkit-scrollbar,
@@ -9627,7 +9565,7 @@ category: snippets-other
   .visual-editor .e-responsive-table:after,
   .e-responsive-table:after {
     display: block;
-    padding-bottom: .5em;
+    padding: .5em 0;
     font-size: .8em;
     text-align: center;
     white-space: nowrap;
@@ -9954,24 +9892,41 @@ category: snippets-other
     margin-bottom: 16px;
   }
   .c-summary-horizontal {
-    padding-left: 16px;
-    margin-right: -16px;
-    margin-left: -16px;
-  }
-  .c-summary-horizontal ul {
-    margin-right: -1.7142857143%;
-    margin-left: -1.7142857143%;
+    margin-left: -1.7142881633%;
+    margin-right: -1.7142881633%;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    clear: both;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     overflow: scroll;
     -ms-flex-flow: nowrap;
         flex-flow: nowrap;
+    margin-right: -16px;
   }
   .c-summary-horizontal .c-summary__item {
-    margin-right: 1.7142857143%;
-    margin-left: 1.7142857143%;
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 240px;
-            flex: 0 0 240px;
-    max-width: none;
+        -ms-flex: 0 0 54.9047570068%;
+            flex: 0 0 54.9047570068%;
+    margin-left: 1.7142881633%;
+    margin-right: 1.7142881633%;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column wrap;
+            flex-flow: column wrap;
+  }
+  .c-summary-horizontal .c-summary__item > *:last-child {
+    margin-bottom: 0;
   }
   .c-summary-vertical .c-summary__item {
     margin-bottom: 16px;
@@ -10066,8 +10021,7 @@ category: snippets-other
   .is-hidden--sm {
     display: none;
   }
-  .is-center--sm {
-    text-align: center;
+  .is-flex-center--sm {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -10076,7 +10030,7 @@ category: snippets-other
     text-align: left;
   }
   .is-right--sm {
-    text-align: right;
+    float: right;
   }
   .is-flex-start--sp {
     -webkit-box-pack: start;

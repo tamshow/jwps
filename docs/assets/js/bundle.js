@@ -1,5 +1,48 @@
+
+
 $(function () {
 
+  'use strict';
+
+  /*
+   ## service-worker
+   */
+
+  var isLocalhost = Boolean(window.location.hostname === 'localhost' ||
+      window.location.hostname === '[::1]' ||
+      window.location.hostname.match(
+          /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+      )
+  );
+
+  if ('serviceWorker' in navigator &&
+      (window.location.protocol === 'https:' || isLocalhost)) {
+    navigator.serviceWorker.register('/service-worker.js')
+        .then(function(registration) {
+          
+          registration.onupdatefound = function() {
+            if (navigator.serviceWorker.controller) {
+              var installingWorker = registration.installing;
+              installingWorker.onstatechange = function() {
+                switch (installingWorker.state) {
+                  case 'installed':
+                    break;
+                  case 'redundant':
+                    throw new Error('The installing ' +
+                        'service worker became redundant.');
+                  default:
+                }
+              };
+            }
+          };
+          
+          
+          
+        }).catch(function(e) {
+      console.error('Error during service worker registration:', e);
+    });
+  }
+  
 
   /*
    ##uaの判定
@@ -145,95 +188,54 @@ $(function () {
 
 $(function () {
 
+  var $selectorAC = $('[data-toggle-accordion]');
+  var containerAC = '[data-accordion]';
+  var deviceAC = '[data-device-accordion]';//all, pc, tab, sp
+  var bodyAC = '[data-body-accordion]';
+  var tabWidth = '960px';
+  var spWidth = '600px';
 
-  //initialize
-  var $modalSelector = $('[data-modal]');
-  var $openModalSelector = $('[data-open-modal]');
-  var $closeModalSelector = $('[data-close-modal]');
-  var $appendSelector = $('[data-append-modal]');
-  var $currentScrollY = 0;
+  $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
 
-  if ($modalSelector.length) {
+  $selectorAC.on('click E_ENTER_KYE_CODE', function (e) {
 
-    $areaHidden = $('header, footer, main');
-    $currentScrollY = null;
+    var media = $(e.currentTarget).parents(deviceAC).data('device-accordion') || 'all';
+    var isMobile = window.matchMedia('(max-width:' + spWidth + ')').matches || false;
+    var isTablet = window.matchMedia('(min-width:' + spWidth + ') and (max-width:' + tabWidth + ')').matches || false;
 
-    $('body').append('<div class="c-modal-dialog-bg" data-close-modal aria-expanded="true" aria-label="閉じる"></div>');
-    $modalBg = $('.c-modal-dialog-bg');
-    $modalBg.css({
-      display: 'none',
-      width: '100%',
-      height: '100%',
-      backgroundColor: 'rgba(0, 0, 0, .5)',
-      overflow: 'hidden',
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      zIndex: '99998'
-    });
-
-
-
-    //handleEvents
-    $openModalSelector.on('click', function(e) {
-      show(e);
-    });
-
-    $(document).on('keyup', function(e) {
-      var ESCAPE_KEY_CODE = 27;
-      if (e.keyCode === ESCAPE_KEY_CODE) {
-        hide(e);
-      }
-    });
-
-    $closeModalSelector.on('click', function(e) {
-      hide(e);
-    });
-
-    $modalBg.on('click', function(e) {
-      hide(e);
-    });
-
-  }
-
-  //function
-  function show(e) {
-    e.preventDefault();
-    var $openButton = $(e.currentTarget);
-    var containerAttr = $openButton.attr('aria-controls');
-    var $container = $('#' + containerAttr );
-
-    this.$modalBg.fadeIn(400);
-    $container.fadeIn(400).attr({'aria-hidden': 'false', 'tabindex': '1'}).focus();
-    this.$areaHidden.attr({'aria-hidden': 'true'});
-    $currentScrollY = $(window).scrollTop();
-
-    $('body').css({
-      position: 'fixed',
-      width: '100%',
-      top: -1 * $currentScrollY
-    });
-
-    var $clone = $('[data-clone-modal="' + containerAttr + '"]');
-
-    if ($clone.length && !$appendSelector.children().attr('data-clone-modal')) {
-      var elem = $clone.clone(true);
-
-      elem.find('.c-modal-dialog-none').remove();
-      elem.removeAttr('style class').find('*').removeAttr('style class');
-      $appendSelector.append(elem);
+    if (media.match(/all/) ||
+        (media.match(/sp/) && isMobile) ||
+        (media.match(/tab/) && isTablet) ||
+        (media.match(/pc/) && ( !isMobile && !isTablet))
+    ) {
+      toggle(e);
     }
-  }
+  });
 
+  function toggle(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var $containerAC = $target.parents(containerAC);
+    var $bodyAC = $containerAC.find(bodyAC);
 
-  function hide(e) {
+    if ($containerAC.hasClass('is-active')) {
+      $containerAC.removeClass('is-active');
+      $target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
+      $bodyAC.stop().slideUp(150).attr('aria-hidden', 'true');
+    } else {
+      $containerAC.addClass('is-active');
+      $target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
+      $bodyAC.stop().slideDown(200).attr('aria-hidden', 'false').focus();
 
-    $modalBg.fadeOut(0);
-    $modalSelector.fadeOut(0).attr({'aria-hidden': 'true', 'tabindex': '-1'});
-    $areaHidden.removeAttr('aria-hidden');
-    $('body').attr({style: ''});
-    $('html, body').prop({scrollTop: $currentScrollY});
-    $appendSelector.empty();
+      var offset = $target.offset() || {};
+      var offsetTop = offset.top || 0;
+
+      $('html,body').animate({scrollTop: offsetTop - ($('header').height())}, {
+        duration: 500,
+        easing: 'swing'
+      });
+
+    }
   }
 
 
@@ -348,54 +350,95 @@ $(function () {
 
 $(function () {
 
-  var $selectorAC = $('[data-toggle-accordion]');
-  var containerAC = '[data-accordion]';
-  var deviceAC = '[data-device-accordion]';//all, pc, tab, sp
-  var bodyAC = '[data-body-accordion]';
-  var tabWidth = '960px';
-  var spWidth = '600px';
 
-  $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
+  //initialize
+  var $modalSelector = $('[data-modal]');
+  var $openModalSelector = $('[data-open-modal]');
+  var $closeModalSelector = $('[data-close-modal]');
+  var $appendSelector = $('[data-append-modal]');
+  var $currentScrollY = 0;
 
-  $selectorAC.on('click E_ENTER_KYE_CODE', function (e) {
+  if ($modalSelector.length) {
 
-    var media = $(e.currentTarget).parents(deviceAC).data('device-accordion') || 'all';
-    var isMobile = window.matchMedia('(max-width:' + spWidth + ')').matches || false;
-    var isTablet = window.matchMedia('(min-width:' + spWidth + ') and (max-width:' + tabWidth + ')').matches || false;
+    $areaHidden = $('header, footer, main');
+    $currentScrollY = null;
 
-    if (media.match(/all/) ||
-        (media.match(/sp/) && isMobile) ||
-        (media.match(/tab/) && isTablet) ||
-        (media.match(/pc/) && ( !isMobile && !isTablet))
-    ) {
-      toggle(e);
-    }
-  });
+    $('body').append('<div class="c-modal-dialog-bg" data-close-modal aria-expanded="true" aria-label="閉じる"></div>');
+    $modalBg = $('.c-modal-dialog-bg');
+    $modalBg.css({
+      display: 'none',
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(0, 0, 0, .5)',
+      overflow: 'hidden',
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      zIndex: '99998'
+    });
 
-  function toggle(e) {
+
+
+    //handleEvents
+    $openModalSelector.on('click', function(e) {
+      show(e);
+    });
+
+    $(document).on('keyup', function(e) {
+      var ESCAPE_KEY_CODE = 27;
+      if (e.keyCode === ESCAPE_KEY_CODE) {
+        hide(e);
+      }
+    });
+
+    $closeModalSelector.on('click', function(e) {
+      hide(e);
+    });
+
+    $modalBg.on('click', function(e) {
+      hide(e);
+    });
+
+  }
+
+  //function
+  function show(e) {
     e.preventDefault();
-    var $target = $(e.currentTarget);
-    var $containerAC = $target.parents(containerAC);
-    var $bodyAC = $containerAC.find(bodyAC);
+    var $openButton = $(e.currentTarget);
+    var containerAttr = $openButton.attr('aria-controls');
+    var $container = $('#' + containerAttr );
 
-    if ($containerAC.hasClass('is-active')) {
-      $containerAC.removeClass('is-active');
-      $target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
-      $bodyAC.stop().slideUp(150).attr('aria-hidden', 'true');
-    } else {
-      $containerAC.addClass('is-active');
-      $target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
-      $bodyAC.stop().slideDown(200).attr('aria-hidden', 'false').focus();
+    this.$modalBg.fadeIn(400);
+    $container.fadeIn(400).attr({'aria-hidden': 'false', 'tabindex': '1'}).focus();
+    this.$areaHidden.attr({'aria-hidden': 'true'});
+    $currentScrollY = $(window).scrollTop();
 
-      var offset = $target.offset() || {};
-      var offsetTop = offset.top || 0;
+    $('body').css({
+      position: 'fixed',
+      width: '100%',
+      top: -1 * $currentScrollY
+    });
 
-      $('html,body').animate({scrollTop: offsetTop - ($('header').height())}, {
-        duration: 500,
-        easing: 'swing'
-      });
+    var $clone = $('[data-clone-modal="' + containerAttr + '"]');
 
+    if ($clone.length && !$appendSelector.children().attr('data-clone-modal')) {
+      var elem = $clone.clone(true);
+
+      elem.find('.c-modal-dialog-none').remove();
+      elem.removeAttr('style class').find('*').removeAttr('style class');
+      $appendSelector.append(elem);
     }
+  }
+
+
+  function hide(e) {
+
+    $modalBg.fadeOut(0);
+    $modalSelector.fadeOut(0).attr({'aria-hidden': 'true', 'tabindex': '-1'});
+    $areaHidden.removeAttr('aria-hidden');
+    $('body').attr({style: ''});
+    $('html, body').prop({scrollTop: $currentScrollY});
+    $appendSelector.empty();
   }
 
 
@@ -451,6 +494,84 @@ $(function () {
   }
 
 });
+
+
+$(function () {
+
+
+  var scrollSelector = '[data-scroll]';
+  var $scrollTotop = $('[data-scroll="to-top"]');
+  var mainH = $('header').height();
+
+
+  $(document).on('click', scrollSelector + ' a', function (e) {
+    scroll(e);
+  });
+
+
+  $(window).on('scroll',function (e) {
+    topHide(e);
+  });
+
+  $(window).on('load',function (e) {
+
+    scrollToAnker(e);
+
+  });
+
+
+  function scroll(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var targetHref = $target.attr('href');
+
+    if (targetHref.includes('#')) {
+      $target.blur();
+
+      var offset = $(targetHref).offset() || {};
+      var offsetTop = offset.top - mainH - 20 || 0;
+
+      $('html,body').animate(
+          {scrollTop: offsetTop},
+          {
+            duration: 300, easing: 'swing', complete: function () {
+            if (targetHref !== '#skippy') {
+              // window.location.hash = targetHref;
+            }
+          }
+          });
+    }
+  }
+
+  function topHide(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var scrollPos = $target.scrollTop();
+
+    if (scrollPos < mainH) {
+      $scrollTotop.find('a').stop().animate({'bottom': '-100px'}, 200, 'swing');
+    } else {
+      $scrollTotop.find('a').stop().animate({'bottom': '100px'}, 200, 'swing');
+    }
+  }
+
+
+    //ハッシュ付きリンク用に遅延して動作
+  function scrollToAnker(e) {
+    var urlHash = location.hash || false;
+    if (urlHash && $(urlHash).length) {
+      setTimeout(function () {
+        var position = $(urlHash).offset().top - mainH -20;
+        $('body,html').animate({scrollTop: position}, 100);
+      }, 0);
+    }
+
+  }
+
+
+
+});
+
 
 
 $(function () {
@@ -515,64 +636,6 @@ $(function () {
 
 
 });
-
-$(function () {
-
-
-  var scrollSelector = '[data-scroll]';
-  var $scrollTotop = $('[data-scroll="to-top"]');
-  var mainH = $('header').height();
-
-
-  $(document).on('click', scrollSelector + ' a' , function(e) {
-    scroll(e);
-  });
-
-
-  $(window).scroll(function(e) {
-    topHide(e);
-  });
-
-
-
-  function scroll(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var targetHref = $target.attr('href');
-
-    if (targetHref.includes('#')) {
-      $target.blur();
-
-      var offset = $(targetHref).offset() || {};
-      var offsetTop = offset.top || 0;
-
-      $('html,body').animate(
-          {scrollTop: offsetTop},
-          {
-            duration: 300, easing: 'swing', complete: function () {
-            if (targetHref !== '#skippy') {
-              window.location.hash = targetHref;
-            }
-          }
-          });
-    }
-  }
-
-  function topHide(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var scrollPos = $target.scrollTop();
-
-    if (scrollPos < mainH) {
-      $scrollTotop.find('a').stop().animate({'bottom': '-100px'}, 200, 'swing');
-    } else {
-      $scrollTotop.find('a').stop().animate({'bottom': '15px'}, 200, 'swing');
-    }
-  }
-
-});
-
-
 
 $(function () {
 

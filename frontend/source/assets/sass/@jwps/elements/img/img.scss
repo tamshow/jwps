@@ -80,7 +80,8 @@ categories: [elements, images]
     .e-img-box {
       position: relative;
       width: 100%;
-      overflow: auto;
+      //overflow: auto;
+      overflow-x: scroll;
       -webkit-overflow-scrolling: touch;
 
       &::-webkit-scrollbar {
@@ -97,11 +98,11 @@ categories: [elements, images]
 
       &:after {
         display: block;
-        padding-bottom: .5em;
+        padding: .5em 0;
         font-size: .8em;
         text-align: center;
         white-space: nowrap;
-        content: "　";
+        content: "← この画像は左右に動かせます。 →";
       }
 
     }
@@ -117,6 +118,7 @@ categories: [elements, images]
 .visual-editor figure,
 .e-img-box {
   margin-bottom: $margin-small-pc;
+  text-align: center;
 
   a {
     display: inline-block;
@@ -124,6 +126,7 @@ categories: [elements, images]
 
   figcaption,
   .e-img-caption {
+    text-align: left;
     margin-top: .5em;
     color: $text-color-sub;
     font-size: .9rem;

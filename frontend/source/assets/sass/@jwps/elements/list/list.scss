@@ -198,6 +198,11 @@ parent: list
 ```
 */
 
+.visual-editor .e-list-inline {
+  margin-left: 0;
+  list-style-type: none;
+}
+
 .e-list-inline {
 
   @include mb-small;

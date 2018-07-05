@@ -12,8 +12,8 @@ categories: [components, summary]
 
 ```html_example
 
-<div class="c-summary-horizontal">
-  <ul>
+<div>
+  <ul class="c-summary-horizontal">
    <li class="c-summary__item e-card">
         <a href="">
           <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
@@ -108,55 +108,23 @@ categories: [components, summary]
 
   @include mb-medium;
 
+  @include grid('.c-summary__item', 3, $screen-pc-max, 24);
+
   @include media-sp-max {
-    padding-left: $width-gap-sp;
-    margin-right:-$width-gap-sp;
-    margin-left:-$width-gap-sp;
-
+    @include grid('.c-summary__item', 7, $screen-sp-max, 24);
+    overflow: scroll;
+    flex-flow: nowrap;
+    margin-right: -$width-gap-sp;
+    //margin-left: -2.0000033333%;
+    //margin-right: -2.0000033333%;
+    //._item {
+    //  margin-left: 2.0000033333%;
+    //  margin-right: 2.0000033333%;
+    //  flex: 0 0 45.9999933333%;
+    //}
   }
 
-  ul{
 
-    @include clearfix;
-    align-items: stretch;
-    clear: both;
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -1%;
-    margin-left: -1%;
-
-    @include media-sp-max {
-      margin-right: -1.7142857143%;
-      margin-left: -1.7142857143%;
-      overflow: scroll;
-      flex-flow: nowrap;
-    }
-  }
-
-  .c-summary__item {
-    align-self: stretch;
-    display: block;
-    box-sizing: border-box;
-
-    margin-right: 1%;
-    margin-left: 1%;
-
-    > *:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    margin-bottom: 16px;
-    flex: 1 1 31.3333333333%;
-    max-width: 31.3333333333%;
-
-    @include media-sp-max {
-      margin-right: 1.7142857143%;
-      margin-left: 1.7142857143%;
-      flex: 0 0 240px;
-      // width:240px;
-      max-width: none;
-    }
-  }
 }
 
 
