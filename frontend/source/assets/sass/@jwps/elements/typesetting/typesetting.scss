@@ -4,15 +4,6 @@
    #Tppesetting
    ========================================================================== */
 
-/* 枠
-   ========================================================================== */
-
-.entry,
-.visual-editor {
-  word-break: break-all;
-  @include clearfix;
-  @include mb-medium;
-}
 
 /*doc
 ---
@@ -72,6 +63,7 @@ categories: [utilities, tool-text]
 <div class="styleguide-table"></div>
 Class                                                                      | Description
 -----------------------------------------------------------------------    | ------------
+`is-text-small`            |                        |
 `is-text-sub`            |                        |
 `is-text-week`           |                        |
 `is-text-point`          |                        |
@@ -103,6 +95,9 @@ Class                                                                      | Des
   text-align: justify;
 }
 
+.is-text-small {
+  font-size: .8rem;
+}
 .is-text-sub {
   color: $text-color-sub;
   font-size: .8rem;

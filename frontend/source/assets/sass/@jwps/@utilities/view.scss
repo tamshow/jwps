@@ -18,16 +18,17 @@ categories: [utilities, tool-view]
  -------------| ----------
  `is-visible`            |  表示
  `is-hidden`             |  非表示
- `is-left`               |  左揃え
- `is-right`              |  右揃え
- `is-center`             |  中央揃え
+ `is-float-left`        |
+ `is-float-right`        |
+ `is-float-clear`                |
+  `is-flex-center`        |
  `is-flex-start`        |
  `is-flex-end`          |
  `is-space-between`     |
  `is-ib`                |
  `is-block`             |
  `is-br`                |
- `is-clear`                |
+ `is-w100p`                |
 
 */
 
@@ -77,31 +78,27 @@ categories: [utilities, tool-view]
 
 
 
-.is-clear {
+.is-float-clear {
   @include clearfix;
 }
 
-.is-center {
-  text-align: center;
+.is-flex-center {
   justify-content: center;
 }
 @include media-lg-min {
-  .is-center--lg {
-    text-align: center;
+  .is-flex-center--lg {
     justify-content: center;
   }
 }
 @include media-tab-max {
 
-  .is-center--md {
-    text-align: center;
+  .is-flex-center--md {
     justify-content: center;
   }
 }
 @include media-sp-max {
 
-  .is-center--sm {
-    text-align: center;
+  .is-flex-center--sm {
     justify-content: center;
   }
 }
@@ -110,18 +107,18 @@ categories: [utilities, tool-view]
 
 
 
-.is-left {
-  text-align: left;
+.is-float-left {
+  float: left;
 }
 @include media-lg-min {
-  .is-left--lg {
-    text-align: left;
+  .is-float-left--lg {
+    float: left;
   }
 }
 @include media-tab-max {
 
-  .is-left--md {
-    text-align: left;
+  .is-float-left--md {
+    float: left;
   }
 }
 @include media-sp-max {
@@ -133,23 +130,23 @@ categories: [utilities, tool-view]
 
 
 
-.is-right {
-  text-align: right;
+.is-float-right {
+  float: right;
 }
 @include media-lg-min {
-  .is-right--lg {
-    text-align: right;
+  .is-float-right--lg {
+    float: right;
   }
 }
 @include media-tab-max {
 
-  .is-right--md {
-    text-align: right;
+  .is-float-right--md {
+    float: right;
   }
 }
 @include media-sp-max {
   .is-right--sm {
-    text-align: right;
+    float: right;
   }
 }
 
@@ -296,4 +293,11 @@ categories: [utilities, tool-view]
     white-space: pre;
     content: "\A";
   }
+}
+
+
+//-------------------
+
+.is-w100p {
+  width:100%;
 }

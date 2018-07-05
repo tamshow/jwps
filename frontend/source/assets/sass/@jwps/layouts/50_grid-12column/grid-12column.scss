@@ -138,8 +138,8 @@ $outside-width: $screen-pc-max !default;
 $inside-width: $screen-main-colum !default;
 $outside-gap: $grid-gap !default;
 $inside-gap: $grid-gap * 1.2 !default;
-$outside-bottom: $outside-gap * .16% !default;
-$inside-bottom: $inside-gap * .26% !default;
+$outside-bottom: $outside-gap * .2% !default;
+$inside-bottom: $inside-gap * .3% !default;
 
 $outside-columns-auto: ($outside-width / $grid) - (2 * $outside-gap) !default;
 $outside-grid-auto: ($outside-gap * ($grid * 2)) + ($outside-columns-auto * $grid) !default;

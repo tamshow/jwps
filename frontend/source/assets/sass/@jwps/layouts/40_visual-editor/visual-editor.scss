@@ -13,9 +13,10 @@ name: visualeditor
 category: visualeditor
 ---
 <p class="e-text is-mb-medium">
-ニュースの詳細などCMSで直接タグ入力するして更新する場合は.visual-editorを指定してください。
+詳細ページやCMSで直接タグ入力するして更新する箇所に.visual-editorを指定してください。
 こちらのサンプルのような形になり内包するタグ（p,span,table,list,dlなど）にベース装飾を追加します。
 このため.visual-editor内ではサンプル以外のクラス.mediaなどは使用出来ませんのでご注意ください。
+複雑な装飾がある場合は.visual-editorを使わず直接classを指定してください。
 </p>
 
 ```html_example
@@ -321,6 +322,14 @@ category: visualeditor
 
 
 */
+
+
+.entry,
+.visual-editor {
+  word-break: break-all;
+  @include clearfix;
+}
+
 
 
 .visual-editor p,

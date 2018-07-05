@@ -4,7 +4,7 @@
 /*doc
 ---
 title: 使い方・分類
-name: started
+name: started2
 categories: [started, visualEditorWrap]
 
 ---
@@ -15,7 +15,7 @@ categories: [started, visualEditorWrap]
 <li>Templatesはメインカラムレイアウトの1段組や2段組のパターンを選択します。</li>
 <li>Gridはメインカラム内の段組レイアウトに使用します。</li>
 <li>レイアウトの基本の型は次の並びになります。 <code>.l-main &gt; .l-container &gt; .l-block &gt; .l-unit </code></li>
-<li>外枠に<code>.visual-editor</code>を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。<br>主にCMSのリッチエディタ等で使用するイメージな気がしています。<br><code>.visual-editor</code>内では複雑なclassの装飾は使用出来ません。詳しくは「VisualEditor」を確認ください。
+<li>外枠に<code>.visual-editor</code>を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。<br>主にCMSのヴィジュアルエディタ等で使用するイメージな気がしています。<br><code>.visual-editor</code>内では複雑なclassの装飾は使用出来ません。詳しくは「VisualEditor」を確認ください。
 </li>
 </ul>
 <h3>Componentsとは</h3>
@@ -57,7 +57,7 @@ categories: [started, visualEditorWrap]
 /*doc
 ---
 title: 命名規則
-name: started2
+name: started
 categories: [started, visualEditorWrap]
 
 ---
@@ -97,7 +97,7 @@ categories: [started, visualEditorWrap]
 <li>フォルダの先頭の文字を接頭辞として使用します。「assets/sass/以下」</li>
 <li>パーツのメンテナンス性を重視ししてください。重複するパーツを作成しても構いません。</li>
 <li>コンポーネント単位のclass名毎にscssファイルを作成してください。</li>
-<li>新規スタイル追加箇所に迷った場合は「snippets」に作成してください。</li>
+<li>新規スタイル追加は「snippets、pages」などに分けて追加すると幸せかもです。</li>
 </ul>
 
 <div class="c-accordion" data-accordion="" data-device-accordion="all">
@@ -262,6 +262,6 @@ src
 </div>
 
 </div>
-</div>
+
 */
 

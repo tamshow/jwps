@@ -13,7 +13,10 @@ categories: [components, menu]
 
 ```html_example
 <div class="c-menu">
+<div class="c-menu__title-group">
   <h3 class="c-menu__title">階層構造メニュー</h3>
+  <span class="c-menu__title-to-list"><a href="" class="e-button e-button--small">一覧へ</a></span>
+</div>
   <ul class="c-menu__list">
     <li><a href="">タイトル</a>
     <ul class="c-menu__list">
@@ -39,6 +42,17 @@ categories: [components, menu]
   @include mb-small;
 
   border-bottom: 1px dotted $border-color;
+
+  &__title-group {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title-to-list {
+
+  }
 
   &__title {
     background: $brand-primary;

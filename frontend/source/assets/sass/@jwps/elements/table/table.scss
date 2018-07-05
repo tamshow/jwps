@@ -306,7 +306,8 @@ parent: table
     position: relative;
     margin-bottom: $margin-small-sp;
     width: 100%;
-    overflow: auto;
+    //overflow: auto;
+    overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
 
     &::-webkit-scrollbar {
@@ -323,7 +324,7 @@ parent: table
 
     &:after {
       display: block;
-      padding-bottom: .5em;
+      padding: .5em 0;
       font-size: .8em;
       text-align: center;
       white-space: nowrap;

@@ -38,11 +38,10 @@ categories: [elements, heading]
 .e-hd4,
 .e-hd5,
 .e-hd6 {
-  margin-bottom: $fsize-mb-pc;
+  margin-bottom: 1rem;
   font-weight: bold;
   overflow: hidden;
-  line-height: $heading-line-height-pc;
-
+  line-height: 1.4;
 }
 
 .visual-editor h2:not(:first-child),
@@ -50,7 +49,7 @@ categories: [elements, heading]
 .visual-editor h4:not(:first-child),
 .visual-editor h5:not(:first-child),
 .visual-editor h6:not(:first-child) {
-  margin-top: 2.6rem;
+  margin-top: 1.6rem;
   @include media-sp-max {
     margin-top: 0;
   }
@@ -77,45 +76,16 @@ categories: [elements, heading]
 
 .visual-editor h1,
 .e-hd1--type2 {
-
   position: relative;
-  padding-bottom: 1rem;
-  margin-bottom: 2.5rem;
+  font-weight: bold;
+  color: $brand-primary;
 
   @include media-sp-max {
-    margin-bottom: 1.4rem;
+    text-align: center;
   }
-
-  &:before {
-    padding-top: 1.375rem;
-    display: block;
-    content: "";
-
-    @include media-sp-max {
-      padding-top: 1.15rem;
-    }
-  }
-
-  &:after {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-   // background: linear-gradient(to right, $brand-secondary 35%, $brand-primary 35%);
-    background: linear-gradient(to right, $brand-primary 35%, $brand-primary 35%);
-    display: block;
-    height: 3px;
-    content: "";
-  }
-
-  @include media-sp-max {
-    margin-right: -$width-gap-sp;
-    margin-left: -$width-gap-sp;
-    padding-left: $width-gap-sp;
-    padding-right: $width-gap-sp;
-  }
-
 }
+
+
 
 .visual-editor h2,
 .e-hd2 {
@@ -125,51 +95,27 @@ categories: [elements, heading]
 
 .visual-editor h2,
 .e-hd2--type2 {
-  color: #fff;
-  background-color: $brand-primary-light;
-  padding: .7rem 1.2rem .6rem;
+  border-left: 3px solid $brand-primary;
+  background-color: $bg-color;
 
-  margin-bottom: 1.9rem;
+  padding: 1rem 1.5rem .9rem;
+  @include fsize(18px, false, 15px);
 
   @include media-sp-max {
-    margin-bottom: 1.4rem;
+    padding: .7rem 1.2rem .6rem;
 
   }
 }
+
 
 .visual-editor h3,
 .e-hd3 {
   @include fsize($fsize-h3-pc, false, $fsize-h3-sp);
 }
 
-.visual-editor h3,
-.e-hd3--type2 {
-  border-left: 5px solid $brand-primary;
-  border-bottom: 1px solid #757575;
-  padding-bottom: .6em;
-  padding-left: .9em;
-  padding-top: .5em;
-  @include mb-small;
-
-  @include media-sp-max {
-    padding-bottom: .8em;
-    padding-left: 1.1em;
-    padding-top: .7em;
-  }
-}
-
 .visual-editor h4,
 .e-hd4 {
   @include fsize($fsize-h4-pc, false, $fsize-h4-sp);
-}
-
-.visual-editor h4,
-.e-hd4--type2 {
-  border-left: 3px solid $brand-primary;
-  padding-left: 1rem;
-  padding-top: .1em;
-  padding-bottom: .1em;
-  margin-bottom: .8rem;
 }
 
 .visual-editor h5,
@@ -193,10 +139,10 @@ parent: heading
 ```html_example
 <h1 class="e-hd1 e-hd1--type2"><span>情に棹させば流される智に働けば角が立つ</span></h1>
 <h2 class="e-hd2 e-hd2--type2">情に棹させば流される智に働けば角が立つ</h2>
-<h3 class="e-hd3 e-hd3--type2">情に棹させば流される智に働けば角が立つ</h3>
-<h4 class="e-hd4 e-hd4--type2">情に棹させば流される智に働けば角が立つ</h4>
-<h5 class="e-hd5 is-color-blue">情に棹させば流される智に働けば角が立つ</h5>
-<h6 class="e-hd6 is-bdb">情に棹させば流される智に働けば角が立つ</h6>
+<h3 class="e-hd3 is-color-blue">情に棹させば流される智に働けば角が立つ</h3>
+<h4 class="e-hd4 is-text-center">情に棹させば流される智に働けば角が立つ</h4>
+<h5 class="e-hd5 is-bdb">情に棹させば流される智に働けば角が立つ</h5>
+<h6 class="e-hd6">情に棹させば流される智に働けば角が立つ</h6>
 
 ```
 
@@ -215,9 +161,9 @@ parent: heading
 ```html_example
 
 
-<div class="e-hd-unit">
+<div class="e-hd-group">
   <h3 class="e-hd3">情に棹させば流される智に働けば角が立つ</h3>
-  <p class="is-text-week"> 6月12日  12:49</p>
+  <p class="e-hd-date"> 6月12日  12:49</p>
 </div>
 
 
@@ -225,21 +171,28 @@ parent: heading
 ```
 */
 
-.e-hd-unit {
-  position: relative;
-  padding-right: 4em;
+
+.e-hd-date {
   @include mb-small;
-
-  h1:not(.hd--bd),
-  h2:not(.hd--bd),
-  h3:not(.hd--bd),
-  h4:not(.hd--bd),
-  h5:not(.hd--bd),
-  h6:not(.hd--bd) {
-    margin-top: 0;
-    margin-bottom: 0;
+  color: $text-color-sub;
+  font-size: .8em;
+  a {
+    color: $brand-link;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
   }
-
 }
 
-
+.e-hd-group {
+  @include mb-large;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: .5em;
+  }
+}
