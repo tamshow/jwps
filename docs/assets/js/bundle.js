@@ -17,7 +17,7 @@ $(function () {
 
   if ('serviceWorker' in navigator &&
       (window.location.protocol === 'https:' || isLocalhost)) {
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker.register('/jwps/service-worker.js')
         .then(function(registration) {
           
           registration.onupdatefound = function() {
