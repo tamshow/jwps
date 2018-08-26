@@ -53,7 +53,7 @@ categories: [elements, media]
 
     overflow: hidden;
     position: relative;
-    margin-right: 3%;
+    margin-right: 10px;
     float: left;
     width: 192px;
     height: 128px;
@@ -84,19 +84,19 @@ categories: [elements, media]
   }
 
   &__label {
-    margin-bottom: .2em;
+    margin-bottom: 3px;
     width: 100%;
     display: inline-block;
   }
   &__title {
-    @include fsize($fsize-h4-pc, false, $fsize-h4-sp);
-    margin-bottom: .3em;
+    @include fsize-h4;
+    margin-bottom: 3px;
     line-height: 1.4;
   }
 
   &__text {
     color: $text-color-sub;
-    @include fsize(14px);
+    font-size: 14px;
 
     + .e-media__text {
       margin-top: $margin-small-pc;
@@ -114,18 +114,18 @@ categories: [elements, media]
 .e-media--small {
 
   .e-media__title {
-    @include fsize(14px);
+    font-size: 14px;
   }
 
   .e-media__text {
-    @include fsize(12px);
+    font-size: 12px;
   }
 
   .e-media__img {
     margin-right: 16px;
     float: left;
-    width: 135px;
-    height: 90px;
+    width: 82px;
+    height: 82px;
 
     @include media-sp-max {
       margin-right: 10px;

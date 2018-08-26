@@ -6,29 +6,35 @@
 //レスポシブ基準幅
 $screen-sp: 700 !default;
 $screen-tab: 960 !default;
-$screen-pc: 1200 !default;
+$screen-pc: 1180 !default;
 $screen-min: 320 !default;
 $screen-max: 1600 !default;
 
 //カラムレイアウトの幅
-$screen-main-wide-colum: 840 !default;
-$screen-main-colum: 840 !default;
+$screen-main-wide-colum: 1180 !default;
+$screen-main-colum: 880 !default;
 $screen-sub-colum: 280 !default;
-
-//px
-$width-main-wide-colum: $screen-main-wide-colum + px !default;
-$width-main-colum: $screen-main-colum + px !default;
-$width-sub-colum: $screen-sub-colum + px !default;
 
 //左右余白
 $screen-gap-sp: 16 !default;
 $screen-gap-tab: 16 !default;
 $screen-gap-pc: 16 !default;
 
-//px
+//--------------------------------------------------------
+
+//--------------------------------------------------------
+
+//カラムレイアウトの幅 px
+$width-main-wide-colum: $screen-main-wide-colum + px !default;
+$width-main-colum: $screen-main-colum + px !default;
+$width-sub-colum: $screen-sub-colum + px !default;
+
+
+//左右余白 px
 $width-gap-sp: $screen-gap-sp + px !default;
 $width-gap-tab: $screen-gap-tab + px !default;
 $width-gap-pc: $screen-gap-pc + px !default;
+
 
 //$screen - ではじまる物は数値のみ
 //$width -  ではじまる物は数値 + 単位
@@ -43,8 +49,8 @@ $screen-pc-max: $screen-pc !default;
 $screen-lg-min: $screen-pc + .001 !default;
 $screen-lg-max: $screen-max !default;
 
-//px
 
+//ブレークポイント px
 $width-min: $screen-min + px !default;
 $width-sp-min: $screen-sp-min + px !default;
 $width-sp-max: $screen-sp-max + px !default;

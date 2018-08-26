@@ -98,39 +98,6 @@ parent: grid-12column
 ```
 */
 
-/*doc
----
-title: grid-12column-gapless
-name: grid-12column-gapless
-categories: [layouts, grid-12column]
-parent: grid-12column
----
-
-
-```html_example
-
-<div class="l-cols l-cols--gapless l-cols--break">
-  <div class="l-col8 dummy-box">2/3<br>8 column  </div>
-  <div class="l-col4 dummy-box">1/3<br>4 column
-   <div class="l-cols l-cols--gapless">
-     <div class="l-col12 dummy-box">12 column  </div>
-     <div class="l-col12 dummy-box">12 column  </div>
-   </div>
-  </div>
-</div>
-
-<div class="l-cols l-cols--gapless ">
-  <div class="l-col6 is-offset3 dummy-box">1/2<br>6 column, offset3 </div>
-</div>
-
-<div class="l-cols  l-cols--gapless  l-cols--break">
-  <div class="l-col3 dummy-box">1/2<br>3 column</div>
-  <div class="l-col3 is-offset6 dummy-box">1/2<br>3 column, offset6 </div>
-</div>
-
-```
-
-*/
 
 $grid: 12 !default;
 $grid-gap: 12 !default;
@@ -205,32 +172,10 @@ $inside-grid-auto: ($inside-gap * ($grid * 2)) + ($inside-columns-auto * $grid) 
   }
 }
 
-.l-cols--gapless {
-  margin-right: 0;
-  margin-left: 0;
-
-  > .l-col1,
-  > .l-col2,
-  > .l-col3,
-  > .l-col4,
-  > .l-col5,
-  > .l-col6,
-  > .l-col7,
-  > .l-col8,
-  > .l-col9,
-  > .l-col10,
-  > .l-col11,
-  > .l-col12 {
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-  }
-}
 
 .l-cols,
 .l-cols--outside,
-.l-cols--inside,
-.l-cols--gapless {
+.l-cols--inside {
   @include clearfix;
 
   > .l-col1,
@@ -315,19 +260,6 @@ $inside-grid-auto: ($inside-gap * ($grid * 2)) + ($inside-columns-auto * $grid) 
     }
   }
 
-  .l-cols--gapless {
-
-    $this-grid: $i;
-
-    > .l-col#{$i} {
-      width: 8.333333333% * $i;
-    }
-
-    > .is-offset#{$i} {
-      margin-left: 8.333333333% * $i;
-    }
-
-  }
 
 }
 

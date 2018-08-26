@@ -19,23 +19,23 @@ categories: [elements, video]
 ```
 */
 
+
 .e-video-container {
-  position: relative;
-  height: 0;
-  padding-top: 25%;
-  padding-bottom: 30.25%;
+  text-align: center;
+  width:100%;
   overflow: hidden;
   @include mb-small;
 
   iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100px;
+    @include media-sp-max {
+      height: 30vh;
+    }
   }
-
 }
+
+
 
 /* Google map
    ========================================================================== */
@@ -58,11 +58,12 @@ parent: video
 .e-gmap {
   text-align: center;
   width:100%;
+  overflow: hidden;
   @include mb-small;
 
   iframe {
     width: 100%;
-    min-height: 250px;
+    min-height: 100px;
     @include media-sp-max {
       height: 30vh;
     }

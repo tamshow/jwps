@@ -194,6 +194,15 @@ parent: button
   }
 }
 
+.e-button-group--left {
+  justify-content: flex-start;
+}
+.e-button-group--right {
+  justify-content: flex-end;
+}
+
+
+
 /* ボタンサイズ
    ========================================================================== */
 
@@ -253,4 +262,5 @@ parent: button
   }
 
 }
+
 

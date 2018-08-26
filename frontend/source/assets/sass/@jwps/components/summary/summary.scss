@@ -12,7 +12,7 @@ categories: [components, summary]
 
 ```html_example
 
-<div>
+
   <ul class="c-summary-horizontal">
    <li class="c-summary__item e-card">
         <a href="">
@@ -108,13 +108,16 @@ categories: [components, summary]
 
   @include mb-medium;
 
-  @include grid('.c-summary__item', 3, $screen-pc-max, 24);
+  @include grid('.c-summary__item', 4, $screen-pc-max, 24);
 
   @include media-sp-max {
-    @include grid('.c-summary__item', 7, $screen-sp-max, 24);
-    overflow: scroll;
-    flex-flow: nowrap;
-    margin-right: -$width-gap-sp;
+    @include grid('.c-summary__item', 12, $screen-sp-max, 0);
+    //overflow: scroll;
+    //flex-flow: nowrap;
+    //margin-right: -$width-gap-sp;
+
+
+
     //margin-left: -2.0000033333%;
     //margin-right: -2.0000033333%;
     //._item {

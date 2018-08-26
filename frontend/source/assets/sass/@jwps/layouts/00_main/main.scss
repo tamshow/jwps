@@ -37,20 +37,3 @@ html {
     padding-bottom: 46px; //breadcrumb-height
   }
 }
-
-.l-main--mb0 {
-  margin-top: 0;
-  margin-bottom: 0;
-
-  @include media-tab-max {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  @include media-sp-max {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-
-}

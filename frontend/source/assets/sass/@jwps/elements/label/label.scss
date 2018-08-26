@@ -25,21 +25,16 @@ categories: [elements, label]
 
 // .visual-editor 内でもつかるように label のcolor とtext-decoration は 「!important」とします
 
-$label-padding-vertical: 5px !default;
-$label-padding-horizon: 6px !default;
-$label-border-radius: $border-radius-pc !default;
-
 .e-label {
   color: $brand-white !important;
   text-decoration: none !important;
   box-sizing: border-box;
 
-
   min-width: 3rem;
   display: inline-block;
-  padding: $label-padding-vertical $label-padding-horizon;
+  padding: 5px 6px;
   border: 0;
-  border-radius: $label-border-radius;
+  border-radius: $border-radius-pc;
   background-color: #aaa;
   font-size: 11px;
   line-height: 1.2;

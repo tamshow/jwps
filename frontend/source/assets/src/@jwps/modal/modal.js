@@ -1,21 +1,36 @@
 $(function () {
 
 
-  //initialize
-  var $modalSelector = $('[data-modal]');
-  var $openModalSelector = $('[data-open-modal]');
-  var $closeModalSelector = $('[data-close-modal]');
-  var $appendSelector = $('[data-append-modal]');
-  var $currentScrollY = 0;
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
 
-  if ($modalSelector.length) {
 
-    $areaHidden = $('header, footer, main');
-    $currentScrollY = null;
+
+  var NAME    = 'modal';
+  var VERSION = '0.5.0';
+
+  var Selector = {
+    BODY        : '[data-modal]',
+    OPEN        : '[data-open-modal]',
+    CLOSE       : '[data-close-modal]',
+    APPEND      : '[data-append-modal]',
+    AREA_HIDDEN : 'header, footer, main',
+    BG          : '.c-modal-dialog-bg'
+  };
+
+  var Default = {
+    current_scrollY : null
+  };
+
+
+
+  if ($(Selector.BODY).length) {
 
     $('body').append('<div class="c-modal-dialog-bg" data-close-modal aria-expanded="true" aria-label="閉じる"></div>');
-    $modalBg = $('.c-modal-dialog-bg');
-    $modalBg.css({
+    $(Selector.BG).css({
       display: 'none',
       width: '100%',
       height: '100%',
@@ -27,10 +42,17 @@ $(function () {
       zIndex: '99998'
     });
 
+  }
 
 
-    //handleEvents
-    $openModalSelector.on('click', function(e) {
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+    $(Selector.OPEN).on('click', function(e) {
       show(e);
     });
 
@@ -41,54 +63,57 @@ $(function () {
       }
     });
 
-    $closeModalSelector.on('click', function(e) {
+    $(Selector.CLOSE).on('click', function(e) {
       hide(e);
     });
 
-    $modalBg.on('click', function(e) {
+    $(Selector.BG).on('click', function(e) {
       hide(e);
     });
 
-  }
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
 
-  //function
+
   function show(e) {
     e.preventDefault();
     var $openButton = $(e.currentTarget);
     var containerAttr = $openButton.attr('aria-controls');
     var $container = $('#' + containerAttr );
 
-    this.$modalBg.fadeIn(400);
+    $(Selector.BG).fadeIn(400);
     $container.fadeIn(400).attr({'aria-hidden': 'false', 'tabindex': '1'}).focus();
-    this.$areaHidden.attr({'aria-hidden': 'true'});
-    $currentScrollY = $(window).scrollTop();
+    $(Selector.AREA_HIDDEN).attr({'aria-hidden': 'true'});
+    Default.current_scrollY = $(window).scrollTop();
 
     $('body').css({
       position: 'fixed',
       width: '100%',
-      top: -1 * $currentScrollY
+      top: -1 * Default.current_scrollY
     });
 
     var $clone = $('[data-clone-modal="' + containerAttr + '"]');
 
-    if ($clone.length && !$appendSelector.children().attr('data-clone-modal')) {
+    if ($clone.length && !$(Selector.APPEND).children().attr('data-clone-modal')) {
       var elem = $clone.clone(true);
 
       elem.find('.c-modal-dialog-none').remove();
       elem.removeAttr('style class').find('*').removeAttr('style class');
-      $appendSelector.append(elem);
+      $(Selector.APPEND).append(elem);
     }
   }
 
 
   function hide(e) {
-
-    $modalBg.fadeOut(0);
-    $modalSelector.fadeOut(0).attr({'aria-hidden': 'true', 'tabindex': '-1'});
-    $areaHidden.removeAttr('aria-hidden');
+    $(Selector.BG).fadeOut(0);
+    $(Selector.BODY).fadeOut(0).attr({'aria-hidden': 'true', 'tabindex': '-1'});
+    $(Selector.AREA_HIDDEN).removeAttr('aria-hidden');
     $('body').attr({style: ''});
-    $('html, body').prop({scrollTop: $currentScrollY});
-    $appendSelector.empty();
+    $('html, body').prop({scrollTop: Default.current_scrollY});
+    $(Selector.APPEND).empty();
   }
 
 

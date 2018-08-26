@@ -27,7 +27,7 @@
 <header class="sg-header">
   <div class="sg-header__inner">
     <h1>スタイルガイド</h1>
-    <nav class="sg-header__nav">
+    <nav class="sg-header__nav js-current-nav">
 	  <a href="index.html">Top</a>
       <a href="started.html">Started</a>
       <a href="variables.html">variables</a>
@@ -64,10 +64,6 @@
        
          
           <li><a href="#grid">grid</a></li>
-         
-       
-         
-          <li><a href="#link">link</a></li>
          
        
          
@@ -122,7 +118,15 @@ https://material.io/guidelines/material-design/elevation-shadows.html</pre>
 <h1 id="font" class="styleguide">font</h1>
 <div class="codeBlock">
   <div class="highlight">
-    <pre>@include fsize($size-pc: 14, $size-tab: false, $size-sp: false);
+    <pre>@include fsize-h1;
+@include fsize-h2;
+@include fsize-h3;
+@include fsize-h4;
+@include fsize-h5;
+@include fsize-h6;
+
+
+@include fsize($size-pc: 14, $size-tab: false, $size-sp: false);
 
 @include fsize-vmin($fsize: 14, $screen: 375);</pre>
   </div>
@@ -133,13 +137,6 @@ https://material.io/guidelines/material-design/elevation-shadows.html</pre>
     <pre>grid ($className:'.cols', $col:6, $allW:940, $g:30, $sp:false)
 
 @include grid('.c-summary__item', 6, $screen-pc-max, 24);</pre>
-  </div>
-</div>
-<h1 id="link" class="styleguide">link</h1>
-<div class="codeBlock">
-  <div class="highlight">
-    <pre>@include link();
-@include link-dark();</pre>
   </div>
 </div>
 <h1 id="mb" class="styleguide">mb</h1>

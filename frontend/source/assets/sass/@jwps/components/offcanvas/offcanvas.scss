@@ -153,7 +153,7 @@ categories: [js, offcanvas]
   transition-delay: .1s;
   transition-duration: .2s;
   transition-property: transform, left;
-  transition-timing-function: $animation-standard-curve-timing-function;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   z-index: 9999;
 
   &[aria-hidden="false"] {

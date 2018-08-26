@@ -43,7 +43,6 @@ categories: [layouts, layout]
   </div>
 ```
 
-
 <h2 class="styleguide">2column</h2>
 ```html_example
 <div class="l-container">
@@ -53,7 +52,8 @@ categories: [layouts, layout]
       <div class="l-block-secondary"><div class="dummy-box">.l-block-secondary</div></div>
   </div>
 </div>
-```
+
+
 
 
 */
@@ -86,30 +86,4 @@ categories: [layouts, layout]
 
 }
 
-
-.l-container--pdg {
-  padding-top: $margin-medium-pc;
-  padding-bottom: $margin-medium-pc;
-
-  @include media-sp-max {
-    padding-top: $margin-medium-sp;
-    padding-bottom: $margin-medium-sp;
-  }
-}
-
-.l-container--bg {
-  padding-top: 38px;
-  padding-bottom: 16px;
-  background-color: $bg-color;
-
-  margin-bottom: 50px;
-
-  @include media-sp-max {
-    padding-top: 23px;
-    padding-bottom: 10px;
-    margin-bottom: 37px;
-
-  }
-
-}
 

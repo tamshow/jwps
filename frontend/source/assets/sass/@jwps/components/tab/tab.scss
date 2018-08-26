@@ -70,9 +70,6 @@ categories: [js, tab]
   flex-flow: row nowrap;
   justify-content: flex-start;
 
-  //background-color: $bg-color;
-  //padding: 12px 12px 0;
-
   @include media-sp-max {
 
     padding: 6px 6px 0;
@@ -89,7 +86,7 @@ categories: [js, tab]
     button,
     a {
       background-color: #fff;
-      @include fsize(14px);
+      font-size: 14px;
       text-align: center;
       padding: 14px;
       text-decoration: none;
@@ -115,7 +112,6 @@ categories: [js, tab]
     a:hover,
     &[aria-selected="true"] a,
     &.is-active a {
-      //transition: $animation;
       color: $text-color;
       border-color: $brand-secondary;
       border-top-width: 2px;
@@ -126,6 +122,7 @@ categories: [js, tab]
 }
 
 .c-tab__body {
+  overflow: hidden;
   margin-top: -1px;
   border: 1px solid $border-color;
   padding: 1.5em;
@@ -144,7 +141,7 @@ categories: [js, tab]
     padding: .3em .7em;
     display: inline-block;
     color: $text-color;
-    @include fsize(14px);
+    font-size: 14px;
     @include elevation-transition;
 
     &:hover {

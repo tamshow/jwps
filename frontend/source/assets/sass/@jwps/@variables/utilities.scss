@@ -1,16 +1,11 @@
 @charset "utf-8";
 
 //トランジション
-$duration: 280ms !default;
-
-$animation-deceleration-curve-timing-function: cubic-bezier(0, 0, .2, 1) !default;
-$animation-standard-curve-timing-function: cubic-bezier(.4, 0, .2, 1) !default;
-$animation-acceleration-curve-timing-function: cubic-bezier(.4, 0, 1, 1) !default;
-$animation-sharp-curve-timing-function: cubic-bezier(.4, 0, .6, 1) !default;
-
 //https://github.com/thoughtbot/bourbon/blob/v4-stable/app/assets/stylesheets/addons/_timing-functions.scss
 
-$animation: $duration $animation-standard-curve-timing-function !default;
+$animation: 280ms cubic-bezier(.4, 0, .2, 1);
+
+
 
 $tint-value: 40% !default;
 $shade-value: 6% !default;

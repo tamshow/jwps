@@ -33,12 +33,13 @@ categories: [components, main-visual]
   }
 
   &__bg-img {
-    background-image: url(#{$img-path}/common/main_visual.png);
+    background-image: url(../img/common/main_visual.png);
     background-position: center center;
     background-size: cover;
     min-height: 200px;
     max-height: 200px;
     display: flex;
+    flex-flow: column wrap;
     justify-content: center;
     align-items: center;
 
@@ -49,6 +50,16 @@ categories: [components, main-visual]
 
   &__title {
     margin-bottom: 0;
+    font-weight: bold;
+    font-size: 3em;
+    line-height: 1.2;
+    @include media-sp-max {
+      font-size: 1.5em;
+
+    }
+  }
+  &__sub-title {
+    display: block;
   }
 
 }

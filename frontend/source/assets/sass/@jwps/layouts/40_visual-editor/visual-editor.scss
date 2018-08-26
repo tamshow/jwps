@@ -13,11 +13,15 @@ name: visualeditor
 category: visualeditor
 ---
 <p class="e-text is-mb-medium">
-詳細ページやCMSで直接タグ入力するして更新する箇所に.visual-editorを指定してください。
-こちらのサンプルのような形になり内包するタグ（p,span,table,list,dlなど）にベース装飾を追加します。
-このため.visual-editor内ではサンプル以外のクラス.mediaなどは使用出来ませんのでご注意ください。
-複雑な装飾がある場合は.visual-editorを使わず直接classを指定してください。
+
+外枠に<code>.visual-editor</code>を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。<br>
+<code>.visual-editor</code>内はh3,h4,pなど基本的なタグのみで使用する想定です。<br>
+複雑な装飾がある場合は<code>.visual-editor</code>を使わず直接classを指定してください。<br>
+詳細ページやCMSで直接タグ入力するして更新する箇所に指定するのがよいかもです。
 </p>
+
+
+
 
 ```html_example
        <div class="c-anchor-nav is-mb-large">
@@ -28,8 +32,7 @@ category: visualeditor
             <li><a href="#ank2">リスト</a> </li>
             <li><a href="#ank3">テキスト（装飾・リンク・配置・引用）</a> </li>
             <li><a href="#ank4">画像（サイズ・配置）</a> </li>
-            <li><a href="#ank5">ボックス</a> </li>
-            <li><a href="#ank6">テーブル</a> </li>
+            <li><a href="#ank5">テーブル</a> </li>
           </ul>
         </div>
       </div>
@@ -52,7 +55,7 @@ category: visualeditor
         <ul>
           <li>順序がないリスト</li>
           <li>順序がないリスト
-            <ul>
+            <ul style="list-style-type: circle;">
               <li>順序がないリスト</li>
               <li>順序がないリスト</li>
             </ul>
@@ -63,20 +66,13 @@ category: visualeditor
         <ol>
           <li>順序のあるリスト</li>
           <li>順序のあるリスト
-            <ol>
+            <ol style="list-style-type: lower-alpha;">
               <li>順序のあるリスト</li>
               <li>順序のあるリスト</li>
             </ol>
           </li>
           <li>順序のあるリスト</li>
         </ol>
-
-        <ul class="e-list--arrow">
-          <li>矢印付きリスト</li>
-          <li><a href="#dummy">矢印付きリスト</a></li>
-          <li><a href="#dummy">矢印付きリスト</a></li>
-        </ul>
-
 
 
         <dl>
@@ -98,17 +94,7 @@ category: visualeditor
           <br>
           <span>上付き文字（sup）　E=mc<sup>2</sup></span><br>
           <span>下付き文字（sub）　CO<sub>2</sub></span><br>
-          <span class="is-text-indent" style="display:block">先頭1文字下げ</span>
-          <span class="is-text-underline">下線（Underline Text）</span><br>
-          <span class="is-text-point">マーカー線(Marker Yellow)</span><br>
-          <span class="is-color-orange">重要色文字（Text Orange）</span><br>
-          <span class="is-color-red">エラー色文字（Text Red）</span><br>
-          <span class="is-color-blue">青色文字（Text Blue）</span><br>
-          <span class="is-color-green">緑色文字（Text Green）</span><br>
-          <span class="is-bg-color-orange">重要色背景（Bg Orange）</span><br>
-          <span class="is-bg-color-red">エラー色背景（Bg Red）</span><br>
-          <span class="is-bg-color-blue">青色背景（Bg Blue）</span><br>
-          <span class="is-bg-color-green">緑色背景（Bg Green）</span><br>
+          <span style="color: #cc3e4c;">エラー色文字（Text Red）</span><br>
         </p>
 
 
@@ -124,18 +110,19 @@ category: visualeditor
         </p>
 
         <h3>配置</h3>
-        <p class="is-text-left">左揃え<br>
+        <p style="text-align: left;">左揃え<br>
           吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
         </p>
-        <p class="is-text-center">
+        <p style="text-align: center;">
           中央揃え<br>
           吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
         </p>
-        <p class="is-text-right">
+        <p  style="text-align: right;">
           右揃え<br>
           吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
         </p>
-        <p class="is-text-justify">
+
+        <p style="text-align: justify";>
           両端揃え<br>
           吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
         </p>
@@ -149,24 +136,18 @@ category: visualeditor
 
         <h3>サイズ</h3>
         <figure>
-          <img src="/assets/img/dummy/840x560.png" alt="">
+          <img class="size-full" src="/assets/img/dummy/840x560.png" alt="">
         </figure>
-        <figure class="is-img-w50">
-          <img src="/assets/img/dummy/840x560.png" alt="">
+        <figure>
+          <img class="size-medium" src="/assets/img/dummy/840x560.png" alt="">
         </figure>
-        <figure class="is-img-w33">
-          <img src="/assets/img/dummy/840x560.png" alt="">
+        <figure>
+          <img class="size-thumbnail" src="/assets/img/dummy/840x560.png" alt="">
         </figure>
-        <figure class="is-img-w25">
-          <img src="/assets/img/dummy/840x560.png" alt="">
-        </figure>
-
 
         <h3>配置</h3>
         <h4>左寄せ（テキスト回り込み）</h4>
-        <figure class="is-img-left is-img-w25">
-          <img src="/assets/img/dummy/840x560.png" alt="">
-        </figure>
+        <img class="alignleft size-medium" src="/assets/img/dummy/840x560.png" alt="">
         <p>吾輩は猫である。名前はまだ無い。
           どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
           吾輩はここで始めて人間というものを見た。
@@ -181,14 +162,12 @@ category: visualeditor
           ​</p>
 
         <h4>中央寄せ</h4>
-        <figure class="is-img-center is-img-w25">
-          <img src="/assets/img/dummy/840x560.png" alt="">
+        <figure>
+          <img class="aligncenter size-medium" src="/assets/img/dummy/840x560.png" alt="">
         </figure>
 
         <h4>右寄せ（テキスト回り込み）</h4>
-        <figure class="is-img-right is-img-w25">
-          <img src="/assets/img/dummy/840x560.png" alt="">
-        </figure>
+          <img class="alignright size-medium" src="/assets/img/dummy/840x560.png" alt="">
         <p>吾輩は猫である。名前はまだ無い。
           どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
           吾輩はここで始めて人間というものを見た。
@@ -202,22 +181,9 @@ category: visualeditor
           これが人間の飲む煙草というものである事はようやくこの頃知った。
           ​</p>
 
-        <h2 id="ank5">5. ボックス</h2>
-
-        <div class="e-box e-box--bg">
-            <p>ボックス<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
-        </div>
-
-        <div class="e-box e-box--error">
-            <p>ボックス（error）<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
-        </div>
-
-        <div class="e-box e-box--warning">
-            <p>ボックス（warning）<br>選択した部分に背景色と枠線のスタイルがつきます。</p>
-        </div>
 
 
-        <h2 id="ank6">6. テーブル</h2>
+        <h2 id="ank5">5. テーブル</h2>
 
         <h3>標準</h3>
         <table>
@@ -257,44 +223,6 @@ category: visualeditor
         </table>
 
 
-        <h3>ボーダーレス</h3>
-        <table class="e-table--borderless">
-          <tr>
-            <th>見出し</th>
-            <th>見出し</th>
-            <th>見出し</th>
-          </tr>
-          <tr>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-          <tr>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-        </table>
-
-        <h3>文字小さい</h3>
-        <table class="e-table--small">
-          <tr>
-            <th>見出し</th>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-          <tr>
-            <th>見出し</th>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-          <tr>
-            <th>見出し</th>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-        </table>
-
         <h3>SP時スクロール</h3>
         <div class="e-responsive-table">
           <table>
@@ -323,7 +251,6 @@ category: visualeditor
 
 */
 
-
 .entry,
 .visual-editor {
   word-break: break-all;
@@ -331,32 +258,39 @@ category: visualeditor
 }
 
 
+.visual-editor h2:not(:first-child),
+.visual-editor h3:not(:first-child),
+.visual-editor h4:not(:first-child),
+.visual-editor h5:not(:first-child),
+.visual-editor h6:not(:first-child) {
+  margin-top: 1.6rem;
+  @include media-sp-max {
+    margin-top: 0;
+  }
+}
 
-.visual-editor p,
-.visual-editor table,
-.visual-editor ul,
-.visual-editor ol,
-.visual-editor dl,
-.visual-editor blockquote,
-.visual-editor figure,
-.visual-editor .e-box-bordered,
-.visual-editor hr {
-  @include mb-medium;
+//連続するタイトルは狭める
+.visual-editor h1 + h2,
+.visual-editor h2 + h2,
+.visual-editor h2 + h3,
+.visual-editor h3 + h3,
+.visual-editor h3 + h4,
+.visual-editor h4 + h4,
+.visual-editor h4 + h5,
+.visual-editor h5 + h5,
+.visual-editor h5 + h6,
+.visual-editor h6 + h6 {
+  margin-top: 0 !important;
 }
 
 
 .visual-editor p + p {
   //margin-top: - $margin-medium-pc / 3;
 
-  @include media-tab-max {
-    // margin-top: - $margin-medium-tab / 3;
-  }
-
   @include media-sp-max {
     // margin-top: - $margin-medium-sp / 2;
   }
 }
-
 
 .visual-editor p:empty {
   display: none;
@@ -382,7 +316,60 @@ category: visualeditor
 }
 
 
-.clearfloat {
-  clear: both;
+
+//TinyMCE
+
+//画像左
+.alignleft {
+  margin-right: 1rem;
+  margin-bottom: $margin-small-pc;
+  float: left;
+
+  @include media-sp-max {
+    float: none;
+    margin-right: 0;
+  }
 }
 
+
+//画像右
+.alignright {
+  margin-left: 1rem;
+  margin-bottom: $margin-small-pc;
+  float: right;
+
+  @include media-sp-max {
+    float: none;
+    margin-left: 0;
+  }
+}
+
+//画像中央
+.aligncenter {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: $margin-small-pc;
+}
+
+
+//TinyMCE
+.size-thumbnail {
+  width: 25%;
+}
+.size-medium {
+  width: 33.33%;
+}
+.size-full {
+
+}
+
+@include media-sp-max {
+  .size-thumbnail,
+  .size-medium,
+  .size-full {
+    width: 100%;
+  }
+
+}

@@ -79,52 +79,6 @@ parent: list
   list-style-type: decimal;
 }
 
-/* リスト arrow
-   ========================================================================== */
-
-/*doc
----
-title: list-arrow
-name: list-arrow
-categories: [elements, list]
-parent: list
----
-
-```html_example
-<ul class="e-list e-list--arrow">
-  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
-  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
-  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
-  <li><a href="">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</a></li>
-</ul>
-```
-*/
-
-.visual-editor .e-list--arrow,
-.e-list--arrow {
-
-  margin-left: 0;
-  list-style-type: none;
-
-  a:hover:before {
-    text-decoration: none;
-  }
-
-  li {
-    text-indent: -.6em;
-    padding-left: .8em;
-
-    &:before {
-      color: #757575;
-      @include material-icons;
-      vertical-align: middle;
-      content: "navigate_next";
-      white-space: nowrap;
-      font-size: 1.2em;
-    }
-  }
-}
-
 
 
 /* 定義リスト
@@ -212,7 +166,7 @@ parent: list
     line-height: 1.6;
 
     &:after {
-      padding-left: .3rem;
+      padding-left: 4px;
       content: "｜";
       display: inline-block;
       width: 1em;

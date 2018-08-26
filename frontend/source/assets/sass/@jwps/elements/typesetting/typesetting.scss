@@ -42,7 +42,7 @@ categories: [elements, typesetting]
 .visual-editor strong > strong,
 .e-text-catchcopy {
   font-weight: bold;
-  @include fsize(16px, false, 16px);
+  font-size: 16px;
   @include mb-small;
 }
 
@@ -68,7 +68,6 @@ Class                                                                      | Des
 `is-text-week`           |                        |
 `is-text-point`          |                        |
 `is-text-arrow`          |                        |
-`is-text-link`           |                        |
 `is-text-bold`           |                        |
 `is-text-strike`         |                        |
 `is-text-indent`         |                        |
@@ -96,54 +95,36 @@ Class                                                                      | Des
 }
 
 .is-text-small {
-  font-size: .8rem;
+  font-size: 12px;
 }
 .is-text-sub {
   color: $text-color-sub;
-  font-size: .8rem;
+  font-size: 12px;
 }
 
 .is-text-week {
   color: $text-color-week;
-  font-size: .8rem;
+  font-size: 12px;
 }
 
 
-.visual-editor a,
-a.is-text-link {
-
-  &:link {
-    color: $brand-link;
-    //text-decoration: none;
-    transition: $animation;
-  }
-
-  &:hover,
-  &:focus,
-  &:visited {
-    transition: $animation;
-    color: $brand-link-hover;
-    // text-decoration: none;
-  }
-
-  &:hover {
-    // text-decoration: underline;
-  }
-
-  &:visited {
-    color: $brand-link-visited;
-  }
-}
 
 
 .is-text-arrow {
+
+  overflow: hidden;
   &:before {
-    color: $brand-primary;
-    @include material-icons;
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    transform: rotate(225deg);
+    border-top: 1px solid $text-color-sub;
+    border-left: 1px solid $text-color-sub;
+    content: "";
     vertical-align: middle;
-    content: "navigate_next";
-    white-space: nowrap;
-    font-size: 1.2rem;
+    position: relative;
+    top: -1px;
+    margin-right: 5px;
   }
 
   &:hover:before {

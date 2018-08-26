@@ -44,7 +44,7 @@ categories: [js, ripple]
 
  @keyframes ripple-fg-opacity-out {
    from {
-     animation-timing-function: $animation-sharp-curve-timing-function;
+     animation-timing-function: cubic-bezier(.4, 0, .2, 1);
      opacity: 1;
    }
    to {
