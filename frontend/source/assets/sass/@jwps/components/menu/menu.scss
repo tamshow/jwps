@@ -57,7 +57,7 @@ categories: [components, menu]
   &__title {
     background: $brand-primary;
     color: #fff;
-    @include fsize($fsize-h4-pc, false, $fsize-h4-sp);
+    @include fsize-h4;
     padding: .6em 1em;
     font-weight: bold;
   }
@@ -67,7 +67,7 @@ categories: [components, menu]
 
     a {
       border-top: 1px dotted $border-color;
-      @include fsize(14px);
+      font-size: 14px;
       padding: .6em;
       display: block;
       text-decoration: none;

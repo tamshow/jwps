@@ -1,22 +1,51 @@
 $(function () {
 
-  var containerSelector = '[data-tab]';
-  var tabListSelector = '[data-tablist]';
-  var tabPanelSelector = '[data-tabpanel]';
+
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
+  var NAME = 'tab';
+  var VERSION = '0.5.0';
+
+  var Selector = {
+    BODY      : '[data-tab]',
+    LIST      : '[data-tablist]',
+    PANEL     : '[data-tabpanel]'
+  };
 
 
-  $(tabListSelector).on('click', function(e) {
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+  $(Selector.LIST).on('click', function (e) {
     e.preventDefault();
     var $target = $(e.currentTarget);
     listSelect($target);
     panelSelect($target);
   });
 
-  $(document).on('keyup', function(e) {
+  $(document).on('keyup', function (e) {
     e.preventDefault();
     tabKeyup(e);
   });
 
+
+  $(window).on('load',function (e) {
+    accessAnker(e);
+  });
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
 
 
   function listSelect($target) {
@@ -28,9 +57,8 @@ $(function () {
   function panelSelect($target) {
     var panel = $target.attr('aria-controls');
     $('#' + panel).attr('aria-hidden', 'false')
-        .siblings(this.tabPanelSelector).attr('aria-hidden', 'true');
+        .siblings(Selector.PANEL).attr('aria-hidden', 'true');
   }
-
 
   function tabKeyup(e) {
     var $target = $(e.currentTarget);
@@ -41,12 +69,12 @@ $(function () {
     switch (e.keyCode) {
 
       case leftArrow:
-        $target = $(e.target).prev().children(this.tabListSelector);
+        $target = $(e.target).prev().children(Selector.LIST);
         break;
 
       case rightArrow:
 
-        $target = $(e.target).next().children(this.tabListSelector);
+        $target = $(e.target).next().children(Selector.LIST);
         break;
 
       default:
@@ -58,5 +86,15 @@ $(function () {
   }
 
 
+
+//ページアクセス時にハッシュがあれば該当のタブを開く
+  function accessAnker(e) {
+    var urlHash = location.hash || false;
+    if (urlHash && $(urlHash).length) {
+      if ($(urlHash).length) {
+        $(urlHash).find(Selector.LIST).click();
+      }
+    }
+  }
 
 });

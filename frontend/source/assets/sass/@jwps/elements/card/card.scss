@@ -81,7 +81,7 @@ categories: [elements, card]
   &__title {
     font-weight: bold;
     line-height: 1.4;
-    @include fsize(16px, false, 14px);
+    font-size: 16px;
   }
 
   &__text {

@@ -1,85 +1,108 @@
 $(function () {
 
-  var selector = '[data-toggle-offcanvas]';
-  var bodyContents = '[data-body-offcanvas]';
-  var bgSelector = '#js-offcanvas-bg';
-  var scrollSelector = '[data-scroll-offcanvas]';
-  var lowerLayerSelector = '';//footer, main
-  var focusSelector = '';//.l-header-search-sp__input
-
-  var currentScrollY = null;
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
 
 
-  var $selector = $(selector);
-  var $bodyContents = $(bodyContents);
-  var $bgSelector = $(bgSelector);
-  var $lowerLayerSelector = $(lowerLayerSelector);
-  var $focusSelector = $(focusSelector);
-  var $scrollSelector = $(scrollSelector);
+  var NAME = 'offcanvas';
+  var VERSION = '0.5.0';
+
+  var Selector = {
+    TARGET      : '[data-toggle-offcanvas]',
+    BODY        : '[data-body-offcanvas]',
+    BG          : '#js-offcanvas-bg',
+    LOWER_LAYER : 'footer,main',
+    SCROLL      : '[data-scroll-offcanvas]'
+  };
 
 
-  $selector.on('click', function (e) {
-    toggle(e);
+  var Default = {
+    current_scrollY: null
+  };
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+  $(Selector.TARGET).on('click', function (e) {
+    if ($(Selector.BODY).attr('aria-hidden') === 'true') {
+      settingOpen(e);
+    } else {
+      settingClose();
+    }
   });
 
-  $bgSelector.on('click', function (e) {
-    settingInitialization();
+
+  $(Selector.BODY).on('click', 'a', function (e) {
+    settingClose();
   });
 
+  $(Selector.BG).on('click', function (e) {
+    settingClose();
+  });
 
-  $bodyContents.on('click', scrollSelector, function (e) {
-    settingInitialization();
+  $(Selector.BODY).on('click', Selector.SCROLL, function (e) {
+    settingClose();
     scrollTo(e);
-
   });
 
 
-  function toggle(e) {
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
+
+
+  function settingOpen(e) {
 
     e.preventDefault();
 
-    if ($bodyContents.attr('aria-hidden') === 'true') {
-      //ナビゲーションのレイヤーを上にしてスライドイン
-      $bodyContents.attr({'aria-hidden': 'false', 'tabindex': '1'});
-     // $('input').first().focus();
-      //メニューアイコン
-      $selector.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
-      //背景黒
-      $bgSelector.css({
-        display: 'block',
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0, 0, 0, .5)',
-        overflow: 'hidden',
-        position: 'fixed',
-        top: '0',
-        left: '0',
-        zIndex: '998'
-      });
+    //ナビゲーションのレイヤーを上にしてスライドイン
+    $(Selector.BODY).attr({'aria-hidden': 'false', 'tabindex': '1'});
+    // $('input').first().focus();
+    //メニューアイコン
+    $(Selector.TARGET).attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
+    //背景黒
+    $(Selector.BG).css({
+      display: 'block',
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(0, 0, 0, .5)',
+      overflow: 'hidden',
+      position: 'fixed',
+      top: '0',
+      left: '0',
+      zIndex: '998'
+    });
 
-      //下のレイヤーをhidden
-      $lowerLayerSelector.attr({'aria-hidden': 'true'});
-      currentScrollY = $(window).scrollTop();
-      //現在地のスクロールを保持
-      $('body').css({
-        position: 'fixed',
-        width: '100%',
-        top: -1 * currentScrollY
-      });
+    //下のレイヤーをhidden
+    $(Selector.LOWER_LAYER).attr({'aria-hidden': 'true'});
+    Default.current_scrollY = $(window).scrollTop();
+    //現在地のスクロールを保持
+    $('body').css({
+      position: 'fixed',
+      width: '100%',
+      top: -1 * Default.current_scrollY
+    });
 
-    } else {
-      settingInitialization();
-    }
   }
 
-  function settingInitialization() {
+  function settingClose() {
 
-    $bodyContents.attr({'aria-hidden': 'true', 'tabindex': '-1'});
-    $selector.attr({'aria-expanded': 'false', 'aria-label': '開く'});
-    $bgSelector.attr({style: ''});
-    $lowerLayerSelector.removeAttr('aria-hidden');
+    $(Selector.BODY).attr({'aria-hidden': 'true', 'tabindex': '-1'});
+    $(Selector.TARGET).attr({'aria-expanded': 'false', 'aria-label': '開く'});
+    $(Selector.BG).attr({style: ''});
+    $(Selector.LOWER_LAYER).removeAttr('aria-hidden');
     $('body').attr({style: ''});
-    $('html, body').prop({scrollTop: currentScrollY});
+    $('html, body').prop({scrollTop: Default.current_scrollY});
   }
 
 
@@ -100,7 +123,7 @@ $(function () {
           {duration: 300, easing: 'swing'});
     }
   }
-  
+
 });
 
 

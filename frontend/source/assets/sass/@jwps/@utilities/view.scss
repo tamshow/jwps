@@ -17,6 +17,7 @@ categories: [utilities, tool-view]
  Class        |  Description
  -------------| ----------
  `is-visible`            |  表示
+ `is-visible-ib`            |  表示
  `is-hidden`             |  非表示
  `is-float-left`        |
  `is-float-right`        |
@@ -31,6 +32,7 @@ categories: [utilities, tool-view]
  `is-w100p`                |
 
 */
+
 
 
 // 表示,非表示
@@ -48,10 +50,20 @@ categories: [utilities, tool-view]
   display: none;
 }
 
+.is-visible-ib--sm,
+.is-visible-ib--md,
+.is-visible-ib--lg {
+  display: none;
+}
+
 @include media-lg-min {
   .is-visible--lg {
     display: block;
   }
+  .is-visible-ib--lg {
+    display: inline-block;
+  }
+
   .is-hidden--lg {
     display: none;
   }
@@ -61,6 +73,10 @@ categories: [utilities, tool-view]
   .is-visible--md {
     display: block;
   }
+  .is-visible-ib--md {
+    display: inline-block;
+  }
+
   .is-hidden--md {
     display: none;
   }
@@ -70,6 +86,11 @@ categories: [utilities, tool-view]
   .is-visible--sm {
     display: block;
   }
+
+  .is-visible-ib--sm {
+    display: inline-block;
+  }
+
   .is-hidden--sm {
     display: none;
   }
@@ -78,7 +99,10 @@ categories: [utilities, tool-view]
 
 
 
-.is-float-clear {
+
+
+.is-float-clear,
+.clearfloat {
   @include clearfix;
 }
 

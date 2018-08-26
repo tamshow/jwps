@@ -27,7 +27,7 @@
 <header class="sg-header">
   <div class="sg-header__inner">
     <h1>スタイルガイド</h1>
-    <nav class="sg-header__nav">
+    <nav class="sg-header__nav js-current-nav">
 	  <a href="index.html">Top</a>
       <a href="started.html">Started</a>
       <a href="variables.html">variables</a>
@@ -108,9 +108,8 @@
 <li>接頭辞 + BEM記法、マルチクラス</li>
 <li><code>[接頭辞]-[塊]__[要素]--[属性]</code></li>
 <li>フォルダの先頭の文字を接頭辞として使用します。「assets/sass/以下」</li>
-<li>パーツのメンテナンス性を重視ししてください。重複するパーツを作成しても構いません。</li>
+<li>パーツのメンテナンス性を重視して重複するパーツを作成しても構いません。</li>
 <li>コンポーネント単位のclass名毎にscssファイルを作成してください。</li>
-<li>新規スタイル追加は「snippets、pages」などに分けて追加すると幸せかもです。</li>
 </ul>
 
 <div class="c-accordion" data-accordion="" data-device-accordion="all">
@@ -228,11 +227,10 @@
 │    └── jwps.scss
 │
 ├── pages
-├── snippets
-└── base.scss
+└── bundle.scss
 
 css
-└── base.css
+└── bundle.css
 
 </code>
 </pre>
@@ -247,7 +245,7 @@ css
 <li>必要そうなJSパーツはあらかじめ準備しています。<a href="js.html">js - components</a>を参考にしてください。</li>
 <li>HTMLのclassに当てる場合は「js-●●●」など装飾のclassと区別してください。</li>
 <li><code>source/assets/src/@jwps/</code>以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。</li>
-<li>ページ固有のjsは別ファイルを作成します。</li>
+<li>ページ固有のjsは別ファイルを作成してもよいです。</li>
 </ul>
 
 <h4>jsディレクトリ構造</h4>
@@ -259,18 +257,15 @@ css
 <div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
 <pre>
 <code>js
-├── index.js
-└── top.js
+└── bundle.js
 
 src
 ├── @jwps
 │    ├── accordion
 │    ├── allcheck
-│    ├── base
 │    └── ...
 │
-├── index.js
-└── top.js
+└── bundle.js
 </code>
 </pre>
 </div>
@@ -281,10 +276,8 @@ src
 <h3>Layoutとは</h3>
 <ul>
 <li>ページの基本レイアウト</li>
-<li>Templatesはメインカラムレイアウトの1段組や2段組のパターンを選択します。</li>
-<li>Gridはメインカラム内の段組レイアウトに使用します。</li>
 <li>レイアウトの基本の型は次の並びになります。 <code>.l-main &gt; .l-container &gt; .l-block &gt; .l-unit </code></li>
-<li>外枠に<code>.visual-editor</code>を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。<br>主にCMSのヴィジュアルエディタ等で使用するイメージな気がしています。<br><code>.visual-editor</code>内では複雑なclassの装飾は使用出来ません。詳しくは「VisualEditor」を確認ください。
+<li>外枠に<code>.visual-editor</code>を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。<br>主にCMSのヴィジュアルエディタ等で使用するイメージな気がしています。<br>なので<code>.visual-editor</code>内はh3,h4,pなど基本的なタグのみで使用する想定です。詳しくは「VisualEditor」を確認ください。
 </li>
 </ul>
 <h3>Componentsとは</h3>
@@ -308,13 +301,6 @@ src
 <li>ツール、状態管理など</li>
 <li>汎用ツールです。ここぞと言うときに力を発揮してくれる頼もしい味方です。</li>
 </ul>
-<h3>Snippetsとは</h3>
-<ul>
-<li>用途を絞ったパーツ</li>
-<li>コード構造はそのまま使用することを想定しています。</li>
-<li>特定箇所で使用することを想定としていますので汎用的な記述は必要ありません。</li>
-</ul>
-<p>使い回せそうなクラスがあったとしても、メンテナンス性を損なうのであれば無理に使い回しません。<br>例えば別のクラスを用意して同じコードを記述します。</p>
 </div>
 
 </div>

@@ -86,7 +86,7 @@ categories: [components, keyword-search]
     width: 80px;
     border-radius: 0 $border-radius-pc $border-radius-pc 0;
     padding: 10px;
-    @include fsize(18px);
+    font-size: 18px;
     border: 0;
     color: $text-color;
     background-color: $brand-secondary;
@@ -96,7 +96,7 @@ categories: [components, keyword-search]
 
   &__control {
     margin-top: 1em;
-    @include fsize(14px);
+    font-size: 14px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
@@ -140,7 +140,7 @@ categories: [components, keyword-search]
     appearance: none;
     box-sizing: border-box;
     padding-right: 15px;
-    background: transparent url("#{$img-path}/form/form_icon_select_top.svg") right 0 center no-repeat;
+    background: transparent url("../img/form/form_icon_select_top.svg") right 0 center no-repeat;
     text-align: left;
     text-indent: .01px;
     text-overflow: "";
@@ -150,7 +150,7 @@ categories: [components, keyword-search]
     }
 
     &:focus {
-      background-image: url("#{$img-path}/form/form_icon_select_top.svg");
+      background-image: url("../img/form/form_icon_select_top.svg");
     }
 
   }
@@ -158,7 +158,7 @@ categories: [components, keyword-search]
 }
 
 .l-block-widget .c-keyword-search {
-  @include fsize(14px);
+  font-size: 14px;
   &__button {
     width: 54px;
   }

@@ -60,9 +60,6 @@ categories: [utilities, tool-color]
 @include color-base ($text-color-sub, -text-sub);
 @include color-base ($text-color-week, -text-week);
 
-@include color-base ($text-color-dark, -text-dark);
-@include color-base ($text-color-dark-sub, -text-dark-sub);
-@include color-base ($text-color-dark-week, -text-dark-week);
 
 @include color-base ($brand-white, -white);
 @include color-base ($brand-black, -black);
@@ -81,9 +78,7 @@ categories: [utilities, tool-color]
 @include color-base ($brand-link, -link);
 @include color-base ($brand-link-visited, -link-visited);
 @include color-base ($brand-link-hover, -link-hover);
-@include color-base ($brand-link-dark, -link-dark);
-@include color-base ($brand-link-dark-visited, -link-dark-visited);
-@include color-base ($brand-link-dark-hover, -link-dark-hover);
+
 
 @include color-base ($bg-color, -bg-color);
 @include color-base ($border-color, -border-color);

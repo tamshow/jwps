@@ -14,17 +14,12 @@ const reload = browserSync.reload;
 const stream = browserSync.stream;
 const connectSSI   = require('connect-ssi');
 
-// const webpackStream = require("webpack-stream");
-// const webpack = require("webpack");
-// const webpackConfig = require("./webpack.config");
-
 const replace = require('gulp-replace');
 const concat = require('gulp-concat');
 const del = require('del');
 const prettify = require('gulp-prettify');
 const uglifyjs = require('uglify-js');
 const minifier = require('gulp-uglify');
-
 
 //書き出し先変更
 const DEST = 'build';
@@ -35,12 +30,6 @@ const DOCS = '../docs';
 
 // js
 //=================
-
-// gulp.task("js", () => {
-//   return webpackStream(webpackConfig, webpack)
-//       .pipe(plumber())
-//       .pipe(gulp.dest('source/assets/js'));
-// });
 
 
 //結合
@@ -67,8 +56,8 @@ gulp.task('js:not-bundle', () => {
 
 //結合
 const jsFileVendor = [
-  'node_modules/jquery/dist/jquery.js',
-  'node_modules/lodash/lodash.js'
+  'node_modules/jquery/dist/jquery.js'
+  //'node_modules/lodash/lodash.js'
 ];
 gulp.task('js:vendor', () => {
   return gulp.src(jsFileVendor).pipe(concat('vendor.js'))

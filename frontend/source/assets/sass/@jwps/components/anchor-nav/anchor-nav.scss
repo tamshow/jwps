@@ -35,7 +35,7 @@ categories: [js, anchor-nav]
   &__title {
     color: $text-color-sub;
     font-weight: bold;
-    @include fsize(14px);
+    font-size: 14px;
     background: #fff;
     position: absolute;
     top: -.5em;
@@ -57,16 +57,21 @@ categories: [js, anchor-nav]
       padding-left: 1em;
       display: inline-block;
 
+      overflow: hidden;
       &:before {
-        color: $text-color-sub;
-        @include material-icons;
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        transform: rotate(225deg);
+        border-top: 1px solid $text-color-sub;
+        border-left: 1px solid $text-color-sub;
+        content: "";
         vertical-align: middle;
-        content: "expand_more";
-        //margin-right: .6em;
-        white-space: nowrap;
-        font-size: 1em;
-
+        position: relative;
+        top: -2px;
+        margin-right: 7px;
       }
+
     }
 
   }

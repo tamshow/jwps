@@ -36,27 +36,27 @@ category: mixins
 
 //min
 @mixin media-min() {
-  @media screen and (max-width: ($screen-sp-min / 16) + em) {
+  @media screen and (max-width: $width-sp-min) {
     @content;
   }
 }
 @mixin media-sp-min() {
-  @media screen and (min-width: ($screen-sp-min / 16) + em) {
+  @media screen and (min-width: $width-sp-min) {
     @content;
   }
 }
 @mixin media-tab-min() {
-  @media screen and (min-width: ($screen-tab-min / 16) + em) {
+  @media screen and (min-width: $width-tab-min) {
     @content;
   }
 }
 @mixin media-pc-min() {
-  @media screen and (min-width: ($screen-pc-min / 16) + em) {
+  @media screen and (min-width: $width-pc-min) {
     @content;
   }
 }
 @mixin media-lg-min() {
-  @media screen and (min-width: ($screen-lg-min / 16) + em) {
+  @media screen and (min-width: $width-lg-min) {
     @content;
   }
 }
@@ -65,27 +65,27 @@ category: mixins
 
 //max
 @mixin media-max() {
-  @media screen and (min-width: ($screen-pc-max / 16) + em) {
+  @media screen and (min-width: $width-pc-max) {
     @content;
   }
 }
 @mixin media-lg-max() {
-  @media screen and (max-width: ($screen-lg-max / 16) + em) {
+  @media screen and (max-width: $width-lg-max) {
     @content;
   }
 }
 @mixin media-pc-max() {
-  @media screen and (max-width: ($screen-pc-max / 16) + em) {
+  @media screen and (max-width: $width-pc-max) {
     @content;
   }
 }
 @mixin media-tab-max() {
-  @media screen and (max-width: ($screen-tab-max / 16) + em) {
+  @media screen and (max-width: $width-tab-max) {
     @content;
   }
 }
 @mixin media-sp-max() {
-  @media screen and (max-width: ($screen-sp-max / 16) + em) {
+  @media screen and (max-width: $width-sp-max) {
     @content;
   }
 }
@@ -93,23 +93,23 @@ category: mixins
 
 //only
 @mixin media-sp-only() {
-  @media screen and (min-width: ($screen-sp-min / 16) + em) and (max-width: ($screen-sp-max / 16) + em) {
+  @media screen and (min-width: $width-sp-min) and (max-width: $width-sp-max) {
     @content;
   }
 }
 @mixin media-tab-only() {
-  @media screen and (min-width: ($screen-tab-min / 16) + em) and (max-width: ($screen-tab-max / 16) + em) {
+  @media screen and (min-width: $width-tab-min) and (max-width: $width-tab-max) {
     @content;
   }
 }
 @mixin media-pc-only() {
-  @media screen and (min-width: ($screen-pc-min / 16) + em) and (max-width: ($screen-pc-max / 16) + em) {
+  @media screen and (min-width: $width-pc-min) and (max-width: $width-pc-max) {
     @content;
   }
 }
 
 @mixin media-lg-only() {
-  @media screen and (min-width: ($screen-lg-min / 16) + em) and (max-width: ($screen-lg-max / 16) + em) {
+  @media screen and (min-width: $width-lg-min) and (max-width: $width-lg-max) {
     @content;
   }
 }

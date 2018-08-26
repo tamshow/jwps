@@ -91,9 +91,7 @@ categories: [js, accordion]
   + .c-accordion {
 
     margin-top: -$margin-small-pc;
-    @include media-tab-max {
-      margin-top: -$margin-small-tab;
-    }
+
     @include media-sp-max {
       margin-top: -$margin-small-sp;
     }
@@ -127,30 +125,27 @@ categories: [js, accordion]
   //icon
   &__title {
     position: relative;
+    overflow: hidden;
+
     &:after {
-      color: $brand-primary;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 10px;
-      margin: auto;
-      height: 1em;
-      @include material-icons;
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      transform: rotate(45deg);
+      border-top: 1px solid $border-color;
+      border-left: 1px solid $border-color;
+      content: "";
       vertical-align: middle;
-      content: "expand_more";
-      white-space: nowrap;
-      line-height: 1em;
-
-      @include fsize(false, false, 20px);
-
-      @include media-sp-max {
-        right: 5px;
-      }
-
+      position: absolute;
+      right: 20px;
+      top: 4px;
+      bottom: 0;
+      margin: auto;
     }
 
     &[aria-expanded="false"]:after {
-      content: "expand_less";
+      transform: rotate(225deg);
+      top: -4px;
     }
 
   }

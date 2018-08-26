@@ -11,8 +11,7 @@ categories: [utilities, icon]
 ---
 
 ```html_example
-<p><a href="" class="is-icon-arrow">矢印アイコン</a></p>
-<p><a href="" class="is-icon-square">四角アイコン</a></p>
+
 <p><a href="" class="is-icon-target-blank">target="_blank"を指定している場合</a></p>
 <p><a href="" class="is-icon-pdf">pdfへのリンクの場合</a></p>
 <p><a href="" class="is-icon-doc">doc、docxへのリンクの場合</a></p>
@@ -62,38 +61,12 @@ categories: [utilities, icon]
 }
 
 
-.is-icon-arrow {
-
-  &:before {
-    color: #757575;
-    @include material-icons;
-    vertical-align: middle;
-    content: "navigate_next";
-    white-space: nowrap;
-    font-size: 1.2em;
-  }
-}
-
-
-.is-icon-square {
-
-  &:before {
-    background-color: $brand-primary-light;
-    width: .5em;
-    height:.5em;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: .3em;
-    margin-top: -.1em;
-    content: '';
-  }
-}
 
 
 .is-icon-target-blank,
 .visual-editor [target="_blank"] {
   &:after {
-    @include material-icons;
+    @extend .material-icons;
     vertical-align: middle;
     content: "open_in_new";
     color: $text-color-sub;
@@ -115,7 +88,7 @@ categories: [utilities, icon]
 .visual-editor a[href$=".xls"],
 .visual-editor a[href$=".xlsx"] {
   &:after {
-    background: url("#{$img-path}/common/icon_pdf.png") right center no-repeat;
+    background: url("../img/common/icon_pdf.png") right center no-repeat;
     background-size: 15.5px 15.5px;
     width: 15.5px;
     height: 15.5px;
@@ -129,7 +102,7 @@ categories: [utilities, icon]
 .is-icon-pdf,
 .visual-editor a[href$=".pdf"] {
   &:after {
-    background-image: url("#{$img-path}/common/icon_pdf.png");
+    background-image: url("../img/common/icon_pdf.png");
   }
 }
 
@@ -137,7 +110,7 @@ categories: [utilities, icon]
 .visual-editor a[href$=".doc"],
 .visual-editor a[href$=".docx"] {
   &:after {
-    background-image: url("#{$img-path}/common/icon_doc.png");
+    background-image: url("../img/common/icon_doc.png");
   }
 }
 
@@ -145,7 +118,7 @@ categories: [utilities, icon]
 .visual-editor a[href$=".ppt"],
 .visual-editor a[href$=".pptx"] {
   &:after {
-    background-image: url("#{$img-path}/common/icon_ppt.png");
+    background-image: url("../img/common/icon_ppt.png");
   }
 }
 
@@ -153,7 +126,7 @@ categories: [utilities, icon]
 .visual-editor a[href$=".xls"],
 .visual-editor a[href$=".xlsx"] {
   &:after {
-    background-image: url("#{$img-path}/common/icon_xls.png");
+    background-image: url("../img/common/icon_xls.png");
   }
 }
 

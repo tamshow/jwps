@@ -46,13 +46,13 @@ categories: [elements, blockquote]
   }
 
   &:before {
-    background-image: url("#{$img-path}/common/blockquote1.svg");
+    background-image: url("../img/common/blockquote1.svg");
     top: 1rem;
     left: 1rem;
   }
 
   &:after {
-    background-image: url("#{$img-path}/common/blockquote2.svg");
+    background-image: url("../img/common/blockquote2.svg");
     right: 1rem;
     bottom: 1rem;
   }

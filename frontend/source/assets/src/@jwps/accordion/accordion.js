@@ -1,19 +1,46 @@
 $(function () {
 
-  var $selectorAC = $('[data-toggle-accordion]');
-  var containerAC = '[data-accordion]';
-  var deviceAC = '[data-device-accordion]';//all, pc, tab, sp
-  var bodyAC = '[data-body-accordion]';
-  var tabWidth = '960px';
-  var spWidth = '600px';
+
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
+
+  var NAME = 'accordion';
+  var VERSION = '0.5.0';
+
+  var Selector = {
+    ACCORDION     : '[data-accordion]',
+    TARGET        : '[data-toggle-accordion]',
+    BODY          : '[data-body-accordion]',
+    DEVICE        : '[data-device-accordion]',//all, pc, tab, sp
+    ANKER         : '[anker-accordion]'
+  };
+
+
+  var Default = {
+    TAB_W  : '960px',
+    SP_W   : '600px'
+  };
+
 
   $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
 
-  $selectorAC.on('click E_ENTER_KYE_CODE', function (e) {
 
-    var media = $(e.currentTarget).parents(deviceAC).data('device-accordion') || 'all';
-    var isMobile = window.matchMedia('(max-width:' + spWidth + ')').matches || false;
-    var isTablet = window.matchMedia('(min-width:' + spWidth + ') and (max-width:' + tabWidth + ')').matches || false;
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+  $(Selector.TARGET).on('click E_ENTER_KYE_CODE', function (e) {
+
+    var media = $(e.currentTarget).parents(Selector.DEVICE).data('device-accordion') || 'all';
+    var isMobile = window.matchMedia('(max-width:' + Default.SP_W + ')').matches || false;
+    var isTablet = window.matchMedia('(min-width:' + Default.SP_W + ') and (max-width:' + Default.TAB_W + ')').matches || false;
 
     if (media.match(/all/) ||
         (media.match(/sp/) && isMobile) ||
@@ -24,22 +51,39 @@ $(function () {
     }
   });
 
+
+
+  $(Selector.ANKER).on('click', function() {
+    innerAnker()
+  });
+
+  $(window).on('load',function (e) {
+    accessAnker(e);
+  });
+
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
+
+
   function toggle(e) {
     e.preventDefault();
-    var $target = $(e.currentTarget);
-    var $containerAC = $target.parents(containerAC);
-    var $bodyAC = $containerAC.find(bodyAC);
+    var $current_target = $(e.currentTarget);
+    var $containerAC = $current_target.parents(Selector.ACCORDION);
+    var $bodyAC = $containerAC.find(Selector.BODY);
 
     if ($containerAC.hasClass('is-active')) {
       $containerAC.removeClass('is-active');
-      $target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
+      $current_target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
       $bodyAC.stop().slideUp(150).attr('aria-hidden', 'true');
     } else {
       $containerAC.addClass('is-active');
-      $target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
+      $current_target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
       $bodyAC.stop().slideDown(200).attr('aria-hidden', 'false').focus();
 
-      var offset = $target.offset() || {};
+      var offset = $current_target.offset() || {};
       var offsetTop = offset.top || 0;
 
       $('html,body').animate({scrollTop: offsetTop - ($('header').height())}, {
@@ -49,6 +93,25 @@ $(function () {
 
     }
   }
+
+  function innerAnker() {
+    //アコーディオン内から別アコーディオンを開く
+    var targetHref = $(this).attr('href');
+    if (targetHref.includes('#')) {
+      $('[aria-controls="'+targetHref.slice(1)+'"]').click();
+    }
+  }
+  
+  function accessAnker() {
+    //ハッシュでアコーディオン開く
+    var urlHash = location.hash || false;
+    if (urlHash && $(urlHash).length) {
+      if ($('[aria-controls="' + urlHash.slice(1) + '"]').length) {
+        $('[aria-controls="' + urlHash.slice(1) + '"]').click();
+      }
+    }
+  }
+
 
 
 });

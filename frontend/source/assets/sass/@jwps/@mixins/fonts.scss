@@ -9,6 +9,15 @@ category: mixins
 
 
 ```
+
+@include fsize-h1;
+@include fsize-h2;
+@include fsize-h3;
+@include fsize-h4;
+@include fsize-h5;
+@include fsize-h6;
+
+
 @include fsize($size-pc: 14, $size-tab: false, $size-sp: false);
 
 @include fsize-vmin($fsize: 14, $screen: 375);
@@ -18,21 +27,29 @@ category: mixins
 
 */
 
+@mixin fsize-h1 { font-size: $fsize-h1-pc; @include media-sp-max { font-size: $fsize-h1-sp; } }
+@mixin fsize-h2 { font-size: $fsize-h2-pc; @include media-sp-max { font-size: $fsize-h2-sp; } }
+@mixin fsize-h3 { font-size: $fsize-h3-pc; @include media-sp-max { font-size: $fsize-h3-sp; } }
+@mixin fsize-h4 { font-size: $fsize-h4-pc; @include media-sp-max { font-size: $fsize-h4-sp; } }
+@mixin fsize-h5 { font-size: $fsize-h5-pc; @include media-sp-max { font-size: $fsize-h5-sp; } }
+@mixin fsize-h6 { font-size: $fsize-h6-pc; @include media-sp-max { font-size: $fsize-h6-sp; } }
+
+
 @mixin fsize($size-pc: 0px, $size-tab: false, $size-sp: false) {
   @if $size-pc != false {
     font-size: $size-pc;
-    font-size: ($size-pc / (1 + $size-pc - $size-pc)) / ($fsize-pc / (1 + $fsize-pc - $fsize-pc)) +rem;
+    //font-size: ($size-pc / (1 + $size-pc - $size-pc)) / ($fsize-pc / (1 + $fsize-pc - $fsize-pc)) +rem;
   }
   @if $size-tab != false {
     @include media-tab-max {
       font-size: $size-tab;
-      font-size: ($size-tab / (1 + $size-tab - $size-tab)) / ($fsize-tab / (1 + $fsize-tab - $fsize-tab)) +rem;
+      //font-size: ($size-tab / (1 + $size-tab - $size-tab)) / ($fsize-tab / (1 + $fsize-tab - $fsize-tab)) +rem;
     }
   }
   @if $size-sp != false {
     @include media-sp-max {
       font-size: $size-sp;
-      font-size: ($size-sp / (1 + $size-sp - $size-sp)) / ($fsize-sp / (1 + $fsize-sp - $fsize-sp)) +rem;
+      //font-size: ($size-sp / (1 + $size-sp - $size-sp)) / ($fsize-sp / (1 + $fsize-sp - $fsize-sp)) +rem;
     }
   }
 

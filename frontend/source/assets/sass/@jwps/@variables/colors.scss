@@ -29,20 +29,12 @@ $text-color:                  rgba(0, 0, 0, .87) !default;
 $text-color-sub:              rgba(0, 0, 0, .54) !default;
 $text-color-week:             rgba(0, 0, 0, .38) !default;
 
-$text-color-dark:             rgba(255, 255, 255, 1) !default;
-$text-color-dark-sub:         rgba(255, 255, 255, .7) !default;
-$text-color-dark-week:        rgba(255, 255, 255, .3) !default;
-
 
 // Link Colors
 // -------------------
 $brand-link:                  #477DCA !default;
 $brand-link-visited:          #3A5898 !default;
 $brand-link-hover:            #3A5898 !default;
-
-$brand-link-dark:             #d6d7d9 !default;
-$brand-link-dark-visited:     #fff    !default;
-$brand-link-dark-hover:       #fff    !default;
 
 
 // Other Colors
@@ -60,6 +52,10 @@ $brand-purple:                #997ebd !default;
 $brand-brawn:                 #af9100 !default;
 $brand-orange:                #e75a00 !default;
 $brand-yellow:                #f6bb42 !default;
+
+
+// Parts Colors
+// -------------------
 
 $success-color:               $brand-light-green !default;
 $success-border:              $brand-light-green !default;
@@ -82,9 +78,6 @@ $info-border:                 $brand-blue !default;
 $info-bg:                     tint($brand-blue, 90%) !default;
 $info-content:                "priority_high" !default;
 
-
-// Parts Colors
-// -------------------
 $twitter:                     #1d9ef0 !default;
 $facebook:                    #3b5996 !default;
 $line:                        #00b900 !default;

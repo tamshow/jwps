@@ -2,34 +2,16 @@
 
 /* @  Font Reset
 * ------------------------------------------------------------ */
-@font-face {
-  font-family: "MyYuGothicM";
-  font-weight: normal;
-  src: local("YuGothic-Medium"), /* Postscript name */
-  local("Yu Gothic Medium"), /* for Chrome */
-  local("YuGothic-Regular"); /* Mediumがない場合 */
-}
-
-@font-face {
-  font-family: "MyYuGothicM";
-  font-weight: bold;
-  src: local("YuGothic-Bold"), /* Postscript name */
-  local("Yu Gothic"); /* for Chrome */
-}
 
 html {
   line-height: $line-height-pc;
   //min-width: $width-pc-max;
-
 
   @include media-lg-min {
     font-size: $fsize-pc;
   }
   @include media-pc-min {
     font-size: $fsize-pc;
-  }
-  @include media-tab-max {
-    font-size: $fsize-tab;
   }
   @include media-sp-max {
     font-size: $fsize-sp;
@@ -42,16 +24,17 @@ html {
 
 body {
   font-family: $font-family-base;
-  //font-synthesis: weight style;
-  //text-rendering: auto;
-  //-webkit-font-smoothing: antialiased;
-  //-moz-osx-font-smoothing: grayscale;
-  //-moz-font-feature-settings: 'liga', 'kern';
-  //font-feature-settings: "palt";
-  //-ms-text-size-adjust: 100%;
+  font-synthesis: weight style;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: 'liga', 'kern';
+  font-feature-settings: "palt";
+  -ms-text-size-adjust: 100%;
   color: $text-color;
   word-wrap: break-word;
   overflow-wrap: break-word;
+
 }
 
 body[data-os="Windows"] {
@@ -127,10 +110,6 @@ hr {
   margin-top: $margin-large-pc;
   margin-bottom: $margin-large-pc;
 
-  @include media-tab-max {
-    margin-top: $margin-large-tab;
-    margin-bottom: $margin-large-tab;
-  }
 
   @include media-sp-max {
     margin-top: $margin-large-sp;
@@ -171,8 +150,8 @@ textarea::selection {
 
 a,
 a:link {
-  color: inherit;
-  text-decoration: none;
+  color: $brand-link;
+  text-decoration: underline;
   transition: $animation;
 }
 
@@ -180,17 +159,19 @@ a:hover,
 a:focus,
 a:visited {
   transition: $animation;
-  //color: $brand-link-hover;
+  color: $brand-link-hover;
   text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+  //text-decoration: underline;
 }
 
 a:visited {
-  //color: $brand-link-visited;
+  color: $brand-link-visited;
 }
+
+
 
 a {
   -webkit-tap-highlight-color: rgba($brand-primary, .5);
@@ -214,14 +195,10 @@ button:focus {
 
 @media print {
   header,
-  footer,
-  .c-breadcrumb,
-  .l-block-secondary {
+  footer {
     display: none;
   }
-  .l-block-primary {
-    width: 93%;
-  }
+
   a[href]:after {
     content: "";
   }
@@ -247,7 +224,7 @@ code {
   font-size: 90%;
   color: #c7254e;
   background-color: #f9f2f4;
-  border-radius: $border-radius-pc;
+  border-radius: 3px;
 }
 
 kbd {
@@ -255,7 +232,7 @@ kbd {
   font-size: 90%;
   color: #c7254e;
   background-color: #f9f2f4;
-  border-radius: $border-radius-pc / 2;
+  border-radius: 1.5px;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
 
   kbd {
@@ -271,14 +248,14 @@ pre,
   display: block;
   padding: 10px;
   white-space: pre-wrap;
-  @include fsize(14px);
+  font-size: 14px;
   line-height: $line-height-pc;
   word-break: break-all;
   word-wrap: break-word;
   color: #aaa;
   background-color: $bg-color;
   border: 1px solid #ccc;
-  border-radius: $border-radius-pc;
+  border-radius: 3px;
 
   margin: 0;
 

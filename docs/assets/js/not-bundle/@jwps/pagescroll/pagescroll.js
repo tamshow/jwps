@@ -1,12 +1,38 @@
 $(function () {
 
 
-  var scrollSelector = '[data-scroll]';
-  var $scrollTotop = $('[data-scroll="to-top"]');
-  var mainH = $('header').height();
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
+  
+  var NAME = 'pagescroll';
+  var VERSION = '0.5.0';
+
+  var Selector = {
+    TARGET        : '[data-scroll]',
+    TO_TOP        : '[data-scroll="to-top"]',
+    BG            : '#js-offcanvas-bg',
+    LOWER_LAYER   : 'footer,main',
+    SCROLL        : '[data-scroll-offcanvas]'
+  };
+
+  var Default = {
+    MAIN_H           : $('header').height(),
+    BOTTOM_POSITION  : '100px'
+  };
 
 
-  $(document).on('click', scrollSelector + ' a', function (e) {
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+  $(document).on('click', Selector.TARGET + ' a', function (e) {
     scroll(e);
   });
 
@@ -15,12 +41,20 @@ $(function () {
     topHide(e);
   });
 
+
   $(window).on('load',function (e) {
 
     scrollToAnker(e);
 
   });
 
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
 
   function scroll(e) {
     e.preventDefault();
@@ -31,7 +65,7 @@ $(function () {
       $target.blur();
 
       var offset = $(targetHref).offset() || {};
-      var offsetTop = offset.top - mainH - 20 || 0;
+      var offsetTop = offset.top - Default.MAIN_H - 20 || 0;
 
       $('html,body').animate(
           {scrollTop: offsetTop},
@@ -50,10 +84,10 @@ $(function () {
     var $target = $(e.currentTarget);
     var scrollPos = $target.scrollTop();
 
-    if (scrollPos < mainH) {
-      $scrollTotop.find('a').stop().animate({'bottom': '-100px'}, 200, 'swing');
+    if (scrollPos < Default.MAIN_H) {
+      $(Selector.TO_TOP).find('a').stop().animate({'bottom': '-' + Default.BOTTOM_POSITION}, 200, 'swing');
     } else {
-      $scrollTotop.find('a').stop().animate({'bottom': '100px'}, 200, 'swing');
+      $(Selector.TO_TOP).find('a').stop().animate({'bottom': Default.BOTTOM_POSITION}, 200, 'swing');
     }
   }
 
@@ -63,7 +97,7 @@ $(function () {
     var urlHash = location.hash || false;
     if (urlHash && $(urlHash).length) {
       setTimeout(function () {
-        var position = $(urlHash).offset().top - mainH -20;
+        var position = $(urlHash).offset().top - Default.MAIN_H -20;
         $('body,html').animate({scrollTop: position}, 100);
       }, 0);
     }

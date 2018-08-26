@@ -131,7 +131,7 @@ categories: [js, carousel]
     color: #fff;
     opacity: .3;
     i {
-      @include fsize(20px);
+      font-size: 20px;
     }
 
     @include media-sp-max {

@@ -63,15 +63,11 @@ categories: [utilities, tool-margin]
 /* @ base margin
  * ------------------------------------------------------------ */
 
-@mixin base-margin($name, $val-pc, $val-tab, $val-sp) {
+@mixin base-margin($name, $val-pc, $val-sp) {
 
   .#{$name} {
 
     margin-bottom: $val-pc !important;
-
-    @include media-tab-max {
-      margin-bottom: $val-tab !important;
-    }
 
     @include media-sp-max {
       margin-bottom: $val-sp !important;
@@ -79,10 +75,10 @@ categories: [utilities, tool-margin]
   }
 }
 
-@include base-margin (is-mb-xs, $margin-xs-pc, $margin-xs-tab, $margin-xs-sp);
-@include base-margin (is-mb-small, $margin-small-pc, $margin-small-tab, $margin-small-sp);
-@include base-margin (is-mb-medium, $margin-medium-pc, $margin-medium-tab, $margin-medium-sp);
-@include base-margin (is-mb-large, $margin-large-pc, $margin-large-tab, $margin-large-sp);
+@include base-margin (is-mb-xs, $margin-xs-pc, $margin-xs-sp);
+@include base-margin (is-mb-small, $margin-small-pc, $margin-small-sp);
+@include base-margin (is-mb-medium, $margin-medium-pc, $margin-medium-sp);
+@include base-margin (is-mb-large, $margin-large-pc, $margin-large-sp);
 
 .is-mt0 {
   margin-top: 0 !important;

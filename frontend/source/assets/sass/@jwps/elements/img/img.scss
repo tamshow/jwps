@@ -114,11 +114,10 @@ categories: [elements, images]
 
 }
 
-
 .visual-editor figure,
 .e-img-box {
   margin-bottom: $margin-small-pc;
-  text-align: center;
+  //text-align: center;
 
   a {
     display: inline-block;
@@ -127,9 +126,9 @@ categories: [elements, images]
   figcaption,
   .e-img-caption {
     text-align: left;
-    margin-top: .5em;
+    margin-top: 5px;
     color: $text-color-sub;
-    font-size: .9rem;
+    font-size: 12px;
     line-height: 1.5;
   }
 }
@@ -180,6 +179,7 @@ Class                                                                      | Des
   }
 }
 
+
 //画像右
 .is-img-right {
   margin-left: 1rem;
@@ -189,16 +189,16 @@ Class                                                                      | Des
     float: none;
     margin-left: 0;
   }
-
 }
 
 //画像中央
 .is-img-center {
   text-align: center;
+  display: block;
   margin-left: auto;
   margin-right: auto;
-
 }
+
 
 .is-img-w25 {
   width: 25%;
@@ -215,6 +215,7 @@ Class                                                                      | Des
 .is-img-w100 {
   width: 100%;
 }
+
 
 
 

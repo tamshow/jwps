@@ -3,9 +3,8 @@
 /* @ l-block
  * ------------------------------------------------------------ */
 
-
 .l-block {
-  width: ($screen-main-wide-colum / $screen-pc-max) * 100%;
+  width: ($screen-main-colum / $screen-pc-max) * 100%;
   max-width: $screen-main-wide-colum + px;
   margin-left: auto;
   margin-right: auto;
@@ -19,6 +18,8 @@
   }
 }
 
+
+
 .l-block-fluid {
   width: 100%;
 }
@@ -27,11 +28,11 @@
 /* @ l-block-primary
  * ------------------------------------------------------------ */
 .l-block-primary {
-  @include mb-small;
 
   width: ($screen-main-colum / $screen-pc-max) * 100%;
-  float: right;
+  float: left;
   @include media-sp-max {
+    margin-bottom:$margin-medium-sp;
     float: none;
     width: 100%;
   }
@@ -43,16 +44,18 @@
  * ------------------------------------------------------------ */
 
 .l-block-secondary {
-  @include mb-small;
 
   width: ($screen-sub-colum / $screen-pc-max) * 100%;
-  float: left;
+  float: right;
 
   @include media-sp-max {
     float: none;
     width: 100%;
   }
 }
+
+
+
 
 
 

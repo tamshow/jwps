@@ -27,51 +27,12 @@ categories: [elements, heading]
 */
 
 .visual-editor h1,
-.visual-editor h2,
-.visual-editor h3,
-.visual-editor h4,
-.visual-editor h5,
-.visual-editor h6,
-.e-hd1,
-.e-hd2,
-.e-hd3,
-.e-hd4,
-.e-hd5,
-.e-hd6 {
+.e-hd1 {
+  @include fsize-h1;
   margin-bottom: 1rem;
   font-weight: bold;
   overflow: hidden;
   line-height: 1.4;
-}
-
-.visual-editor h2:not(:first-child),
-.visual-editor h3:not(:first-child),
-.visual-editor h4:not(:first-child),
-.visual-editor h5:not(:first-child),
-.visual-editor h6:not(:first-child) {
-  margin-top: 1.6rem;
-  @include media-sp-max {
-    margin-top: 0;
-  }
-}
-
-//連続するタイトルは狭める
-.visual-editor h1 + h2,
-.visual-editor h2 + h2,
-.visual-editor h2 + h3,
-.visual-editor h3 + h3,
-.visual-editor h3 + h4,
-.visual-editor h4 + h4,
-.visual-editor h4 + h5,
-.visual-editor h5 + h5,
-.visual-editor h5 + h6,
-.visual-editor h6 + h6 {
-  margin-top: 0 !important;
-}
-
-.visual-editor h1,
-.e-hd1 {
-  @include fsize($fsize-h1-pc, false, $fsize-h1-sp);
 }
 
 .visual-editor h1,
@@ -89,43 +50,61 @@ categories: [elements, heading]
 
 .visual-editor h2,
 .e-hd2 {
-  @include fsize($fsize-h2-pc, false, $fsize-h2-sp);
-
+  @include fsize-h2;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  overflow: hidden;
+  line-height: 1.4;
 }
 
 .visual-editor h2,
 .e-hd2--type2 {
   border-left: 3px solid $brand-primary;
   background-color: $bg-color;
-
   padding: 1rem 1.5rem .9rem;
-  @include fsize(18px, false, 15px);
-
+  font-size: 18px;
   @include media-sp-max {
     padding: .7rem 1.2rem .6rem;
-
+    font-size: 15px;
   }
 }
 
 
 .visual-editor h3,
 .e-hd3 {
-  @include fsize($fsize-h3-pc, false, $fsize-h3-sp);
+  @include fsize-h3;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  overflow: hidden;
+  line-height: 1.4;
 }
 
 .visual-editor h4,
 .e-hd4 {
-  @include fsize($fsize-h4-pc, false, $fsize-h4-sp);
+  @include fsize-h4;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  overflow: hidden;
+  line-height: 1.4;
 }
 
 .visual-editor h5,
 .e-hd5 {
-  @include fsize($fsize-h5-pc, false, $fsize-h5-sp);
+  @include fsize-h5;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  overflow: hidden;
+  line-height: 1.4;
+
 }
 
 .visual-editor h6,
 .e-hd6 {
-  @include fsize($fsize-h6-pc, false, $fsize-h6-sp);
+  @include fsize-h6;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  overflow: hidden;
+  line-height: 1.4;
 }
 
 /*doc

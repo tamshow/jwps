@@ -334,7 +334,7 @@ div.exampleOutput + div.codeBlock {
 
 div.codeBlock {
   margin: .5em 0 16px;
-  overflow: scroll;
+  overflow: hidden;
   @include media-sp-max {
     display: none;
   }
@@ -360,7 +360,7 @@ div.codeBlock {
 .codeExample .line > div:after {
   display: block;
   min-height: 40px;
-  border-radius: $border-radius-pc;
+  border-radius: 3px;
   background-color: #eee;
   font-size: 12px;
   line-height: 40px;
@@ -381,7 +381,7 @@ div.codeBlock {
     box-shadow: .5px .9px 4px rgba(0, 0, 0, .1);
     padding-bottom: 5px;
 
-    border-radius: $border-radius-pc;
+    border-radius: 3px;
     &:before {
       display: none !important;
     }
@@ -392,7 +392,7 @@ div.codeBlock {
   display: block;
   height: 4em;
   margin-bottom: 5px;
-  border-radius: $border-radius-pc $border-radius-pc 0 0;
+  border-radius: 3px 3px 0 0;
   border-bottom: solid 1px whitesmoke;
 }
 

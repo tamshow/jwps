@@ -12,6 +12,9 @@ categories: [js, modal]
 ---
 
 ```html_example
+
+
+
 <!-- ボタン領域 -->
 <div class="e-button-group">
 <button type="button" class="e-button" data-open-modal aria-controls="area-modal-dialog1" aria-expanded="false" aria-label="開く">Modal Dialogを開く</button>
@@ -40,7 +43,7 @@ categories: [js, modal]
 
       </div>
     </div>
-    <button type="button" class="c-modal-dialog__close material-icons" data-close-modal aria-expanded="true" aria-label="dialogを閉じる">close</button>
+    <button type="button" class="c-modal-dialog__close" data-close-modal aria-expanded="true" aria-label="dialogを閉じる">close</button>
   </div>
 
 
@@ -79,9 +82,9 @@ categories: [js, modal]
     </div>
 </div>
 
-
-
 */
+
+
 
 .c-modal-dialog {
   display: none;
@@ -95,6 +98,7 @@ categories: [js, modal]
   border-radius: $border-radius-pc;
   width: $width-main-colum;
   margin: auto;
+  overflow: hidden;
 
   @include elevation(8);
   @include elevation-transition;
@@ -109,6 +113,9 @@ categories: [js, modal]
     padding-right: 15px;
     width: 100%;
 
+    overflow: hidden;
+    overflow-y: scroll;
+
     @include media-sp-max {
       padding-right: 10px;
     }
@@ -116,26 +123,54 @@ categories: [js, modal]
   }
 
   &__close {
-    @include fsize(30px);
+
     color: $brand-white;
-    position: absolute;
-    top: -1.2em;
-    right: 0;
-    line-height: 1;
+    border: none;
     display: block;
-    border: 0;
-    border-radius: 0;
-    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    transform: rotate(0deg);
     cursor: pointer;
-    appearance: none;
-    user-select: none;
-    font-weight: 400;
     margin: 0 auto;
+    position: absolute;
+    top: -20px;
+    right: 0;
+    background-color: transparent;
+    padding: 0;
+
+    overflow: hidden;
+    text-indent: 101%;
+    white-space: nowrap;
+
+    &:before,
+    &:after {
+      content: '';
+      top: 8px;
+      left: 0;
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: inherit;
+      background: #fff;
+      border-radius: 9px;
+      transition: 0.25s ease-in-out;
+    }
+
+    &:before {
+      transform: rotate(135deg);
+    }
+
+    &:after {
+      transform: rotate(-135deg);
+    }
+
+
+
 
   }
 
   &__body {
-    max-height: 60vh;
+    max-height: 50vh;
 
     > *:last-child {
       margin-bottom: 0;
@@ -146,7 +181,7 @@ categories: [js, modal]
   &__title {
     font-weight: bold;
     margin-bottom: 1rem;
-    @include fsize($fsize-h3-pc, false, $fsize-h3-sp);
+    @include fsize-h3;
 
   }
 

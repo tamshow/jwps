@@ -96,7 +96,7 @@ categories: [elements, form]
     <tr>
       <th>ご用件種別 <span class="e-form-req">必須</span></th>
       <td>
-        <div class="e-form-row">
+        <div class="e-form-cols">
           <div class="e-form-col12">
             <select name="description1-3" id="description1-3" value="" class="e-form-control">
               <option value="" >選択してください。</option>
@@ -223,14 +223,16 @@ textarea.e-form-control {
 }
 
 select.e-form-control {
-  background: $form-field-bg url("#{$img-path}/form/form_icon_select_top.svg") right 10px center no-repeat;
+  background: $form-field-bg url("../img/form/form_icon_select_top.svg") right 10px center no-repeat;
   text-align: left;
   text-indent: .01px;
   text-overflow: "";
   cursor: pointer;
+  padding-right: 25px;
+
 
   &:focus {
-    background-image: url("#{$img-path}/form/form_icon_select_top.svg");
+    background-image: url("../img/form/form_icon_select_top.svg");
   }
 }
 
@@ -239,12 +241,19 @@ select.e-form-control {
 .e-form-rc-box {
   position: relative;
 
+  > span,
+  > li,
+  > div {
+    margin-bottom: 10px;
+    display: block;
+  }
+
   label {
     display: inline-block;
     position: relative;
     min-height: 20px;
     padding-left: 30px;
-    padding-right: 30px;
+    padding-right: 10px;
     overflow: hidden;
     box-sizing: border-box;
     //width: 100%;
@@ -256,63 +265,79 @@ select.e-form-control {
     z-index: -1;
     width: auto;
 
-    + label:before {
+    + label:before,
+    + .mwform-radio-field-text:before,
+    + .mwform-checkbox-field-text:before {
       display: block;
       position: absolute;
-      top: 0;
+      top: .2em;
       left: 0;
       width: 20px;
       height: 20px;
-      background: url("#{$img-path}/form/form_icons.png") 0 0 no-repeat;
-      background-image: url("#{$img-path}/form/form_icons.svg");
+      background: url("../img/form/form_icons.png") 0 0 no-repeat;
+      background-image: url("../img/form/form_icons.svg");
       content: "";
       overflow: hidden;
     }
   }
 
-  input:focus + label {
+  input:focus + label,
+  input:focus + .mwform-radio-field-text,
+  input:focus + .mwform-checkbox-field-text {
     box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf;
   }
 
-  input:disabled + label {
+  input:disabled + label,
+  input:disabled + .mwform-radio-field-text,
+  input:disabled + .mwform-checkbox-field-text {
     opacity: .6;
   }
 
-  input:checked + label {
+  input:checked + label,
+  input:checked + .mwform-radio-field-text,
+  input:checked + .mwform-checkbox-field-text {
     color: #333;
   }
 
   //radio
-  input[type=radio] + label:before {
+  input[type=radio] + label:before,
+  input[type=radio] + .mwform-radio-field-text:before {
     background-position: -40px -40px;
   }
 
-  input[type=radio]:disabled + label:before {
+  input[type=radio]:disabled + label:before,
+  input[type=radio]:disabled + .mwform-radio-field-text:before {
     background-position: -40px -70px;
   }
 
-  input[type=radio]:checked + label:before {
+  input[type=radio]:checked + label:before,
+  input[type=radio]:checked + .mwform-radio-field-text:before {
     background-position: -140px -40px;
   }
 
-  input[type=radio]:disabled:checked + label:before {
+  input[type=radio]:disabled:checked + label:before,
+  input[type=radio]:disabled:checked + .mwform-radio-field-text:before {
     background-position: -140px -70px;
   }
 
   //checkbox
-  input[type=checkbox] + label:before {
+  input[type=checkbox] + label:before,
+  input[type=checkbox] + .mwform-checkbox-field-text:before {
     background-position: -40px -140px;
   }
 
-  input[type=checkbox]:disabled + label:before {
+  input[type=checkbox]:disabled + label:before,
+  input[type=checkbox]:disabled + .mwform-checkbox-field-text:before {
     background-position: -40px -110px;
   }
 
-  input[type=checkbox]:checked + label:before {
+  input[type=checkbox]:checked + label:before,
+  input[type=checkbox]:checked + .mwform-checkbox-field-text:before {
     background-position: -140px -140px;
   }
 
-  input[type=checkbox]:disabled:checked + label:before {
+  input[type=checkbox]:disabled:checked + label:before,
+  input[type=checkbox]:disabled:checked + .mwform-checkbox-field-text:before {
     background-position: -140px -110px;
   }
 
@@ -323,6 +348,18 @@ select.e-form-control {
 .e-form-rc-box--ib > span {
   display: inline-block;
 }
+
+.e-form-rc-box--2col > div,
+.e-form-rc-box--2col > li,
+.e-form-rc-box--2col > span {
+  width:48%;
+  display: inline-block;
+  box-sizing: border-box;
+  @include media-sp-max {
+    width:100%;
+  }
+}
+
 
 //状態
 
@@ -339,7 +376,7 @@ select.e-form-control {
   }
 
   &.e-form-control {
-    background: $form-field-bg url("#{$img-path}/form/form_icon_error.svg") 98% .6em no-repeat;
+    background: $form-field-bg url("../img/form/form_icon_error.svg") 98% .6em no-repeat;
     padding-right: 30px;
     background-color: #fff0f5;
   }
@@ -349,7 +386,7 @@ select.e-form-control {
     position: absolute;
     top: 0;
     right: 0;
-    background: $form-field-bg url("#{$img-path}/form/form_icon_error.svg") 98% .6em no-repeat;
+    background: $form-field-bg url("../img/form/form_icon_error.svg") 98% .6em no-repeat;
     width: 30px;
     height: 30px;
   }
@@ -365,7 +402,7 @@ select.e-form-control {
   }
 
   &.e-form-control {
-    background: $form-field-bg url("#{$img-path}/form/form_icon_warning.svg") 98% .6em no-repeat;
+    background: $form-field-bg url("../img/form/form_icon_warning.svg") 98% .6em no-repeat;
     padding-right: 30px;
   }
 
@@ -374,7 +411,7 @@ select.e-form-control {
     position: absolute;
     top: 0;
     right: 0;
-    background: $form-field-bg url("#{$img-path}/form/form_icon_warning.svg") 98% .6em no-repeat;
+    background: $form-field-bg url("../img/form/form_icon_warning.svg") 98% .6em no-repeat;
     width: 30px;
     height: 30px;
   }
@@ -389,7 +426,7 @@ select.e-form-control {
   }
 
   &.e-form-control {
-    background: $form-field-bg url("#{$img-path}/form/form_icon_done.svg") 98% .8em no-repeat;
+    background: $form-field-bg url("../img/form/form_icon_done.svg") 98% .8em no-repeat;
     padding-right: 30px;
   }
 
@@ -398,7 +435,7 @@ select.e-form-control {
     position: absolute;
     top: 0;
     right: 0;
-    background: $form-field-bg url("#{$img-path}/form/form_icon_done.svg") 98% .6em no-repeat;
+    background: $form-field-bg url("../img/form/form_icon_done.svg") 98% .6em no-repeat;
     width: 30px;
     height: 30px;
   }

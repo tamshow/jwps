@@ -136,6 +136,6 @@ $elevation-ambient-map: (
 }
 
 @mixin elevation-transition() {
-  transition: box-shadow $duration $animation-standard-curve-timing-function;
+  transition: box-shadow $animation;
   will-change: box-shadow;
 }
