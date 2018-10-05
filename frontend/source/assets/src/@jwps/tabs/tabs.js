@@ -17,6 +17,7 @@ $(function () {
   };
 
 
+
   /**
    * ------------------------------------------------------------------------
    * Event
@@ -88,13 +89,18 @@ $(function () {
 
 
 //ページアクセス時にハッシュがあれば該当のタブを開く
-  function accessAnker(e) {
+  function accessAnker() {
     var urlHash = location.hash || false;
     if (urlHash && $(urlHash).length) {
       if ($(urlHash).length) {
-        $(urlHash).find(Selector.LIST).click();
+        $(urlHash).find('[data-tablist]').click();
       }
     }
   }
 
 });
+
+
+
+
+

@@ -371,5 +371,16 @@ category: visualeditor
   .size-full {
     width: 100%;
   }
+}
 
+//a-bog cms table
+[class^=column-table] .entry-container {
+  overflow-x: auto;
+  margin-bottom: $margin-small-sp;
+
+  .acms-table-scrollable th,
+  .acms-table-scrollable td {
+    display: table-cell;
+    white-space: nowrap;
+  }
 }

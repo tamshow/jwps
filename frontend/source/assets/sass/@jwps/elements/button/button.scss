@@ -52,7 +52,16 @@ $button-line-height: 1.2 !default;
 $button-border: 0 !default;
 $button-border-radius: 2px !default;
 
-.e-button {
+.e-button,
+.entry-btn,
+.entry-btn-attention {
+
+
+  a {
+    font-weight: inherit;
+    text-decoration:  inherit;
+    color:  inherit;
+  }
 
   font-weight: bold;
   text-decoration: none !important;
@@ -134,7 +143,8 @@ $button-border-radius: 2px !default;
 
 //.e-button--primary {  }
 
-.e-button--secondary {
+.e-button--secondary,
+.entry-btn-attention {
 
   background-color: $brand-primary;
   color: #fff !important;
@@ -157,7 +167,7 @@ parent: button
   <button type="button" class="e-button">もっと見る</button>
 </div>
 
-<div class="e-button-group">
+<div class="e-button-group e-button-group--left">
   <button type="button" class="e-button">もっと見る</button>
   <button type="button" class="e-button">もっと見る</button>
 </div>
@@ -191,9 +201,11 @@ parent: button
 .e-button-group--one-half {
   .e-button {
     width: 50%;
+    @include media-sp-max {
+      width: 50%;
+    }
   }
 }
-
 .e-button-group--left {
   justify-content: flex-start;
 }

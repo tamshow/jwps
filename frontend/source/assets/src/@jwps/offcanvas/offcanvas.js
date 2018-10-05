@@ -6,7 +6,6 @@ $(function () {
    * ------------------------------------------------------------------------
    */
 
-
   var NAME = 'offcanvas';
   var VERSION = '0.5.0';
 
@@ -40,17 +39,17 @@ $(function () {
   });
 
 
-  $(Selector.BODY).on('click', 'a', function (e) {
+  $(Selector.BODY).on('click', 'a', function () {
     settingClose();
   });
 
-  $(Selector.BG).on('click', function (e) {
+  $(Selector.BG).on('click', function () {
     settingClose();
   });
 
   $(Selector.BODY).on('click', Selector.SCROLL, function (e) {
     settingClose();
-    scrollTo(e);
+    clickScrollTo(e);
   });
 
 
@@ -106,13 +105,13 @@ $(function () {
   }
 
 
-  function scrollTo(e) {
+  function clickScrollTo(e) {
     e.preventDefault();
 
     var $target = $(e.currentTarget);
     var targetHref = $target.attr('href');
 
-    if (targetHref.includes('#')) {
+    if (targetHref.indexOf('#') != -1) {
       $target.blur();
 
       var offset = $(targetHref).offset() || {};

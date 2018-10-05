@@ -7,6 +7,7 @@ window.addEventListener('DOMContentLoaded', function () {
    * ------------------------------------------------------------------------
    */
 
+
   var NAME      = 'ripple';
   var VERSION   = '1.0.0';
 
@@ -18,7 +19,7 @@ window.addEventListener('DOMContentLoaded', function () {
     ACTIVE    : 'js-rp-effect'
   };
 
-  const Default = {
+  var Default = {
     speed     : 1000
   };
 
@@ -29,10 +30,10 @@ window.addEventListener('DOMContentLoaded', function () {
    */
 
 
-  for (let i = 0; i < Selector.TARGETS.length; i++) {
+  for (var i = 0; i < Selector.TARGETS.length; i++) {
     Selector.TARGETS[i].addEventListener('mousedown', function (e) {
       rippleButton(Selector.TARGETS[i], e);
-    })
+    });
   }
 
   /**
@@ -43,7 +44,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   function rippleButton(button, e) {
     var dimension = Math.max(button.clientWidth, button.clientHeight);
-    var loc = button.getBoundingClientRect();
+    //var loc = button.getBoundingClientRect();
     var circle = document.createElement('span');
     circle.classList.add(ClassName.ACTIVE);
     circle.style.width = dimension + 'px';
