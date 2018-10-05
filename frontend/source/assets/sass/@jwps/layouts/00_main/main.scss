@@ -20,7 +20,7 @@ html {
 
   @include media-sp-max {
     //overflow-x: hidden;
-    min-width: $width-sp-min;
+    min-width: 320;
   }
 }
 
@@ -28,6 +28,7 @@ html {
   min-height: 20vh;
   background-color: $brand-white;
   margin-bottom: 50px;
+  display:block; /* IE対策に追加 */
 
   @include media-sp-max {
     margin-top: 16px;

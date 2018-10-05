@@ -2,7 +2,6 @@ window.addEventListener('DOMContentLoaded', function(){
 
   'use strict';
 
-
   /**
    * ------------------------------------------------------------------------
    * Service Worker
@@ -117,12 +116,12 @@ window.addEventListener('DOMContentLoaded', function(){
    */
 
 
-  var BrowserSafari = ua.indexOf("safari") > -1 && ua.indexOf("chrome") == -1,
-      BrowserChrome = ua.indexOf("chrome") > -1 && ua.indexOf("edge") == -1,
-      BrowserFireFox = ua.indexOf("firefox") != -1,
-      BrowserIE = ua.indexOf("msie") != -1,
-      BrowserIE11 = ua.indexOf('trident/7') != -1,
-      BrowserEdge = ua.indexOf("edge") != -1;
+  var BrowserSafari = ua.indexOf("safari") > -1 && ua.indexOf("chrome") === -1,
+      BrowserChrome = ua.indexOf("chrome") > -1 && ua.indexOf("edge") === -1,
+      BrowserFireFox = ua.indexOf("firefox") !== -1,
+      BrowserIE = ua.indexOf("msie") !== -1,
+      BrowserIE11 = ua.indexOf('trident/7') !== -1,
+      BrowserEdge = ua.indexOf("edge") !== -1;
 
 
   if (BrowserSafari) {
@@ -150,6 +149,8 @@ window.addEventListener('DOMContentLoaded', function(){
       androidMobile = ua.indexOf('android') !== -1 && ua.indexOf('mobile') !== -1;
 
   if (ipad || androidTab) {
+    //viewport変更
+    // document.getElementById('viewport').setAttribute('content', 'width=1200');
     bodyElem.setAttribute("data-device", "tablet");
   } else if (iphone || androidMobile) {
     bodyElem.setAttribute("data-device", "mobile");
@@ -175,7 +176,7 @@ window.addEventListener('DOMContentLoaded', function(){
   var scrollTop = 0;
   var scrollStop = false;
 
-  window.onscroll = function(e) {
+  window.onscroll = function() {
     scrollTop = document.documentElement.scrollTop;
     if (scrollTop >= startPos) {
       bodyElem.setAttribute("data-scroll-pos", "down");
@@ -213,7 +214,7 @@ window.addEventListener('DOMContentLoaded', function(){
    */
   
   //IE10対応
-  if (ua.indexOf("msie") != -1) {
+  if (ua.indexOf("msie") !== -1) {
     var noScriptText =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>お使いのブラウザはバージョンが古いため、サイトを快適にご利用いただけないかもしれません。<br>' +
@@ -232,7 +233,7 @@ window.addEventListener('DOMContentLoaded', function(){
     var noAndroidText =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>ご利用のAndroid端末のバージョンでは閲覧できません。<br>' +
-        '<a href="intent://${hostname}#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end">Chromeブラウザをご利用頂くかOSのバージョンアップをお願い致します。</a>' +
+        '<a href="intent://' + hostname + '#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end">Chromeブラウザをご利用頂くかOSのバージョンアップをお願い致します。</a>' +
         '</div>';
 
     bodyElem.parentNode.insertBefore(noAndroidText);

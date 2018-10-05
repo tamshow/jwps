@@ -183,7 +183,10 @@ a:link {
 
 button:focus,
 a:focus {
-  box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf;
+  //box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf;
+  outline: 3px solid rgba(0, 74, 248, 0.6);
+  outline-offset: 2px;
+  transition: none;
 }
 
 button:focus {
@@ -272,9 +275,43 @@ pre,
   }
 }
 
-// Enable scrollable blocks of code
-.e-pre--scrollable {
-  max-height: 340px;
-  overflow-y: scroll;
+
+//-------------------
+
+
+.e-code-clipboard {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+
+  &__title {
+    margin-right: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #666666;
+    border-bottom: 1px solid #DDDDDD;
+  }
+
+  &__body {
+    position: relative;
+    min-width: 180px;
+    display: block;
+  }
+
+  &__copy {
+    display: none;
+    background-color: #aaa;
+    color: #fff;
+    border-radius: 3px;
+    padding: .2em .4em;
+    position: absolute;
+    bottom:-1.6em;
+    right: -.5em;
+  }
 }
+
+
+//-------------------
+
 

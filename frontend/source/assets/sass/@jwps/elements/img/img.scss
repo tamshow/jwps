@@ -115,7 +115,8 @@ categories: [elements, images]
 }
 
 .visual-editor figure,
-.e-img-box {
+.e-img-box,
+[class^=column-image] {
   margin-bottom: $margin-small-pc;
   //text-align: center;
 

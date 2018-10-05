@@ -21,6 +21,9 @@ const prettify = require('gulp-prettify');
 const uglifyjs = require('uglify-js');
 const minifier = require('gulp-uglify');
 
+const workboxBuild = require('workbox-build');
+
+
 //書き出し先変更
 const DEST = 'build';
 
@@ -57,7 +60,6 @@ gulp.task('js:not-bundle', () => {
 //結合
 const jsFileVendor = [
   'node_modules/jquery/dist/jquery.js'
-  //'node_modules/lodash/lodash.js'
 ];
 gulp.task('js:vendor', () => {
   return gulp.src(jsFileVendor).pipe(concat('vendor.js'))
@@ -283,6 +285,36 @@ gulp.task('docs', (callback) => {
 });
 
 
+
+//========================================================================
+// swを実行
+//========================================================================
+
+//https://developers.google.com/web/tools/workbox/modules/workbox-build
+gulp.task('sw', () => {
+  return workboxBuild.generateSW({
+    globDirectory: 'build',
+    globPatterns: [
+      '**/*.{html,js,css}'
+    ],
+    runtimeCaching: [
+      {
+        urlPattern: /\/$/,
+        handler: 'cacheFirst',
+
+        options: {
+          cacheName: 'cacheName',
+          expiration: {
+            maxEntries: 5,
+            maxAgeSeconds: 60,
+          },
+        }
+      }
+    ],
+
+    swDest: 'build/sw.js'
+  });
+});
 
 
 

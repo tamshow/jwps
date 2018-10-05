@@ -15,19 +15,19 @@ categories: [elements, heading]
 ---
 
 ```html_example
-<h1 class="e-hd1">情に棹させば流される智に働けば角が立つ</h1>
-<h2 class="e-hd2">情に棹させば流される智に働けば角が立つ</h2>
-<h3 class="e-hd3">情に棹させば流される智に働けば角が立つ</h3>
-<h4 class="e-hd4">情に棹させば流される智に働けば角が立つ</h4>
-<h5 class="e-hd5">情に棹させば流される智に働けば角が立つ</h5>
-<h6 class="e-hd6">情に棹させば流される智に働けば角が立つ</h6>
+<h1 class="e-heading1">情に棹させば流される智に働けば角が立つ</h1>
+<h2 class="e-heading2">情に棹させば流される智に働けば角が立つ</h2>
+<h3 class="e-heading3">情に棹させば流される智に働けば角が立つ</h3>
+<h4 class="e-heading4">情に棹させば流される智に働けば角が立つ</h4>
+<h5 class="e-heading5">情に棹させば流される智に働けば角が立つ</h5>
+<h6 class="e-heading6">情に棹させば流される智に働けば角が立つ</h6>
 
 ```
 
 */
 
 .visual-editor h1,
-.e-hd1 {
+.e-heading1 {
   @include fsize-h1;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -35,21 +35,9 @@ categories: [elements, heading]
   line-height: 1.4;
 }
 
-.visual-editor h1,
-.e-hd1--type2 {
-  position: relative;
-  font-weight: bold;
-  color: $brand-primary;
-
-  @include media-sp-max {
-    text-align: center;
-  }
-}
-
-
 
 .visual-editor h2,
-.e-hd2 {
+.e-heading2 {
   @include fsize-h2;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -57,21 +45,8 @@ categories: [elements, heading]
   line-height: 1.4;
 }
 
-.visual-editor h2,
-.e-hd2--type2 {
-  border-left: 3px solid $brand-primary;
-  background-color: $bg-color;
-  padding: 1rem 1.5rem .9rem;
-  font-size: 18px;
-  @include media-sp-max {
-    padding: .7rem 1.2rem .6rem;
-    font-size: 15px;
-  }
-}
-
-
 .visual-editor h3,
-.e-hd3 {
+.e-heading3 {
   @include fsize-h3;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -80,7 +55,7 @@ categories: [elements, heading]
 }
 
 .visual-editor h4,
-.e-hd4 {
+.e-heading4 {
   @include fsize-h4;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -89,7 +64,7 @@ categories: [elements, heading]
 }
 
 .visual-editor h5,
-.e-hd5 {
+.e-heading5 {
   @include fsize-h5;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -99,7 +74,7 @@ categories: [elements, heading]
 }
 
 .visual-editor h6,
-.e-hd6 {
+.e-heading6 {
   @include fsize-h6;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -107,25 +82,7 @@ categories: [elements, heading]
   line-height: 1.4;
 }
 
-/*doc
----
-title: heading-type
-name: heading-type
-categories: [elements, heading]
-parent: heading
----
 
-```html_example
-<h1 class="e-hd1 e-hd1--type2"><span>情に棹させば流される智に働けば角が立つ</span></h1>
-<h2 class="e-hd2 e-hd2--type2">情に棹させば流される智に働けば角が立つ</h2>
-<h3 class="e-hd3 is-color-blue">情に棹させば流される智に働けば角が立つ</h3>
-<h4 class="e-hd4 is-text-center">情に棹させば流される智に働けば角が立つ</h4>
-<h5 class="e-hd5 is-bdb">情に棹させば流される智に働けば角が立つ</h5>
-<h6 class="e-hd6">情に棹させば流される智に働けば角が立つ</h6>
-
-```
-
-*/
 
 
 
@@ -140,9 +97,9 @@ parent: heading
 ```html_example
 
 
-<div class="e-hd-group">
-  <h3 class="e-hd3">情に棹させば流される智に働けば角が立つ</h3>
-  <p class="e-hd-date"> 6月12日  12:49</p>
+<div class="e-heading-group">
+  <h3 class="e-heading3">情に棹させば流される智に働けば角が立つ</h3>
+  <p class="e-heading-date"> 6月12日  12:49</p>
 </div>
 
 
@@ -151,7 +108,7 @@ parent: heading
 */
 
 
-.e-hd-date {
+.e-heading-date {
   @include mb-small;
   color: $text-color-sub;
   font-size: .8em;
@@ -164,7 +121,7 @@ parent: heading
   }
 }
 
-.e-hd-group {
+.e-heading-group {
   @include mb-large;
   h1,
   h2,

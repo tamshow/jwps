@@ -45,8 +45,8 @@ grid ($className:'.cols', $col:6, $allW:940, $g:30, $sp:false)
     width: 100%;
     box-sizing: border-box;
     //高さ揃え
-    display: flex;
-    flex-flow: column wrap;
+    //display: flex;
+    //flex-flow: column wrap;
     > *:last-child {
       margin-bottom: 0;
     }

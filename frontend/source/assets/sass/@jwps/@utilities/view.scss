@@ -19,13 +19,15 @@ categories: [utilities, tool-view]
  `is-visible`            |  表示
  `is-visible-ib`            |  表示
  `is-hidden`             |  非表示
+ `is-sr-only`        |
  `is-float-left`        |
  `is-float-right`        |
  `is-float-clear`                |
-  `is-flex-center`        |
+ `is-flex-center`        |
  `is-flex-start`        |
  `is-flex-end`          |
  `is-space-between`     |
+ `is-inline`           |
  `is-ib`                |
  `is-block`             |
  `is-br`                |
@@ -43,6 +45,18 @@ categories: [utilities, tool-view]
 .is-hidden {
   display: none;
 }
+
+.is-sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 
 .is-visible--sm,
 .is-visible--md,
@@ -244,6 +258,29 @@ categories: [utilities, tool-view]
   }
 }
 
+
+
+//-----------------
+
+.is-inline {
+  display: inline;
+}
+@include media-lg-min {
+  .is-inline--lg {
+    display: inline;
+  }
+}
+@include media-tab-max {
+
+  .is-inline--md {
+    display: inline;
+  }
+}
+@include media-sp-max {
+  .is-inline--sm {
+    display: inline;
+  }
+}
 
 //-------------------------
 

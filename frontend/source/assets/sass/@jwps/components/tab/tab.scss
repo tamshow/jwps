@@ -34,6 +34,8 @@ categories: [js, tab]
 .c-tab {
   background-color: $brand-white;
 
+
+  list-style-position: outside;
   @include mb-small;
 
   [data-tabpanel] {

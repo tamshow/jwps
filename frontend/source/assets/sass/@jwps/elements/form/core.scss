@@ -443,7 +443,7 @@ select.e-form-control {
 }
 
 //a11y
-[role="tooltip"] {
+.e-form-control [role="tooltip"] {
   display: none;
   width: auto;
   margin: 0;

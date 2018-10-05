@@ -21,12 +21,12 @@
     "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.0",
     "json-server": "^0.12.2",
-    "run-sequence": "^2.2.1"
+    "run-sequence": "^2.2.1",
+    "workbox-build": "^3.5.0"
   },
   "dependencies": {
     "bourbon": "^5.0.0",
     "jquery": "^2.2.3",
-    "lodash": "^4.17.10",
     "normalize.css": "^8.0.0"
   }
 }
