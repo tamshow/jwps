@@ -379,13 +379,14 @@ UIコンポーネントを組み合わせてwebページを構築していく手
 <h3>おおまかに説明</h3>
 <p>主にassets内（CSS、JSなど）を管理します。<br>
 HTMLはそのまま使用せずCMSで使うことを前提に作成しています。<br>
+インクルードは必要に応じて使い分けてください。<br>
 <code>frontend/source</code>フォルダが作業場所です。<br>
 <code>gulp serve</code>することで<code>frontend/source</code>を開発用ルートとしてファイルをwatchします。<br>
 <code>gulp build</code>することで<code>frontend/source/assets</code>を公開用に調整し<code>frontend/build/assets</code>へ書き出します。<br>
 画像圧縮はしていません。必要に応じて圧縮してください。<br>
 Sassのmixinは<a href="https://www.bourbon.io/">bourbonファミリー</a>を使用・参考にします。<br>
-<code>source/assets/src/@jwps/</code>以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。必要に応じて使い分けてください。<br>
-HTMLのインクルードにSSIを使用していますのでCMSへ組み込む場合など必要に応じて使い分けてください。</p>
+<code>source/assets/src/@jwps/</code>以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。必要に応じて使い分けてください。</p>
+
 
 <h3>使用する主なToolについて</h3>
 <ul>
