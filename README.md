@@ -40,13 +40,14 @@ UIコンポーネントを組み合わせてwebページを構築していく手
 
 ### おおまかに説明
 assets内（CSS、JSなど）を管理します。   
-CMSで使うことを前提にまとめています。   
+HTMLはそのまま使用せずCMSで使うことを前提に作成しています。   
 `frontend/source`フォルダが作業場所です。   
 `gulp serve`することで`frontend/source`を開発用ルートとしてファイルをwatchします。
 `gulp build`することで`frontend/source/assets`を公開用に調整し`frontend/build/assets`へ書き出します。   
 画像圧縮はしていません。必要に応じて圧縮してください。   
 Sassのmixinは[bourbonファミリー](https://www.bourbon.io/)を参考・使用します。   
-`source/assets/src/@jwps/`以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。必要に応じて使い分けてください。 
+`source/assets/src/@jwps/`以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。必要に応じて使い分けてください。    
+HTMLのインクルードにSSIを使用していますのでCMSへ組み込む場合など必要に応じて使い分けてください。
 
 ### 環境構築
 
