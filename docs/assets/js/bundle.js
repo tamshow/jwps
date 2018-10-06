@@ -2,7 +2,6 @@ window.addEventListener('DOMContentLoaded', function(){
 
   'use strict';
 
-
   /**
    * ------------------------------------------------------------------------
    * Service Worker
@@ -117,12 +116,12 @@ window.addEventListener('DOMContentLoaded', function(){
    */
 
 
-  var BrowserSafari = ua.indexOf("safari") > -1 && ua.indexOf("chrome") == -1,
-      BrowserChrome = ua.indexOf("chrome") > -1 && ua.indexOf("edge") == -1,
-      BrowserFireFox = ua.indexOf("firefox") != -1,
-      BrowserIE = ua.indexOf("msie") != -1,
-      BrowserIE11 = ua.indexOf('trident/7') != -1,
-      BrowserEdge = ua.indexOf("edge") != -1;
+  var BrowserSafari = ua.indexOf("safari") > -1 && ua.indexOf("chrome") === -1,
+      BrowserChrome = ua.indexOf("chrome") > -1 && ua.indexOf("edge") === -1,
+      BrowserFireFox = ua.indexOf("firefox") !== -1,
+      BrowserIE = ua.indexOf("msie") !== -1,
+      BrowserIE11 = ua.indexOf('trident/7') !== -1,
+      BrowserEdge = ua.indexOf("edge") !== -1;
 
 
   if (BrowserSafari) {
@@ -150,6 +149,8 @@ window.addEventListener('DOMContentLoaded', function(){
       androidMobile = ua.indexOf('android') !== -1 && ua.indexOf('mobile') !== -1;
 
   if (ipad || androidTab) {
+    //viewport変更
+    // document.getElementById('viewport').setAttribute('content', 'width=1200');
     bodyElem.setAttribute("data-device", "tablet");
   } else if (iphone || androidMobile) {
     bodyElem.setAttribute("data-device", "mobile");
@@ -175,7 +176,7 @@ window.addEventListener('DOMContentLoaded', function(){
   var scrollTop = 0;
   var scrollStop = false;
 
-  window.onscroll = function(e) {
+  window.onscroll = function() {
     scrollTop = document.documentElement.scrollTop;
     if (scrollTop >= startPos) {
       bodyElem.setAttribute("data-scroll-pos", "down");
@@ -213,7 +214,7 @@ window.addEventListener('DOMContentLoaded', function(){
    */
   
   //IE10対応
-  if (ua.indexOf("msie") != -1) {
+  if (ua.indexOf("msie") !== -1) {
     var noScriptText =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>お使いのブラウザはバージョンが古いため、サイトを快適にご利用いただけないかもしれません。<br>' +
@@ -232,7 +233,7 @@ window.addEventListener('DOMContentLoaded', function(){
     var noAndroidText =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>ご利用のAndroid端末のバージョンでは閲覧できません。<br>' +
-        '<a href="intent://${hostname}#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end">Chromeブラウザをご利用頂くかOSのバージョンアップをお願い致します。</a>' +
+        '<a href="intent://' + hostname + '#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end">Chromeブラウザをご利用頂くかOSのバージョンアップをお願い致します。</a>' +
         '</div>';
 
     bodyElem.parentNode.insertBefore(noAndroidText);
@@ -252,7 +253,6 @@ $(function () {
    * Constants
    * ------------------------------------------------------------------------
    */
-
 
   var NAME = 'accordion';
   var VERSION = '0.5.0';
@@ -314,6 +314,7 @@ $(function () {
    */
 
 
+  
   function toggle(e) {
     e.preventDefault();
     var $current_target = $(e.currentTarget);
@@ -343,7 +344,7 @@ $(function () {
   function innerAnker() {
     //アコーディオン内から別アコーディオンを開く
     var targetHref = $(this).attr('href');
-    if (targetHref.includes('#')) {
+    if (targetHref.indexOf('#') != -1) {
       $('[aria-controls="'+targetHref.slice(1)+'"]').click();
     }
   }
@@ -370,6 +371,50 @@ $(function () {
    * ------------------------------------------------------------------------
    */
 
+
+  var NAME    = 'current';
+  var VERSION = '0.5.0';
+
+  var ClassName = {
+    LINK_TARGET   : 'js-current-nav',
+    ACTIVE        : 'is-active'
+  };
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
+
+
+  if(location.pathname !== "/") {
+    $('.js-current-nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass(ClassName.ACTIVE);
+
+  } else{
+    $('.js-current-nav a:eq(0)').addClass(ClassName.ACTIVE);
+  }
+  
+});
+
+
+$(function () {
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
 
 
   var NAME    = 'modal';
@@ -470,7 +515,7 @@ $(function () {
   }
 
 
-  function hide(e) {
+  function hide() {
     $(Selector.BG).fadeOut(0);
     $(Selector.BODY).fadeOut(0).attr({'aria-hidden': 'true', 'tabindex': '-1'});
     $(Selector.AREA_HIDDEN).removeAttr('aria-hidden');
@@ -483,12 +528,184 @@ $(function () {
 });
 $(function () {
 
+
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
+  var NAME = 'pagescroll';
+  var VERSION = '0.5.0';
+
+  var Selector = {
+    TARGET        : '[data-scroll]',
+    TO_TOP        : '[data-scroll="to-top"]',
+    BG            : '#js-offcanvas-bg',
+    LOWER_LAYER   : 'footer,main',
+    SCROLL        : '[data-scroll-offcanvas]'
+  };
+
+  var Default = {
+    MAIN_H           : $('header').height(),
+    BOTTOM_POSITION  : '100px'
+  };
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+  $(document).on('click', Selector.TARGET + ' a', function (e) {
+    pageScroll(e);
+  });
+
+
+  $(window).on('scroll',function (e) {
+    topHide(e);
+  });
+
+
+  $(window).on('load',function (e) {
+
+    scrollToAnker(e);
+
+  });
+
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
+
+  function pageScroll(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var targetHref = $target.attr('href');
+
+    if (targetHref.indexOf('#') != -1) {
+      $target.blur();
+
+      var offset = $(targetHref).offset() || {};
+      var offsetTop = offset.top - Default.MAIN_H - 20 || 0;
+
+      $('html,body').animate(
+          {scrollTop: offsetTop},
+          {
+            duration: 300, easing: 'swing', complete: function () {
+            if (targetHref !== '#skippy') {
+              // window.location.hash = targetHref;
+            }
+          }
+          });
+    }
+  }
+
+  function topHide(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var scrollPos = $target.scrollTop();
+
+    if (scrollPos < Default.MAIN_H) {
+      $(Selector.TO_TOP).find('a').stop().animate({'bottom': '-' + Default.BOTTOM_POSITION}, 200, 'swing');
+    } else {
+      $(Selector.TO_TOP).find('a').stop().animate({'bottom': Default.BOTTOM_POSITION}, 200, 'swing');
+    }
+  }
+
+
+    //ハッシュ付きリンク用に遅延して動作
+  function scrollToAnker() {
+    var urlHash = location.hash || false;
+    if (urlHash && $(urlHash).length) {
+      setTimeout(function () {
+        var position = $(urlHash).offset().top - Default.MAIN_H -20;
+        $('body,html').animate({scrollTop: position}, 100);
+      }, 0);
+    }
+
+  }
+
+
+
+});
+
+
+
+window.addEventListener('DOMContentLoaded', function () {
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
+
+  var NAME      = 'ripple';
+  var VERSION   = '1.0.0';
+
+  var Selector = {
+    TARGETS   : document.getElementsByClassName('js-ripple')
+  };
+
+  var ClassName = {
+    ACTIVE    : 'js-rp-effect'
+  };
+
+  var Default = {
+    speed     : 1000
+  };
+
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+  for (var i = 0; i < Selector.TARGETS.length; i++) {
+    Selector.TARGETS[i].addEventListener('mousedown', function (e) {
+      rippleButton(Selector.TARGETS[i], e);
+    });
+  }
+
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
+
+  function rippleButton(button, e) {
+    var dimension = Math.max(button.clientWidth, button.clientHeight);
+    //var loc = button.getBoundingClientRect();
+    var circle = document.createElement('span');
+    circle.classList.add(ClassName.ACTIVE);
+    circle.style.width = dimension + 'px';
+    circle.style.height = dimension + 'px';
+    circle.style.left = e.clientX - button.offsetLeft - (dimension / 2) + 'px';
+    circle.style.top = e.clientY - button.offsetTop - (dimension / 2) + document.documentElement.scrollTop + 'px';
+    button.appendChild(circle);
+    setTimeout(function () {
+      button.removeChild(circle);
+    }, Default.speed);
+  }
+
+});
+
+
+$(function () {
+
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
 
   var NAME = 'offcanvas';
   var VERSION = '0.5.0';
@@ -523,17 +740,17 @@ $(function () {
   });
 
 
-  $(Selector.BODY).on('click', 'a', function (e) {
+  $(Selector.BODY).on('click', 'a', function () {
     settingClose();
   });
 
-  $(Selector.BG).on('click', function (e) {
+  $(Selector.BG).on('click', function () {
     settingClose();
   });
 
   $(Selector.BODY).on('click', Selector.SCROLL, function (e) {
     settingClose();
-    scrollTo(e);
+    clickScrollTo(e);
   });
 
 
@@ -589,13 +806,13 @@ $(function () {
   }
 
 
-  function scrollTo(e) {
+  function clickScrollTo(e) {
     e.preventDefault();
 
     var $target = $(e.currentTarget);
     var targetHref = $target.attr('href');
 
-    if (targetHref.includes('#')) {
+    if (targetHref.indexOf('#') != -1) {
       $target.blur();
 
       var offset = $(targetHref).offset() || {};
@@ -621,251 +838,6 @@ $(function () {
    * ------------------------------------------------------------------------
    */
 
-
-  var NAME    = 'current';
-  var VERSION = '0.5.0';
-
-
-  var ClassName = {
-    LINK_TARGET   : 'js-current-nav',
-    ACTIVE        : 'is-active'
-  };
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Event
-   * ------------------------------------------------------------------------
-   */
-
-
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Function
-   * ------------------------------------------------------------------------
-   */
-
-
-  if(location.pathname != "/") {
-    $('.js-current-nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass(ClassName.ACTIVE);
-
-  } else{
-    $('.js-current-nav a:eq(0)').addClass(ClassName.ACTIVE);
-  }
-  
-});
-
-
-window.addEventListener('DOMContentLoaded', function () {
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  var NAME      = 'ripple';
-  var VERSION   = '1.0.0';
-
-  var Selector = {
-    TARGETS   : document.getElementsByClassName('js-ripple')
-  };
-
-  var ClassName = {
-    ACTIVE    : 'js-rp-effect'
-  };
-
-  const Default = {
-    speed     : 1000
-  };
-
-  /**
-   * ------------------------------------------------------------------------
-   * Event
-   * ------------------------------------------------------------------------
-   */
-
-
-  for (let i = 0; i < Selector.TARGETS.length; i++) {
-    Selector.TARGETS[i].addEventListener('mousedown', function (e) {
-      rippleButton(Selector.TARGETS[i], e);
-    })
-  }
-
-  /**
-   * ------------------------------------------------------------------------
-   * Function
-   * ------------------------------------------------------------------------
-   */
-
-  function rippleButton(button, e) {
-    var dimension = Math.max(button.clientWidth, button.clientHeight);
-    var loc = button.getBoundingClientRect();
-    var circle = document.createElement('span');
-    circle.classList.add(ClassName.ACTIVE);
-    circle.style.width = dimension + 'px';
-    circle.style.height = dimension + 'px';
-    circle.style.left = e.clientX - button.offsetLeft - (dimension / 2) + 'px';
-    circle.style.top = e.clientY - button.offsetTop - (dimension / 2) + document.documentElement.scrollTop + 'px';
-    button.appendChild(circle);
-    setTimeout(function () {
-      button.removeChild(circle);
-    }, Default.speed);
-  }
-
-});
-
-
-// $(function () {
-//   _.each($('.js-posts'), function (elem) {
-//     var url = $(elem).data('url');
-//     var templates = _.template($(elem).find('script').html());
-//
-//     $.ajax({
-//       type: 'GET',
-//       url: url,
-//       dataType: 'json',
-//       cache: false
-//     }).then(
-//         function (data) {
-//           $(elem).append(templates({
-//             'data': data
-//           }));
-//         },
-//
-//         function () {
-//           console.log('No Data');
-//         });
-//   });
-// });
-//
-//
-//
-
-$(function () {
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  
-  var NAME = 'pagescroll';
-  var VERSION = '0.5.0';
-
-  var Selector = {
-    TARGET        : '[data-scroll]',
-    TO_TOP        : '[data-scroll="to-top"]',
-    BG            : '#js-offcanvas-bg',
-    LOWER_LAYER   : 'footer,main',
-    SCROLL        : '[data-scroll-offcanvas]'
-  };
-
-  var Default = {
-    MAIN_H           : $('header').height(),
-    BOTTOM_POSITION  : '100px'
-  };
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Event
-   * ------------------------------------------------------------------------
-   */
-
-
-  $(document).on('click', Selector.TARGET + ' a', function (e) {
-    scroll(e);
-  });
-
-
-  $(window).on('scroll',function (e) {
-    topHide(e);
-  });
-
-
-  $(window).on('load',function (e) {
-
-    scrollToAnker(e);
-
-  });
-
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Function
-   * ------------------------------------------------------------------------
-   */
-
-  function scroll(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var targetHref = $target.attr('href');
-
-    if (targetHref.includes('#')) {
-      $target.blur();
-
-      var offset = $(targetHref).offset() || {};
-      var offsetTop = offset.top - Default.MAIN_H - 20 || 0;
-
-      $('html,body').animate(
-          {scrollTop: offsetTop},
-          {
-            duration: 300, easing: 'swing', complete: function () {
-            if (targetHref !== '#skippy') {
-              // window.location.hash = targetHref;
-            }
-          }
-          });
-    }
-  }
-
-  function topHide(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var scrollPos = $target.scrollTop();
-
-    if (scrollPos < Default.MAIN_H) {
-      $(Selector.TO_TOP).find('a').stop().animate({'bottom': '-' + Default.BOTTOM_POSITION}, 200, 'swing');
-    } else {
-      $(Selector.TO_TOP).find('a').stop().animate({'bottom': Default.BOTTOM_POSITION}, 200, 'swing');
-    }
-  }
-
-
-    //ハッシュ付きリンク用に遅延して動作
-  function scrollToAnker(e) {
-    var urlHash = location.hash || false;
-    if (urlHash && $(urlHash).length) {
-      setTimeout(function () {
-        var position = $(urlHash).offset().top - Default.MAIN_H -20;
-        $('body,html').animate({scrollTop: position}, 100);
-      }, 0);
-    }
-
-  }
-
-
-
-});
-
-
-
-$(function () {
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
   var NAME = 'tab';
   var VERSION = '0.5.0';
 
@@ -874,6 +846,7 @@ $(function () {
     LIST      : '[data-tablist]',
     PANEL     : '[data-tabpanel]'
   };
+
 
 
   /**
@@ -947,23 +920,46 @@ $(function () {
 
 
 //ページアクセス時にハッシュがあれば該当のタブを開く
-  function accessAnker(e) {
+  function accessAnker() {
     var urlHash = location.hash || false;
     if (urlHash && $(urlHash).length) {
       if ($(urlHash).length) {
-        $(urlHash).find(Selector.LIST).click();
+        $(urlHash).find('[data-tablist]').click();
       }
     }
   }
 
 });
 
+
+
+
+
+
 window.addEventListener('DOMContentLoaded', function(){
 
 /*
- * 当ファイルと@jwps/以下は1ファイルに結合して書き出されます。
- * 当ファイルは@jwps/の最後に追加されます。
+ * @jwps以下は1ファイルに結合して書き出されます。
+ * ここは@jwpsの最後に追加されます。
  * 
  */
 
+  //.visual-editorのアイコンが画像を含んだ場合に消す
+  var IconClassName = [
+    '.visual-editor a[target="_blank"] > img',
+    '.visual-editor a[href$=".pdf"] > img',
+    '.visual-editor a[href$=".doc"] > img',
+    '.visual-editor a[href$=".docx"] > img',
+    '.visual-editor a[href$=".ppt"] > img',
+    '.visual-editor a[href$=".pptx"] > img',
+    '.visual-editor a[href$=".xls"] > img',
+    '.visual-editor a[href$=".xlsx"] > img'
+  ];
+
+  for (var i = 0; i < IconClassName.length; i++) {
+    $(IconClassName[i]).parents('a').addClass('is-iconless')
+  }
+
 });
+
+

@@ -8,7 +8,6 @@ $(function () {
    */
 
 
-
   var NAME    = 'modal';
   var VERSION = '0.5.0';
 
@@ -107,7 +106,7 @@ $(function () {
   }
 
 
-  function hide(e) {
+  function hide() {
     $(Selector.BG).fadeOut(0);
     $(Selector.BODY).fadeOut(0).attr({'aria-hidden': 'true', 'tabindex': '-1'});
     $(Selector.AREA_HIDDEN).removeAttr('aria-hidden');

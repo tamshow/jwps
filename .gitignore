@@ -2,10 +2,11 @@
 vendor
 
 # node modules
-frontend/node_modules
-frontend/npm-debug.log
+node_modules
+npm-debug.log
 
 # source files
+frontend/source-simple
 frontend/source/assets/*.css.map
 frontend/source/assets/css
 frontend/source/assets/js
@@ -17,10 +18,11 @@ frontend/source/styleguide.html
 # build files
 frontend/build
 
-# design files
-/design/JWPS_master.xd
-
-# webpack files
+# other files
+design/JWPS_master.xd
 frontend/_webpack.config.js
 frontend/_package.json
 frontend/source/assets/_src/
+frontend/source/assets/plugins
+frontend/storybook
+

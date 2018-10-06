@@ -7,7 +7,6 @@ $(function () {
    * ------------------------------------------------------------------------
    */
 
-  
   var NAME = 'pagescroll';
   var VERSION = '0.5.0';
 
@@ -33,7 +32,7 @@ $(function () {
 
 
   $(document).on('click', Selector.TARGET + ' a', function (e) {
-    scroll(e);
+    pageScroll(e);
   });
 
 
@@ -56,12 +55,12 @@ $(function () {
    * ------------------------------------------------------------------------
    */
 
-  function scroll(e) {
+  function pageScroll(e) {
     e.preventDefault();
     var $target = $(e.currentTarget);
     var targetHref = $target.attr('href');
 
-    if (targetHref.includes('#')) {
+    if (targetHref.indexOf('#') != -1) {
       $target.blur();
 
       var offset = $(targetHref).offset() || {};
@@ -93,7 +92,7 @@ $(function () {
 
 
     //ハッシュ付きリンク用に遅延して動作
-  function scrollToAnker(e) {
+  function scrollToAnker() {
     var urlHash = location.hash || false;
     if (urlHash && $(urlHash).length) {
       setTimeout(function () {
