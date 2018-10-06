@@ -256,6 +256,7 @@ gulp.task('docs:clean', () => {
 gulp.task('docs:move:assets', () => {
   return gulp.src([
     'source/assets/**/*',
+    '!source/assets/plugins/**/*',
     '!source/assets/js-form/**/*',
     '!source/assets/sass/**/*',
     '!source/assets/src/**/*',

@@ -7,7 +7,6 @@ $(function () {
    * ------------------------------------------------------------------------
    */
 
-
   var NAME = 'accordion';
   var VERSION = '0.5.0';
 
@@ -68,6 +67,7 @@ $(function () {
    */
 
 
+  
   function toggle(e) {
     e.preventDefault();
     var $current_target = $(e.currentTarget);
@@ -97,7 +97,7 @@ $(function () {
   function innerAnker() {
     //アコーディオン内から別アコーディオンを開く
     var targetHref = $(this).attr('href');
-    if (targetHref.includes('#')) {
+    if (targetHref.indexOf('#') != -1) {
       $('[aria-controls="'+targetHref.slice(1)+'"]').click();
     }
   }

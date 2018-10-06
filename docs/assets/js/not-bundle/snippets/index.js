@@ -1,5 +1,0 @@
-$(function () {
-
-//snippets/index.js
-
-});

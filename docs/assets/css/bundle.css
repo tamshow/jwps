@@ -715,8 +715,10 @@ a:link {
 
 button:focus,
 a:focus {
-  -webkit-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf;
-          box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf;
+  outline: 3px solid rgba(0, 74, 248, 0.6);
+  outline-offset: 2px;
+  -webkit-transition: none;
+  transition: none;
 }
 
 button:focus {
@@ -788,9 +790,43 @@ pre code,
   border-radius: 0;
 }
 
-.e-pre--scrollable {
-  max-height: 340px;
-  overflow-y: scroll;
+.e-code-clipboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: 16px;
+}
+
+.e-code-clipboard__title {
+  margin-right: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #666666;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.e-code-clipboard__body {
+  position: relative;
+  min-width: 180px;
+  display: block;
+}
+
+.e-code-clipboard__copy {
+  display: none;
+  background-color: #aaa;
+  color: #fff;
+  border-radius: 3px;
+  padding: .2em .4em;
+  position: absolute;
+  bottom: -1.6em;
+  right: -.5em;
 }
 
 /* @  Footer Layout
@@ -1015,6 +1051,8 @@ pre code,
   min-height: 20vh;
   background-color: #fff;
   margin-bottom: 50px;
+  display: block;
+  /* IE対策に追加 */
 }
 
 /* @  container Layout
@@ -1450,6 +1488,17 @@ category: visualeditor
 
 .size-medium {
   width: 33.33%;
+}
+
+[class^=column-table] .entry-container {
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+[class^=column-table] .entry-container .acms-table-scrollable th,
+[class^=column-table] .entry-container .acms-table-scrollable td {
+  display: table-cell;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -2330,18 +2379,18 @@ categories: [elements, heading]
 ---
 
 ```html_example
-<h1 class="e-hd1">情に棹させば流される智に働けば角が立つ</h1>
-<h2 class="e-hd2">情に棹させば流される智に働けば角が立つ</h2>
-<h3 class="e-hd3">情に棹させば流される智に働けば角が立つ</h3>
-<h4 class="e-hd4">情に棹させば流される智に働けば角が立つ</h4>
-<h5 class="e-hd5">情に棹させば流される智に働けば角が立つ</h5>
-<h6 class="e-hd6">情に棹させば流される智に働けば角が立つ</h6>
+<h1 class="e-heading1">情に棹させば流される智に働けば角が立つ</h1>
+<h2 class="e-heading2">情に棹させば流される智に働けば角が立つ</h2>
+<h3 class="e-heading3">情に棹させば流される智に働けば角が立つ</h3>
+<h4 class="e-heading4">情に棹させば流される智に働けば角が立つ</h4>
+<h5 class="e-heading5">情に棹させば流される智に働けば角が立つ</h5>
+<h6 class="e-heading6">情に棹させば流される智に働けば角が立つ</h6>
 
 ```
 
 */
 .visual-editor h1,
-.e-hd1 {
+.e-heading1 {
   font-size: 26px;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -2349,15 +2398,8 @@ categories: [elements, heading]
   line-height: 1.4;
 }
 
-.visual-editor h1,
-.e-hd1--type2 {
-  position: relative;
-  font-weight: bold;
-  color: #5b5e63;
-}
-
 .visual-editor h2,
-.e-hd2 {
+.e-heading2 {
   font-size: 22px;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -2365,16 +2407,8 @@ categories: [elements, heading]
   line-height: 1.4;
 }
 
-.visual-editor h2,
-.e-hd2--type2 {
-  border-left: 3px solid #5b5e63;
-  background-color: #f2f3f5;
-  padding: 1rem 1.5rem .9rem;
-  font-size: 18px;
-}
-
 .visual-editor h3,
-.e-hd3 {
+.e-heading3 {
   font-size: 18px;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -2383,7 +2417,7 @@ categories: [elements, heading]
 }
 
 .visual-editor h4,
-.e-hd4 {
+.e-heading4 {
   font-size: 16px;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -2392,7 +2426,7 @@ categories: [elements, heading]
 }
 
 .visual-editor h5,
-.e-hd5 {
+.e-heading5 {
   font-size: 16px;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -2401,7 +2435,7 @@ categories: [elements, heading]
 }
 
 .visual-editor h6,
-.e-hd6 {
+.e-heading6 {
   font-size: 14px;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -2409,25 +2443,6 @@ categories: [elements, heading]
   line-height: 1.4;
 }
 
-/*doc
----
-title: heading-type
-name: heading-type
-categories: [elements, heading]
-parent: heading
----
-
-```html_example
-<h1 class="e-hd1 e-hd1--type2"><span>情に棹させば流される智に働けば角が立つ</span></h1>
-<h2 class="e-hd2 e-hd2--type2">情に棹させば流される智に働けば角が立つ</h2>
-<h3 class="e-hd3 is-color-blue">情に棹させば流される智に働けば角が立つ</h3>
-<h4 class="e-hd4 is-text-center">情に棹させば流される智に働けば角が立つ</h4>
-<h5 class="e-hd5 is-bdb">情に棹させば流される智に働けば角が立つ</h5>
-<h6 class="e-hd6">情に棹させば流される智に働けば角が立つ</h6>
-
-```
-
-*/
 /*doc
 ---
 title: heading-unit
@@ -2439,40 +2454,40 @@ parent: heading
 ```html_example
 
 
-<div class="e-hd-group">
-  <h3 class="e-hd3">情に棹させば流される智に働けば角が立つ</h3>
-  <p class="e-hd-date"> 6月12日  12:49</p>
+<div class="e-heading-group">
+  <h3 class="e-heading3">情に棹させば流される智に働けば角が立つ</h3>
+  <p class="e-heading-date"> 6月12日  12:49</p>
 </div>
 
 
 
 ```
 */
-.e-hd-date {
+.e-heading-date {
   margin-bottom: 24px;
   color: rgba(0, 0, 0, 0.54);
   font-size: .8em;
 }
 
-.e-hd-date a {
+.e-heading-date a {
   color: #477DCA;
   text-decoration: underline;
 }
 
-.e-hd-date a:hover {
+.e-heading-date a:hover {
   text-decoration: none;
 }
 
-.e-hd-group {
+.e-heading-group {
   margin-bottom: 40px;
 }
 
-.e-hd-group h1,
-.e-hd-group h2,
-.e-hd-group h3,
-.e-hd-group h4,
-.e-hd-group h5,
-.e-hd-group h6 {
+.e-heading-group h1,
+.e-heading-group h2,
+.e-heading-group h3,
+.e-heading-group h4,
+.e-heading-group h5,
+.e-heading-group h6 {
   margin-bottom: .5em;
 }
 
@@ -2551,19 +2566,23 @@ categories: [elements, images]
 }
 
 .visual-editor figure,
-.e-img-box {
+.e-img-box,
+[class^=column-image] {
   margin-bottom: 24px;
 }
 
 .visual-editor figure a,
-.e-img-box a {
+.e-img-box a,
+[class^=column-image] a {
   display: inline-block;
 }
 
 .visual-editor figure figcaption,
 .visual-editor figure .e-img-caption,
 .e-img-box figcaption,
-.e-img-box .e-img-caption {
+.e-img-box .e-img-caption,
+[class^=column-image] figcaption,
+[class^=column-image] .e-img-caption {
   text-align: left;
   margin-top: 5px;
   color: rgba(0, 0, 0, 0.54);
@@ -3441,7 +3460,9 @@ categories: [elements, button]
 
 
 */
-.e-button {
+.e-button,
+.entry-btn,
+.entry-btn-attention {
   font-weight: bold;
   text-decoration: none !important;
   color: rgba(0, 0, 0, 0.87) !important;
@@ -3480,19 +3501,39 @@ categories: [elements, button]
   will-change: box-shadow;
 }
 
-.e-button:hover, .e-button:focus, .e-button.is-hover {
+.e-button a,
+.entry-btn a,
+.entry-btn-attention a {
+  font-weight: inherit;
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.e-button:hover, .e-button:focus, .e-button.is-hover,
+.entry-btn:hover,
+.entry-btn:focus,
+.entry-btn.is-hover,
+.entry-btn-attention:hover,
+.entry-btn-attention:focus,
+.entry-btn-attention.is-hover {
   text-decoration: none;
   -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
           box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
-.e-button:active {
+.e-button:active,
+.entry-btn:active,
+.entry-btn-attention:active {
   text-decoration: none;
   -webkit-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
           box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
-.e-button:disabled, .e-button.is-disabled {
+.e-button:disabled, .e-button.is-disabled,
+.entry-btn:disabled,
+.entry-btn.is-disabled,
+.entry-btn-attention:disabled,
+.entry-btn-attention.is-disabled {
   cursor: not-allowed;
   background-color: #eee;
   border: 1px solid #ddd;
@@ -3502,7 +3543,11 @@ categories: [elements, button]
 }
 
 .e-button .is-icon-left,
-.e-button .is-icon-right {
+.e-button .is-icon-right,
+.entry-btn .is-icon-left,
+.entry-btn .is-icon-right,
+.entry-btn-attention .is-icon-left,
+.entry-btn-attention .is-icon-right {
   position: absolute;
   top: 0;
   margin: auto;
@@ -3511,15 +3556,20 @@ categories: [elements, button]
   width: 1em;
 }
 
-.e-button .is-icon-left {
+.e-button .is-icon-left,
+.entry-btn .is-icon-left,
+.entry-btn-attention .is-icon-left {
   left: .5em;
 }
 
-.e-button .is-icon-right {
+.e-button .is-icon-right,
+.entry-btn .is-icon-right,
+.entry-btn-attention .is-icon-right {
   right: .5em;
 }
 
-.e-button--secondary {
+.e-button--secondary,
+.entry-btn-attention {
   background-color: #5b5e63;
   color: #fff !important;
 }
@@ -3540,7 +3590,7 @@ parent: button
   <button type="button" class="e-button">もっと見る</button>
 </div>
 
-<div class="e-button-group">
+<div class="e-button-group e-button-group--left">
   <button type="button" class="e-button">もっと見る</button>
   <button type="button" class="e-button">もっと見る</button>
 </div>
@@ -4144,7 +4194,7 @@ select.e-form-control:focus {
   height: 30px;
 }
 
-[role="tooltip"] {
+.e-form-control [role="tooltip"] {
   display: none;
   width: auto;
   margin: 0;
@@ -4473,25 +4523,27 @@ parent: form
    ========================================================================== */
 .e-required-countdown-group {
   position: fixed;
-  top: 100px;
-  right: 80px;
+  top: 30vh;
+  right: 0;
   background-color: #cc3e4c;
   color: #fff;
   text-align: center;
-  opacity: .7;
-  z-index: 99999;
+  z-index: 99;
 }
 
 .e-required-countdown-group__inner {
-  padding: .8rem;
+  padding: .6rem;
 }
 
 .e-required-countdown-group__text {
-  font-size: 1rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 1.4;
 }
 
 .e-required-countdown-group__num {
-  font-size: 1.5rem;
+  font-size: 2.75rem;
+  line-height: 1.3;
 }
 
 .e-required-countdown-group__num--hidden {
@@ -4516,11 +4568,10 @@ parent: form
   padding: 4px 10px;
   border-radius: 4px;
   background: #cc3e4c;
-  background: rgba(18, 68, 83, 0.7);
+  background: #cc3e4c;
   color: #fff;
-  font-size: 11px;
   z-index: 991;
-  top: 1.8em;
+  top: 5px;
 }
 
 /* ==========================================================================
@@ -5539,13 +5590,6 @@ categories: [components, summary]
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
 }
 
 .c-summary-horizontal .c-summary__item > *:last-child {
@@ -6026,6 +6070,7 @@ categories: [js, tab]
 */
 .c-tab {
   background-color: #fff;
+  list-style-position: outside;
   margin-bottom: 24px;
 }
 
@@ -7665,13 +7710,15 @@ categories: [utilities, tool-view]
  `is-visible`            |  表示
  `is-visible-ib`            |  表示
  `is-hidden`             |  非表示
+ `is-sr-only`        |
  `is-float-left`        |
  `is-float-right`        |
  `is-float-clear`                |
-  `is-flex-center`        |
+ `is-flex-center`        |
  `is-flex-start`        |
  `is-flex-end`          |
  `is-space-between`     |
+ `is-inline`           |
  `is-ib`                |
  `is-block`             |
  `is-br`                |
@@ -7684,6 +7731,17 @@ categories: [utilities, tool-view]
 
 .is-hidden {
   display: none;
+}
+
+.is-sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 .is-visible--sm,
@@ -7735,6 +7793,10 @@ categories: [utilities, tool-view]
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.is-inline {
+  display: inline;
 }
 
 .is-ib {
@@ -8063,7 +8125,8 @@ h1.styleguide {
   margin-bottom: 1em;
   padding-top: 30px;
   font-size: 2em;
-  border-bottom: 1px solid #5b5e63;
+  text-align: center;
+  font-weight: bold;
 }
 
 .styleguide-table + table {
@@ -8317,6 +8380,9 @@ div.codeBlock {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+  .is-inline--lg {
+    display: inline;
+  }
   .is-ib--lg {
     display: inline-block;
   }
@@ -8459,7 +8525,7 @@ div.codeBlock {
   }
   body,
   html {
-    min-width: 320px;
+    min-width: 320;
   }
   .l-main {
     margin-top: 16px;
@@ -8603,42 +8669,33 @@ div.codeBlock {
     padding: 3.4rem 1rem;
   }
   .visual-editor h1,
-  .e-hd1 {
+  .e-heading1 {
     font-size: 20px;
   }
-  .visual-editor h1,
-  .e-hd1--type2 {
-    text-align: center;
-  }
   .visual-editor h2,
-  .e-hd2 {
+  .e-heading2 {
     font-size: 18px;
   }
-  .visual-editor h2,
-  .e-hd2--type2 {
-    padding: .7rem 1.2rem .6rem;
-    font-size: 15px;
-  }
   .visual-editor h3,
-  .e-hd3 {
+  .e-heading3 {
     font-size: 16px;
   }
   .visual-editor h4,
-  .e-hd4 {
+  .e-heading4 {
     font-size: 14px;
   }
   .visual-editor h5,
-  .e-hd5 {
+  .e-heading5 {
     font-size: 14px;
   }
   .visual-editor h6,
-  .e-hd6 {
+  .e-heading6 {
     font-size: 14px;
   }
-  .e-hd-date {
+  .e-heading-date {
     margin-bottom: 16px;
   }
-  .e-hd-group {
+  .e-heading-group {
     margin-bottom: 20px;
   }
   .e-responsive-img .e-img-box {
@@ -8763,6 +8820,7 @@ div.codeBlock {
   .visual-editor .e-responsive-table table,
   .e-responsive-table table {
     width: auto;
+    min-width: 100%;
   }
   .visual-editor .e-responsive-table th,
   .visual-editor .e-responsive-table td,
@@ -8828,7 +8886,9 @@ div.codeBlock {
   .e-box {
     padding: 1rem;
   }
-  .e-button {
+  .e-button,
+  .entry-btn,
+  .entry-btn-attention {
     padding: 0.9rem 1.28rem;
   }
   .e-button-group {
@@ -8836,6 +8896,9 @@ div.codeBlock {
   }
   .e-button-group .e-button {
     width: 100%;
+  }
+  .e-button-group--one-half .e-button {
+    width: 50%;
   }
   .e-button--small {
     padding: 0.36rem 0.64rem;
@@ -8966,16 +9029,27 @@ div.codeBlock {
     width: 100%;
   }
   .e-required-countdown-group__inner {
-    padding: .5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: .4rem .6rem 0;
   }
   .e-required-countdown-group__text {
     display: inline;
-    font-size: .8rem;
+    text-align: left;
+    font-size: 1rem;
   }
   .e-required-countdown-group__num {
     display: inline;
     padding-left: 10px;
-    font-size: 20px;
+    font-size: 2.66rem;
   }
   .e-media {
     margin-bottom: 16px;
@@ -9100,13 +9174,6 @@ div.codeBlock {
     width: 100%;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: column wrap;
-            flex-flow: column wrap;
   }
   .c-summary-horizontal .c-summary__item > *:last-child {
     margin-bottom: 0;
@@ -9225,6 +9292,9 @@ div.codeBlock {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+  .is-inline--sm {
+    display: inline;
+  }
   .is-ib--sm {
     display: inline-block;
   }
@@ -9291,7 +9361,7 @@ div.codeBlock {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 375px) {
   html {
     font-size: 3.7333333333vmin;
   }
@@ -9339,6 +9409,9 @@ div.codeBlock {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+  }
+  .is-inline--md {
+    display: inline;
   }
   .is-ib--md {
     display: inline-block;
