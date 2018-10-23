@@ -37,8 +37,7 @@ const DOCS = '../docs';
 
 //結合
 const jsFileBundle = [
-  'source/assets/src/bundle/@jwps/**/*.js',
-  'source/assets/src/bundle/index.js'
+  'source/assets/src/bundle/**/*.js'
 ];
 gulp.task('js:bundle', () => {
   return gulp.src(jsFileBundle).pipe(concat('bundle.js'))
