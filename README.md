@@ -47,7 +47,7 @@ HTMLはそのまま使用せずCMSで使うことを前提に作成します。
 `gulp build`することで`frontend/source/assets`を公開用に調整し`frontend/build/assets`へ書き出します。   
 画像圧縮はしていません。必要に応じて圧縮してください。   
 Sassのmixinは[bourbonファミリー](https://www.bourbon.io/)を参考・使用します。   
-`source/assets/src/@jwps/`以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。必要に応じて使い分けてください。    
+`source/assets/src/bundle/`以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。必要に応じて使い分けてください。    
 
 ### 環境構築
 
