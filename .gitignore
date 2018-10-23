@@ -1,5 +1,6 @@
 # vendor files
 vendor
+.bundle
 
 # node modules
 node_modules
@@ -20,6 +21,7 @@ frontend/build
 
 # other files
 design/JWPS_master.xd
+frontend/_service-worker.js
 frontend/_webpack.config.js
 frontend/_package.json
 frontend/source/assets/_src/

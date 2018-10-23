@@ -4,10 +4,10 @@
     "npm": "5.3.0"
   },
   "devDependencies": {
-    "autoprefixer": "^8.5.1",
-    "browser-sync": "^2.24.4",
+    "autoprefixer": "^9.1.5",
+    "browser-sync": "^2.26.0",
     "connect-ssi": "^1.1.1",
-    "css-mqpacker": "^6.0.2",
+    "css-mqpacker": "^7.0.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-cache": "^1.0.2",
@@ -15,17 +15,17 @@
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^3.0.1",
     "gulp-plumber": "^1.2.0",
-    "gulp-postcss": "^7.0.1",
+    "gulp-postcss": "^8.0.0",
     "gulp-prettify": "^0.5.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.1",
-    "gulp-uglify": "^3.0.0",
-    "json-server": "^0.12.2",
+    "gulp-uglify": "^3.0.1",
+    "json-server": "^0.14.0",
     "run-sequence": "^2.2.1",
-    "workbox-build": "^3.5.0"
+    "workbox-build": "^3.6.2"
   },
   "dependencies": {
-    "bourbon": "^5.0.0",
+    "bourbon": "^5.1.0",
     "jquery": "^2.2.3",
     "normalize.css": "^8.0.0"
   }

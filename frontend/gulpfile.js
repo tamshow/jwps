@@ -37,20 +37,28 @@ const DOCS = '../docs';
 
 //結合
 const jsFileBundle = [
-  'source/assets/src/@jwps/**/*.js',
-  'source/assets/src/bundle.js'
+  'source/assets/src/bundle/@jwps/**/*.js',
+  'source/assets/src/bundle/index.js'
 ];
 gulp.task('js:bundle', () => {
   return gulp.src(jsFileBundle).pipe(concat('bundle.js'))
       .pipe(gulp.dest('source/assets/js/'));
 });
 
-
-gulp.task('js:not-bundle', () => {
+gulp.task('js:no-bundle', () => {
   return gulp.src([
-    'source/assets/src/**/*.js'
+    'source/assets/src/**/*.js',
+    '!source/assets/src/bundle/**/*.js'
   ])
-      .pipe(gulp.dest('source/assets/js/not-bundle/'));
+    .pipe(gulp.dest('source/assets/js/'));
+});
+
+
+gulp.task('js:bundle-copy', () => {
+  return gulp.src([
+    'source/assets/src/bundle/**/*.js'
+  ])
+      .pipe(gulp.dest('source/assets/js/_uncompressed/bundle/'));
 });
 
 
@@ -69,9 +77,9 @@ gulp.task('js:vendor', () => {
 
 
 //そのまま
-gulp.task('js:not-vendor', () => {
+gulp.task('js:vendor-copy', () => {
   return gulp.src(jsFileVendor)
-      .pipe(gulp.dest('source/assets/js/not-vendor/'));
+      .pipe(gulp.dest('source/assets/js/_uncompressed/vendor/'));
 });
 
 
@@ -108,9 +116,10 @@ gulp.task('html', (callback) => {
       'css',
       //'js',
       'js:bundle',
+      'js:no-bundle',
       'js:vendor',
-      'js:not-bundle',
-      'js:not-vendor',
+      'js:bundle-copy',
+      'js:vendor-copy',
       callback);
 });
 
@@ -144,7 +153,7 @@ gulp.task('serve', ['html', 'server'], () => {
   //js
   gulp.watch([
     'source/assets/src/**/*.js'
-  ], ['js:bundle']);
+  ], ['js:bundle','js:no-bundle']);
 
   //css
   gulp.watch([
@@ -211,8 +220,8 @@ gulp.task('build:css:min', () => {
 gulp.task('build:js:min', () => {
   return gulp.src([
     DEST + '/assets/js/**/*.js',
-    '!' + DEST + '/assets/js/not-bundle/**/*.js',
-    '!' + DEST + '/assets/js/not-vendor/**/*.js'
+    '!' + DEST + '/assets/js/bundle-copy/**/*.js',
+    '!' + DEST + '/assets/js/vendor-copy/**/*.js'
   ])
       .pipe(plumber())
       .pipe(minifier({ output:{comments: /^!/}}))
