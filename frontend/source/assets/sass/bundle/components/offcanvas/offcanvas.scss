@@ -14,7 +14,7 @@ categories: [js, offcanvas]
 
 ```html_example
 
-<div style="background:#5b5e63; padding: 1em;">
+<div>
     <div class="c-control-offcanvas">
           <button
               type="button"
@@ -86,7 +86,7 @@ categories: [js, offcanvas]
         position: absolute;
         height: 2px;
         width: inherit;
-        background: #fff;
+        background: $primary-text-color;
         border-radius: 9px;
         opacity: 1;
         left: 0;
@@ -176,16 +176,14 @@ categories: [js, offcanvas]
   //open - end
 
   nav {
-    padding-top: 10px;
+    padding-top: 35px;
   }
 
-  &__list,
-  &__list2 {
-    border-bottom: 1px solid $border-color;
+  &__list {
 
     i {
-      font-size: 18px;
-      margin-right: 17px;
+      font-size: 14px;
+      margin-right: 7px;
       position: relative;
       top: 3px;
     }
@@ -195,33 +193,16 @@ categories: [js, offcanvas]
       border-radius: 0;
       font-size: 14px;
       font-weight: bold;
-      color: $text-color;
-      padding: 16px 22px;
+      color: $primary-text-color;
+      padding: 16px 10px 16px 20px;
       display: block;
+      text-decoration: none;
 
-      &:hover {
-        text-decoration: none;
+
+      &.is-active,
+      &.stay {
+       // background-color: #eef0f4;
       }
-
-      &.is-active {
-        background-color: #eef0f4;
-      }
-    }
-  }
-
-  &__list2 {
-    li a {
-      font-weight: normal;
-    }
-  }
-
-  &__list2--2column {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-
-    li {
-      width: 45%;
     }
   }
 

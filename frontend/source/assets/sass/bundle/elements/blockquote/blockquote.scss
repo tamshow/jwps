@@ -4,7 +4,6 @@
    #BLOCKQUOTE
    ========================================================================== */
 
-
 /*doc
 ---
 title: blockquote
@@ -23,38 +22,57 @@ categories: [elements, blockquote]
 
 .visual-editor blockquote,
 .e-blockquote {
-  background-color: $bg-color;
-  line-height: 1.8;
+  line-height: 1.7;
+
   position: relative;
-  padding: 3.1rem 3rem;
-  border: 0;
+
+  padding: 30px 60px 30px 60px;
+
+  border: 1px solid $dividers-color;
 
   @include mb-small;
 
   @include media-sp-max {
-    padding: 3.4rem 1rem;
-  }
+    padding: 42px 15px 42px 15px;
 
+  }
   &:before,
   &:after {
-    display: block;
-    content: "";
-    width: 30px;
-    height: 23px;
+    font-family: 'Material Icons';
+    font-size: 40px;
+
     position: absolute;
 
+    display: block;
+
+    width: 40px;
+    height: 40px;
+
+    content: 'format_quote';
+    white-space: nowrap;
+    word-wrap: normal;
+
+    color: $primary-color-light;
   }
 
   &:before {
-    background-image: url("../img/common/blockquote1.svg");
-    top: 1rem;
-    left: 1rem;
+    top: 20px;
+    left: 10px;
+
+    transform: rotate(-180deg);
+    @include media-sp-max {
+      left: 6px;
+    }
+
   }
 
   &:after {
-    background-image: url("../img/common/blockquote2.svg");
-    right: 1rem;
-    bottom: 1rem;
+    right: 10px;
+    bottom: 20px;
+    @include media-sp-max {
+      right: 6px;
+    }
+
   }
 
 }

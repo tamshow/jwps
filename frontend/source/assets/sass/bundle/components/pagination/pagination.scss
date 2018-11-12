@@ -13,16 +13,19 @@ categories: [components, pagination]
 
 ```html_example
 <div class="c-pagenavi">
-  <a class="c-previouspostslink" rel="prev" href=""></a>
-  <span class="is-current">1</span>
-  <a href="">2</a>
-  <a href="">3</a>
-  <a href="">4</a>
-  <a href="">5</a>
-  <span class="extend">...</span>
-  <a class="c-nextpostslink" rel="next" href=""></a>
-</div>
+  <p class="c-pagenavi__title">100件中　11 - 20件表示</p>
 
+  <div class="c-pagenavi__body">
+    <a class="c-previouspostslink" rel="prev" href=""></a>
+    <span class="is-current">1</span>
+    <a href="">2</a>
+    <a href="">3</a>
+    <a href="">4</a>
+    <span class="c-extend">...</span>
+    <a href="">10</a>
+    <a class="c-nextpostslink" rel="next" href=""></a>
+  </div>
+</div>
 
 ```
 */
@@ -31,75 +34,102 @@ categories: [components, pagination]
   text-align: center;
   @include mb-small;
 
+  &__title {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  &__body {
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
   .cur,
   .is-current,
   .c-extend,
   a {
-    margin-right: 0;
     margin-left: 0;
     margin-bottom: 10px;
-    display: inline-block;
-    min-width: 36px;
-    height: 36px;
+    //display: inline-block;
+
+    min-width: 30px;
+    height: 30px;
     transition: all $animation;
-    background-color: $brand-white;
-    line-height: 34px;
+    background-color: #ffffff;
+    line-height: 28px;
     text-align: center;
     text-decoration: none;
     box-sizing: border-box;
-    border: 1px solid $border-color;
-    font-size: .75em;
-    color: $text-color-sub;
+    border: 1px solid $dividers-color;
+    // border: 1px solid $dividers-color;
+    color: $secondary-text-color;
+    margin-right: -1px;
+
+    &:first-child {
+      border-left: 1px solid $dividers-color;
+    }
   }
 
   .cur,
   .is-current,
   a:hover {
-    border: 1px solid $border-color;
-    background-color: $brand-primary;
-    color: $brand-white;
+    border: 1px solid $dividers-color;
+    background-color: $primary-color;
+    color: #ffffff;
     &:before {
       border-color: #fff;
     }
   }
-}
 
-.c-previouspostslink,
-.c-nextpostslink {
-  position: relative;
-
-  &:before {
-    display: inline-block;
-    position: relative;
-    top: -.1em;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 4px;
-    height: 4px;
-    margin: auto;
-    transform: rotate(45deg);
-    border: 1px solid $text-color-sub;
-    content: "";
-    vertical-align: middle;
+  .c-extend {
+    border-top-width: 0;
+    border-bottom-width: 0;
   }
 
-}
+  .c-previouspostslink,
+  .c-nextpostslink {
+    position: relative;
+    background-color: $primary-color-light;
 
-.c-previouspostslink:before {
-  border-top-width: 0;
-  border-right-width: 0;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
-  left: .1em;
-}
+    &:before {
+      display: inline-block;
+      position: relative;
+      top: -.1em;
+      bottom: 0;
+      width: 4px;
+      height: 4px;
+      margin: auto;
+      transform: rotate(45deg);
+      border: 1px solid $primary-text-color;
+      content: "";
+      vertical-align: middle;
+    }
 
-.c-nextpostslink:before {
-  border-top-width: 1px;
-  border-right-width: 1px;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  right: .1em;
+  }
+
+  .c-previouspostslink {
+    margin-right: 16px;
+  }
+  .c-previouspostslink:before {
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    left: .1em;
+  }
+
+  .c-nextpostslink:before {
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    right: .1em;
+  }
+  .c-nextpostslink {
+    margin-left: 16px;
+  }
+
 }
 
 /*doc
@@ -114,8 +144,9 @@ parent: pagination
 
   <div class="c-pager">
     <ul class="c-pager__inner">
-      <li class="c-pager__prev"><a href="javascript:void(0)" class="e-button is-disabled">前の記事を読む</a></li>
-      <li class="c-pager__next"><a href="javascript:void(0)" class="e-button">次の記事を読む</a></li>
+      <li class="c-pager__prev"><a href="" class="is-disabled"><i class="material-icons">chevron_left</i> 前へ</a></li>
+      <li class="c-pager__to-list"><a href="">一覧</a></li>
+      <li class="c-pager__next"><a href="">次へ<i class="material-icons">chevron_right</i></a></li>
     </ul>
   </div>
 
@@ -124,14 +155,16 @@ parent: pagination
 */
 
 .c-pager {
+
+  border-top: 1px solid $dividers-color;
+
   margin-bottom: $margin-small-pc;
+  padding-top:$margin-small-pc;
 
-  a {
-    text-decoration: none;
-  }
-
+  
   @include media-sp-max {
     margin-bottom: $margin-small-sp;
+    padding-top:$margin-small-sp;
   }
 
   &__inner {
@@ -140,32 +173,13 @@ parent: pagination
     justify-content: space-between;
     position: relative;
 
-    @include media-sp-max {
-      //justify-content: center;
-    }
   }
 
-  &__prev {
-    margin-bottom: 20px;
-    margin-right: 10px;
-    // left: 0;
-    // position: absolute;
-
-    @include media-sp-max {
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
-
+  &__prev,
   &__next {
-    margin-bottom: 20px;
-    margin-left: 10px;
-    //right: 0;
-    //position: absolute;
-
-    @include media-sp-max {
-      margin-left: 0;
-      margin-right: 0;
+    i {
+      top: .15em;
+      position: relative;
     }
   }
 }

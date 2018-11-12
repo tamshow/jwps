@@ -3,81 +3,68 @@
 // Color
 // ------------------------------------------------------------
 
+
 // Primary Colors
 // -------------------
-$brand-primary-light:         #919499 !default;
-$brand-primary:               #5b5e63 !default;
-$brand-primary-dark:          #4f5156 !default;
+$primary-color-light:          #B2EBF2 !default;
+$primary-color:                      #00BCD4 !default;
+$primary-color-dark:           #0097A7 !default;
 
-// Secondary Colors
-// -------------------
-$brand-secondary-light:       #d7e8df !default;
-$brand-secondary:             #93e9be !default;
-$brand-secondary-dark:        #77C399 !default;
 
-// Background Colors
+// Accent Colors
 // -------------------
-$bg-color:                    #f2f3f5 !default;
+$accent-color:                 #FF9800 !default;
 
-// Border Colors
-// -------------------
-$border-color:                #ddd !default;
 
 // Text Colors
 // -------------------
-$text-color:                  rgba(0, 0, 0, .87) !default;
-$text-color-sub:              rgba(0, 0, 0, .54) !default;
-$text-color-week:             rgba(0, 0, 0, .38) !default;
+$primary-text-color:           #212121 !default;
+$secondary-text-color:         #757575 !default;
+$disabled-text-color:          #9E9E9E !default;
+
+$primary-text-color-white:     rgba(255, 255, 255, 1) !default;
+$secondary-text-color-white:   rgba(255, 255, 255, .70) !default;
+$disabled-text-color-white:    rgba(255, 255, 255, .30) !default;
 
 
 // Link Colors
 // -------------------
-$brand-link:                  #477DCA !default;
-$brand-link-visited:          #3A5898 !default;
-$brand-link-hover:            #3A5898 !default;
+$link-color:                  #477DCA !default;
+$link-color-visited:          #4C2C92 !default;
+$link-color-hover:            #0096DF !default;
 
 
-// Other Colors
+// Dividers Colors
 // -------------------
-$brand-white:                 #fff    !default;
-$brand-black:                 #000    !default;
-$brand-gray:                  #ddd    !default;
-
-$brand-red:                   #cc3e4c !default;
-$brand-pink:                  #dc6887 !default;
-$brand-light-green:           #6f9614 !default;
-$brand-green:                 #1b957b !default;
-$brand-blue:                  #478fbb !default;
-$brand-purple:                #997ebd !default;
-$brand-brawn:                 #af9100 !default;
-$brand-orange:                #e75a00 !default;
-$brand-yellow:                #f6bb42 !default;
+$dividers-color:              #DEDEDE !default;
+$dividers-color-light:        rgba(0,0,0,.2) !default;
 
 
 // Parts Colors
 // -------------------
-
-$success-color:               $brand-light-green !default;
-$success-border:              $brand-light-green !default;
-$success-bg:                  tint($brand-light-green, 90%) !default;
-$success-content:             "check" !default;
-
-$warning-color:               shade($brand-yellow, 30%) !default;
-$warning-border:              $brand-yellow !default;
-$warning-bg:                  tint($brand-yellow, 90%) !default;
-$warning-content:             "warning" !default;
-
-$error-color:                 $brand-red !default;
-$error-border:                $brand-red !default;
-$error-bg:                    #fef8f8 !default;
-$error-bg:                    tint($brand-red, 90%) !default;
+$error-color:                 #cc3e4c !default;
+$error-border:                $error-color !default;
+$error-bg:                    tint($error-color, 90%) !default;
 $error-content:               "warning" !default;
 
-$info-color:                  $brand-blue !default;
-$info-border:                 $brand-blue !default;
-$info-bg:                     tint($brand-blue, 90%) !default;
+$warning-color:               #f6bb42 !default;
+$warning-border:              $warning-color !default;
+$warning-bg:                  tint($warning-color, 90%) !default;
+$warning-content:             "warning" !default;
+
+$success-color:               #6f9614 !default;
+$success-border:              $success-color !default;
+$success-bg:                  tint($success-color, 90%) !default;
+$success-content:             "check" !default;
+
+$info-color:                  #478fbb !default;
+$info-border:                 $info-color !default;
+$info-bg:                     tint($info-color, 90%) !default;
 $info-content:                "priority_high" !default;
 
+
+// Other Colors
+// -------------------
 $twitter:                     #1d9ef0 !default;
 $facebook:                    #3b5996 !default;
 $line:                        #00b900 !default;
@@ -85,17 +72,3 @@ $hatena:                      #5d8ac1 !default;
 $instagram:                   #be3449 !default;
 
 
-
-/*doc
----
-title: colors
-name: colors
-category: variables
----
-
-
-```
-
-```
-
-*/

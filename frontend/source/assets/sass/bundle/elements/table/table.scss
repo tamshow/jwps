@@ -7,19 +7,18 @@
 /* table:base
    ========================================================================== */
 
-$table-border: 1px solid $border-color !default;
-$table-padding: 6px 14px !default;
+
 
 %table-base {
 
   caption {
-    color: $text-color-sub;
+    color: $secondary-text-color;
     @include mb-small;
   }
 
   width: 100%;
-  border-top: $table-border;
-  border-right: $table-border;
+  border-top: 1px solid $dividers-color;
+  border-right: 1px solid $dividers-color;
   border-collapse: separate;
   border-spacing: 0;
 
@@ -34,11 +33,11 @@ $table-padding: 6px 14px !default;
   }
 
   th {
-    padding: $table-padding;
-    border-bottom: $table-border;
-    border-left: $table-border;
+    padding: 11px 16px;
+    border-bottom: 1px solid $dividers-color;
+    border-left: 1px solid $dividers-color;
     vertical-align: top;
-    background-color: $bg-color;
+    background-color: $primary-color-light;
     width: 20%;
     @include media-sp-max {
       width: 30%;
@@ -47,9 +46,9 @@ $table-padding: 6px 14px !default;
   }
 
   td {
-    padding:$table-padding;
-    border-bottom: $table-border;
-    border-left: $table-border;
+    padding: 11px 16px;
+    border-bottom: 1px solid $dividers-color;
+    border-left: 1px solid $dividers-color;
   }
 
   //テーブルの中の最後の要素のマージンを消す
@@ -143,6 +142,7 @@ parent: table
   border-right: 0;
 
   th {
+    background: transparent;
     border-left: 0;
   }
 
@@ -176,15 +176,14 @@ parent: table
 ```
 */
 
-.visual-editor .e-table--block,
-.e-table--block {
+.visual-editor .e-table--sp-block,
+.e-table--sp-block {
 
   @include media-sp-max {
 
     //table {}
     th {
       border-bottom: 0;
-      padding-bottom: 0;
     }
 
     th,

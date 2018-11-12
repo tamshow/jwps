@@ -6,22 +6,24 @@
 //必須･任意
 .e-form-req,
 .e-form-any {
-  margin-left: 5px;
-  margin-right: 5px;
-  padding: 2px 8px;
-  border-radius: $border-radius-pc;
-  background-color: #e73656;
+  padding: 1px 6px;
+  border-radius: 2px;
+  background-color: $error-color;
   color: #fff;
-  font-size: .8rem;
+  font-size: 10px;
   display: inline-block;
-  font-weight: normal;
+  font-weight: bold;
 
+ .e-form-table & {
+    margin-left: 10px;
+  }
 }
+
+
 
 .e-form-any {
   background-color: $success-border;
 }
-
 
 //フォーム内ツール
 .e-form-text {
@@ -35,8 +37,7 @@
 }
 
 .e-form-message-box {
-  padding-right: 1.5%;
-  padding-left: 1.5%;
+
   box-sizing: border-box;
   clear: both;
   display: inline-block;
@@ -44,7 +45,7 @@
 }
 
 .e-form-error-text {
-  color: $brand-red;
+  color: $error-color;
   margin-top: .5em;
 
   &:before {
@@ -54,9 +55,9 @@
     white-space: nowrap;
     font-size: 1.2em;
     line-height: 1em;
+    margin-right: 5px;
   }
 }
-
 
 /*doc
 ---
@@ -83,9 +84,6 @@ parent: form
 ```
 */
 
-
-
-
 .e-form-step {
   margin-bottom: $margin-small-pc;
 
@@ -98,7 +96,7 @@ parent: form
     flex-flow: row nowrap;
     justify-content: space-between;
 
-    border: 1px solid $border-color;
+    border: 1px solid $dividers-color;
     overflow: hidden;
 
   }
@@ -129,7 +127,7 @@ parent: form
       display: inline-block;
       text-align: center;
       line-height: 26px;
-      color: $brand-white;
+      color: #ffffff;
       margin-right: 8px;
 
       @include media-sp-max {
@@ -147,7 +145,7 @@ parent: form
         top: -.2em;
         bottom: -.2em;
 
-        border-color: transparent transparent transparent $border-color;
+        border-color: transparent transparent transparent $dividers-color;
         border-width: 1.8em 0 1.8em 1.3em;
 
         position: absolute;
@@ -159,7 +157,7 @@ parent: form
 
       &:after {
         right: -1em;
-        border-color: transparent transparent transparent $brand-white;
+        border-color: transparent transparent transparent #ffffff;
       }
 
       @include media-sp-max {
@@ -177,24 +175,24 @@ parent: form
 
     &.is-active {
       font-weight: bold;
-      color: $brand-white;
-      background-color: $brand-primary-light;
+      color: #ffffff;
+      background-color: $primary-color-light;
 
       span {
 
         &:before {
-          border-color: transparent transparent transparent $border-color;
+          border-color: transparent transparent transparent $dividers-color;
         }
 
         &:after {
-          border-color: transparent transparent transparent $brand-primary-light;
+          border-color: transparent transparent transparent $primary-color-light;
         }
       }
 
       &:before {
         font-weight: normal;
-        background-color: $brand-white;
-        color: $brand-primary-light;
+        background-color: #ffffff;
+        color: $primary-color-light;
       }
     }
 
@@ -202,18 +200,12 @@ parent: form
 
 }
 
-
-$form-table-border: 1px solid $border-color;
-$form-table-bg: $bg-color;
-$form-table-padding-vertical: 1.5em;
-$form-table-padding-horizon: 1.2em;
-$form-table-small-fsize: .7em;
-
 .e-form-table {
   width: 100%;
-  border-top: $form-table-border;
+  border-top: 1px solid $dividers-color;
   border-collapse: separate;
   border-spacing: 0;
+  font-size: 14px;
 
   @include mb-small;
 
@@ -226,35 +218,30 @@ $form-table-small-fsize: .7em;
   }
 
   th {
-    padding: $form-table-padding-vertical * 1.2 $form-table-padding-horizon;
-    border-bottom: $form-table-border;
+    padding: 33px 10px 20px 25px;
+    border-bottom: 1px solid $dividers-color;
     vertical-align: top;
-    width:30%;
+    width: 33%;
+
 
     @include media-sp-max {
       border-bottom: 0;
-      padding-left: 0;
-      padding-right: 0;
       display: block;
-      width:auto;
-      padding-top:$form-table-padding-vertical * .8;
-      padding-bottom: 0;
+      width: auto;
+      padding:23px 0 0 0;
     }
   }
 
-
   td {
-    padding: (($form-table-padding-vertical) - .5em) $form-table-padding-horizon;
-    border-bottom: $form-table-border;
+    padding: 33px 10px 20px 25px;
+    border-bottom: 1px solid $dividers-color;
 
     @include media-sp-max {
-      padding-left: 0;
-      padding-right: 0;
       display: block;
-      width:auto;
+      width: auto;
+      padding:23px 0 16px 0;
 
-      padding-top:($form-table-padding-vertical * .8) - .5em;
-      padding-bottom: $form-table-padding-vertical * .8;
+
     }
 
   }
@@ -268,6 +255,5 @@ $form-table-small-fsize: .7em;
 
   }
 
-
-  }
+}
 

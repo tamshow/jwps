@@ -34,18 +34,17 @@ categories: [elements, typesetting]
 */
 
 
+
 .visual-editor p,
 .e-text {
   @include mb-small;
 }
 
-.visual-editor strong > strong,
 .e-text-catchcopy {
-  font-weight: bold;
+  text-align: center;
   font-size: 16px;
   @include mb-small;
 }
-
 
 
 
@@ -67,6 +66,7 @@ Class                                                                      | Des
 `is-text-sub`            |                        |
 `is-text-week`           |                        |
 `is-text-point`          |                        |
+`is-text-highlight`          |                        |
 `is-text-arrow`          |                        |
 `is-text-bold`           |                        |
 `is-text-strike`         |                        |
@@ -98,17 +98,14 @@ Class                                                                      | Des
   font-size: 12px;
 }
 .is-text-sub {
-  color: $text-color-sub;
+  color: $secondary-text-color;
   font-size: 12px;
 }
 
 .is-text-week {
-  color: $text-color-week;
+  color: $disabled-text-color;
   font-size: 12px;
 }
-
-
-
 
 .is-text-arrow {
 
@@ -118,8 +115,8 @@ Class                                                                      | Des
     width: 5px;
     height: 5px;
     transform: rotate(225deg);
-    border-top: 1px solid $text-color-sub;
-    border-left: 1px solid $text-color-sub;
+    border-top: 1px solid $secondary-text-color;
+    border-left: 1px solid $secondary-text-color;
     content: "";
     vertical-align: middle;
     position: relative;
@@ -134,7 +131,7 @@ Class                                                                      | Des
 
 .is-text-point {
   display: inline;
-  //background: linear-gradient(transparent 70%, $brand-yellow 70%, $brand-yellow 90%, transparent 90%);
+  //background: linear-gradient(transparent 70%, $yellow 70%, $yellow 90%, transparent 90%);
   background: linear-gradient(transparent 50%, #ffffa6 50%, #ffffa6 100%);
   padding-bottom: .1em;
   padding-right: .5em;
@@ -142,6 +139,10 @@ Class                                                                      | Des
   @include media-sp-max {
     padding-right: 0;
   }
+}
+
+.is-text-highlight {
+  background-color: #FFFF00;
 }
 
 .is-text-bold {
@@ -161,5 +162,5 @@ Class                                                                      | Des
   text-decoration: underline;
 }
 .is-text-bdb {
-  border-bottom: 1px solid $brand-primary;
+  border-bottom: 1px solid $primary-color;
 }

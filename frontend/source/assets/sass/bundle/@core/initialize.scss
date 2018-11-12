@@ -4,26 +4,50 @@
 * ------------------------------------------------------------ */
 
 html {
-  line-height: $line-height-pc;
+  line-height: $line-height;
   //min-width: $width-pc-max;
 
-  @include media-lg-min {
-    font-size: $fsize-pc;
-  }
-  @include media-pc-min {
-    font-size: $fsize-pc;
+  font-size: $fsize-body1-pc;
+  @include media-tab-max {
+    font-size: $fsize-body1-pc;
   }
   @include media-sp-max {
-    font-size: $fsize-sp;
+    font-size: $fsize-body1-sp;
   }
 
   @include media-min {
-    font-size: (100 / 375) * ($fsize-sp / (1 + $fsize-sp - $fsize-sp)) * 1vmin;
+    font-size: (100 / 375) * ($fsize-body1-sp / (1 + $fsize-body1-sp - $fsize-body1-sp)) * 1vmin;
   }
+
+  //@include media-max      { /**/ }
+  //@include media-lg-only  { /**/ }
+  //@include media-lg-max   { /**/ }
+  //@include media-lg-min   { /**/ }
+  //
+  //@include media-pc-only  { /**/ }
+  //@include media-pc-max   { /**/ }
+  //@include media-pc-min   { /**/ }
+  //
+  //@include media-tab-only { /**/ }
+  //@include media-tab-max  { /**/ }
+  //@include media-tab-min  { /**/ }
+  //@include media-sp-only  { /**/ }
+  //@include media-sp-max   { /**/ }
+  //@include media-sp-min   { /**/ }
+  //
+  //@include media-min      { /**/}
+
 }
 
 body {
   font-family: $font-family-base;
+  color: $primary-text-color;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+}
+
+main {
   font-synthesis: weight style;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -31,9 +55,6 @@ body {
   -moz-font-feature-settings: 'liga', 'kern';
   font-feature-settings: "palt";
   -ms-text-size-adjust: 100%;
-  color: $text-color;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
 
 }
 
@@ -104,23 +125,38 @@ picture {
   vertical-align: middle;
 }
 
+small {
+  color: $secondary-text-color;
+}
+
+strong {
+  font-weight: bold;
+}
+
+strong > strong {
+  color: $error-color;
+  font-size: 1.15rem;
+}
+
+s {  }
+
+em {  font-weight: bold;  }
+
 hr {
   border: 0;
-  border-bottom: solid 1px $border-color;
-  margin-top: $margin-large-pc;
-  margin-bottom: $margin-large-pc;
-
+  border-bottom: solid 1px $dividers-color;
+  margin-top: $margin-medium-pc;
+  margin-bottom: $margin-medium-pc;
 
   @include media-sp-max {
-    margin-top: $margin-large-sp;
-    margin-bottom: $margin-large-sp;
+    margin-top: $margin-medium-sp;
+    margin-bottom: $margin-medium-sp;
   }
 
 }
 
 table {
   border-collapse: collapse;
-  //table-layout: fixed;
   width: 100%;
 }
 
@@ -128,29 +164,27 @@ th {
   text-align: left;
 }
 
-
-
 /* @  Link Reset
 * ------------------------------------------------------------ */
 
 ::selection {
-  background: $brand-primary-light;
-  color: $brand-white;
+  background: $primary-color-light;
+  color: #ffffff;
   text-shadow: none;
 }
 
 input::selection,
 textarea::selection {
-  background: tint($brand-primary-light, 40%);
+  background: tint($primary-color-light, 40%);
   //background: shade(blue, 60%);, 40%);
-  color: $text-color;
+  color: $primary-text-color;
   text-shadow: none;
 
 }
 
 a,
 a:link {
-  color: $brand-link;
+  color: $link-color;
   text-decoration: underline;
   transition: $animation;
 }
@@ -159,7 +193,7 @@ a:hover,
 a:focus,
 a:visited {
   transition: $animation;
-  color: $brand-link-hover;
+  color: $link-color-hover;
   text-decoration: none;
 }
 
@@ -168,17 +202,15 @@ a:hover {
 }
 
 a:visited {
-  color: $brand-link-visited;
+  color: $link-color-visited;
 }
 
-
-
 a {
-  -webkit-tap-highlight-color: rgba($brand-primary, .5);
+  -webkit-tap-highlight-color: rgba($primary-color, .5);
 }
 
 a:link {
-  -webkit-tap-highlight-color: rgba($brand-primary, .5);
+  -webkit-tap-highlight-color: rgba($primary-color, .5);
 }
 
 button:focus,
@@ -186,7 +218,7 @@ a:focus {
   //box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf;
   outline: 3px solid rgba(0, 74, 248, 0.6);
   outline-offset: 2px;
-  transition: none;
+  transition: none !important;
 }
 
 button:focus {
@@ -252,11 +284,11 @@ pre,
   padding: 10px;
   white-space: pre-wrap;
   font-size: 14px;
-  line-height: $line-height-pc;
+  line-height: $line-height;
   word-break: break-all;
   word-wrap: break-word;
   color: #aaa;
-  background-color: $bg-color;
+  background-color: $dividers-color;
   border: 1px solid #ccc;
   border-radius: 3px;
 
@@ -275,9 +307,7 @@ pre,
   }
 }
 
-
 //-------------------
-
 
 .e-code-clipboard {
   display: flex;
@@ -306,11 +336,10 @@ pre,
     border-radius: 3px;
     padding: .2em .4em;
     position: absolute;
-    bottom:-1.6em;
+    bottom: -1.6em;
     right: -.5em;
   }
 }
-
 
 //-------------------
 

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="assets/css/bundle.css" media="all">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#0e9a91">
+
+
+  <script src="assets/js/vendor.js"></script>
+  <script src="assets/js/bundle.js"></script>
+</head>
+
+<body class="sg-body">
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>スタイルガイド</h1>
+    <nav class="sg-header__nav js-current-nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="visualeditor.html">visualeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">keyword-search</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#keyword-search">keyword-search</a></li>
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="keyword-search" class="styleguide">keyword-search</h1>
+
+<h3 class="styleguide">Keyword Search</h3>
+<div class="codeExample">
+  <div class="exampleOutput">
+    <div class="c-keyword-search" role="search">
+  <div class="c-keyword-search__body">
+    <p class="c-keyword-search__title">検索キーワード</p>
+    <input type="text" name="#" class="c-keyword-search__input" value="" placeholder="キーワードを入力してください" autocomplete="off" aria-autocomplete="list" role="textbox">
+    <button type="submit" class="c-keyword-search__button"><i class="material-icons">search</i></button>
+  </div>
+  <div class="c-keyword-search__control">
+    <p class="c-keyword-search__control-lead">100アイテムが検索キーワードに該当</p>
+    <div class="c-keyword-search__control-item">
+      <p class="c-keyword-search__control-title">絞り込み</p>
+      <select class="c-keyword-search__control-select">
+        <option>すべて</option>
+        <option>すべて</option>
+        <option>すべて</option>
+        <option>すべて</option>
+      </select>
+    </div>
+    <div class="c-keyword-search__control-item">
+      <p class="c-keyword-search__control-title">ソート</p>
+      <select class="c-keyword-search__control-select">
+        <option>関連度</option>
+        <option>関連度</option>
+        <option>関連度</option>
+        <option>関連度</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-keyword-search"</span> <span class="na">role=</span><span class="s">"search"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-keyword-search__body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"c-keyword-search__title"</span><span class="nt">&gt;</span>検索キーワード<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"c-keyword-search__input"</span> <span class="na">value=</span><span class="s">""</span> <span class="na">placeholder=</span><span class="s">"キーワードを入力してください"</span> <span class="na">autocomplete=</span><span class="s">"off"</span> <span class="na">aria-autocomplete=</span><span class="s">"list"</span> <span class="na">role=</span><span class="s">"textbox"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"c-keyword-search__button"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"material-icons"</span><span class="nt">&gt;</span>search<span class="nt">&lt;/i&gt;&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-keyword-search__control"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"c-keyword-search__control-lead"</span><span class="nt">&gt;</span>100アイテムが検索キーワードに該当<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-keyword-search__control-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"c-keyword-search__control-title"</span><span class="nt">&gt;</span>絞り込み<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"c-keyword-search__control-select"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;option&gt;</span>すべて<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;option&gt;</span>すべて<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;option&gt;</span>すべて<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;option&gt;</span>すべて<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;/select&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-keyword-search__control-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"c-keyword-search__control-title"</span><span class="nt">&gt;</span>ソート<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"c-keyword-search__control-select"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;option&gt;</span>関連度<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;option&gt;</span>関連度<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;option&gt;</span>関連度<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;option&gt;</span>関連度<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;/select&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

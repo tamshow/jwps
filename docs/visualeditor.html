@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="assets/css/bundle.css" media="all">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#0e9a91">
+
+
+  <script src="assets/js/vendor.js"></script>
+  <script src="assets/js/bundle.js"></script>
+</head>
+
+<body class="sg-body">
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>スタイルガイド</h1>
+    <nav class="sg-header__nav js-current-nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="visualeditor.html">visualeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">visualeditor</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#visualeditor">visualeditor</a></li>
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="visualeditor" class="styleguide">visualeditor</h1>
+
+<p class="e-text is-mb-medium">
+
+外枠に<code>.visual-editor</code>を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。<br>
+<code>.visual-editor</code>内はh3,h4,pなど基本的なタグのみで使用する想定です。<br>
+複雑な装飾がある場合は<code>.visual-editor</code>を使わず直接classを指定してください。<br>
+詳細ページやCMSで直接タグ入力するして更新する箇所に指定するのがよいかもです。
+</p>
+<div class="codeExample">
+  <div class="exampleOutput">
+           <div class="c-anchor-nav is-mb-large">
+        <div class="c-anchor-nav__body">
+          <p class="c-anchor-nav__title">コンテンツ</p>
+          <ul data-scroll>
+            <li><a href="#ank1">見出し・段落</a> </li>
+            <li><a href="#ank2">リスト</a> </li>
+            <li><a href="#ank3">テキスト（装飾・リンク・配置・引用）</a> </li>
+            <li><a href="#ank4">画像（サイズ・配置）</a> </li>
+            <li><a href="#ank5">テーブル</a> </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="l-unit visual-editor">
+
+
+        <h2 id="ank1">1. 見出し・段落</h2>
+        <h2>見出し2</h2>
+        <h3>見出し3</h3>
+        <h4>見出し4</h4>
+        <h5>見出し5</h5>
+        <h6>見出し6</h6>
+
+        <p>吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。</p>
+
+        <h2 id="ank2">2. リスト</h2>
+
+        <ul>
+          <li>順序がないリスト</li>
+          <li>順序がないリスト
+            <ul style="list-style-type: circle;">
+              <li>順序がないリスト</li>
+              <li>順序がないリスト</li>
+            </ul>
+          </li>
+          <li>順序がないリスト</li>
+        </ul>
+
+        <ol>
+          <li>順序のあるリスト</li>
+          <li>順序のあるリスト
+            <ol style="list-style-type: lower-alpha;">
+              <li>順序のあるリスト</li>
+              <li>順序のあるリスト</li>
+            </ol>
+          </li>
+          <li>順序のあるリスト</li>
+        </ol>
+
+
+        <dl>
+          <dt>定義リスト</dt>
+          <dd>テキストが入ります。テキストが入ります。</dd>
+          <dt>定義リスト</dt>
+          <dd>テキストが入ります。テキストが入ります。</dd>
+          <dt>定義リスト</dt>
+          <dd>テキストが入ります。テキストが入ります。</dd>
+        </dl>
+
+        <h2 id="ank3">3. テキスト（装飾・リンク・配置・引用）</h2>
+        <h3>装飾</h3>
+        <p>
+          <strong>強い強調を表す要素（strong）</strong><br>
+          <em>強調を表す要素（em）</em><br>
+          <s>すでに正確ではなくなった要素、打ち消し線（s）</s><br>
+          <small>注釈や細目を表す要素（small）</small>
+          <br>
+          <span>上付き文字（sup）　E=mc<sup>2</sup></span><br>
+          <span>下付き文字（sub）　CO<sub>2</sub></span><br>
+          <span style="color: #cc3e4c;">エラー色文字（Text Red）</span><br>
+        </p>
+
+
+        <h3>リンク</h3>
+        <p>
+          <a href="#dummy">標準のリンク</a><br>
+          <a href="#dummy" target="_blank">target="_blank"を指定している場合 </a><br>
+          <a href="#dummy.pdf">pdfへのリンクの場合</a><br>
+          <a href="#dummy.doc">doc、docxへのリンクの場合</a><br>
+          <a href="#dummy.xls">xls、xlsxへのリンクの場合</a><br>
+          <a href="#dummy.ppt">ppt、pptxへのリンクの場合</a><br>
+          <a href="#dummy.ppt" class="is-iconless">aタグに.is-iconlessがあると自動リンクアイコンは表示されません</a>
+        </p>
+
+        <h3>配置</h3>
+        <p style="text-align: left;">左揃え<br>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        </p>
+        <p style="text-align: center;">
+          中央揃え<br>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        </p>
+        <p  style="text-align: right;">
+          右揃え<br>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        </p>
+
+        <p style="text-align: justify";>
+          両端揃え<br>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        </p>
+
+        <h3>引用</h3>
+        <blockquote>
+          引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。
+        </blockquote>
+
+        <h2 id="ank4">4. 画像（サイズ・配置）</h2>
+
+        <h3>サイズ</h3>
+        <figure>
+          <img class="size-full" src="assets/img/common/img1.png" alt="">
+        </figure>
+        <figure>
+          <img class="size-medium" src="assets/img/common/img1.png" alt="">
+        </figure>
+        <figure>
+          <img class="size-thumbnail" src="assets/img/common/img1.png" alt="">
+        </figure>
+
+        <h3>配置</h3>
+        <h4>左寄せ（テキスト回り込み）</h4>
+        <img class="alignleft size-medium" src="assets/img/common/img1.png" alt="">
+        <p>吾輩は猫である。名前はまだ無い。
+          どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+          吾輩はここで始めて人間というものを見た。
+          しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+          この書生というのは時々我々を捕えて煮て食うという話である。
+          しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
+          ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。
+          掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。
+          第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。
+          のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。
+          これが人間の飲む煙草というものである事はようやくこの頃知った。
+          ​</p>
+
+        <h4>中央寄せ</h4>
+        <figure>
+          <img class="aligncenter size-medium" src="assets/img/common/img1.png" alt="">
+        </figure>
+
+        <h4>右寄せ（テキスト回り込み）</h4>
+          <img class="alignright size-medium" src="assets/img/common/img1.png" alt="">
+        <p>吾輩は猫である。名前はまだ無い。
+          どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+          吾輩はここで始めて人間というものを見た。
+          しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+          この書生というのは時々我々を捕えて煮て食うという話である。
+          しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
+          ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。
+          掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。
+          第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。
+          のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。
+          これが人間の飲む煙草というものである事はようやくこの頃知った。
+          ​</p>
+
+
+
+        <h2 id="ank5">5. テーブル</h2>
+
+        <h3>標準</h3>
+        <table>
+          <tr>
+            <th>見出し</th>
+            <th>見出し</th>
+            <th>見出し</th>
+          </tr>
+          <tr>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります。</td>
+            <td>テキストが入ります。</td>
+          </tr>
+        </table>
+
+
+        <h3>SP時スクロール</h3>
+        <div class="e-responsive-table">
+          <table>
+            <tr>
+              <th>見出し</th>
+              <th>見出し</th>
+              <th>見出し</th>
+            </tr>
+            <tr>
+              <td>テキストが入ります。</td>
+              <td>テキストが入ります。</td>
+              <td>テキストが入ります。</td>
+            </tr>
+            <tr>
+              <td>テキストが入ります。</td>
+              <td>テキストが入ります。</td>
+              <td>テキストが入ります。</td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-anchor-nav is-mb-large"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-anchor-nav__body"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"c-anchor-nav__title"</span><span class="nt">&gt;</span>コンテンツ<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;ul</span> <span class="na">data-scroll</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#ank1"</span><span class="nt">&gt;</span>見出し・段落<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#ank2"</span><span class="nt">&gt;</span>リスト<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#ank3"</span><span class="nt">&gt;</span>テキスト（装飾・リンク・配置・引用）<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#ank4"</span><span class="nt">&gt;</span>画像（サイズ・配置）<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#ank5"</span><span class="nt">&gt;</span>テーブル<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+
+
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-unit visual-editor"</span><span class="nt">&gt;</span>
+
+
+        <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"ank1"</span><span class="nt">&gt;</span>1. 見出し・段落<span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;h2&gt;</span>見出し2<span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;h3&gt;</span>見出し3<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;h4&gt;</span>見出し4<span class="nt">&lt;/h4&gt;</span>
+        <span class="nt">&lt;h5&gt;</span>見出し5<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;h6&gt;</span>見出し6<span class="nt">&lt;/h6&gt;</span>
+
+        <span class="nt">&lt;p&gt;</span>吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。<span class="nt">&lt;/p&gt;</span>
+
+        <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"ank2"</span><span class="nt">&gt;</span>2. リスト<span class="nt">&lt;/h2&gt;</span>
+
+        <span class="nt">&lt;ul&gt;</span>
+          <span class="nt">&lt;li&gt;</span>順序がないリスト<span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;</span>順序がないリスト
+            <span class="nt">&lt;ul</span> <span class="na">style=</span><span class="s">"list-style-type: circle;"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;li&gt;</span>順序がないリスト<span class="nt">&lt;/li&gt;</span>
+              <span class="nt">&lt;li&gt;</span>順序がないリスト<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;</span>順序がないリスト<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+
+        <span class="nt">&lt;ol&gt;</span>
+          <span class="nt">&lt;li&gt;</span>順序のあるリスト<span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;</span>順序のあるリスト
+            <span class="nt">&lt;ol</span> <span class="na">style=</span><span class="s">"list-style-type: lower-alpha;"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;li&gt;</span>順序のあるリスト<span class="nt">&lt;/li&gt;</span>
+              <span class="nt">&lt;li&gt;</span>順序のあるリスト<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;/ol&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;</span>順序のあるリスト<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ol&gt;</span>
+
+
+        <span class="nt">&lt;dl&gt;</span>
+          <span class="nt">&lt;dt&gt;</span>定義リスト<span class="nt">&lt;/dt&gt;</span>
+          <span class="nt">&lt;dd&gt;</span>テキストが入ります。テキストが入ります。<span class="nt">&lt;/dd&gt;</span>
+          <span class="nt">&lt;dt&gt;</span>定義リスト<span class="nt">&lt;/dt&gt;</span>
+          <span class="nt">&lt;dd&gt;</span>テキストが入ります。テキストが入ります。<span class="nt">&lt;/dd&gt;</span>
+          <span class="nt">&lt;dt&gt;</span>定義リスト<span class="nt">&lt;/dt&gt;</span>
+          <span class="nt">&lt;dd&gt;</span>テキストが入ります。テキストが入ります。<span class="nt">&lt;/dd&gt;</span>
+        <span class="nt">&lt;/dl&gt;</span>
+
+        <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"ank3"</span><span class="nt">&gt;</span>3. テキスト（装飾・リンク・配置・引用）<span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;h3&gt;</span>装飾<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;p&gt;</span>
+          <span class="nt">&lt;strong&gt;</span>強い強調を表す要素（strong）<span class="nt">&lt;/strong&gt;&lt;br&gt;</span>
+          <span class="nt">&lt;em&gt;</span>強調を表す要素（em）<span class="nt">&lt;/em&gt;&lt;br&gt;</span>
+          <span class="nt">&lt;s&gt;</span>すでに正確ではなくなった要素、打ち消し線（s）<span class="nt">&lt;/s&gt;&lt;br&gt;</span>
+          <span class="nt">&lt;small&gt;</span>注釈や細目を表す要素（small）<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;br&gt;</span>
+          <span class="nt">&lt;span&gt;</span>上付き文字（sup）　E=mc<span class="nt">&lt;sup&gt;</span>2<span class="nt">&lt;/sup&gt;&lt;/span&gt;&lt;br&gt;</span>
+          <span class="nt">&lt;span&gt;</span>下付き文字（sub）　CO<span class="nt">&lt;sub&gt;</span>2<span class="nt">&lt;/sub&gt;&lt;/span&gt;&lt;br&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"color: #cc3e4c;"</span><span class="nt">&gt;</span>エラー色文字（Text Red）<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+        <span class="nt">&lt;/p&gt;</span>
+
+
+        <span class="nt">&lt;h3&gt;</span>リンク<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;p&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#dummy"</span><span class="nt">&gt;</span>標準のリンク<span class="nt">&lt;/a&gt;&lt;br&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#dummy"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>target="_blank"を指定している場合 <span class="nt">&lt;/a&gt;&lt;br&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#dummy.pdf"</span><span class="nt">&gt;</span>pdfへのリンクの場合<span class="nt">&lt;/a&gt;&lt;br&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#dummy.doc"</span><span class="nt">&gt;</span>doc、docxへのリンクの場合<span class="nt">&lt;/a&gt;&lt;br&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#dummy.xls"</span><span class="nt">&gt;</span>xls、xlsxへのリンクの場合<span class="nt">&lt;/a&gt;&lt;br&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#dummy.ppt"</span><span class="nt">&gt;</span>ppt、pptxへのリンクの場合<span class="nt">&lt;/a&gt;&lt;br&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#dummy.ppt"</span> <span class="na">class=</span><span class="s">"is-iconless"</span><span class="nt">&gt;</span>aタグに.is-iconlessがあると自動リンクアイコンは表示されません<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/p&gt;</span>
+
+        <span class="nt">&lt;h3&gt;</span>配置<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"text-align: left;"</span><span class="nt">&gt;</span>左揃え<span class="nt">&lt;br&gt;</span>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+          中央揃え<span class="nt">&lt;br&gt;</span>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;p</span>  <span class="na">style=</span><span class="s">"text-align: right;"</span><span class="nt">&gt;</span>
+          右揃え<span class="nt">&lt;br&gt;</span>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        <span class="nt">&lt;/p&gt;</span>
+
+        <span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"text-align: justify"</span><span class="err">;</span><span class="nt">&gt;</span>
+          両端揃え<span class="nt">&lt;br&gt;</span>
+          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+        <span class="nt">&lt;/p&gt;</span>
+
+        <span class="nt">&lt;h3&gt;</span>引用<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;blockquote&gt;</span>
+          引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。
+        <span class="nt">&lt;/blockquote&gt;</span>
+
+        <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"ank4"</span><span class="nt">&gt;</span>4. 画像（サイズ・配置）<span class="nt">&lt;/h2&gt;</span>
+
+        <span class="nt">&lt;h3&gt;</span>サイズ<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;figure&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"size-full"</span> <span class="na">src=</span><span class="s">"/assets/img/common/img1.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/figure&gt;</span>
+        <span class="nt">&lt;figure&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"size-medium"</span> <span class="na">src=</span><span class="s">"/assets/img/common/img1.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/figure&gt;</span>
+        <span class="nt">&lt;figure&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"size-thumbnail"</span> <span class="na">src=</span><span class="s">"/assets/img/common/img1.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/figure&gt;</span>
+
+        <span class="nt">&lt;h3&gt;</span>配置<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;h4&gt;</span>左寄せ（テキスト回り込み）<span class="nt">&lt;/h4&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"alignleft size-medium"</span> <span class="na">src=</span><span class="s">"/assets/img/common/img1.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>吾輩は猫である。名前はまだ無い。
+          どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+          吾輩はここで始めて人間というものを見た。
+          しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+          この書生というのは時々我々を捕えて煮て食うという話である。
+          しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
+          ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。
+          掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。
+          第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。
+          のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。
+          これが人間の飲む煙草というものである事はようやくこの頃知った。
+          ​<span class="nt">&lt;/p&gt;</span>
+
+        <span class="nt">&lt;h4&gt;</span>中央寄せ<span class="nt">&lt;/h4&gt;</span>
+        <span class="nt">&lt;figure&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"aligncenter size-medium"</span> <span class="na">src=</span><span class="s">"/assets/img/common/img1.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/figure&gt;</span>
+
+        <span class="nt">&lt;h4&gt;</span>右寄せ（テキスト回り込み）<span class="nt">&lt;/h4&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"alignright size-medium"</span> <span class="na">src=</span><span class="s">"/assets/img/common/img1.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>吾輩は猫である。名前はまだ無い。
+          どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+          吾輩はここで始めて人間というものを見た。
+          しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
+          この書生というのは時々我々を捕えて煮て食うという話である。
+          しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
+          ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。
+          掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。
+          第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。
+          のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。
+          これが人間の飲む煙草というものである事はようやくこの頃知った。
+          ​<span class="nt">&lt;/p&gt;</span>
+
+
+
+        <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"ank5"</span><span class="nt">&gt;</span>5. テーブル<span class="nt">&lt;/h2&gt;</span>
+
+        <span class="nt">&lt;h3&gt;</span>標準<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;table&gt;</span>
+          <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+          <span class="nt">&lt;/tr&gt;</span>
+          <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;/tr&gt;</span>
+          <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;/table&gt;</span>
+
+        <span class="nt">&lt;table&gt;</span>
+          <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;/tr&gt;</span>
+          <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;/tr&gt;</span>
+          <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;/table&gt;</span>
+
+
+        <span class="nt">&lt;h3&gt;</span>SP時スクロール<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-responsive-table"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;table&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+              <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+              <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+              <span class="nt">&lt;th&gt;</span>見出し<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+              <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+              <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+              <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+              <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+              <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+              <span class="nt">&lt;td&gt;</span>テキストが入ります。<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>
+          <span class="nt">&lt;/table&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+
+      <span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="assets/css/bundle.css" media="all">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#0e9a91">
+
+
+  <script src="assets/js/vendor.js"></script>
+  <script src="assets/js/bundle.js"></script>
+</head>
+
+<body class="sg-body">
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>スタイルガイド</h1>
+    <nav class="sg-header__nav js-current-nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="visualeditor.html">visualeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">started</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#started">命名規則</a></li>
+         
+       
+         
+          <li><a href="#started2">使い方・分類</a></li>
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="started" class="styleguide">命名規則</h1>
+
+<div class="l-unit visual-editor">
+<h3>共通</h3>
+<ul>
+<li>単語の繋ぎはハイフン「 - 」を使用します。</li>
+</ul>
+<h3>HTML</h3>
+<ul>
+<li>ファイル名はページタイトルを英語化します。</li>
+</ul>
+<h3>img</h3>
+<ul>
+<li>固有のClass名がある場合は同じファイル名でも良いです。</li>
+<li><code>[要素]_[属性][連番]</code></li>
+</ul>
+<div class="c-accordion" data-accordion="" data-device-accordion="all">
+<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
+<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
+
+<pre>
+<code>bg_top.png
+ icon_arrow1.png
+</code>
+</pre>
+</div>
+<p class="styleguide"></div></p>
+<h3>CSS</h3>
+
+<h4>記述方法</h4>
+
+<ul>
+<li>接頭辞 + BEM記法、マルチクラス</li>
+<li><code>[接頭辞]-[塊]__[要素]--[属性]</code></li>
+<li>フォルダの先頭の文字を接頭辞として使用します。「assets/sass/以下」</li>
+<li>パーツのメンテナンス性を重視して重複するパーツを作成しても構いません。</li>
+<li>コンポーネント単位のclass名毎にscssファイルを作成してください。</li>
+</ul>
+
+<div class="c-accordion" data-accordion="" data-device-accordion="all">
+<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
+<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
+
+<pre>
+<code>&lt;div class="c-unit"&gt;
+&lt;div class="c-unit__head"&gt;
+&lt;h2 class-"c-unit__title"&gt;タイトル&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="c-unit__body"&gt;
+&lt;ul class="e-list e-list--disc"&gt;
+&lt;li&gt;テキスト&lt;/li&gt;
+&lt;li&gt;テキスト&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+</div>
+<p class="styleguide"></div></p>
+<h4>コメント</h4>
+
+<ul>
+<li>コメントは読み安やを考え自由に入れて大丈夫です。</li>
+<li>例えば文脈にそった見出しなど記述してください。</li>
+<li>例えば複雑なコードはなるべくコメントを残してください。</li>
+</ul>
+
+<div class="c-accordion" data-accordion="" data-device-accordion="all">
+<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
+<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
+
+<pre>
+<code>例）
+
+ ==========================================================================
+ #FIME NAME
+ ==========================================================================
+
+ 見だし1
+ ==========================================================================
+
+ 見だし2
+ ------------------------------------------------------------
+
+</code>
+</pre>
+
+</div>
+<p class="styleguide"></div>
+<h4>空白</h4>
+<ul>
+<li>空白は読み安やを考え自由に入れて大丈夫です。</li>
+<li>例えば関連しないブロック間は3つ以上の改行</li>
+<li>例えばセレクタとプロパティの間は改行</li>
+</ul></p>
+<div class="c-accordion" data-accordion="" data-device-accordion="all">
+<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
+<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
+
+<pre>
+<code>例）
+
+ .hoge {
+   margin-top: 10px;
+   padding-top: 10px;
+   display: inline-block;
+
+   &amp;:before,
+  &amp;:after {
+         border-bottom: 0;
+       }
+
+ }
+
+.fuga {
+  display: block;
+}
+
+.fuga--type1 {
+  display: inline-block;
+}
+
+.fuga--type2 {
+  display: table;
+}
+
+</code>
+</pre>
+
+</div>
+<p class="styleguide"></div></p>
+<h4>scssディレクトリ構造</h4>
+
+<p>デフォルトのディレクトリ構造は次のようになります。</p>
+
+<div class="c-accordion" data-accordion="" data-device-accordion="all">
+<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
+<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
+
+<pre>
+<code>sass
+ ├── bundle
+│    ├── @core
+│    ├── @mixins
+│    ├── @utilities
+│    ├── @variables
+│    ├── components
+│    ├── elements
+│    ├── library
+│    ├── layouts
+│    └── all.scss
+│
+├── pages
+└── bundle.scss
+
+css
+└── bundle.css
+
+</code>
+</pre>
+
+</div>
+<p class="styleguide"></div></p>
+<h3>JS</h3>
+
+<h4>jsの分類や作業の判断</h4>
+
+<ul>
+<li>必要そうなJSパーツはあらかじめ準備しています。<a href="js.html">js - components</a>を参考にしてください。</li>
+<li>HTMLのclassに当てる場合は「js-●●●」など装飾のclassと区別してください。</li>
+<li><code>source/assets/src/bundle/</code>以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。</li>
+<li>ページ固有のjsは別ファイルを作成してもよいです。</li>
+</ul>
+
+<h4>jsディレクトリ構造</h4>
+
+<p>デフォルトのディレクトリ構造は次のようになります。</p>
+
+<div class="c-accordion" data-accordion="" data-device-accordion="all">
+<button type="button" class="c-accordion__title ripple" aria-expanded="false" aria-label="開く" data-toggle-accordion="">Sample Code</button>
+<div class="codeBlock" aria-hidden="true" style="display: none" data-body-accordion="">
+<pre>
+<code>js
+└── bundle.js
+
+src
+├── bundle
+│    ├── accordion
+│    ├── allcheck
+│    └── ...
+│
+└── bundle.js
+</code>
+</pre>
+</div>
+<p class="styleguide"></div></p><p class="styleguide"></div></p>
+<h1 id="started2" class="styleguide">使い方・分類</h1>
+
+<div class="l-unit visual-editor">
+<h3>Layoutとは</h3>
+<ul>
+<li>ページの基本レイアウト</li>
+<li>レイアウトの基本の型は次の並びになります。 <code>.l-main &gt; .l-container &gt; .l-block &gt; .l-unit </code></li>
+<li>外枠に<code>.visual-editor</code>を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。<br>主にCMSのヴィジュアルエディタ等で使用するイメージな気がしています。<br>なので<code>.visual-editor</code>内はh3,h4,pなど基本的なタグのみで使用する想定です。詳しくは「VisualEditor」を確認ください。
+</li>
+</ul>
+<h3>Componentsとは</h3>
+<ul>
+<li>中規模の部品</li>
+<li>主に一覧ページを構成する部品のような気がしています。</li>
+<li>ベースのmargin-bottomとして<code>.is-mb-small</code>が設定されています。</li>
+<li>要素間の間隔を制御する場合の汎用マージンボトムで調整します。<br><code>.is-mb0</code>、<code>.is-mb-xs</code>、<code>.is-mb-small</code>、<code>.is-mb-medium</code>、<code>.is-mb-large</code>
+</li>
+</ul>
+<h3>Elementsとは</h3>
+<ul>
+<li>小規模の部品</li>
+<li>主に詳細ページを構成する部品のような気がしています。</li>
+<li>ベースのmargin-bottomとして<code>.is-mb-small</code>が設定されています。</li>
+<li>要素間の間隔を制御する場合の汎用マージンボトムで調整します。<br><code>.is-mb0</code>、<code>.is-mb-xs</code>、<code>.is-mb-small</code>、<code>.is-mb-medium</code>、<code>.is-mb-large</code>
+</li>
+</ul>
+<h3>Utilityとは</h3>
+<ul>
+<li>ツール、状態管理など</li>
+<li>汎用ツールです。ここぞと言うときに力を発揮してくれる頼もしい味方です。</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

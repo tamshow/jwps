@@ -21,15 +21,6 @@ categories: [utilities, tool-color]
  `is-bg-color-warning`   |
  `is-bg-color-error`     |
  `is-bg-color-info`      |
- `is-color-red`          |
- `is-color-pink`         |
- `is-color-orange`       |
- `is-color-light-green`  |
- `is-color-green`        |
- `is-color-blue`         |
- `is-color-purple`       |
- `is-color-brawn`        |
- `is-color-yellow`       |
 
 */
 
@@ -48,43 +39,25 @@ categories: [utilities, tool-color]
   }
 }
 
-@include color-base ($brand-primary-light, -primary-light);
-@include color-base ($brand-primary, -primary);
-@include color-base ($brand-primary-dark, -primary-dark);
+@include color-base ($primary-color-light, -primary-light);
+@include color-base ($primary-color, -primary);
+@include color-base ($primary-color-dark, -primary-dark);
 
-@include color-base ($brand-secondary-light, -secondary-light);
-@include color-base ($brand-secondary, -secondary);
-@include color-base ($brand-secondary-dark, -secondary-dark);
+@include color-base ($accent-color, -secondary);
 
-@include color-base ($text-color, -text);
-@include color-base ($text-color-sub, -text-sub);
-@include color-base ($text-color-week, -text-week);
+@include color-base ($primary-text-color, -text);
+@include color-base ($secondary-text-color, -text-sub);
+@include color-base ($disabled-text-color, -text-week);
 
+@include color-base ($primary-text-color-white, -text);
+@include color-base ($secondary-text-color-white, -text-sub);
+@include color-base ($disabled-text-color-white, -text-week);
 
-@include color-base ($brand-white, -white);
-@include color-base ($brand-black, -black);
-@include color-base ($brand-gray, -gray);
-
-@include color-base ($brand-red, -red);
-@include color-base ($brand-pink, -pink);
-@include color-base ($brand-orange, -orange);
-@include color-base ($brand-light-green, -light-green);
-@include color-base ($brand-green, -green);
-@include color-base ($brand-blue, -blue);
-@include color-base ($brand-purple, -purple);
-@include color-base ($brand-brawn, -brawn);
-@include color-base ($brand-yellow, -yellow);
-
-@include color-base ($brand-link, -link);
-@include color-base ($brand-link-visited, -link-visited);
-@include color-base ($brand-link-hover, -link-hover);
-
-
-@include color-base ($bg-color, -bg-color);
-@include color-base ($border-color, -border-color);
+@include color-base ($link-color, -link);
+@include color-base ($link-color-visited, -link-visited);
+@include color-base ($link-color-hover, -link-hover);
 
 @include color-base ($success-color, -success);
 @include color-base ($warning-color, -warning);
 @include color-base ($error-color, -error);
 @include color-base ($info-color, -info);
-

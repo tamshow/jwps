@@ -142,10 +142,10 @@ categories: [elements, form]
 
 */
 
-$form-field-bg: $brand-white !default;
+$form-field-bg: #fff !default;
 $form-field-bg-hover: tint($form-field-bg, 40%) !default;
-$form-field-border: $border-color !default;
-$form-field-radius: $border-radius-pc !default;
+$form-field-border: $dividers-color !default;
+$form-field-radius: 2px !default;
 $form-field-shadow: inset .3px .3px 2px rgba(0, 0, 0, .1) !default;
 
 .e-form-control {
@@ -155,7 +155,7 @@ $form-field-shadow: inset .3px .3px 2px rgba(0, 0, 0, .1) !default;
   border-radius: $form-field-radius;
   background-color: $form-field-bg;
   box-shadow: $form-field-shadow;
-  color: $text-color;
+  color: $primary-text-color;
   vertical-align: middle;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -171,7 +171,7 @@ $form-field-shadow: inset .3px .3px 2px rgba(0, 0, 0, .1) !default;
 
   &:focus {
     box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf;
-    //border-color: $brand-primary;
+    //border-color: $primary-color;
     outline: 0;
   }
 
@@ -368,8 +368,8 @@ select.e-form-control {
 }
 
 .is-error {
-  border-color: $brand-red;
-  color: $brand-red;
+  border-color: $error-color;
+  color: $error-color;
 
   &.e-form-error-text {
     display: block;
@@ -394,8 +394,8 @@ select.e-form-control {
 }
 
 .is-warning {
-  border-color: $brand-orange;
-  color: $brand-orange;
+  border-color: $warning-color;
+  color: $warning-color;
 
   &.e-form--warning-text {
     display: block;
@@ -418,7 +418,7 @@ select.e-form-control {
 }
 
 .is-valid {
-  border-color: #8cc152;
+  border-color: $success-color;
   //color: #8cc152;
 
   &.e-form--valid-text {
@@ -448,7 +448,7 @@ select.e-form-control {
   width: auto;
   margin: 0;
   padding: .25em;
-  background: $brand-primary;
+  background: $primary-color;
   color: #fff;
   z-index: 2;
 
@@ -472,7 +472,7 @@ select.e-form-control {
   background-color: $form-field-bg;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  border: 1px solid $border-color;
+  border: 1px solid $dividers-color;
 
   &::-webkit-scrollbar {
     width: 4px;

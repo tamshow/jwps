@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="assets/css/bundle.css" media="all">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#0e9a91">
+
+
+  <script src="assets/js/vendor.js"></script>
+  <script src="assets/js/bundle.js"></script>
+</head>
+
+<body class="sg-body">
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>スタイルガイド</h1>
+    <nav class="sg-header__nav js-current-nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="visualeditor.html">visualeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">layout</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#20_block">layout</a></li>
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="20_block" class="styleguide">layout</h1>
+
+<p>メインカラムレイアウトを下記のパターンから選択します。</p>
+
+<p>スマホ時はgap幅が追加されます。レイアウトで最大幅にしたい要素に対して<code>.is-gapless--sm</code>,<code>.is-gapless--md</code>を指定してください。</p>
+
+<h2 class="styleguide">1column</h2>
+<div class="codeExample">
+  <div class="exampleOutput">
+    <div class="l-container">
+  <div class="dummy-box">
+    <p>.l-container</p>
+      <div class="l-block"><div class="dummy-box">.l-block</div></div>
+  </div>
+</div>
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dummy-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>.l-container<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-block"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"dummy-box"</span><span class="nt">&gt;</span>.l-block<span class="nt">&lt;/div&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h2 class="styleguide">1column-full</h2>
+<div class="codeExample">
+  <div class="exampleOutput">
+    <div class="l-container">
+    <div class="dummy-box">
+    <p>.l-container</p>
+      <div class="l-block-fluid"><div class="dummy-box">.l-block-fluid</div></div>
+  </div>
+  </div>
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dummy-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>.l-container<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-block-fluid"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"dummy-box"</span><span class="nt">&gt;</span>.l-block-fluid<span class="nt">&lt;/div&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="codeExample">
+  <div class="exampleOutput">
+        <div class="l-container-fluid">
+    <div class="dummy-box">
+    <p>.l-container-fluid</p>
+     <div class="l-block-fluid"><div class="dummy-box">.l-block-fluid</div></div>
+    </div>
+  </div>
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-container-fluid"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dummy-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>.l-container-fluid<span class="nt">&lt;/p&gt;</span>
+     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-block-fluid"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"dummy-box"</span><span class="nt">&gt;</span>.l-block-fluid<span class="nt">&lt;/div&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h2 class="styleguide">2column</h2>
+<div class="codeExample">
+  <div class="exampleOutput">
+    <div class="l-container">
+  <div class="dummy-box">
+    <p>.l-container</p>
+      <div class="l-block-primary"><div class="dummy-box">.l-block-primary</div></div>
+      <div class="l-block-secondary"><div class="dummy-box">.l-block-secondary</div></div>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dummy-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>.l-container<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-block-primary"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"dummy-box"</span><span class="nt">&gt;</span>.l-block-primary<span class="nt">&lt;/div&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-block-secondary"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"dummy-box"</span><span class="nt">&gt;</span>.l-block-secondary<span class="nt">&lt;/div&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

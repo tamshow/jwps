@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="assets/css/bundle.css" media="all">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#0e9a91">
+
+
+  <script src="assets/js/vendor.js"></script>
+  <script src="assets/js/bundle.js"></script>
+</head>
+
+<body class="sg-body">
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>スタイルガイド</h1>
+    <nav class="sg-header__nav js-current-nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="visualeditor.html">visualeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">tab</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#tab">tab</a></li>
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="tab" class="styleguide">tab</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+<div class="c-tab" data-tab>
+  <ul class="c-tab__nav" role="tablist">
+    <li id="aria-tab-nav1" role="tab" tabindex="0" aria-selected="true"><button type="button" data-tablist aria-controls="area-tab-panel1">タイトル1</button></li>
+    <li id="aria-tab-nav2" role="tab" tabindex="-1" aria-selected="false"><button type="button" data-tablist aria-controls="area-tab-panel2">タイトル2</button></li>
+    <li id="aria-tab-nav3" role="tab" tabindex="-1" aria-selected="false"><button type="button" data-tablist aria-controls="area-tab-panel3">タイトル3</button></li>
+  </ul>
+  <div class="c-tab__body">
+    <div data-tabpanel id="area-tab-panel1" aria-labelledby="aria-tab-nav1" aria-hidden="false" role="tabpanel">タイトル1</div>
+    <div data-tabpanel id="area-tab-panel2" aria-labelledby="aria-tab-nav2" aria-hidden="true" role="tabpanel">タイトル2</div>
+    <div data-tabpanel id="area-tab-panel3" aria-labelledby="aria-tab-nav3" aria-hidden="true" role="tabpanel">タイトル3</div>
+  </div>
+</div>
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-tab"</span> <span class="na">data-tab</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"c-tab__nav"</span> <span class="na">role=</span><span class="s">"tablist"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"aria-tab-nav1"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-selected=</span><span class="s">"true"</span><span class="nt">&gt;&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-tablist</span> <span class="na">aria-controls=</span><span class="s">"area-tab-panel1"</span><span class="nt">&gt;</span>タイトル1<span class="nt">&lt;/button&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"aria-tab-nav2"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">aria-selected=</span><span class="s">"false"</span><span class="nt">&gt;&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-tablist</span> <span class="na">aria-controls=</span><span class="s">"area-tab-panel2"</span><span class="nt">&gt;</span>タイトル2<span class="nt">&lt;/button&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"aria-tab-nav3"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">aria-selected=</span><span class="s">"false"</span><span class="nt">&gt;&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-tablist</span> <span class="na">aria-controls=</span><span class="s">"area-tab-panel3"</span><span class="nt">&gt;</span>タイトル3<span class="nt">&lt;/button&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-tab__body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">data-tabpanel</span> <span class="na">id=</span><span class="s">"area-tab-panel1"</span> <span class="na">aria-labelledby=</span><span class="s">"aria-tab-nav1"</span> <span class="na">aria-hidden=</span><span class="s">"false"</span> <span class="na">role=</span><span class="s">"tabpanel"</span><span class="nt">&gt;</span>タイトル1<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">data-tabpanel</span> <span class="na">id=</span><span class="s">"area-tab-panel2"</span> <span class="na">aria-labelledby=</span><span class="s">"aria-tab-nav2"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">role=</span><span class="s">"tabpanel"</span><span class="nt">&gt;</span>タイトル2<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">data-tabpanel</span> <span class="na">id=</span><span class="s">"area-tab-panel3"</span> <span class="na">aria-labelledby=</span><span class="s">"aria-tab-nav3"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">role=</span><span class="s">"tabpanel"</span><span class="nt">&gt;</span>タイトル3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

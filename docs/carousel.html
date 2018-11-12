@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="assets/css/bundle.css" media="all">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#0e9a91">
+
+
+  <script src="assets/js/vendor.js"></script>
+  <script src="assets/js/bundle.js"></script>
+</head>
+
+<body class="sg-body">
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>スタイルガイド</h1>
+    <nav class="sg-header__nav js-current-nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="visualeditor.html">visualeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">carousel</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#carousel">carousel</a></li>
+         
+       
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="carousel" class="styleguide">carousel</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+<div class="swiper-main">
+  <div id="js-swiper-main" class="swiper-container">
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide">
+        <a href=""><img src="assets/img/top/main-visual.png" alt=""></a>
+      </li>
+      <li class="swiper-slide">
+        <a href=""><img src="assets/img/top/main-visual.png" alt=""></a>
+      </li>
+      <li class="swiper-slide">
+        <a href=""><img src="assets/img/top/main-visual.png" alt=""></a>
+      </li>
+    </ul>
+
+    <div class="swiper-controls">
+      <button class="swiper-start on"><i class="material-icons">play_arrow</i></button>
+      <button class="swiper-stop"><i class="material-icons">pause</i></button>
+    </div>
+
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css" />
+<script  src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.js"></script>
+<script>
+
+    var swiperMain = new Swiper('#js-swiper-main', {
+      pagination: '.swiper-main .swiper-pagination',
+      paginationClickable: true,
+      centeredSlides: false,
+      loop: true,
+      loopAdditionalSlides: 1,
+      spaceBetween: 0,
+      slidesPerView: 1,
+      autoplay: 3000,
+      onInit() {
+        var start = $('.swiper-main .swiper-start');
+        var stop = $('.swiper-main .swiper-stop');
+        start.on('click', function()  {
+          if (!start.hasClass('on')) {
+            swiperMain.startAutoplay();
+            start.addClass('on');
+            stop.removeClass('on');
+          }
+        });
+        stop.on('click', function() {
+          if (!stop.hasClass('on')) {
+            swiperMain.stopAutoplay();
+            stop.addClass('on');
+            start.removeClass('on');
+          }
+        });
+      }
+    });
+
+
+</script>
+
+
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swiper-main"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"js-swiper-main"</span> <span class="na">class=</span><span class="s">"swiper-container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"swiper-wrapper"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"swiper-slide"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/assets/img/top/main-visual.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"swiper-slide"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/assets/img/top/main-visual.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"swiper-slide"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/assets/img/top/main-visual.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swiper-controls"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"swiper-start on"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"material-icons"</span><span class="nt">&gt;</span>play_arrow<span class="nt">&lt;/i&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"swiper-stop"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"material-icons"</span><span class="nt">&gt;</span>pause<span class="nt">&lt;/i&gt;&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swiper-pagination"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;script  </span><span class="na">src=</span><span class="s">"http://code.jquery.com/jquery-2.2.4.js"</span> <span class="na">integrity=</span><span class="s">"sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+
+    <span class="kd">var</span> <span class="nx">swiperMain</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Swiper</span><span class="p">(</span><span class="s1">'#js-swiper-main'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">pagination</span><span class="p">:</span> <span class="s1">'.swiper-main .swiper-pagination'</span><span class="p">,</span>
+      <span class="na">paginationClickable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">centeredSlides</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="na">loop</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">loopAdditionalSlides</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="na">spaceBetween</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="na">slidesPerView</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="na">autoplay</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+      <span class="nx">onInit</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.swiper-main .swiper-start'</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">stop</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.swiper-main .swiper-stop'</span><span class="p">);</span>
+        <span class="nx">start</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span>  <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">start</span><span class="p">.</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">'on'</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">swiperMain</span><span class="p">.</span><span class="nx">startAutoplay</span><span class="p">();</span>
+            <span class="nx">start</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'on'</span><span class="p">);</span>
+            <span class="nx">stop</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'on'</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+        <span class="nx">stop</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">stop</span><span class="p">.</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">'on'</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">swiperMain</span><span class="p">.</span><span class="nx">stopAutoplay</span><span class="p">();</span>
+            <span class="nx">stop</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'on'</span><span class="p">);</span>
+            <span class="nx">start</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'on'</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+
+
+<span class="nt">&lt;/script&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<h2 id="carousel-3to1" class="styleguide">carousel-3to1</h2>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+<div class="swiper-3to2to1">
+  <div id="js-swiper-3to2to1" class="swiper-container">
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide e-card">
+        <a href="">
+          <div class="e-card__img"><img src="assets/img/common/card.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+      <li class="swiper-slide e-card">
+        <a href="">
+          <div class="e-card__img"><img src="assets/img/common/card.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+      <li class="swiper-slide e-card">
+        <a href="">
+          <div class="e-card__img"><img src="assets/img/common/card.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+      <li class="swiper-slide e-card">
+        <a href="">
+          <div class="e-card__img"><img src="assets/img/common/card.png" alt=""></div>
+          <div class="e-card__body">
+            <p class="e-card__title">タイトル</p>
+            <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css" />
+<script  src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.js"></script>
+<script>
+
+    var swiper3to2to1 = new Swiper('#js-swiper-3to2to1', {
+      pagination: '.swiper-3to2to1 .swiper-pagination',
+      paginationClickable: true,
+      nextButton: '.swiper-3to2to1 .swiper-button-next',
+      prevButton: '.swiper-3to2to1 .swiper-button-prev',
+      centeredSlides: false,
+      loop: true,
+      loopAdditionalSlides: 1,
+      spaceBetween: 20,
+      slidesPerView: 3,
+      autoplay: 0,
+      breakpoints: {
+        599: {
+          centeredSlides: true,
+          slidesPerView: 1.5
+        }
+      }
+    });
+
+</script>
+
+
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swiper-3to2to1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"js-swiper-3to2to1"</span> <span class="na">class=</span><span class="s">"swiper-container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"swiper-wrapper"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"swiper-slide e-card"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/assets/img/common/card.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__title"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__text"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキスト<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"swiper-slide e-card"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/assets/img/common/card.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__title"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__text"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキスト<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"swiper-slide e-card"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/assets/img/common/card.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__title"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__text"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキスト<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"swiper-slide e-card"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__img"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/assets/img/common/card.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"e-card__body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__title"</span><span class="nt">&gt;</span>タイトル<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"e-card__text"</span><span class="nt">&gt;</span>テキストテキストテキストテキストテキスト<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swiper-pagination"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swiper-button-next"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swiper-button-prev"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;script  </span><span class="na">src=</span><span class="s">"http://code.jquery.com/jquery-2.2.4.js"</span> <span class="na">integrity=</span><span class="s">"sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+
+    <span class="kd">var</span> <span class="nx">swiper3to2to1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Swiper</span><span class="p">(</span><span class="s1">'#js-swiper-3to2to1'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">pagination</span><span class="p">:</span> <span class="s1">'.swiper-3to2to1 .swiper-pagination'</span><span class="p">,</span>
+      <span class="na">paginationClickable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">nextButton</span><span class="p">:</span> <span class="s1">'.swiper-3to2to1 .swiper-button-next'</span><span class="p">,</span>
+      <span class="na">prevButton</span><span class="p">:</span> <span class="s1">'.swiper-3to2to1 .swiper-button-prev'</span><span class="p">,</span>
+      <span class="na">centeredSlides</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="na">loop</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">loopAdditionalSlides</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="na">spaceBetween</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="na">slidesPerView</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="na">autoplay</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="na">breakpoints</span><span class="p">:</span> <span class="p">{</span>
+        <span class="mi">599</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">centeredSlides</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="na">slidesPerView</span><span class="p">:</span> <span class="mf">1.5</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+
+<span class="nt">&lt;/script&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -11,14 +11,7 @@
 
 <!--#include virtual="/_partials/header.html"-->
 
-<main>
-  <div class="c-main-visual">
-    <div class="c-main-visual__bg-img" style="background-image: url(/assets/img/dummy/1280x450.png)">
-      <h1 class="c-main-visual__title">お問い合わせ</h1>
-      <p class="c-main-visual__sub-title">ご不明な点はお気軽にご連絡ください。</p>
-    </div>
-  </div>
-
+<main class="l-main">
 
   <div class="c-breadcrumb" role="navigation" aria-label="現在地表示">
     <div class="c-breadcrumb__inner">
@@ -27,20 +20,21 @@
     </div>
   </div>
 
-    <section class="l-container">
-      <div class="l-block">
+  <section class="l-container">
+    <div class="l-block">
 
+      <div class="e-heading-group">
+        <h1 class="e-heading1">メールフォーム</h1>
+      </div>
 
-        <div class="l-unit visual-editor">
-          <h2>お問い合わせについて</h2>
-          <p>下記の内容で送信します。</p>
-        </div>
+      <div class="l-unit">
+        <p class="e-text">下記の内容で送信します。</p>
+        <p class="e-heading-copy">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+      </div>
 
+      <form>
         <div class="l-unit">
-        <form>
           <table class="e-form-table">
-
-
             <tr>
               <th>お問い合わせ種別 <span class="e-form-req">必須</span></th>
               <td>
@@ -168,27 +162,17 @@
               </td>
             </tr>
           </table>
-
-          <div class="e-button-group">
-            <a href="" class="e-button">入力画面へ戻る</a>
-            <button type="submit" class="e-button">入力内容を送信する<i class="material-icons is-icon-right">arrow_forward</i>
-            </button>
-          </div>
-        </form>
         </div>
         <div class="l-unit">
-          <div class="e-box">
-            <h3 class="e-heading3">メールフォームが送信できない場合</h3>
-            <p>お手数ですが電話・FAXでお問い合わせください。</p>
-            <p>TEL <a href="">{{site-tel}}</a></p>
-            <p>FAX {{site-fax}}</p>
-            <p>受付時間：8:30～17:30</p>
+          <div class="e-button-group">
+            <a href="" class="e-button e-button--large">入力画面へ戻る</a>
+            <button type="submit" class="e-button e-button--accent">入力内容を送信する</button>
           </div>
         </div>
+      </form>
 
-
-      </div>
-    </section>
+    </div>
+  </section>
 </main>
 <!--#include virtual="/_partials/footer.html"-->
 <!--#include virtual="/_partials/html-foot.html"-->

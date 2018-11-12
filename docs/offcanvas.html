@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja" id="sg-html" class="sg-html" data-html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japan Web Production Standards</title>
+
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <link rel="stylesheet" href="assets/css/bundle.css" media="all">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#0e9a91">
+
+
+  <script src="assets/js/vendor.js"></script>
+  <script src="assets/js/bundle.js"></script>
+</head>
+
+<body class="sg-body">
+<header class="sg-header">
+  <div class="sg-header__inner">
+    <h1>スタイルガイド</h1>
+    <nav class="sg-header__nav js-current-nav">
+	  <a href="index.html">Top</a>
+      <a href="started.html">Started</a>
+      <a href="variables.html">variables</a>
+      <a href="mixins.html">mixins</a>
+      <a href="layouts.html">layouts</a>
+	   <a href="visualeditor.html">visualeditor</a>
+      <a href="elements.html">elements</a>
+      <a href="components.html">components</a>
+	  <a href="js.html">JS<span style="font-size:10px"> - components</span></a>
+      <a href="utilities.html">utilities</a>
+	  <a href="wcag20-a.html">Accessibility</a>
+    </nav>
+  </div>
+   
+</header>
+
+
+<div class="sg-container">
+	 <h2 class="sg-heading2">offcanvas</h2>
+	<div class="sg-widget-head">
+	 <ul class="e-list-inline">
+       
+         
+          <li><a href="#offcanvas">offcanvas</a></li>
+         
+       
+     </ul>
+ 	</div>
+ <div class="sg-content-block">
+
+     
+	 	 
+     
+	 
+	 
+	 
+	 
+	 
+	 
+	 <h1 id="offcanvas" class="styleguide">offcanvas</h1>
+<div class="codeExample">
+  <div class="exampleOutput">
+    
+<div>
+    <div class="c-control-offcanvas">
+          <button
+              type="button"
+              aria-controls="aria-offcanvas"
+              aria-expanded="false"
+              aria-label="開く"
+              data-toggle-offcanvas>
+            <span class="c-control-offcanvas__icon"><span></span><span></span><span></span></span>
+            <span class="c-control-offcanvas__title">メニュー</span>
+          </button>
+    </div>
+    </div>
+
+  <div class="c-offcanvas" aria-hidden="true" data-body-offcanvas>
+    <div id="aria-offcanvas" class="c-offcanvas__body">
+      <nav role="navigation" aria-label="スマートフォン用サイト全体のメニュー">
+        <ul class="c-offcanvas__list">
+          <li><a href="" class="is-active">offcanvas</a></li>
+          <li><a href="#ripple" data-scroll-offcanvas>ripple(ページ内スクロール)</a></li>
+          <li><a href="">会社案内</a></li>
+          <li><a href="">お問い合わせ</a></li>
+        </ul>
+        <ul class="c-offcanvas__list2">
+          <li><a href="">交通アクセス</a></li>
+          <li><a href="">よくある質問</a></li>
+          <li><a href="">お問い合わせ</a></li>
+        </ul>
+
+      </nav>
+    </div>
+  </div>
+
+<div id="js-offcanvas-bg"></div>
+
+  </div>
+
+  <div class="c-accordion" data-accordion data-device-accordion="all">
+    <button type="button" class="c-accordion__title ripple" aria-expanded="true" aria-label="開く" data-toggle-accordion>Sample Code</button>
+      <div class="codeBlock" aria-hidden="true" style="display:none;" data-body-accordion>
+        <div class="highlight">
+          <pre><span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-control-offcanvas"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span>
+              <span class="na">type=</span><span class="s">"button"</span>
+              <span class="na">aria-controls=</span><span class="s">"aria-offcanvas"</span>
+              <span class="na">aria-expanded=</span><span class="s">"false"</span>
+              <span class="na">aria-label=</span><span class="s">"開く"</span>
+              <span class="na">data-toggle-offcanvas</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"c-control-offcanvas__icon"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"c-control-offcanvas__title"</span><span class="nt">&gt;</span>メニュー<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"c-offcanvas"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">data-body-offcanvas</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"aria-offcanvas"</span> <span class="na">class=</span><span class="s">"c-offcanvas__body"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span> <span class="na">aria-label=</span><span class="s">"スマートフォン用サイト全体のメニュー"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"c-offcanvas__list"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/"</span> <span class="na">class=</span><span class="s">"is-active"</span><span class="nt">&gt;</span>offcanvas<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#ripple"</span> <span class="na">data-scroll-offcanvas</span><span class="nt">&gt;</span>ripple(ページ内スクロール)<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/"</span><span class="nt">&gt;</span>会社案内<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/"</span><span class="nt">&gt;</span>お問い合わせ<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"c-offcanvas__list2"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>交通アクセス<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>よくある質問<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>お問い合わせ<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+
+      <span class="nt">&lt;/nav&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"js-offcanvas-bg"</span><span class="nt">&gt;&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<footer class="sg-footer">
+  <div class="sg-footer__inner">
+    <p>© Japan Web Production Standards</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -20,21 +20,13 @@ html {
 
   @include media-sp-max {
     //overflow-x: hidden;
-    min-width: 320;
+    min-width: 320px;
   }
 }
 
 .l-main {
+  overflow-x: hidden;
   min-height: 20vh;
-  background-color: $brand-white;
-  margin-bottom: 50px;
   display:block; /* IE対策に追加 */
 
-  @include media-sp-max {
-    margin-top: 16px;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 0;
-    padding-bottom: 46px; //breadcrumb-height
-  }
 }

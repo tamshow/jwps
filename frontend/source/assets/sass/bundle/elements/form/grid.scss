@@ -25,12 +25,17 @@
 .e-form-col10,
 .e-form-col11,
 .e-form-col12 {
-  margin-top: .5em;
+  margin-bottom: .5em;
   padding-right: 1.5%;
   padding-left: 1.5%;
   float: left;
   box-sizing: border-box;
   min-height: 38px;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
 }
 
 .e-form-text-dash {

@@ -4,22 +4,31 @@
 // ------------------------------------------------------------
 
 //レスポシブ基準幅
-$screen-sp: 700 !default;
-$screen-tab: 960 !default;
-$screen-pc: 1180 !default;
+$screen-max-sp: 700 !default;
+
+$screen-sp:  600 !default;
+$screen-tab: 768 !default;
+$screen-pc:  1192 !default;
+
 $screen-min: 375 !default;
 $screen-max: 1600 !default;
 
 //カラムレイアウトの幅
-$screen-main-wide-colum: 1180 !default;
-$screen-main-colum: 880 !default;
-$screen-sub-colum: 280 !default;
+$screen-main-wide-colum: 1192 !default;
+$screen-main-colum: 842 !default;
+$screen-sub-colum: 300 !default;
 
 //左右余白
-$screen-gap-sp: 16 !default;
+$screen-gap-sp:  16 !default;
 $screen-gap-tab: 16 !default;
-$screen-gap-pc: 16 !default;
+$screen-gap-pc:  16 !default;
 
+
+//グリッドの数
+$screen-grid: 12!default;
+
+//グリッドのガター
+$screen-grid-gap: 16!default;
 //--------------------------------------------------------
 
 //--------------------------------------------------------
@@ -63,16 +72,3 @@ $width-lg-max: $screen-lg-max + px !default;
 $width-max: $screen-max + px !default;
 
 
-/*doc
----
-title: width
-name: width
-category: variables
----
-
-
-```
-
-```
-
-*/
