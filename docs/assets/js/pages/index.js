@@ -1,4 +1,0 @@
-$(function () {
-
-//pages/index.js
-});
