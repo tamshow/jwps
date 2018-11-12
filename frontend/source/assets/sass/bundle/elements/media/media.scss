@@ -19,7 +19,7 @@ categories: [elements, media]
 ```html_example
 
 <div class="e-media">
-  <div class="e-media__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+  <div class="e-media__img"><img src="/assets/img/common/media.png" alt=""></div>
   <div class="e-media__body">
     <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
     <p class="e-media__text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
@@ -51,22 +51,21 @@ categories: [elements, media]
       margin-bottom: 10px;
     }
 
-    overflow: hidden;
-    position: relative;
-    margin-right: 10px;
+    margin-right: 16px;
     float: left;
-    width: 192px;
-    height: 128px;
+    width: 110px;
+
+    //overflow: hidden;
+    //position: relative;
+
 
     @include media-sp-max {
-      margin-right: 10px;
-      width: 104px;
-      height: 69px;
+      width: 80px;
     }
 
     img {
+      //position: absolute;
       object-fit: cover;
-      position: absolute;
       top: 0;
       left: 0;
       bottom: 0;
@@ -89,13 +88,20 @@ categories: [elements, media]
     display: inline-block;
   }
   &__title {
-    @include fsize-h4;
-    margin-bottom: 3px;
+    @include fsize-h3;
+    font-weight: bold;
+    margin-bottom: 12px;
     line-height: 1.4;
+    margin-top:-.2em;
+
+
+    @include media-sp-max {
+      margin-bottom: 10px;
+    }
+
   }
 
   &__text {
-    color: $text-color-sub;
     font-size: 14px;
 
     + .e-media__text {
@@ -104,33 +110,6 @@ categories: [elements, media]
       @include media-sp-max {
         margin-top: $margin-small-sp;
       }
-    }
-  }
-
-}
-
-//e-media--break
-
-.e-media--small {
-
-  .e-media__title {
-    font-size: 14px;
-  }
-
-  .e-media__text {
-    font-size: 12px;
-  }
-
-  .e-media__img {
-    margin-right: 16px;
-    float: left;
-    width: 82px;
-    height: 82px;
-
-    @include media-sp-max {
-      margin-right: 10px;
-      width: 104px;
-      height: 69px;
     }
   }
 

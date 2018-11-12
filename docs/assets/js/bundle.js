@@ -180,15 +180,15 @@ window.addEventListener('DOMContentLoaded', function(){
   window.onscroll = function() {
     scrollTop = document.documentElement.scrollTop;
     if (scrollTop >= startPos) {
-      bodyElem.setAttribute("data-scroll-pos", "down");
+      bodyElem.setAttribute("data-scroll-pos", "is-down");
     } else {
-      bodyElem.setAttribute("data-scroll-pos", "up");
+      bodyElem.setAttribute("data-scroll-pos", "is-up");
     }
     startPos = scrollTop;
 
     clearTimeout(scrollStop);
     scrollStop = setTimeout(function () {
-      bodyElem.setAttribute("data-scroll-pos", "stay");
+      bodyElem.setAttribute("data-scroll-pos", "is-stay");
     }, 1000);
   };
 
@@ -263,6 +263,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
 
 
+
 $(function () {
 
 
@@ -300,7 +301,7 @@ $(function () {
    */
 
 
-  $(Selector.TARGET).on('click E_ENTER_KYE_CODE', function (e) {
+  $(Selector.TARGET).on('click touchend E_ENTER_KYE_CODE', function (e) {
 
     var media = $(e.currentTarget).parents(Selector.DEVICE).data('device-accordion') || 'all';
     var isMobile = window.matchMedia('(max-width:' + Default.SP_W + ')').matches || false;
@@ -317,7 +318,7 @@ $(function () {
 
 
 
-  $(Selector.ANKER).on('click', function() {
+  $(Selector.ANKER).on('click touchend', function() {
     innerAnker()
   });
 
@@ -478,7 +479,7 @@ $(function () {
    */
 
 
-    $(Selector.OPEN).on('click', function(e) {
+    $(Selector.OPEN).on('click touchend', function(e) {
       show(e);
     });
 
@@ -489,11 +490,11 @@ $(function () {
       }
     });
 
-    $(Selector.CLOSE).on('click', function(e) {
+    $(Selector.CLOSE).on('click touchend', function(e) {
       hide(e);
     });
 
-    $(Selector.BG).on('click', function(e) {
+    $(Selector.BG).on('click touchend', function(e) {
       hide(e);
     });
 
@@ -576,7 +577,7 @@ $(function () {
    */
 
 
-  $(Selector.TARGET).on('click', function (e) {
+  $(Selector.TARGET).on('click touchend', function (e) {
     if ($(Selector.BODY).attr('aria-hidden') === 'true') {
       settingOpen(e);
     } else {
@@ -585,15 +586,15 @@ $(function () {
   });
 
 
-  $(Selector.BODY).on('click', 'a', function () {
+  $(Selector.BODY).on('click touchend', 'a', function () {
     settingClose();
   });
 
-  $(Selector.BG).on('click', function () {
+  $(Selector.BG).on('click touchend', function () {
     settingClose();
   });
 
-  $(Selector.BODY).on('click', Selector.SCROLL, function (e) {
+  $(Selector.BODY).on('click touchend', Selector.SCROLL, function (e) {
     settingClose();
     clickScrollTo(e);
   });
@@ -707,7 +708,7 @@ $(function () {
    */
 
 
-  $(document).on('click', Selector.TARGET + ' a', function (e) {
+  $(document).on('click touchend', Selector.TARGET + ' a', function (e) {
     pageScroll(e);
   });
 
@@ -856,6 +857,88 @@ $(function () {
    * ------------------------------------------------------------------------
    */
 
+  var NAME = 'switch';
+  var VERSION = '0.5.0';
+
+  var Selector = {
+    SWITCH        : '[data-switch]',
+    TARGET        : '[data-toggle-switch]',
+    BODY          : '[data-body-switch]',
+    DEVICE        : '[data-device-switch]'//all, pc, tab, sp
+  };
+
+
+  var Default = {
+    TAB_W  : '960px',
+    SP_W   : '600px'
+  };
+
+
+  $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+  $(Selector.TARGET).on('click touchend E_ENTER_KYE_CODE', function (e) {
+
+    var media = $(e.currentTarget).parents(Selector.DEVICE).data('device-switch') || 'all';
+    var isMobile = window.matchMedia('(max-width:' + Default.SP_W + ')').matches || false;
+    var isTablet = window.matchMedia('(min-width:' + Default.SP_W + ') and (max-width:' + Default.TAB_W + ')').matches || false;
+
+    if (media.match(/all/) ||
+        (media.match(/sp/) && isMobile) ||
+        (media.match(/tab/) && isTablet) ||
+        (media.match(/pc/) && ( !isMobile && !isTablet))
+    ) {
+      toggle(e);
+    }
+  });
+  
+
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
+
+  
+  function toggle(e) {
+    e.preventDefault();
+    var $current_target = $(e.currentTarget);
+    var $containerSW = $current_target.parents(Selector.SWITCH);
+    var $bodySW = $containerSW.find(Selector.BODY);
+
+    if ($containerSW.hasClass('is-active')) {
+      $containerSW.removeClass('is-active');
+      $current_target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
+      $bodySW.stop().attr('aria-hidden', 'true');
+    } else {
+      $containerSW.addClass('is-active');
+      $current_target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
+      $bodySW.stop().attr('aria-hidden', 'false');
+
+    }
+  }
+
+
+
+
+
+});
+$(function () {
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
   var NAME = 'tab';
   var VERSION = '0.5.0';
 
@@ -873,7 +956,7 @@ $(function () {
    * ------------------------------------------------------------------------
    */
 
-  $(Selector.LIST).on('click', function (e) {
+  $(Selector.LIST).on('click touchend', function (e) {
     e.preventDefault();
     var $target = $(e.currentTarget);
     listSelect($target);

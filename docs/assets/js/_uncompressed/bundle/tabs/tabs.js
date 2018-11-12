@@ -24,7 +24,7 @@ $(function () {
    * ------------------------------------------------------------------------
    */
 
-  $(Selector.LIST).on('click', function (e) {
+  $(Selector.LIST).on('click touchend', function (e) {
     e.preventDefault();
     var $target = $(e.currentTarget);
     listSelect($target);

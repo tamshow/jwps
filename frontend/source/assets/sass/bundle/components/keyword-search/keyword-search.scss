@@ -16,19 +16,13 @@ categories: [components, keyword-search]
 <h3 class="styleguide">Keyword Search</h3>
 
 ```html_example
-  <div class="c-keyword-search" role="search">
-    <div class="c-keyword-search__body">
-      <input type="text" name="#" class="c-keyword-search__input" value="" placeholder="キーワードを入力してください" autocomplete="off" aria-autocomplete="list" role="textbox">
-      <button type="submit" class="c-keyword-search__button"><i class="material-icons">search</i></button>
-    </div>
+<div class="c-keyword-search" role="search">
+  <div class="c-keyword-search__body">
+    <p class="c-keyword-search__title">検索キーワード</p>
+    <input type="text" name="#" class="c-keyword-search__input" value="" placeholder="キーワードを入力してください" autocomplete="off" aria-autocomplete="list" role="textbox">
+    <button type="submit" class="c-keyword-search__button"><i class="material-icons">search</i></button>
   </div>
-```
-*/
-
-
-/*
-
- <div class="c-keyword-search__control">
+  <div class="c-keyword-search__control">
     <p class="c-keyword-search__control-lead">100アイテムが検索キーワードに該当</p>
     <div class="c-keyword-search__control-item">
       <p class="c-keyword-search__control-title">絞り込み</p>
@@ -49,47 +43,78 @@ categories: [components, keyword-search]
       </select>
     </div>
   </div>
+</div>
+```
+*/
+
+
+/*
+
 
 */
 
 
+
 .c-keyword-search {
   overflow: hidden;
-  background-color: #f7f7f7;
-  //color: $text-color-sub;
-  padding: 16px;
+  background-color: $primary-color-light;
+  border-radius: $border-radius-pc;
+
+  padding: 25px 21px 25px 21px;
+
+  @include media-sp-max {
+    padding: 12px 16px 16px 16px;
+  }
 
   @include mb-small;
 
   &__body {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-start;
-    @include elevation(1);
-    border-radius: $border-radius-pc;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    @include media-sp-max {
+      display: block;
+    }
   }
 
+
+  &__title {
+    color: $primary-color-dark;
+    font-size: 14px;
+    font-weight:bold;
+    white-space: nowrap;
+    margin-right: 20px;
+
+    @include media-sp-max {
+      margin-bottom: 10px;
+    }
+  }
+
+
   &__input {
-    width: 100%;
-    padding: 10px 15px;
-    border: 1px solid $border-color;
-    border-radius: $border-radius-pc 0 0 $border-radius-pc;
+    width: 70%;
+    padding: 10px 1.5em 10px 15px;
+    border: 0;
+    border-radius: $border-radius-pc;
     box-sizing: border-box;
+    @include media-sp-max {
+      width: 100%;
+    }
   }
 
   &__button {
-    display: block;
     user-select: none;
     font-weight: normal;
-    margin: 0 auto;
-    //width: 100%;
-    width: 80px;
-    border-radius: 0 $border-radius-pc $border-radius-pc 0;
-    padding: 10px;
-    font-size: 18px;
+    margin: 0;
     border: 0;
-    color: $text-color;
-    background-color: $brand-secondary;
+    position: absolute;
+    right: 0;
+    bottom: .5em;
+    background-color: transparent;
+    color: #fff;
     -webkit-font-smoothing: antialiased;
     appearance: none;
   }
@@ -116,7 +141,7 @@ categories: [components, keyword-search]
     &:before {
       text-align: center;
       content: "|";
-      color: $text-color-week;
+      color: $disabled-text-color;
       width: 1em;
       padding-right: 1em;
       padding-left: 1em;

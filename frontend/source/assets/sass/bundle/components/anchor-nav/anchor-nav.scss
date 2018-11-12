@@ -25,7 +25,7 @@ categories: [js, anchor-nav]
 */
 
 .c-anchor-nav {
-  border: 1px solid $border-color;
+  border: 1px solid $dividers-color;
   @include mb-small;
 
   &__body {
@@ -33,7 +33,7 @@ categories: [js, anchor-nav]
     position: relative;
   }
   &__title {
-    color: $text-color-sub;
+    color: $secondary-text-color;
     font-weight: bold;
     font-size: 14px;
     background: #fff;
@@ -63,8 +63,8 @@ categories: [js, anchor-nav]
         width: 5px;
         height: 5px;
         transform: rotate(225deg);
-        border-top: 1px solid $text-color-sub;
-        border-left: 1px solid $text-color-sub;
+        border-top: 1px solid $secondary-text-color;
+        border-left: 1px solid $secondary-text-color;
         content: "";
         vertical-align: middle;
         position: relative;

@@ -5,9 +5,11 @@
 
 .l-block {
   width: ($screen-main-colum / $screen-pc-max) * 100%;
-  max-width: $screen-main-wide-colum + px;
+  max-width: $screen-main-colum + px;
   margin-left: auto;
   margin-right: auto;
+
+  @include mb-large;
 
   @include media-tab-max {
     width: 100%;
@@ -21,6 +23,8 @@
 
 
 .l-block-fluid {
+  @include mb-large;
+
   width: 100%;
 }
 
@@ -28,11 +32,12 @@
 /* @ l-block-primary
  * ------------------------------------------------------------ */
 .l-block-primary {
+  @include mb-large;
+
+  float: left;
 
   width: ($screen-main-colum / $screen-pc-max) * 100%;
-  float: left;
   @include media-sp-max {
-    margin-bottom:$margin-medium-sp;
     float: none;
     width: 100%;
   }
@@ -44,13 +49,29 @@
  * ------------------------------------------------------------ */
 
 .l-block-secondary {
+  @include mb-large;
+
+  float: right;
 
   width: ($screen-sub-colum / $screen-pc-max) * 100%;
-  float: right;
 
   @include media-sp-max {
     float: none;
+
     width: 100%;
+    
+    &:before {
+      display: block;
+
+      height: 1px;
+      margin-right: -$width-gap-sp;
+      margin-bottom: $margin-large-sp;
+      margin-left: -$width-gap-sp;
+
+      content: '';
+
+      background-color: $dividers-color;
+    }
   }
 }
 

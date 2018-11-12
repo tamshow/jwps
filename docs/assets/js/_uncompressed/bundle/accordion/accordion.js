@@ -35,7 +35,7 @@ $(function () {
    */
 
 
-  $(Selector.TARGET).on('click E_ENTER_KYE_CODE', function (e) {
+  $(Selector.TARGET).on('click touchend E_ENTER_KYE_CODE', function (e) {
 
     var media = $(e.currentTarget).parents(Selector.DEVICE).data('device-accordion') || 'all';
     var isMobile = window.matchMedia('(max-width:' + Default.SP_W + ')').matches || false;
@@ -52,7 +52,7 @@ $(function () {
 
 
 
-  $(Selector.ANKER).on('click', function() {
+  $(Selector.ANKER).on('click touchend', function() {
     innerAnker()
   });
 

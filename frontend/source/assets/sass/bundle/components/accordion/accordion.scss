@@ -84,12 +84,10 @@ categories: [js, accordion]
 
 .c-accordion {
   border-bottom: 0;
-  background: $brand-white;
-
+  background: #ffffff;
   @include mb-small;
 
   + .c-accordion {
-
     margin-top: -$margin-small-pc;
 
     @include media-sp-max {
@@ -112,13 +110,13 @@ categories: [js, accordion]
     background-color: transparent;
     font-weight: bold;
     padding: 1rem 25px .8rem 20px;
-    border: 1px solid $border-color;
+    border: 1px solid $dividers-color;
     cursor: pointer;
     transition: $animation;
 
     &:hover,
     &:focus {
-      background-color: $bg-color;
+      background-color: $dividers-color;
     }
   }
 
@@ -132,8 +130,8 @@ categories: [js, accordion]
       width: 8px;
       height: 8px;
       transform: rotate(45deg);
-      border-top: 1px solid $border-color;
-      border-left: 1px solid $border-color;
+      border-top: 1px solid $dividers-color;
+      border-left: 1px solid $dividers-color;
       content: "";
       vertical-align: middle;
       position: absolute;
@@ -151,7 +149,7 @@ categories: [js, accordion]
   }
 
   &__body {
-    border: 1px solid $border-color;
+    border: 1px solid $dividers-color;
     border-top: 0;
     padding: 25px 20px;
 
@@ -178,7 +176,7 @@ categories: [js, accordion]
     line-height: 2rem;
     position: absolute;
     left: 15px;
-    top: 12px;
+    top: 7px;
   }
 
   .c-accordion__body {

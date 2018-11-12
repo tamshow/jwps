@@ -32,7 +32,7 @@ categories: [js, tab]
 */
 
 .c-tab {
-  background-color: $brand-white;
+  background-color: #ffffff;
 
 
   list-style-position: outside;
@@ -79,10 +79,10 @@ categories: [js, tab]
 
   li {
     flex: 1 1 0;
-    border-right: 1px solid $border-color;
+    border-right: 1px solid $dividers-color;
 
     &:first-child {
-      border-left: 1px solid $border-color;
+      border-left: 1px solid $dividers-color;
     }
 
     button,
@@ -101,10 +101,10 @@ categories: [js, tab]
       user-select: none;
       margin: 0 auto;
       font-weight: normal;
-      color: $text-color-week;
+      color: $disabled-text-color;
       width: 100%;
-      border-top: 1px solid $border-color;
-      border-bottom: 1px solid $border-color;
+      border-top: 1px solid $dividers-color;
+      border-bottom: 1px solid $dividers-color;
 
     }
 
@@ -114,8 +114,8 @@ categories: [js, tab]
     a:hover,
     &[aria-selected="true"] a,
     &.is-active a {
-      color: $text-color;
-      border-color: $brand-secondary;
+      color: $primary-text-color;
+      border-color: $accent-color;
       border-top-width: 2px;
       border-bottom-width: 0;
     }
@@ -126,7 +126,7 @@ categories: [js, tab]
 .c-tab__body {
   overflow: hidden;
   margin-top: -1px;
-  border: 1px solid $border-color;
+  border: 1px solid $dividers-color;
   padding: 1.5em;
 
   @include media-sp-max {
@@ -142,7 +142,7 @@ categories: [js, tab]
     background-color: #eef0f4;
     padding: .3em .7em;
     display: inline-block;
-    color: $text-color;
+    color: $primary-text-color;
     font-size: 14px;
     @include elevation-transition;
 

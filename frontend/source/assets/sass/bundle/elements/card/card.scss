@@ -18,7 +18,7 @@ categories: [elements, card]
 
 <div class="e-card">
   <a href="">
-    <div class="e-card__img"><img src="/assets/img/dummy/820x273.png" alt=""></div>
+    <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
     <div class="e-card__body">
       <p class="e-card__title">情に棹させば流される智に働けば角が立つ</p>
       <p class="e-card__text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
@@ -32,7 +32,6 @@ categories: [elements, card]
 
 .e-card {
   color: inherit;
-  background-color: #fff;
   margin-right: auto;
   margin-left: auto;
   @include mb-small;
@@ -48,7 +47,9 @@ categories: [elements, card]
     height: inherit;
     text-decoration: none;
 
-    @include elevation(2);
+    .e-card__img {
+
+    //@include elevation(2);
     @include elevation-transition;
 
     &:hover,
@@ -60,6 +61,7 @@ categories: [elements, card]
       @include elevation(8);
     }
   }
+  }
 
   &__img {
     margin-left: auto;
@@ -69,7 +71,7 @@ categories: [elements, card]
   }
 
   &__body {
-    padding: .6rem 1rem;
+    padding-top: 22px;
     position: relative;
   }
 
@@ -81,10 +83,13 @@ categories: [elements, card]
   &__title {
     font-weight: bold;
     line-height: 1.4;
-    font-size: 16px;
+    @include fsize-h3;
+    margin-bottom: 10px;
   }
 
   &__text {
+    font-size: 14px;
+    line-height: 1.7;
     + .e-card__text {
       margin-top: $margin-small-pc;
 

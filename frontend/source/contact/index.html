@@ -11,14 +11,7 @@
 
 <!--#include virtual="/_partials/header.html"-->
 
-<main>
-  <div class="c-main-visual">
-    <div class="c-main-visual__bg-img" style="background-image: url(/assets/img/dummy/1280x450.png)">
-      <h1 class="c-main-visual__title">お問い合わせ</h1>
-      <p class="c-main-visual__sub-title">ご不明な点はお気軽にご連絡ください。</p>
-    </div>
-  </div>
-
+<main class="l-main">
 
   <div class="c-breadcrumb" role="navigation" aria-label="現在地表示">
     <div class="c-breadcrumb__inner">
@@ -31,27 +24,9 @@
       <div class="l-block">
 
 
-        <div class="l-unit visual-editor">
-          <h2>お問い合わせについて</h2>
-          <p>お問い合わせは、下記にて承っております。<br>
-            ただし、内容によってはお答えできない場合がありますのでご容赦ください。<br>
-            また、回答には時間がかかる場合がありますのでご容赦ください。<br>
-            お急ぎの場合は、電話にて承ります。</p>
-        </div>
-
-
-        <div class="l-unit l-cols l-cols--break">
-          <div class="l-col6">
-            <h3 class="e-heading3">電話でのお問い合わせ</h3>
-            <p>TEL <a href="">{{site-tel}}</a></p>
-            <p>FAX {{site-fax}}</p>
-            <p>受付時間：8:30～17:30</p>
-          </div>
-          <div class="l-col6">
-            <h3 class="e-heading3">メールフォームからのお問い合わせ</h3>
-            <p>項目をご記入・ご選択後「入力内容を送信する」ボタンをクリック・タップしていただくとお問い合わせが完了します。<br>
-              <strong>※のついた入力項目は必須入力項目です。</strong></p>
-          </div>
+        <div class="e-heading-group">
+          <h1 class="e-heading1">メールフォーム</h1>
+          <p class="e-heading-copy">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
         </div>
 
         <div class="l-unit">
@@ -64,7 +39,7 @@
               <td>
                 <div class="e-form-cols">
                   <div class="e-form-col12">
-                    <select name="" id="" value="" class="e-form-control">
+                    <select name="" id="" value="" class="e-form-control is-error">
                       <option value="">選択してください</option>
                     </select>
                     <div class="e-form-message-box">
@@ -76,15 +51,12 @@
             </tr>
             <tr>
               <th>
-                <label for="">お問い合わせの内容<span class="e-form-req">必須</span></label>
+                <label for="">お問い合わせの内容</label>
               </th>
               <td>
                 <div class="e-form-cols">
                   <div class="e-form-col12">
                     <textarea name="" id="" cols="40" rows="10" class="e-form-control" placeholder="具体的な内容をご記入ください"></textarea>
-                  </div>
-                  <div class="e-form-message-box">
-                    <p class="e-form-small-text">お問い合わせ内容を入力してください。</p>
                   </div>
                 </div>
               </td>
@@ -97,29 +69,15 @@
               <td>
                 <div class="e-form-cols e-form-cols--break">
                   <div class="e-form-col8">
-                    <input type="text" name="name" id="name" value="" class="e-form-control " aria-describedby="name-tip" placeholder="姓名">
-                  </div>
-                  <div class="e-form-message-box">
-                    <p class="e-form-error-text">お名前を入力してください。</p>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <label for="name-kana">フリガナ</label>
-              </th>
-              <td>
-                <div class="e-form-cols e-form-cols--break">
-                  <div class="e-form-col8">
-                    <input type="text" name="name-kana" id="name-kana" value="" class="e-form-control " aria-describedby="name-kana-tip" placeholder="セイメイ">
-                  </div>
-                  <div class="e-form-message-box">
-                    <p class="e-form-error-text">フリガナを入力してください。</p>
+                    <input type="text" name="name" id="name" value="" class="e-form-control is-error" aria-describedby="name-tip" placeholder="姓名">
+                    <div class="e-form-message-box">
+                      <p class="e-form-error-text">お名前を入力してください。</p>
+                    </div>
                   </div>
                 </div>
               </td>
             </tr>
+
             <tr>
               <th>都道府県 <span class="e-form-req">必須</span></th>
               <td>
@@ -143,10 +101,11 @@
                 <div class="e-form-cols e-form-cols--break">
                   <div class="e-form-col8">
                     <input type="text" name="" id="" value="" class="e-form-control " aria-describedby="" placeholder="">
+                    <div class="e-form-message-box">
+                      <p class="e-form-error-text">市区町村・番地を入力してください。</p>
+                    </div>
                   </div>
-                  <div class="e-form-message-box">
-                    <p class="e-form-error-text">市区町村・番地を入力してください。</p>
-                  </div>
+
                 </div>
               </td>
             </tr>
@@ -160,7 +119,6 @@
                   <div class="e-form-col8">
                     <input type="text" name="" id="" value="" class="e-form-control " aria-describedby="" placeholder="">
                   </div>
-
                 </div>
               </td>
             </tr>
@@ -172,25 +130,12 @@
                 <div class="e-form-cols e-form-cols--break">
                   <div class="e-form-col8">
                     <input type="text" name="" id="" value="" class="e-form-control" aria-describedby="" placeholder="半角数字で区切りにハイフンをご入力ください">
+
+                    <div class="e-form-message-box">
+                      <p class="e-form-error-text">電話番号を入力してください。</p>
+                    </div>
                   </div>
-                  <div class="e-form-message-box">
-                    <p class="e-form-error-text">電話番号を入力してください。</p>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <label for="">FAX番号<span class="e-form-any">任意</span></label>
-              </th>
-              <td>
-                <div class="e-form-cols e-form-cols--break">
-                  <div class="e-form-col8">
-                    <input type="text" name="" id="" value="" class="e-form-control" aria-describedby="" placeholder="半角数字で区切りにハイフンをご入力ください">
-                  </div>
-                  <div class="e-form-message-box">
-                    <p class="e-form-error-text">FAX番号を入力してください。</p>
-                  </div>
+
                 </div>
               </td>
             </tr>
@@ -206,7 +151,7 @@
                         <label for="description1-2_check1"><strong>今後のご連絡に関しての同意</strong></label>
                       </li>
                     </ul>
-                    <p class="">ご入力頂いた連絡先に、メール・郵便・電話などでご連絡させていただきます。<br>あらかじめご了承下さい</p>
+                    <p class="e-form-text">ご入力頂いた連絡先に、メール・郵便・電話などでご連絡させていただきます。</p>
                     <div class="e-form-message-box">
                       <p class="e-form-error-text">今後のご連絡に関しての同意を確認をしてください。</p>
                     </div>
@@ -219,10 +164,10 @@
                     <div class="e-box">
                       <p>リキャプチャエリア</p>
                     </div>
-                    <p>不正なお問い合わせ防止のため、上記にチェックを入れてください。</p>
-                  </div>
-                  <div class="e-form-message-box">
-                    <p class="e-form-error-text">上記にチェックを入れてください。</p>
+                    <p class="e-form-text">不正なお問い合わせ防止のため、上記にチェックを入れてください。</p>
+                    <div class="e-form-message-box">
+                      <p class="e-form-error-text">上記にチェックを入れてください。</p>
+                    </div>
                   </div>
                 </div>
 
@@ -232,22 +177,10 @@
           </table>
 
           <div class="e-button-group">
-            <button type="submit" class="e-button">入力内容を送信する<i class="material-icons is-icon-right">arrow_forward</i>
-            </button>
+            <button type="submit" class="e-button e-button--accent">確認画面へ</button>
           </div>
         </form>
       </div>
-
-        <div class="l-unit">
-          <div class="e-box">
-            <h3 class="e-heading3">メールフォームが送信できない場合</h3>
-            <p>お手数ですが電話・FAXでお問い合わせください。</p>
-            <p>TEL <a href="">{{site-tel}}</a></p>
-            <p>FAX {{site-fax}}</p>
-            <p>受付時間：8:30～17:30</p>
-          </div>
-        </div>
-
 
       </div>
     </section>

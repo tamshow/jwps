@@ -64,30 +64,15 @@ categories: [components, breadcrumb]
 */
 
 .c-breadcrumb {
-  max-width: $width-pc-max;
   padding: 0 $width-gap-pc;
-  margin: -5px auto $margin-small-pc;
-  max-height: 40px;
-
-  @include media-tab-only {
-    margin-top: 16px;
-  }
-
-  @include media-sp-max {
-    border-top: 1px solid $border-color;
-    width: 100%;
-    box-sizing: border-box;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding-top: 15px;
-    margin-top: 0;
-    margin-bottom: 9px;
-  }
-
+  border-bottom: 1px solid $dividers-color;
+  @include mb-large;
   &__inner {
 
-    font-size: .875rem;
+    max-width: $width-pc-max;
+    margin: 13px auto 13px;
+    font-size: 12px;
+
     i {
       color: #757575;
       font-size: 1.125rem;
@@ -103,15 +88,31 @@ categories: [components, breadcrumb]
 
     a {
       text-decoration: none;
-      color: $brand-link;
+      color: $link-color;
     }
 
     span:before {
       //content: "/";
-      content: ">";
-      padding-right: .5em;
-      padding-left: .5em;
-      color: $border-color;
+      //content: ">";
+      //padding-right: .5em;
+      //padding-left: .5em;
+      //color: $dividers-color;
+
+      margin-right: 24px;
+      margin-left: 16px;
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      transform: rotate(45deg);
+      border-style: solid;
+      border-color: $dividers-color;
+      border-top-width: 1px;
+      border-right-width: 1px;
+      border-bottom-width: 0;
+      border-left-width: 0;
+      content: "";
+      vertical-align: middle;
+
     }
 
     span:first-child:before {
@@ -121,7 +122,7 @@ categories: [components, breadcrumb]
     a:hover {
       text-decoration: underline;
       transition: $animation;
-      color: $brand-link-hover;
+      color: $link-color-hover;
     }
   }
 }

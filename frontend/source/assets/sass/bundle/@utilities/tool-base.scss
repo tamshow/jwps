@@ -46,12 +46,12 @@ body[data-device="desktop"] a[href^="tel:"] {
 
 
 
-//古いIEへ警告
+//警告
 .is-prompt {
   margin: 0 auto;
   padding: 10px;
   background-color: #aaa;
-  color: $brand-white;
+  color: #ffffff;
   text-align: center;
 
   a {

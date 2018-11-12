@@ -17,13 +17,13 @@ categories: [js, carousel]
   <div id="js-swiper-main" class="swiper-container">
     <ul class="swiper-wrapper">
       <li class="swiper-slide">
-        <a href=""><img src="/assets/img/dummy/1500x500.png" alt=""></a>
+        <a href=""><img src="/assets/img/top/main-visual.png" alt=""></a>
       </li>
       <li class="swiper-slide">
-        <a href=""><img src="/assets/img/dummy/1500x500.png" alt=""></a>
+        <a href=""><img src="/assets/img/top/main-visual.png" alt=""></a>
       </li>
       <li class="swiper-slide">
-        <a href=""><img src="/assets/img/dummy/1500x500.png" alt=""></a>
+        <a href=""><img src="/assets/img/top/main-visual.png" alt=""></a>
       </li>
     </ul>
 
@@ -80,7 +80,13 @@ categories: [js, carousel]
 
 .swiper-main {
   position: relative;
-  @include mb-small;
+  @include mb-medium;
+
+
+  @include media-sp-max {
+    margin-right: -$width-gap-sp;
+    margin-left: -$width-gap-sp;
+  }
 
   //  .swiper-wrapper {  }
 
@@ -98,7 +104,7 @@ categories: [js, carousel]
   }
 
   .swiper-controls {
-    background-color: rgba(0, 0, 0, .5);
+    background-color: $primary-color;
     display: inline-block;
     padding-left: 10px;
     padding-right: 10px;
@@ -137,7 +143,7 @@ categories: [js, carousel]
     @include media-sp-max {
       padding: 5px 3px;
       opacity: 1;
-      color: $brand-primary;
+      color: $primary-color;
     }
   }
 
@@ -146,22 +152,23 @@ categories: [js, carousel]
     opacity: 1;
 
     @include media-sp-max {
-      color: $brand-primary-dark;
+      color: $primary-color-dark;
     }
   }
 
   .swiper-pagination-bullets {
     position: static;
-    margin-top: 1em;
+    margin-top: .8em;
 
     @include media-sp-max {
       margin-top: -2em;
       text-align: left;
       max-width: 80%;
+      padding-left:10px;
     }
 
     .swiper-pagination-bullet {
-      background-color: #ddd;
+      background-color: $primary-color-light;
       width: 10px;
       height: 10px;
       margin: 0 5px;
@@ -169,7 +176,7 @@ categories: [js, carousel]
     }
 
     .swiper-pagination-bullet-active {
-      background-color: $brand-primary;
+      background-color: $primary-color;
     }
   }
 }
@@ -191,7 +198,7 @@ parent: carousel
     <ul class="swiper-wrapper">
       <li class="swiper-slide e-card">
         <a href="">
-          <div class="e-card__img img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -200,7 +207,7 @@ parent: carousel
       </li>
       <li class="swiper-slide e-card">
         <a href="">
-          <div class="e-card__img img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -209,7 +216,7 @@ parent: carousel
       </li>
       <li class="swiper-slide e-card">
         <a href="">
-          <div class="e-card__img img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -218,7 +225,7 @@ parent: carousel
       </li>
       <li class="swiper-slide e-card">
         <a href="">
-          <div class="e-card__img img-hover"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -325,7 +332,7 @@ parent: carousel
     }
 
     .swiper-pagination-bullet-active {
-      background-color: $brand-primary;
+      background-color: $primary-color;
     }
   }
 

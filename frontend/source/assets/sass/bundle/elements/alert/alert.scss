@@ -50,82 +50,88 @@ categories: [elements, alert]
 ```
 
 
-
-
 */
 
-$alert-padding: .6rem 1.5rem .6rem 3.2rem !default;
-
 .e-box-alert {
-  position: relative;
-  padding: $alert-padding;
-  border-radius: $border-radius-pc;
-  border: 1px solid $border-color;
-  background-color: $bg-color;
-  display: inline-block;
   font-size: 16px;
-  @include mb-small;
-  width: 100%;
+
+  position: relative;
+
+  display: inline-block;
+
   box-sizing: border-box;
+  width: 100%;
+  padding: .6rem 1.5rem .6rem 3.2rem;
+
+  border: 1px solid $dividers-color;
+  border-radius: $border-radius-pc;
+  background-color: $dividers-color;
+  @include mb-small;
 
   &:before {
+    font-size: 1.5rem;
+
     position: absolute;
     top: 0;
     bottom: 0;
     left: 1.1rem;
-    margin: auto;
+
     height: 1em;
-    @extend .material-icons;
+    margin: auto;
+
+    content: 'check';
     vertical-align: middle;
-    content: "check";
     white-space: nowrap;
-    font-size: 1.5rem;
+    @extend .material-icons;
 
   }
 
 }
 
 .e-box-alert--success {
-  background-color: $success-bg;
-  border-color: $success-border;
   color: $success-color;
+  border-color: $success-border;
+  background-color: $success-bg;
 
   &:before {
+    content: 'check';
+
     color: $success-border;
-    content: "check";
   }
 }
 
 .e-box-alert--warning {
-  background-color: $warning-bg;
-  border-color: $warning-border;
   color: $warning-color;
+  border-color: $warning-border;
+  background-color: $warning-bg;
 
   &:before {
+    content: 'warning';
+
     color: $warning-border;
-    content: "warning";
   }
 }
 
 .e-box-alert--error {
-  background-color: $error-bg;
-  border-color: $error-border;
   color: $error-color;
-
+  border-color: $error-border;
+  background-color: $error-bg;
   &:before {
+    content: 'warning';
+
     color: $error-border;
-    content: "warning";
   }
 }
 
 .e-box-alert--info {
-  background-color: $info-bg;
-  border-color: $info-border;
   color: $info-color;
+  border-color: $info-border;
+  background-color: $info-bg;
 
   &:before {
+    content: 'priority_high';
+
     color: $info-border;
-    content: "priority_high";
   }
 }
 

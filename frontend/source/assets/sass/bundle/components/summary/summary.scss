@@ -16,7 +16,7 @@ categories: [components, summary]
   <ul class="c-summary-horizontal">
    <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -25,7 +25,7 @@ categories: [components, summary]
       </li>
    <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -34,7 +34,7 @@ categories: [components, summary]
       </li>
    <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -43,7 +43,7 @@ categories: [components, summary]
       </li>
          <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -52,7 +52,7 @@ categories: [components, summary]
       </li>
          <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -61,7 +61,7 @@ categories: [components, summary]
       </li>
          <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -70,7 +70,7 @@ categories: [components, summary]
       </li>
          <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -79,7 +79,7 @@ categories: [components, summary]
       </li>
          <li class="c-summary__item e-card">
         <a href="">
-          <div class="e-card__img"><img src="/assets/img/dummy/400x250.png" alt=""></div>
+          <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
           <div class="e-card__body">
             <p class="e-card__title">タイトル</p>
             <p class="e-card__text">テキストテキストテキストテキストテキスト</p>
@@ -106,9 +106,9 @@ categories: [components, summary]
 
 .c-summary-horizontal {
 
-  @include mb-medium;
 
-  @include grid('.c-summary__item', 4, $screen-pc-max, 24);
+
+  @include grid('.c-summary__item', 3, $screen-pc-max, 32);
 
   @include media-sp-max {
     @include grid('.c-summary__item', 12, $screen-sp-max, 0);
@@ -131,6 +131,23 @@ categories: [components, summary]
 }
 
 
+.c-summary-horizontal2 {
+
+  .c-summary__item {
+    @include mb-medium;
+  }
+
+  @include grid('.c-summary__item', 6, $screen-pc-max, 24);
+
+  @include media-sp-max {
+    @include grid('.c-summary__item', 12, $screen-sp-max, 0);
+  }
+
+
+}
+
+
+
 
 
 
@@ -150,10 +167,10 @@ parent: summary
 
 <div>
    <ul class="c-summary-vertical">
-        <li class="c-summary__item e-media e-media--small">
+        <li class="c-summary__item e-media">
           <a href="">
             <div class="e-media__img">
-              <img src="/assets/img/dummy/255x255.png" >
+              <img src="/assets/img/common/media.png" >
               </div>
             <div class="e-media__body">
               <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
@@ -161,10 +178,10 @@ parent: summary
             </div>
             </a>
         </li>
-        <li class="c-summary__item e-media e-media--small">
+        <li class="c-summary__item e-media">
           <a href="">
             <div class="e-media__img">
-              <img src="/assets/img/dummy/255x255.png" >
+              <img src="/assets/img/common/media.png" >
               </div>
             <div class="e-media__body">
               <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
@@ -172,10 +189,10 @@ parent: summary
             </div>
             </a>
         </li>
-        <li class="c-summary__item e-media e-media--small">
+        <li class="c-summary__item e-media">
           <a href="">
             <div class="e-media__img">
-              <img src="/assets/img/dummy/255x255.png" >
+              <img src="/assets/img/common/media.png" >
               </div>
             <div class="e-media__body">
               <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
@@ -187,16 +204,6 @@ parent: summary
  </div>
 
 
-<div class="c-pagenavi">
-  <a class="c-previouspostslink" rel="prev" href=""></a>
-  <span class="is-current">1</span>
-  <a href="">2</a>
-  <a href="">3</a>
-  <a href="">4</a>
-  <a href="">5</a>
-  <span class="c-extend">...</span>
-  <a class="c-nextpostslink" rel="next" href=""></a>
-</div>
 
 ```
 */

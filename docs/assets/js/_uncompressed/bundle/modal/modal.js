@@ -51,7 +51,7 @@ $(function () {
    */
 
 
-    $(Selector.OPEN).on('click', function(e) {
+    $(Selector.OPEN).on('click touchend', function(e) {
       show(e);
     });
 
@@ -62,11 +62,11 @@ $(function () {
       }
     });
 
-    $(Selector.CLOSE).on('click', function(e) {
+    $(Selector.CLOSE).on('click touchend', function(e) {
       hide(e);
     });
 
-    $(Selector.BG).on('click', function(e) {
+    $(Selector.BG).on('click touchend', function(e) {
       hide(e);
     });
 

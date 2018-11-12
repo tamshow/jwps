@@ -13,17 +13,14 @@ categories: [components, menu]
 
 ```html_example
 <div class="c-menu">
-<div class="c-menu__title-group">
-  <h3 class="c-menu__title">階層構造メニュー</h3>
-  <span class="c-menu__title-to-list"><a href="" class="e-button e-button--small">一覧へ</a></span>
-</div>
+  <h3 class="c-menu__title">カテゴリー名</h3>
   <ul class="c-menu__list">
     <li><a href="">タイトル</a>
-    <ul class="c-menu__list">
+      <ul class="c-menu__list">
         <li><a href="" class="is-active">タイトル</a></li>
         <li><a href="">タイトル</a></li>
         <li><a href="">タイトル</a></li>
-    </ul>
+      </ul>
     </li>
     <li><a href="">タイトル</a></li>
     <li><a href="">タイトル</a></li>
@@ -41,50 +38,34 @@ categories: [components, menu]
 
   @include mb-small;
 
-  border-bottom: 1px dotted $border-color;
-
-  &__title-group {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__title-to-list {
-
-  }
-
   &__title {
-    background: $brand-primary;
-    color: #fff;
-    @include fsize-h4;
-    padding: .6em 1em;
+    color: $primary-color;
+    font-size: 18px;
     font-weight: bold;
+    display: block;
+    padding-bottom: 10px;
+    border-bottom: 3px solid $primary-color;
   }
 
   &__list {
     margin-bottom: 0;
 
     a {
-      border-top: 1px dotted $border-color;
+      border-bottom: 1px solid $dividers-color;
       font-size: 14px;
-      padding: .6em;
+      padding: 12px 16px 12px 16px;
       display: block;
       text-decoration: none;
-      color: $text-color;
-      &:hover {
-        background-color: $brand-primary;
-        color: #fff;
-      }
-      &.is-active {
-        font-weight: bold;
-        background-color: $brand-primary;
-        color: #fff;
-
+      color: $primary-text-color;
+      &:hover,
+      &.is-active,
+      &.stay{
+        color: $primary-color;
       }
     }
+
     .c-menu__list {
-      margin-left: 1.2em;
+      margin-left: 1em;
     }
   }
 }

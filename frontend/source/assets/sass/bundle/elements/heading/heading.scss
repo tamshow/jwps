@@ -32,7 +32,7 @@ categories: [elements, heading]
   margin-bottom: 1rem;
   font-weight: bold;
   overflow: hidden;
-  line-height: 1.4;
+  line-height: $line-height-heading;
 }
 
 
@@ -42,7 +42,7 @@ categories: [elements, heading]
   margin-bottom: 1rem;
   font-weight: bold;
   overflow: hidden;
-  line-height: 1.4;
+  line-height: $line-height-heading;
 }
 
 .visual-editor h3,
@@ -51,7 +51,7 @@ categories: [elements, heading]
   margin-bottom: 1rem;
   font-weight: bold;
   overflow: hidden;
-  line-height: 1.4;
+  line-height: $line-height-heading;
 }
 
 .visual-editor h4,
@@ -60,7 +60,7 @@ categories: [elements, heading]
   margin-bottom: 1rem;
   font-weight: bold;
   overflow: hidden;
-  line-height: 1.4;
+  line-height: $line-height-heading;
 }
 
 .visual-editor h5,
@@ -69,7 +69,7 @@ categories: [elements, heading]
   margin-bottom: 1rem;
   font-weight: bold;
   overflow: hidden;
-  line-height: 1.4;
+  line-height: $line-height-heading;
 
 }
 
@@ -79,7 +79,7 @@ categories: [elements, heading]
   margin-bottom: 1rem;
   font-weight: bold;
   overflow: hidden;
-  line-height: 1.4;
+  line-height: $line-height-heading;
 }
 
 
@@ -110,15 +110,21 @@ parent: heading
 
 .e-heading-date {
   @include mb-small;
-  color: $text-color-sub;
-  font-size: .8em;
+  color: $secondary-text-color;
+  font-size: .12px;
+  margin-top: -10px;
   a {
-    color: $brand-link;
+    color: $link-color;
     text-decoration: underline;
     &:hover {
       text-decoration: none;
     }
   }
+}
+
+.e-heading-copy {
+  @include mb-small;
+  font-size: 14px;
 }
 
 .e-heading-group {
@@ -129,6 +135,7 @@ parent: heading
   h4,
   h5,
   h6 {
-    margin-bottom: .5em;
+    @include mb-large;
+    //margin-bottom: .5em;
   }
 }

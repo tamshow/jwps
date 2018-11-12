@@ -45,18 +45,18 @@ categories: [js, to-top]
     width: 8px;
     height: 8px;
     transform: rotate(45deg);
-    border-top: 1px solid $brand-white;
-    border-left: 1px solid $brand-white;
+    border-top: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
     content: "";
     vertical-align: middle;
   }
 
   //&:hover {
-  //  background: $brand-primary;
+  //  background: $primary-color;
   //  transition: all $animation;
   //
   //  span {
-  //    border-color: $brand-white;
+  //    border-color: #ffffff;
   //  }
   //
   //}

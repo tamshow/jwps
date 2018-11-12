@@ -65,13 +65,15 @@ categories: [flex]
 
 .l-flex-boxes {
   @include clearfix;
-  align-items: stretch;
-  clear: both;
   display: flex;
-  flex-wrap: wrap;
-  //justify-content: center;
+  clear: both;
+
   margin-right: -1%;
   margin-left: -1%;
+
+  align-items: stretch;
+  flex-wrap: wrap;
+  //justify-content: center;
   @include media-sp-max {
     margin-right: -1.7142857143%;
     margin-left: -1.7142857143%;
@@ -98,28 +100,29 @@ categories: [flex]
 
 
 .l-flex-box {
-  align-self: stretch;
   display: block;
-  //flex: 2 2 15em;
-  box-sizing: border-box;
 
+  box-sizing: border-box;
   margin-right: 1%;
   margin-left: 1%;
+
+  align-self: stretch;
+  //flex: 2 2 15em;
 
   > *:last-child {
     margin-bottom: 0 !important;
   }
-
-  //margin-bottom: 1.92%;
   margin-bottom: 16px;
 
+  //margin-bottom: 1.92%;
   flex: 0 0 23%;
 
   @include media-sp-max {
-    flex: 0 0 46.5714285714%;
     margin-right: 1.7142857143%;
-    margin-left: 1.7142857143%;
     margin-bottom: $width-gap-sp;
+    margin-left: 1.7142857143%;
+
+    flex: 0 0 46.5714285714%;
 
   }
 }

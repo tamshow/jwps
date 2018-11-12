@@ -12,7 +12,7 @@ categories: [elements, images]
 ```html_example
 
   <figure class="e-img-box">
-    <img src="/assets/img/dummy/820x273.png" alt="">
+    <img src="/assets/img/common/img1.png" alt="">
     <figcaption class="e-img-caption">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</figcaption>
   </figure>
   <p class="e-text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
@@ -20,7 +20,7 @@ categories: [elements, images]
 
   <div>
     <figure class="e-img-box is-img-left is-img-w33">
-      <a href="" class="e-img-hover"><img src="/assets/img/dummy/820x273.png" alt=""></a>
+      <a href="" class="e-img-hover"><img src="/assets/img/common/img1.png" alt=""></a>
       <figcaption class="e-img-caption">情に棹させば流される。智に働けば角が立つ。</figcaption>
     </figure>
     <p class="e-text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
@@ -32,14 +32,14 @@ categories: [elements, images]
 
     <div class="e-responsive-img">
     <figure class="e-img-box">
-      <img src="/assets/img/dummy/820x273.png" alt="">
+      <img src="/assets/img/common/img1.png" alt="">
     </figure>
    </div>
 
 
   <div class="l-unit visual-editor">
     <figure class="is-img-left is-img-w25">
-      <img src="/assets/img/dummy/820x273.png" alt="">
+      <img src="/assets/img/common/img1.png" alt="">
       <figcaption class="eimg-caption">情に棹させば流される。智に働けば角が立つ。</figcaption>
     </figure>
     <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
@@ -127,9 +127,8 @@ categories: [elements, images]
   figcaption,
   .e-img-caption {
     text-align: left;
-    margin-top: 5px;
-    color: $text-color-sub;
-    font-size: 12px;
+    margin-top: 14px;
+    color: $secondary-text-color;
     line-height: 1.5;
   }
 }
@@ -233,8 +232,8 @@ Class                                                                      | Des
 .is-img-frame {
   height: auto;
   padding: 2px;
-  border: 1px solid $border-color;
-  background-color: $brand-white;
+  border: 1px solid $dividers-color;
+  background-color: #ffffff;
   box-sizing: border-box;
 }
 
@@ -243,7 +242,7 @@ Class                                                                      | Des
 }
 
 .is-img-border {
-  border: 1px solid $border-color;
+  border: 1px solid $dividers-color;
 }
 
 .is-img-circle {

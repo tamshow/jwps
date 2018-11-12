@@ -11,8 +11,8 @@
   position: fixed;
   top: 30vh;
   right: 0;
-  background-color: $brand-red;
-  color: $brand-white;
+  background-color: $error-color;
+  color: #ffffff;
   text-align: center;
   z-index: 99;
 
@@ -84,8 +84,8 @@
   padding: 4px 10px;
   border-radius: 4px;
   background: $error-border;
-  background: $brand-red;
-  color: $brand-white;
+  background: $error-color;
+  color: #ffffff;
   z-index: 991;
   top: 5px;
 }

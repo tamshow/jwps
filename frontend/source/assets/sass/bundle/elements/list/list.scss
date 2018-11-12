@@ -12,6 +12,9 @@
 .e-list {
   @include mb-small;
 
+  li {
+    margin-bottom: 8px;
+  }
   //入れ子の場合
   ul,
   ol {
@@ -79,6 +82,60 @@ parent: list
   list-style-type: decimal;
 }
 
+/* リスト arrow
+   ========================================================================== */
+
+/*doc
+---
+title: list-arrow
+name: list-arrow
+categories: [elements, list]
+parent: list
+---
+
+```html_example
+<ul class="e-list e-list--arrow">
+  <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+  <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+  <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+  <li>どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</li>
+</ol>
+```
+*/
+
+.visual-editor .e-list--arrow,
+.e-list--arrow {
+  margin-left: 0;
+  list-style-type: none;
+  li {
+    padding-left: 20px;
+    position: relative;
+    &:before {
+      position: absolute;
+      top: .5em;
+      left: 0;
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      transform: rotate(45deg);
+      border-style: solid;
+      border-color: $primary-text-color;
+      border-top-width: 1px;
+      border-right-width: 1px;
+      border-bottom-width: 0;
+      border-left-width: 0;
+      content: "";
+      vertical-align: middle;
+    }
+  }
+
+  a {
+    &:hover:before {
+      text-decoration: none;
+    }
+  }
+
+}
 
 
 /* 定義リスト
@@ -121,7 +178,7 @@ parent: list
   }
 
   dd {
-    margin-left: 1.3em;
+    margin-left: 1em;
   }
 }
 
@@ -171,7 +228,7 @@ parent: list
       display: inline-block;
       width: 1em;
       height: 1em;
-      color: $border-color;
+      color: $dividers-color;
 
     }
 
@@ -182,4 +239,80 @@ parent: list
 }
 
 
+/* 画像リスト
+   ========================================================================== */
+
+/*doc
+---
+title: list-img
+name: list-img
+categories: [elements, list]
+parent: list
+---
+
+```html_example
+<ul class="e-list-img-vertical">
+  <li><a href=""><img src="/assets/img/common/widget.png" alt=""> </a></li>
+  <li><a href=""><img src="/assets/img/common/widget.png" alt=""> </a></li>
+  <li><a href=""><img src="/assets/img/common/widget.png" alt=""> </a></li>
+</ul>
+```
+*/
+
+.visual-editor .e-list-img-vertical {
+  margin-left: 0;
+  list-style-type: none;
+}
+
+.e-list-img-vertical {
+
+  @include mb-small;
+
+  li {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+}
+
+
+
+/*doc
+---
+title: list-img-inline
+name: list-img-inline
+categories: [elements, list]
+parent: list
+---
+
+```html_example
+<ul class="e-list-img-horizontal">
+  <li><a href=""><img src="/assets/img/common/widget.png" alt=""> </a></li>
+  <li><a href=""><img src="/assets/img/common/widget.png" alt=""> </a></li>
+  <li><a href=""><img src="/assets/img/common/widget.png" alt=""> </a></li>
+</ul>
+```
+*/
+
+.visual-editor .e-list-img-horizontal {
+  margin-left: 0;
+  list-style-type: none;
+}
+
+.e-list-img-horizontal {
+  text-align: center;
+  li {
+    margin-bottom: 16px;
+  }
+
+  @include grid('li', 3, $screen-pc-max, 32);
+
+  @include media-sp-max {
+    @include grid('li', 12, $screen-sp-max, 0);
+  }
+
+}
+
+
+//
+//
 

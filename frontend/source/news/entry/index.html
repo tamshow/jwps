@@ -11,13 +11,7 @@
 
 <!--#include virtual="/_partials/header.html"-->
 
-<main>
-  <div class="c-main-visual">
-    <div class="c-main-visual__bg-img" style="background-image: url(/assets/img/dummy/1280x450.png)">
-      <h1 class="c-main-visual__title">お知らせ</h1>
-      <p class="c-main-visual__sub-title">お知らせです。</p>
-    </div>
-  </div>
+<main class="l-main">
 
   <div class="c-breadcrumb" role="navigation" aria-label="現在地表示">
     <div class="c-breadcrumb__inner">
@@ -29,61 +23,349 @@
 
   <section class="l-container">
 
+
     <div class="l-block-primary">
+
       <div class="e-heading-group">
-        <h2 class="e-heading2">エントリーのタイトル</h2>
-        <p class="e-heading-date">2018.06.15 <span class="is-new">new</span></p>
+        <h2 class="e-heading2">ページタイトル</h2>
       </div>
-      <div class="l-unit visual-editor">
+
+      <div class="l-unit">
+        <h2 class="sg-heading2">Heading</h2>
+        <h1 class="e-heading1">見出し1</h1>
+        <h2 class="e-heading2">見出し2</h2>
+        <h3 class="e-heading3">見出し3</h3>
+        <h4 class="e-heading4">見出し4</h4>
+        <h5 class="e-heading5">見出し5</h5>
+        <h6 class="e-heading6">見出し6</h6>
+      </div>
+
+      <div class="l-unit">
+        <h2 class="sg-heading2">Paragraph</h2>
+        <h3 class="sg-heading3">デフォルト</h3>
+        <p class="e-text">木曾路はすべて山の中である。あるところは岨づたいに行く崖の道であり、あるところは数十間の深さに臨む木曾川の岸であり、あるところは山の尾をめぐる谷の入り口である。一筋の街道はこの深い森林地帯を貫いていた。</p>
+        <p class="e-text">東ざかいの桜沢から、西の十曲峠まで、木曾十一宿はこの街道に添うて、二十二里余にわたる長い谿谷の間に散在していた。</p>
+
+        <h3 class="sg-heading3">小</h3>
+        <p class="e-text">
+          <small>木曾路はすべて山の中である。あるところは岨づたいに行く崖の道であり、あるところは数十間の深さに臨む木曾川の岸であり、あるところは山の尾をめぐる谷の入り口である。一筋の街道はこの深い森林地帯を貫いていた。</small>
+        </p>
+        <p class="e-text">
+          <small>東ざかいの桜沢から、西の十曲峠まで、木曾十一宿はこの街道に添うて、二十二里余にわたる長い谿谷の間に散在していた。</small>
+        </p>
+        <h3 class="sg-heading3">中央寄せ</h3>
+        <p class="e-text is-text-center"> テキスト</p>
+        <h3 class="sg-heading3">右寄せ</h3>
+        <p class="e-text is-text-right"> テキスト</p>
+      </div>
+      <div class="l-unit">
+        <h2 class="sg-heading2">Inline Elements</h2>
+        <div class="l-cols l-cols--break">
+          <div class="l-col6">
+            <h3 class="sg-heading3">リンク</h3>
+            <p class="e-text"><a href="">テキスト</a>　<a href="">テキスト</a>　<a href="">テキスト</a></p>
+            <h3 class="sg-heading3">重要</h3>
+            <p class="e-text"><strong>テキスト</strong></p>
+            <h3 class="sg-heading3">打ち消し</h3>
+            <p class="e-text"><s>テキスト</s></p>
+            <h3 class="sg-heading3">上付き文字</h3>
+            <p class="e-text">テキスト<sup>テキスト</sup></p>
+
+          </div>
+          <div class="l-col6">
+
+            <h3 class="sg-heading3">強調</h3>
+            <p class="e-text"><em>テキスト</em></p>
+            <h3 class="sg-heading3">さらに重要</h3>
+            <p class="e-text"><strong><strong>テキスト</strong></strong></p>
+            <h3 class="sg-heading3">小さい文字</h3>
+            <p class="e-text">
+              <small>テキスト</small>
+            </p>
+            <h3 class="sg-heading3">下付き文字</h3>
+            <p class="e-text">テキスト<sub>テキスト</sub></p>
+          </div>
+        </div>
+      </div>
+      <div class="l-unit">
+        <h2 class="sg-heading2">List</h2>
+        <div class="l-cols l-cols--break">
+          <div class="l-col6">
+            <h3 class="sg-heading3">黒丸付きリスト</h3>
+            <ul class="e-list e-list--desc">
+              <li>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li>テキスト</li>
+              <li>テキスト</li>
+              <li>テキスト</li>
+            </ul>
+
+            <h3 class="sg-heading3">矢印付きリスト</h3>
+            <ul class="e-list e-list--arrow">
+              <li>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li>テキスト</li>
+              <li>テキスト</li>
+              <li>テキスト</li>
+            </ul>
+          </div>
 
 
-        <a href="" class="e-button">申請書・発行物はこちらから</a>
+          <div class="l-col6">
+
+            <h3 class="sg-heading3">番号付きリスト</h3>
+            <ol class="e-list e-list--decimal">
+              <li>テキスト</li>
+              <li>テキスト</li>
+              <li>テキスト</li>
+              <li>テキスト</li>
+            </ol>
+
+            <h3 class="sg-heading3">定義リスト</h3>
+            <dl class="e-dl">
+              <dt>テキスト</dt>
+              <dd>テキスト</dd>
+              <dt>テキスト</dt>
+              <dd>テキスト</dd>
+              <dt>テキスト</dt>
+              <dd>テキスト</dd>
+              <dt>テキスト</dt>
+              <dd>テキスト</dd>
+              <dt>テキスト</dt>
+              <dd>テキスト</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="l-unit">
+        <h2 class="sg-heading2">Table</h2>
+        <h3 class="sg-heading3">デフォルト</h3>
+        <table class="e-table">
+          <tr>
+            <th>見出し</th>
+            <th>見出し</th>
+            <th>見出し</th>
+          </tr>
+          <tr>
+            <td>テキストが入ります</td>
+            <td>テキストが入りますテキストが入りますテキストが入ります</td>
+            <td>テキストが入ります</td>
+          </tr>
+          <tr>
+            <td>テキストが入ります</td>
+            <td>テキストが入りますテキストが入りますテキストが入ります</td>
+            <td>テキストが入ります</td>
+          </tr>
+        </table>
+
+        <h3 class="sg-heading3">縦線なし</h3>
+        <table class="e-table e-table--borderless">
+          <tr>
+            <th>見出し</th>
+            <th>見出し</th>
+            <th>見出し</th>
+          </tr>
+          <tr>
+            <td>テキストが入ります</td>
+            <td>テキストが入りますテキストが入りますテキストが入ります</td>
+            <td>テキストが入ります</td>
+          </tr>
+          <tr>
+            <td>テキストが入ります</td>
+            <td>テキストが入りますテキストが入りますテキストが入ります</td>
+            <td>テキストが入ります</td>
+          </tr>
+        </table>
+
+
+        <h3 class="sg-heading3">SP時ブロック</h3>
+        <table class="e-table e-table--sp-block">
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります</td>
+          </tr>
+          <tr>
+            <th>見出し</th>
+            <td>テキストが入ります</td>
+          </tr>
+        </table>
+
+        <h3 class="sg-heading3">SP時スクロール</h3>
+        <div class="e-responsive-table">
+          <table class="e-table">
+            <tr>
+              <th class="is-cell-10p">タイトル10%</th>
+              <th class="is-cell-15p">タイトル15%</th>
+              <th class="is-cell-15p">タイトル15%</th>
+              <th class="is-cell-15p">タイトル15%</th>
+              <th class="is-cell-10p">タイトル10%</th>
+              <th>タイトル</th>
+            </tr>
+            <tr>
+              <td>テキストテキスト</td>
+              <td>テキストテキスト</td>
+              <td>テキストテキスト</td>
+              <td>テキストテキスト</td>
+              <td>テキストテキスト</td>
+              <td>
+                <div class="is-responsive-cell-30vw">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト30vw</div>
+              </td>
+            </tr>
+            <tr>
+              <td>テキスト</td>
+              <td>テキスト</td>
+              <td>テキスト</td>
+              <td>テキスト</td>
+              <td>テキスト</td>
+              <td>
+                <div class="is-responsive-cell-50vw">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト50vw</div>
+              </td>
+            </tr>
+
+          </table>
+        </div>
+      </div>
+
+
+      <div class="l-unit">
+        <h2 class="sg-heading2">Blockquote</h2>
+        <blockquote class="e-blockquote">
+          情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。
+        </blockquote>
+      </div>
+
+      <div class="l-unit">
+        <h2 class="sg-heading2">Button</h2>
+
+        <h3 class="sg-heading3">大</h3>
+
+        <div class="e-button-group e-button-group--left">
+          <button class="ripple e-button e-button--accent e-button--large" type="button">テキスト</button>
+          <button class="ripple e-button e-button--primary e-button--large" type="button">テキスト</button>
+          <button class="ripple e-button e-button--large" type="button">テキスト</button>
+        </div>
+
+        <h3 class="sg-heading3">中</h3>
+        <div class="e-button-group e-button-group--left">
+          <button class="ripple e-button e-button--accent" type="button">テキスト</button>
+          <button class="ripple e-button e-button--primary" type="button">テキスト</button>
+          <button class="ripple e-button" type="button">テキスト</button>
+        </div>
+        <h3 class="sg-heading3">小</h3>
+        <div class="e-button-group e-button-group--left">
+          <button class="ripple e-button e-button--accent e-button--small" type="button">テキスト</button>
+          <button class="ripple e-button e-button--primary e-button--small" type="button">テキスト</button>
+          <button class="ripple e-button e-button--small" type="button">テキスト</button>
+        </div>
+        <h3 class="sg-heading3">無効</h3>
+        <div class="e-button-group e-button-group--left">
+          <button class="ripple e-button e-button--large is-disabled" type="button">テキスト</button>
+          <button class="ripple e-button e-button--primary is-disabled" type="button">テキスト</button>
+          <button class="ripple e-button e-button--accent e-button--small is-disabled" type="button">テキスト</button>
+        </div>
 
       </div>
 
       <div class="l-unit">
+        <h2 class="sg-heading2">divider</h2>
+        <hr>
+      </div>
 
-        <div class="e-box">
-          <h3 class="e-heading3">このページをSNSでシェアする</h3>
+      <div class="l-unit">
+        <h2 class="sg-heading2">Image</h2>
 
-          <ul class="e-list e-list--disc">
-            <li><a href="">LINEで送る</a></li>
-            <li><a href="">LINEいいね</a></li>
-            <li><a href="">シェア</a></li>
-            <li><a href="">Twitter</a></li>
-            <li><a href="">Facebook</a></li>
-          </ul>
+        <figure class="e-img-box">
+          <img src="/assets/img/common/img1.png" alt="">
+          <figcaption class="e-img-caption">キャプションが入ります。キャプションが入ります。キャプションが入ります。キャプションが入ります。キャプションが入ります。キャプションが入ります。キャプションが入ります。</figcaption>
+        </figure>
 
+        <div class="l-cols">
+          <div class="l-col6">
+            <figure class="e-img-box"><img src="/assets/img/common/img2.png" alt=""></figure>
+          </div>
+          <div class="l-col6">
+            <figure class="e-img-box"><img src="/assets/img/common/img2.png" alt=""></figure>
+          </div>
+        </div>
+
+
+        <div class="l-cols">
+          <div class="l-col4">
+            <figure class="e-img-box"><img src="/assets/img/common/img3.png" alt=""></figure>
+          </div>
+          <div class="l-col4">
+            <figure class="e-img-box"><img src="/assets/img/common/img3.png" alt=""></figure>
+          </div>
+          <div class="l-col4">
+            <figure class="e-img-box"><img src="/assets/img/common/img3.png" alt=""></figure>
+          </div>
+        </div>
+
+        <div class="l-cols">
+          <div class="l-col3">
+            <figure class="e-img-box"><img src="/assets/img/common/img4.png" alt=""></figure>
+          </div>
+          <div class="l-col3">
+            <figure class="e-img-box"><img src="/assets/img/common/img4.png" alt=""></figure>
+          </div>
+          <div class="l-col3">
+            <figure class="e-img-box"><img src="/assets/img/common/img4.png" alt=""></figure>
+          </div>
+          <div class="l-col3">
+            <figure class="e-img-box"><img src="/assets/img/common/img4.png" alt=""></figure>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="l-unit">
+        <h2 class="sg-heading2">Map</h2>
+        <div class="e-gmap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12963.323312243096!2d139.7670516!3d35.6811673!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1515111619588" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
       </div>
+
+
       <div class="l-unit">
         <div class="c-pager">
           <ul class="c-pager__inner">
-            <li class="c-pager__prev"><a href="" class="e-button is-disabled">前の記事</a></li>
-            <li class="c-pager__next"><a href="" class="e-button">次の記事</a></li>
+            <li class="c-pager__prev"><a href="" class="is-disabled"><i class="material-icons">chevron_left</i> 前へ</a>
+            </li>
+            <li class="c-pager__to-list"><a href="">一覧</a></li>
+            <li class="c-pager__next"><a href="">次へ<i class="material-icons">chevron_right</i></a></li>
           </ul>
         </div>
       </div>
 
     </div>
+
     <div class="l-block-secondary">
-      <h2 class="e-heading2">関連ページ</h2>
-      <ul class="c-summary-vertical">
-        <li class="c-summary__item e-media e-media--small">
-          <a href="">
-            <div class="e-media__img">
-              <img src="/assets/img/dummy/255x255.png">
-            </div>
-            <div class="e-media__body">
-              <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
-              <p class="e-media__text is-text-week">テキスト</p>
-            </div>
-          </a>
-        </li>
 
+      <div class="l-unit">
+        <div class="c-menu">
+          <h3 class="c-menu__title">カテゴリー名</h3>
+          <ul class="c-menu__list">
+            <li><a href="">ページタイトル</a></li>
+            <li><a href="">ページタイトル</a></li>
+            <li><a href="">ページタイトル</a></li>
+            <li><a href="">ページタイトル</a></li>
+            <li><a href="">ページタイトル</a></li>
+            <li><a href="">ページタイトル</a></li>
+          </ul>
+        </div>
+      </div>
 
-      </ul>
+      <div class="l-unit">
+        <ul class="e-list-img-vertical">
+          <li><a href=""><img src="/assets/img/common/widget.png" alt=""> </a></li>
+          <li><a href=""><img src="/assets/img/common/widget.png" alt=""> </a></li>
+          <li><a href=""><img src="/assets/img/common/widget.png" alt=""> </a></li>
+        </ul>
+      </div>
+
     </div>
+
 
   </section>
 </main>

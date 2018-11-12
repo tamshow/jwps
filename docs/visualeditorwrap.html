@@ -227,7 +227,7 @@
 
 <pre>
 <code>sass
- ├── @jwps
+ ├── bundle
 │    ├── @core
 │    ├── @mixins
 │    ├── @utilities
@@ -236,7 +236,7 @@
 │    ├── elements
 │    ├── library
 │    ├── layouts
-│    └── jwps.scss
+│    └── all.scss
 │
 ├── pages
 └── bundle.scss
@@ -256,7 +256,7 @@ css
 <ul>
 <li>必要そうなJSパーツはあらかじめ準備しています。<a href="js.html">js - components</a>を参考にしてください。</li>
 <li>HTMLのclassに当てる場合は「js-●●●」など装飾のclassと区別してください。</li>
-<li><code>source/assets/src/@jwps/</code>以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。</li>
+<li><code>source/assets/src/bundle/</code>以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。</li>
 <li>ページ固有のjsは別ファイルを作成してもよいです。</li>
 </ul>
 
@@ -272,7 +272,7 @@ css
 └── bundle.js
 
 src
-├── @jwps
+├── bundle
 │    ├── accordion
 │    ├── allcheck
 │    └── ...
@@ -385,7 +385,7 @@ HTMLはそのまま使用せずCMSで使うことを前提に作成していま�
 <code>gulp build</code>することで<code>frontend/source/assets</code>を公開用に調整し<code>frontend/build/assets</code>へ書き出します。<br>
 画像圧縮はしていません。必要に応じて圧縮してください。<br>
 Sassのmixinは<a href="https://www.bourbon.io/">bourbonファミリー</a>を使用・参考にします。<br>
-<code>source/assets/src/@jwps/</code>以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。必要に応じて使い分けてください。</p>
+<code>source/assets/src/bundle/</code>以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。必要に応じて使い分けてください。</p>
 
 
 <h3>使用する主なToolについて</h3>

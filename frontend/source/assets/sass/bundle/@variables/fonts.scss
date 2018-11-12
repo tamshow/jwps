@@ -3,25 +3,32 @@
 // Fonts
 // ------------------------------------------------------------
 
-$fsize-sp:  14px !default;
-$fsize-pc:  16px !default;
+$fsize-body1-sp:  12px !default;
+$fsize-body2-sp:  12px !default;
 
-$line-height-sp:  1.6 !default;
-$line-height-pc:  1.8 !default;
+$fsize-h1-sp:     28px !default;
+$fsize-h2-sp:     20px !default;
+$fsize-h3-sp:     16px !default;
+$fsize-h4-sp:     15px !default;
+$fsize-h5-sp:     14px !default;
+$fsize-h6-sp:     12px !default;
 
-$fsize-h1-sp: 20px !default;
-$fsize-h2-sp: 18px !default;
-$fsize-h3-sp: 16px !default;
-$fsize-h4-sp: 14px !default;
-$fsize-h5-sp: 14px !default;
-$fsize-h6-sp: 14px !default;
 
-$fsize-h1-pc: 26px !default;
-$fsize-h2-pc: 22px !default;
-$fsize-h3-pc: 18px !default;
-$fsize-h4-pc: 16px !default;
-$fsize-h5-pc: 16px !default;
-$fsize-h6-pc: 14px !default;
+$fsize-body1-pc:  14px !default;
+$fsize-body2-pc:  14px !default;
+
+$fsize-h1-pc:     36px !default;
+$fsize-h2-pc:     28px !default;
+$fsize-h3-pc:     20px !default;
+$fsize-h4-pc:     16px !default;
+$fsize-h5-pc:     15px !default;
+$fsize-h6-pc:     12px !default;
+
+$line-height:     1.7 !default;
+$line-height-heading:  1.4 !default;
+
+
+$fsize-material-icons: 20px !default;
 
 
 // フォントファミリー
@@ -34,23 +41,4 @@ $font-family-noto-sans: "Noto Sans JP", sans-serif !default;
 
 $font-family-base: $font-family-hiragino !default;
 
-// webフォント icon フォント
-// -------------------------
 
-$google-icon: "Material Icons" !default;
-//@include webfont($google-icon,normal,normal,liga);
-
-
-/*doc
----
-title: fonts
-name: fonts
-category: variables
----
-
-
-```
-
-```
-
-*/

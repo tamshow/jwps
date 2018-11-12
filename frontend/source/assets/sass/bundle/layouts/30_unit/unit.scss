@@ -5,15 +5,14 @@
 
 
 .l-unit {
-  margin-bottom: $margin-large-pc;
+
+  @include mb-medium;
 
   *:last-child {
     //margin-bottom: 0;
   }
 
-  @include media-sp-max {
-    margin-bottom: $margin-large-sp;
-  }
 
 }
+
 

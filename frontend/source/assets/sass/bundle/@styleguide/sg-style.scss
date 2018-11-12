@@ -16,7 +16,7 @@
 }
 
 .sg-header {
-  background: $brand-primary;
+  background: $primary-color;
   box-shadow: 0 3px 8px #aaacac;
 
   &__inner {
@@ -36,6 +36,36 @@
     font-weight: 700;
     margin-bottom: 10px;
     color: #fff;
+  }
+}
+
+.sg-heading2 {
+  color: $primary-color;
+  font-size: 18px;
+  padding-bottom: 5px;
+  @include mb-small;
+  border-bottom: 1px solid $primary-color;
+
+}
+
+.sg-heading3 {
+  color: $primary-color;
+  font-size: 16px;
+  padding-left: 1em;
+  position: relative;
+  @include mb-small;
+
+  &:before {
+    position: absolute;
+    content: '';
+    height:1px;
+    width:.5em;
+    top: 0;
+    bottom: 0;
+    left:0;
+    margin: auto;
+    background-color: $primary-color;
+    display: block;
   }
 }
 
@@ -62,12 +92,12 @@
   }
   .current {
     opacity: 1;
-    border-bottom-color: $brand-primary-light;
+    border-bottom-color: $primary-color-light;
   }
 }
 
 .sg-footer {
-  background: $brand-primary;
+  background: $primary-color;
 
   &__inner {
     @include clearfix;
@@ -94,7 +124,7 @@
 
   a {
     text-decoration: none;
-    color: $text-color-sub;
+    color: $secondary-text-color;
 
     &:hover {
       transition: all $animation;
@@ -103,15 +133,15 @@
   }
 
   &__title {
-    color: $text-color;
+    color: $primary-text-color;
     font-size: 18px;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid $dividers-color;
     margin-bottom: 5px;
     padding-bottom: 2px;
 
     span {
       font-size: 13px;
-      color: $text-color-week;
+      color: $disabled-text-color;
 
     }
   }
@@ -208,7 +238,7 @@
   font-size: 26px;
   font-weight: 700;
 
-  color: $brand-primary;
+  color: $primary-color;
 }
 
 .sg-heading3 {

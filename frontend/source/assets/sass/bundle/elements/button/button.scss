@@ -46,11 +46,9 @@ categories: [elements, button]
 
 // .visual-editor 内でもつかるように button のcolor とtext-decoration は 「!important」とします
 
-$button-padding-vertical: .9rem !default;
-$button-padding-horizon: 1.6rem !default;
-$button-line-height: 1.2 !default;
-$button-border: 0 !default;
-$button-border-radius: 2px !default;
+$button-padding-vertical: 1rem !default;
+$button-padding-horizon: 2.5rem !default;
+
 
 .e-button,
 .entry-btn,
@@ -59,33 +57,40 @@ $button-border-radius: 2px !default;
 
   a {
     font-weight: inherit;
-    text-decoration:  inherit;
-    color:  inherit;
+
+    text-decoration: inherit;
+
+    color: inherit;
   }
 
   font-weight: bold;
-  text-decoration: none !important;
-  color: $text-color !important;
-  padding: $button-padding-vertical $button-padding-horizon;
+  line-height: 1.2;
+
+  position: relative;
+
+  display: inline-block;
+  overflow: hidden;
+
+  box-sizing: border-box;
   min-width: 64px;
   max-width: 100%;
-  box-sizing: border-box;
-  transition: all $animation;
-  border-radius: $button-border-radius;
-  -webkit-font-smoothing: antialiased;
-  text-align: center;
-  white-space: nowrap;
-  appearance: none;
-  user-select: none;
-  outline: none;
-  overflow: hidden;
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: $button-line-height;
-  background-color: #fff;
-  border: $button-border;
+  padding: $button-padding-vertical $button-padding-horizon;
 
+  user-select: none;
+  transition: all $animation;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-decoration: none !important;
+
+  color: $primary-text-color !important;
+  border: 1px solid $dividers-color;
+  border-radius: $border-radius-pc;
+  outline: none;
+  background-color: #fff;
+
+  -webkit-font-smoothing: antialiased;
+  appearance: none;
   @include media-sp-max {
     padding: ($button-padding-vertical) ($button-padding-horizon * .8);
   }
@@ -96,13 +101,13 @@ $button-border-radius: 2px !default;
   &:hover,
   &:focus,
   &.is-hover {
-    // background-color: shade($brand-primary, 10%);
+    // background-color: shade($primary, 10%);
     text-decoration: none;
     @include elevation(4);
   }
 
   &:active {
-    //  background-color: shade($brand-primary, 10%);
+    //  background-color: shade($primary, 10%);
     text-decoration: none;
     @include elevation(8);
   }
@@ -110,9 +115,10 @@ $button-border-radius: 2px !default;
   &:disabled,
   &.is-disabled {
     cursor: not-allowed;
-    background-color: #eee;
-    border: 1px solid $border-color;
+
     color: #666 !important;
+    border: 1px solid $dividers-color;
+    background-color: #eee;
     @include elevation(0);
   }
 
@@ -121,10 +127,11 @@ $button-border-radius: 2px !default;
   .is-icon-right {
     position: absolute;
     top: 0;
-    margin: auto;
     bottom: 0;
-    height: 1em;
+
     width: 1em;
+    height: 1em;
+    margin: auto;
   }
 
   .is-icon-left {
@@ -143,11 +150,19 @@ $button-border-radius: 2px !default;
 
 //.e-button--primary {  }
 
-.e-button--secondary,
+.e-button--primary,
 .entry-btn-attention {
-
-  background-color: $brand-primary;
   color: #fff !important;
+  border-color: $primary-color;
+  background-color: $primary-color;
+
+}
+
+
+.e-button--accent {
+  color: #fff !important;
+  border-color: $accent-color;
+  background-color: $accent-color;
 
 }
 
@@ -178,22 +193,34 @@ parent: button
 */
 
 .e-button-group {
-  margin-right: -$screen-gap-pc + px;
-  margin-left: -$screen-gap-pc + px;
-  text-align: center;
+
   display: flex;
+
+  margin-right: -(($screen-gap-pc / 2) / $screen-main-colum) * 100%;
+  margin-left: -(($screen-gap-pc / 2) / $screen-main-colum) * 100%;
+
+  text-align: center;
+
   flex-flow: row wrap;
   justify-content: center;
   align-items: flex-end;
   @include mb-small;
+  @include media-sp-max {
+    display: block;
+
+    margin-right: -(($screen-gap-sp / 2) / $screen-main-colum) * 100%;
+    margin-left: -(($screen-gap-sp / 2) / $screen-main-colum) * 100%;
+  }
 
   .e-button {
+    margin-right: (($screen-gap-pc / 2) / $screen-main-colum) * 100%;
     margin-bottom: $margin-xs-pc;
-    margin-right: $screen-gap-pc + px;
-    margin-left: $screen-gap-pc + px;
-
+    margin-left: (($screen-gap-pc / 2) / $screen-main-colum) * 100%;
     @include media-sp-max {
-      width: 100%;
+      //width:100%;
+      //display: block;
+      margin-right: (($screen-gap-sp / 2) / $screen-main-colum) * 100%;
+      margin-left: (($screen-gap-sp / 2) / $screen-main-colum) * 100%;
     }
   }
 }
@@ -231,7 +258,6 @@ parent: button
   <button type="button" class="e-button e-button--small">もっと見る</button>
   <button type="button" class="e-button e-button--medium">もっと見る</button>
   <button type="button" class="e-button e-button--large">もっと見る</button>
-  <button type="button" class="e-button e-button--xlarge">もっと見る</button>
 </div>
 
 ```
@@ -239,13 +265,13 @@ parent: button
 */
 
 .e-button--small {
-  padding: ($button-padding-vertical * .4) ($button-padding-horizon * .55);
+  padding: ($button-padding-vertical * .5) ($button-padding-horizon * .55);
   font-size: .75em;
-  font-weight: normal;
 
-  @include media-sp-max {
-    padding: ($button-padding-vertical * .4) ($button-padding-horizon * .4);
-  }
+  @include elevation(0);
+  @include elevation-transition;
+
+
 }
 
 .e-button--medium {
@@ -254,25 +280,20 @@ parent: button
 
 .e-button--large {
   padding: ($button-padding-vertical * 1.4) ($button-padding-horizon);
-  font-size: 1.2em;
+  font-size: 1.15em;
   font-weight: bold;
+  min-width: (100/3) - (($screen-gap-pc) / $screen-main-colum) * 100%;
+
 
   @include media-sp-max {
     padding: ($button-padding-vertical * 1.4) ($button-padding-horizon);
+    width:100%;
+
+    min-width: (100/3) - (($screen-gap-sp) / $screen-main-colum) * 100%;
+
   }
 
 }
 
-.e-button--xlarge {
-  padding: ($button-padding-vertical * 1.5) ($button-padding-horizon);
-  font-size: 1.4em;
-  font-weight: bold;
-  min-width: 30%;
-
-  @include media-sp-max {
-    padding: ($button-padding-vertical * 1.4) ($button-padding-horizon);
-  }
-
-}
 
 

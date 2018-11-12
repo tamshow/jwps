@@ -12,6 +12,9 @@ categories: [utilities, icon]
 
 ```html_example
 
+
+<p><span class="is-new">New</span></p>
+
 <p><a href="" class="is-icon-target-blank">target="_blank"を指定している場合</a></p>
 <p><a href="" class="is-icon-pdf">pdfへのリンクの場合</a></p>
 <p><a href="" class="is-icon-doc">doc、docxへのリンクの場合</a></p>
@@ -54,6 +57,23 @@ categories: [utilities, icon]
 ```
 */
 
+
+
+.is-new {
+  background-color: $error-color;
+  border-radius: $border-radius-pc /2;
+  color: #fff;
+  font-weight: bold;
+  font-size: 10px;
+  padding: 2px 6px;
+  margin-left: 6px;
+  margin-right: 6px;
+  text-decoration: none;
+  display: inline-block;
+
+}
+
+
 .is-iconless {
   &:after {
     display: none!important;
@@ -69,7 +89,7 @@ categories: [utilities, icon]
     @extend .material-icons;
     vertical-align: middle;
     content: "open_in_new";
-    color: $text-color-sub;
+    color: $secondary-text-color;
     margin-left: .3em;
     min-width: 1em;
     text-align: right;

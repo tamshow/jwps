@@ -62,8 +62,9 @@ categories: [elements, box]
 
 .e-box {
   display: block;
+
+  border: solid 1px $dividers-color;
   background: #fff;
-  border: solid 1px $border-color;
   @include mb-small;
 
   &__title {
@@ -82,8 +83,8 @@ categories: [elements, box]
 }
 
 .e-box--bg {
-  background-color: $bg-color;
-  border-color: $bg-color;
+  background-color: $dividers-color;
+  border-color: $dividers-color;
 }
 
 .e-box--error {

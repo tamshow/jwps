@@ -26,7 +26,7 @@ categories: [elements, label]
 // .visual-editor 内でもつかるように label のcolor とtext-decoration は 「!important」とします
 
 .e-label {
-  color: $brand-white !important;
+  color: #fff !important;
   text-decoration: none !important;
   box-sizing: border-box;
 
@@ -57,35 +57,7 @@ h6 > .e-label {
   background-color: $label-color !important;
 }
 
-.e-label--red {
-  @include label-color($brand-red);
-}
 
-.e-label--pink {
-  @include label-color($brand-red);
-}
 
-.e-label--brawn {
-  @include label-color($brand-brawn);
-}
 
-.e-label--blue {
-  @include label-color($brand-blue);
-}
-
-.e-label--light-green {
-  @include label-color($brand-light-green);
-}
-
-.e-label--orange {
-  @include label-color($brand-orange);
-}
-
-.e-label--purple {
-  @include label-color($brand-purple);
-}
-
-.e-label--green {
-  @include label-color($brand-green);
-}
 

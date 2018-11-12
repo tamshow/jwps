@@ -136,18 +136,18 @@ category: visualeditor
 
         <h3>サイズ</h3>
         <figure>
-          <img class="size-full" src="/assets/img/dummy/840x560.png" alt="">
+          <img class="size-full" src="/assets/img/common/img1.png" alt="">
         </figure>
         <figure>
-          <img class="size-medium" src="/assets/img/dummy/840x560.png" alt="">
+          <img class="size-medium" src="/assets/img/common/img1.png" alt="">
         </figure>
         <figure>
-          <img class="size-thumbnail" src="/assets/img/dummy/840x560.png" alt="">
+          <img class="size-thumbnail" src="/assets/img/common/img1.png" alt="">
         </figure>
 
         <h3>配置</h3>
         <h4>左寄せ（テキスト回り込み）</h4>
-        <img class="alignleft size-medium" src="/assets/img/dummy/840x560.png" alt="">
+        <img class="alignleft size-medium" src="/assets/img/common/img1.png" alt="">
         <p>吾輩は猫である。名前はまだ無い。
           どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
           吾輩はここで始めて人間というものを見た。
@@ -163,11 +163,11 @@ category: visualeditor
 
         <h4>中央寄せ</h4>
         <figure>
-          <img class="aligncenter size-medium" src="/assets/img/dummy/840x560.png" alt="">
+          <img class="aligncenter size-medium" src="/assets/img/common/img1.png" alt="">
         </figure>
 
         <h4>右寄せ（テキスト回り込み）</h4>
-          <img class="alignright size-medium" src="/assets/img/dummy/840x560.png" alt="">
+          <img class="alignright size-medium" src="/assets/img/common/img1.png" alt="">
         <p>吾輩は猫である。名前はまだ無い。
           どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
           吾輩はここで始めて人間というものを見た。
@@ -297,36 +297,18 @@ category: visualeditor
 }
 
 
-
-.visual-editor strong {
-  //color: $brand-orange;
-}
-
-.visual-editor strong > strong {
-  color: $brand-orange;
-}
-
-.visual-editor s {
-  opacity: .54;
-}
-
-.visual-editor em {
-  font-weight: bold;
-  font-style: normal;
-}
-
-
-
 //TinyMCE
 
 //画像左
 .alignleft {
-  margin-right: 1rem;
-  margin-bottom: $margin-small-pc;
   float: left;
+
+  margin-right: $margin-small-pc;
+  margin-bottom: $margin-small-pc;
 
   @include media-sp-max {
     float: none;
+
     margin-right: 0;
   }
 }
@@ -334,23 +316,27 @@ category: visualeditor
 
 //画像右
 .alignright {
-  margin-left: 1rem;
-  margin-bottom: $margin-small-pc;
   float: right;
+
+  margin-bottom: $margin-small-pc;
+  margin-left: $margin-small-pc;
 
   @include media-sp-max {
     float: none;
+
     margin-left: 0;
   }
 }
 
 //画像中央
 .aligncenter {
-  text-align: center;
   display: block;
-  margin-left: auto;
+
   margin-right: auto;
   margin-bottom: $margin-small-pc;
+  margin-left: auto;
+
+  text-align: center;
 }
 
 
@@ -376,11 +362,13 @@ category: visualeditor
 //a-bog cms table
 [class^=column-table] .entry-container {
   overflow-x: auto;
+
   margin-bottom: $margin-small-sp;
 
   .acms-table-scrollable th,
   .acms-table-scrollable td {
     display: table-cell;
+
     white-space: nowrap;
   }
 }

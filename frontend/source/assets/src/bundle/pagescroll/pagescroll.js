@@ -31,7 +31,7 @@ $(function () {
    */
 
 
-  $(document).on('click', Selector.TARGET + ' a', function (e) {
+  $(document).on('click touchend', Selector.TARGET + ' a', function (e) {
     pageScroll(e);
   });
 

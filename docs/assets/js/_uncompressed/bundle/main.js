@@ -180,15 +180,15 @@ window.addEventListener('DOMContentLoaded', function(){
   window.onscroll = function() {
     scrollTop = document.documentElement.scrollTop;
     if (scrollTop >= startPos) {
-      bodyElem.setAttribute("data-scroll-pos", "down");
+      bodyElem.setAttribute("data-scroll-pos", "is-down");
     } else {
-      bodyElem.setAttribute("data-scroll-pos", "up");
+      bodyElem.setAttribute("data-scroll-pos", "is-up");
     }
     startPos = scrollTop;
 
     clearTimeout(scrollStop);
     scrollStop = setTimeout(function () {
-      bodyElem.setAttribute("data-scroll-pos", "stay");
+      bodyElem.setAttribute("data-scroll-pos", "is-stay");
     }, 1000);
   };
 
@@ -260,5 +260,6 @@ window.addEventListener('DOMContentLoaded', function(){
   }
 
 });
+
 
 
