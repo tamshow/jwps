@@ -96,7 +96,7 @@ categories: [elements, table]
 ```
 */
 
-
+[class*="column-table-"] table,
 .visual-editor table,
 .e-table {
   @extend %table-base;

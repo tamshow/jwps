@@ -68,6 +68,7 @@
 
   ._description {
     min-width: 320px;
+    width: 320px;
     margin-bottom: 12px;
 
     @include media-sp-max {

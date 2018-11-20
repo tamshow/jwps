@@ -20,8 +20,11 @@ categories: [elements, blockquote]
 ```
 */
 
+.acms-entry blockquote,
 .visual-editor blockquote,
 .e-blockquote {
+  margin: 0; //.acms-entry
+
   line-height: 1.7;
 
   position: relative;

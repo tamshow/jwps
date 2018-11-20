@@ -70,20 +70,3 @@
   }
 
 }
-
-
-
-.top-summary {
-
-  .top-summary__item {
-    @include mb-medium;
-  }
-
-  @include grid('.top-summary__item', 4, $screen-pc-max, 24);
-
-  @include media-sp-max {
-    @include grid('.top-summary__item', 12, $screen-sp-max, 0);
-  }
-
-
-}
