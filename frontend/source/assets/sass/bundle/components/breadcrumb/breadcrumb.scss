@@ -64,9 +64,13 @@ categories: [components, breadcrumb]
 */
 
 .c-breadcrumb {
+
   padding: 0 $width-gap-pc;
   border-bottom: 1px solid $dividers-color;
   @include mb-large;
+  @include media-sp-max {
+    padding-top: 15px;
+  }
   &__inner {
 
     max-width: $width-pc-max;

@@ -47,20 +47,24 @@ categories: [elements, card]
     height: inherit;
     text-decoration: none;
 
+
     .e-card__img {
-
-    //@include elevation(2);
-    @include elevation-transition;
-
+      //@include elevation(2);
+      @include elevation-transition;
+    }
     &:hover,
     &:focus {
-      @include elevation(4);
+      .e-card__img {
+        @include elevation(4);
+      }
     }
 
     &:active {
-      @include elevation(8);
+      .e-card__img {
+        @include elevation(8);
+      }
     }
-  }
+
   }
 
   &__img {

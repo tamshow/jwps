@@ -13,7 +13,7 @@ categories: [components, summary]
 ```html_example
 
 
-  <ul class="c-summary-horizontal">
+  <ul class="c-summary1">
    <li class="c-summary__item e-card">
         <a href="">
           <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
@@ -93,7 +93,7 @@ categories: [components, summary]
 ```
 */
 
-.c-summary-horizontal {
+.c-summary1 {
 
   //@include grid('.c-summary__item', 4, $screen-pc-max, 24);
 
@@ -104,7 +104,7 @@ categories: [components, summary]
 }
 
 
-.c-summary-horizontal {
+.c-summary1 {
 
 
 
@@ -131,7 +131,7 @@ categories: [components, summary]
 }
 
 
-.c-summary-horizontal2 {
+.c-summary2 {
 
   .c-summary__item {
     @include mb-medium;
@@ -146,73 +146,18 @@ categories: [components, summary]
 
 }
 
-
-
-
-
-
-/* @ vertical
- * ------------------------------------------------------------ */
-
-/*doc
----
-title: summary-vertical
-name: summary-vertical
-categories: [components, summary]
-parent: summary
-
----
-
-```html_example
-
-<div>
-   <ul class="c-summary-vertical">
-        <li class="c-summary__item e-media">
-          <a href="">
-            <div class="e-media__img">
-              <img src="/assets/img/common/media.png" >
-              </div>
-            <div class="e-media__body">
-              <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
-              <p class="e-media__text is-text-week">テキスト</p>
-            </div>
-            </a>
-        </li>
-        <li class="c-summary__item e-media">
-          <a href="">
-            <div class="e-media__img">
-              <img src="/assets/img/common/media.png" >
-              </div>
-            <div class="e-media__body">
-              <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
-              <p class="e-media__text is-text-week">テキスト</p>
-            </div>
-            </a>
-        </li>
-        <li class="c-summary__item e-media">
-          <a href="">
-            <div class="e-media__img">
-              <img src="/assets/img/common/media.png" >
-              </div>
-            <div class="e-media__body">
-              <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
-              <p class="e-media__text is-text-week">テキスト</p>
-            </div>
-            </a>
-        </li>
-    </ul>
- </div>
-
-
-
-```
-*/
-
-.c-summary-vertical {
+.c-summary3 {
 
   .c-summary__item {
     @include mb-medium;
   }
+
+  @include grid('.c-summary__item', 4, $screen-pc-max, 24);
+
+  @include media-sp-max {
+    @include grid('.c-summary__item', 12, $screen-sp-max, 0);
+  }
+
 
 }
 

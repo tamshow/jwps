@@ -821,6 +821,7 @@ pre code,
 
 .l-footer-v1 ._description {
   min-width: 320px;
+  width: 320px;
   margin-bottom: 12px;
 }
 
@@ -2064,8 +2065,10 @@ categories: [elements, blockquote]
 
 ```
 */
+.acms-entry blockquote,
 .visual-editor blockquote,
 .e-blockquote {
+  margin: 0;
   line-height: 1.7;
   position: relative;
   padding: 30px 60px 30px 60px;
@@ -2073,7 +2076,9 @@ categories: [elements, blockquote]
   margin-bottom: 24px;
 }
 
-.visual-editor blockquote:before, .visual-editor blockquote:after,
+.acms-entry blockquote:before, .acms-entry blockquote:after,
+.visual-editor blockquote:before,
+.visual-editor blockquote:after,
 .e-blockquote:before,
 .e-blockquote:after {
   font-family: 'Material Icons';
@@ -2088,6 +2093,7 @@ categories: [elements, blockquote]
   color: #B2EBF2;
 }
 
+.acms-entry blockquote:before,
 .visual-editor blockquote:before,
 .e-blockquote:before {
   top: 20px;
@@ -2097,6 +2103,7 @@ categories: [elements, blockquote]
           transform: rotate(-180deg);
 }
 
+.acms-entry blockquote:after,
 .visual-editor blockquote:after,
 .e-blockquote:after {
   right: 10px;
@@ -2901,6 +2908,7 @@ parent: list
    ========================================================================== */
 /* table:base
    ========================================================================== */
+[class*="column-table-"] table,
 .visual-editor table,
 .e-table, .visual-editor .e-table--borderless,
 .e-table--borderless {
@@ -2912,16 +2920,18 @@ parent: list
   margin-bottom: 24px;
 }
 
-.visual-editor table caption, .e-table caption, .visual-editor .e-table--borderless caption, .e-table--borderless caption {
+[class*="column-table-"] table caption, .visual-editor table caption, .e-table caption, .visual-editor .e-table--borderless caption, .e-table--borderless caption {
   color: #757575;
   margin-bottom: 24px;
 }
 
-.visual-editor table tr, .e-table tr, .visual-editor .e-table--borderless tr, .e-table--borderless tr,
+[class*="column-table-"] table tr, .visual-editor table tr, .e-table tr, .visual-editor .e-table--borderless tr, .e-table--borderless tr,
+[class*="column-table-"] table td,
 .visual-editor table td,
 .e-table td,
 .visual-editor .e-table--borderless td,
 .e-table--borderless td,
+[class*="column-table-"] table th,
 .visual-editor table th,
 .e-table th,
 .visual-editor .e-table--borderless th,
@@ -2932,6 +2942,7 @@ parent: list
 }
 
 
+[class*="column-table-"] table th,
 .visual-editor table th,
 .e-table th,
 .visual-editor .e-table--borderless th,
@@ -2945,6 +2956,7 @@ parent: list
 }
 
 
+[class*="column-table-"] table td,
 .visual-editor table td,
 .e-table td,
 .visual-editor .e-table--borderless td,
@@ -4480,12 +4492,13 @@ categories: [elements, media]
 
 ```html_example
 
-<div class="e-media">
+<div class="e-media"><a href="">
   <div class="e-media__img"><img src="/assets/img/common/media.png" alt=""></div>
   <div class="e-media__body">
     <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
     <p class="e-media__text">情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
   </div>
+  </a>
 </div>
 
 ```
@@ -4500,8 +4513,26 @@ categories: [elements, media]
 
 .e-media > a {
   display: block;
-  overflow: hidden;
   color: inherit;
+  text-decoration: none;
+}
+
+.e-media > a .e-media__img {
+  -webkit-transition: -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: box-shadow;
+}
+
+.e-media > a:hover .e-media__img, .e-media > a:focus .e-media__img {
+  -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.e-media > a:active .e-media__img {
+  -webkit-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 .e-media::after {
@@ -4611,12 +4642,12 @@ categories: [elements, card]
   will-change: box-shadow;
 }
 
-.e-card > a .e-card__img:hover, .e-card > a .e-card__img:focus {
+.e-card > a:hover .e-card__img, .e-card > a:focus .e-card__img {
   -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
           box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
-.e-card > a .e-card__img:active {
+.e-card > a:active .e-card__img {
   -webkit-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
           box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
@@ -4881,6 +4912,7 @@ categories: [components, pagination]
 .c-pagenavi a {
   margin-left: 0;
   margin-bottom: 10px;
+  display: inline-block;
   min-width: 30px;
   height: 30px;
   -webkit-transition: all 280ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -5328,7 +5360,7 @@ categories: [components, summary]
 ```html_example
 
 
-  <ul class="c-summary-horizontal">
+  <ul class="c-summary1">
    <li class="c-summary__item e-card">
         <a href="">
           <div class="e-card__img"><img src="/assets/img/common/card.png" alt=""></div>
@@ -5407,7 +5439,7 @@ categories: [components, summary]
 
 ```
 */
-.c-summary-horizontal {
+.c-summary1 {
   margin-left: -1.3422818792%;
   margin-right: -1.3422818792%;
   -webkit-box-align: stretch;
@@ -5421,7 +5453,7 @@ categories: [components, summary]
       flex-wrap: wrap;
 }
 
-.c-summary-horizontal .c-summary__item {
+.c-summary1 .c-summary__item {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 22.3154362416%;
           flex: 0 0 22.3154362416%;
@@ -5432,11 +5464,11 @@ categories: [components, summary]
           box-sizing: border-box;
 }
 
-.c-summary-horizontal .c-summary__item > *:last-child {
+.c-summary1 .c-summary__item > *:last-child {
   margin-bottom: 0;
 }
 
-.c-summary-horizontal2 {
+.c-summary2 {
   margin-left: -1.0067114094%;
   margin-right: -1.0067114094%;
   -webkit-box-align: stretch;
@@ -5450,11 +5482,11 @@ categories: [components, summary]
       flex-wrap: wrap;
 }
 
-.c-summary-horizontal2 .c-summary__item {
+.c-summary2 .c-summary__item {
   margin-bottom: 36px;
 }
 
-.c-summary-horizontal2 .c-summary__item {
+.c-summary2 .c-summary__item {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 47.9865771812%;
           flex: 0 0 47.9865771812%;
@@ -5465,67 +5497,41 @@ categories: [components, summary]
           box-sizing: border-box;
 }
 
-.c-summary-horizontal2 .c-summary__item > *:last-child {
+.c-summary2 .c-summary__item > *:last-child {
   margin-bottom: 0;
 }
 
-/* @ vertical
- * ------------------------------------------------------------ */
-/*doc
----
-title: summary-vertical
-name: summary-vertical
-categories: [components, summary]
-parent: summary
+.c-summary3 {
+  margin-left: -1.0067114094%;
+  margin-right: -1.0067114094%;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  clear: both;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
 
----
-
-```html_example
-
-<div>
-   <ul class="c-summary-vertical">
-        <li class="c-summary__item e-media">
-          <a href="">
-            <div class="e-media__img">
-              <img src="/assets/img/common/media.png" >
-              </div>
-            <div class="e-media__body">
-              <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
-              <p class="e-media__text is-text-week">テキスト</p>
-            </div>
-            </a>
-        </li>
-        <li class="c-summary__item e-media">
-          <a href="">
-            <div class="e-media__img">
-              <img src="/assets/img/common/media.png" >
-              </div>
-            <div class="e-media__body">
-              <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
-              <p class="e-media__text is-text-week">テキスト</p>
-            </div>
-            </a>
-        </li>
-        <li class="c-summary__item e-media">
-          <a href="">
-            <div class="e-media__img">
-              <img src="/assets/img/common/media.png" >
-              </div>
-            <div class="e-media__body">
-              <p class="e-media__title">情に棹させば流される智に働けば角が立つ</p>
-              <p class="e-media__text is-text-week">テキスト</p>
-            </div>
-            </a>
-        </li>
-    </ul>
- </div>
-
-
-
-```
-*/
-.c-summary-vertical .c-summary__item {
+.c-summary3 .c-summary__item {
   margin-bottom: 36px;
+}
+
+.c-summary3 .c-summary__item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 31.3199105145%;
+          flex: 0 0 31.3199105145%;
+  margin-left: 1.0067114094%;
+  margin-right: 1.0067114094%;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.c-summary3 .c-summary__item > *:last-child {
+  margin-bottom: 0;
 }
 
 /* ==========================================================================
@@ -8037,39 +8043,6 @@ div.codeBlock {
   color: #fff;
 }
 
-.top-summary {
-  margin-left: -1.0067114094%;
-  margin-right: -1.0067114094%;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  clear: both;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.top-summary .top-summary__item {
-  margin-bottom: 36px;
-}
-
-.top-summary .top-summary__item {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 31.3199105145%;
-          flex: 0 0 31.3199105145%;
-  margin-left: 1.0067114094%;
-  margin-right: 1.0067114094%;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.top-summary .top-summary__item > *:last-child {
-  margin-bottom: 0;
-}
-
 @media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
@@ -8289,7 +8262,7 @@ div.codeBlock {
     display: none;
   }
   .l-header-v1 {
-    margin-top: 75px;
+    margin-top: 60px;
   }
   .l-header-v1 ._sp {
     height: 60px;
@@ -8571,18 +8544,22 @@ div.codeBlock {
   .e-gmap iframe {
     height: 30vh;
   }
+  .acms-entry blockquote,
   .visual-editor blockquote,
   .e-blockquote {
     margin-bottom: 12px;
   }
+  .acms-entry blockquote,
   .visual-editor blockquote,
   .e-blockquote {
     padding: 42px 15px 42px 15px;
   }
+  .acms-entry blockquote:before,
   .visual-editor blockquote:before,
   .e-blockquote:before {
     left: 6px;
   }
+  .acms-entry blockquote:after,
   .visual-editor blockquote:after,
   .e-blockquote:after {
     right: 6px;
@@ -8719,15 +8696,17 @@ div.codeBlock {
   .e-list-img-horizontal li > *:last-child {
     margin-bottom: 0;
   }
-  .visual-editor table caption, .e-table caption, .visual-editor .e-table--borderless caption, .e-table--borderless caption {
+  [class*="column-table-"] table caption, .visual-editor table caption, .e-table caption, .visual-editor .e-table--borderless caption, .e-table--borderless caption {
     margin-bottom: 12px;
   }
+  [class*="column-table-"] table,
   .visual-editor table,
   .e-table, .visual-editor .e-table--borderless,
   .e-table--borderless {
     margin-bottom: 12px;
   }
   
+  [class*="column-table-"] table th,
   .visual-editor table th,
   .e-table th,
   .visual-editor .e-table--borderless th,
@@ -9034,6 +9013,9 @@ div.codeBlock {
   .c-breadcrumb {
     margin-bottom: 36px;
   }
+  .c-breadcrumb {
+    padding-top: 15px;
+  }
   .c-breadcrumb__inner {
     white-space: nowrap;
     overflow: scroll;
@@ -9077,7 +9059,7 @@ div.codeBlock {
   .c-anchor-nav {
     margin-bottom: 12px;
   }
-  .c-summary-horizontal {
+  .c-summary1 {
     margin-left: 0%;
     margin-right: 0%;
     -webkit-box-align: stretch;
@@ -9090,7 +9072,7 @@ div.codeBlock {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .c-summary-horizontal .c-summary__item {
+  .c-summary1 .c-summary__item {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
@@ -9100,13 +9082,13 @@ div.codeBlock {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
   }
-  .c-summary-horizontal .c-summary__item > *:last-child {
+  .c-summary1 .c-summary__item > *:last-child {
     margin-bottom: 0;
   }
-  .c-summary-horizontal2 .c-summary__item {
+  .c-summary2 .c-summary__item {
     margin-bottom: 24px;
   }
-  .c-summary-horizontal2 {
+  .c-summary2 {
     margin-left: 0%;
     margin-right: 0%;
     -webkit-box-align: stretch;
@@ -9119,7 +9101,7 @@ div.codeBlock {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .c-summary-horizontal2 .c-summary__item {
+  .c-summary2 .c-summary__item {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
@@ -9129,11 +9111,37 @@ div.codeBlock {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
   }
-  .c-summary-horizontal2 .c-summary__item > *:last-child {
+  .c-summary2 .c-summary__item > *:last-child {
     margin-bottom: 0;
   }
-  .c-summary-vertical .c-summary__item {
+  .c-summary3 .c-summary__item {
     margin-bottom: 24px;
+  }
+  .c-summary3 {
+    margin-left: 0%;
+    margin-right: 0%;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    clear: both;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .c-summary3 .c-summary__item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .c-summary3 .c-summary__item > *:last-child {
+    margin-bottom: 0;
   }
   .c-keyword-search {
     padding: 12px 16px 16px 16px;
@@ -9351,35 +9359,6 @@ div.codeBlock {
   }
   .top-heading__lead {
     margin-bottom: 34px;
-  }
-  .top-summary .top-summary__item {
-    margin-bottom: 24px;
-  }
-  .top-summary {
-    margin-left: 0%;
-    margin-right: 0%;
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
-    clear: both;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  .top-summary .top-summary__item {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
-    margin-left: 0%;
-    margin-right: 0%;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-  }
-  .top-summary .top-summary__item > *:last-child {
-    margin-bottom: 0;
   }
 }
 
