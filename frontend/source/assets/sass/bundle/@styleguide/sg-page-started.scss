@@ -13,7 +13,7 @@ categories: [started, visualEditorWrap]
 <ul>
 <li>ページの基本レイアウト</li>
 <li>レイアウトの基本の型は次の並びになります。 <code>.l-main &gt; .l-container &gt; .l-block &gt; .l-unit </code></li>
-<li>外枠に<code>.visual-editor</code>を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。<br>主にCMSのヴィジュアルエディタ等で使用するイメージな気がしています。<br>なので<code>.visual-editor</code>内はh3,h4,pなど基本的なタグのみで使用する想定です。詳しくは「VisualEditor」を確認ください。
+<li>外枠に<code>.visual-editor</code>を指定することで、内包するタグに「Elements」の主要なベース装飾を指定可能です。<br>主にCMSのヴィジュアルエディタ等で使用するイメージな気がしています。<br>なので<code>.visual-editor</code>内はh3,h4,pなど基本的なタグので構成される想定です。詳しくは「VisualEditor」を確認ください。
 </li>
 </ul>
 <h3>Componentsとは</h3>

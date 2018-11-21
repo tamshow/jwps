@@ -24,24 +24,7 @@ category: visualeditor
 
 
 ```html_example
-       <div class="c-anchor-nav is-mb-large">
-        <div class="c-anchor-nav__body">
-          <p class="c-anchor-nav__title">コンテンツ</p>
-          <ul data-scroll>
-            <li><a href="#ank1">見出し・段落</a> </li>
-            <li><a href="#ank2">リスト</a> </li>
-            <li><a href="#ank3">テキスト（装飾・リンク・配置・引用）</a> </li>
-            <li><a href="#ank4">画像（サイズ・配置）</a> </li>
-            <li><a href="#ank5">テーブル</a> </li>
-          </ul>
-        </div>
-      </div>
-
-
       <div class="l-unit visual-editor">
-
-
-        <h2 id="ank1">1. 見出し・段落</h2>
         <h2>見出し2</h2>
         <h3>見出し3</h3>
         <h4>見出し4</h4>
@@ -50,7 +33,6 @@ category: visualeditor
 
         <p>吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。</p>
 
-        <h2 id="ank2">2. リスト</h2>
 
         <ul>
           <li>順序がないリスト</li>
@@ -84,8 +66,6 @@ category: visualeditor
           <dd>テキストが入ります。テキストが入ります。</dd>
         </dl>
 
-        <h2 id="ank3">3. テキスト（装飾・リンク・配置・引用）</h2>
-        <h3>装飾</h3>
         <p>
           <strong>強い強調を表す要素（strong）</strong><br>
           <em>強調を表す要素（em）</em><br>
@@ -97,8 +77,6 @@ category: visualeditor
           <span style="color: #cc3e4c;">エラー色文字（Text Red）</span><br>
         </p>
 
-
-        <h3>リンク</h3>
         <p>
           <a href="#dummy">標準のリンク</a><br>
           <a href="#dummy" target="_blank">target="_blank"を指定している場合 </a><br>
@@ -106,47 +84,18 @@ category: visualeditor
           <a href="#dummy.doc">doc、docxへのリンクの場合</a><br>
           <a href="#dummy.xls">xls、xlsxへのリンクの場合</a><br>
           <a href="#dummy.ppt">ppt、pptxへのリンクの場合</a><br>
-          <a href="#dummy.ppt" class="is-iconless">aタグに.is-iconlessがあると自動リンクアイコンは表示されません</a>
+          <a href="#dummy.ppt" class="is-iconless">aタグに.is-iconlessがある場合は自動リンクアイコンは表示されません</a>
+          <br>
+          <a href="#dummy" target="_blank"><img class="" src="/assets/img/common/img1.png" alt="" width="80" height="80"></a>
+          <br>画像にリンクがある場合は自動アイコンは表示されません
         </p>
 
-        <h3>配置</h3>
-        <p style="text-align: left;">左揃え<br>
-          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
-        </p>
-        <p style="text-align: center;">
-          中央揃え<br>
-          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
-        </p>
-        <p  style="text-align: right;">
-          右揃え<br>
-          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
-        </p>
 
-        <p style="text-align: justify";>
-          両端揃え<br>
-          吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
-        </p>
 
-        <h3>引用</h3>
         <blockquote>
           引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。引用テキストが入ります。
         </blockquote>
 
-        <h2 id="ank4">4. 画像（サイズ・配置）</h2>
-
-        <h3>サイズ</h3>
-        <figure>
-          <img class="size-full" src="/assets/img/common/img1.png" alt="">
-        </figure>
-        <figure>
-          <img class="size-medium" src="/assets/img/common/img1.png" alt="">
-        </figure>
-        <figure>
-          <img class="size-thumbnail" src="/assets/img/common/img1.png" alt="">
-        </figure>
-
-        <h3>配置</h3>
-        <h4>左寄せ（テキスト回り込み）</h4>
         <img class="alignleft size-medium" src="/assets/img/common/img1.png" alt="">
         <p>吾輩は猫である。名前はまだ無い。
           どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
@@ -161,31 +110,9 @@ category: visualeditor
           これが人間の飲む煙草というものである事はようやくこの頃知った。
           ​</p>
 
-        <h4>中央寄せ</h4>
-        <figure>
-          <img class="aligncenter size-medium" src="/assets/img/common/img1.png" alt="">
-        </figure>
-
-        <h4>右寄せ（テキスト回り込み）</h4>
-          <img class="alignright size-medium" src="/assets/img/common/img1.png" alt="">
-        <p>吾輩は猫である。名前はまだ無い。
-          どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
-          吾輩はここで始めて人間というものを見た。
-          しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。
-          この書生というのは時々我々を捕えて煮て食うという話である。
-          しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
-          ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。
-          掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。
-          第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。
-          のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。
-          これが人間の飲む煙草というものである事はようやくこの頃知った。
-          ​</p>
 
 
 
-        <h2 id="ank5">5. テーブル</h2>
-
-        <h3>標準</h3>
         <table>
           <tr>
             <th>見出し</th>
@@ -204,47 +131,10 @@ category: visualeditor
           </tr>
         </table>
 
-        <table>
-          <tr>
-            <th>見出し</th>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-          <tr>
-            <th>見出し</th>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-          <tr>
-            <th>見出し</th>
-            <td>テキストが入ります。</td>
-            <td>テキストが入ります。</td>
-          </tr>
-        </table>
+
+</div>
 
 
-        <h3>SP時スクロール</h3>
-        <div class="e-responsive-table">
-          <table>
-            <tr>
-              <th>見出し</th>
-              <th>見出し</th>
-              <th>見出し</th>
-            </tr>
-            <tr>
-              <td>テキストが入ります。</td>
-              <td>テキストが入ります。</td>
-              <td>テキストが入ります。</td>
-            </tr>
-            <tr>
-              <td>テキストが入ります。</td>
-              <td>テキストが入ります。</td>
-              <td>テキストが入ります。</td>
-            </tr>
-          </table>
-        </div>
-
-      </div>
 
 ```
 

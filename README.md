@@ -8,7 +8,7 @@ UIコンポーネントを組み合わせてwebページを構築していく手
 また、アクセシビリティ達成基準のレベルAに加え、AAのうち一部の達成基準に配慮しています。   
 最終的には達成基準のすべてを満たすことを目指していますが、現時点ではすべての達成基準を満たすことはできていません。
 
- - [サンプルサイトを見る](https://tamshow.github.io/jwps/)
+ - [スタイルガイドを見る](https://tamshow.github.io/jwps/)
  - [テンプレートのサンプルを見る](http://template.tamshow.com/filelist.html)
 
 

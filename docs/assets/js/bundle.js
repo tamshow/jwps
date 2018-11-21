@@ -428,6 +428,136 @@ $(function () {
 
 $(function () {
 
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
+  var NAME = 'offcanvas';
+  var VERSION = '0.5.0';
+
+  var Selector = {
+    TARGET      : '[data-toggle-offcanvas]',
+    BODY        : '[data-body-offcanvas]',
+    BG          : '#js-offcanvas-bg',
+    LOWER_LAYER : 'footer,main',
+    SCROLL      : '[data-scroll-offcanvas]'
+  };
+
+
+  var Default = {
+    current_scrollY: null
+  };
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+  $(Selector.TARGET).on('click touchend', function (e) {
+    if ($(Selector.BODY).attr('aria-hidden') === 'true') {
+      settingOpen(e);
+    } else {
+      settingClose();
+    }
+  });
+
+
+  $(Selector.BODY).on('click touchend', 'a', function () {
+    settingClose();
+  });
+
+  $(Selector.BG).on('click touchend', function () {
+    settingClose();
+  });
+
+  $(Selector.BODY).on('click touchend', Selector.SCROLL, function (e) {
+    settingClose();
+    clickScrollTo(e);
+  });
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
+
+
+  function settingOpen(e) {
+
+    e.preventDefault();
+
+    //ナビゲーションのレイヤーを上にしてスライドイン
+    $(Selector.BODY).attr({'aria-hidden': 'false', 'tabindex': '1'});
+    // $('input').first().focus();
+    //メニューアイコン
+    $(Selector.TARGET).attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
+    //背景黒
+    $(Selector.BG).css({
+      display: 'block',
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(0, 0, 0, .5)',
+      overflow: 'hidden',
+      position: 'fixed',
+      top: '0',
+      left: '0',
+      zIndex: '998'
+    });
+
+    //下のレイヤーをhidden
+    $(Selector.LOWER_LAYER).attr({'aria-hidden': 'true'});
+    Default.current_scrollY = $(window).scrollTop();
+    //現在地のスクロールを保持
+    $('body').css({
+      position: 'fixed',
+      width: '100%',
+      top: -1 * Default.current_scrollY
+    });
+
+  }
+
+  function settingClose() {
+
+    $(Selector.BODY).attr({'aria-hidden': 'true', 'tabindex': '-1'});
+    $(Selector.TARGET).attr({'aria-expanded': 'false', 'aria-label': '開く'});
+    $(Selector.BG).attr({style: ''});
+    $(Selector.LOWER_LAYER).removeAttr('aria-hidden');
+    $('body').attr({style: ''});
+    $('html, body').prop({scrollTop: Default.current_scrollY});
+  }
+
+
+  function clickScrollTo(e) {
+    e.preventDefault();
+
+    var $target = $(e.currentTarget);
+    var targetHref = $target.attr('href');
+
+    if (targetHref.indexOf('#') != -1) {
+      $target.blur();
+
+      var offset = $(targetHref).offset() || {};
+      var offsetTop = offset.top || 0;
+
+      $('html,body').animate(
+          {scrollTop: offsetTop},
+          {duration: 300, easing: 'swing'});
+    }
+  }
+
+});
+
+
+
+
+$(function () {
+
 
   /**
    * ------------------------------------------------------------------------
@@ -656,136 +786,6 @@ $(function () {
 
 
 
-$(function () {
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  var NAME = 'offcanvas';
-  var VERSION = '0.5.0';
-
-  var Selector = {
-    TARGET      : '[data-toggle-offcanvas]',
-    BODY        : '[data-body-offcanvas]',
-    BG          : '#js-offcanvas-bg',
-    LOWER_LAYER : 'footer,main',
-    SCROLL      : '[data-scroll-offcanvas]'
-  };
-
-
-  var Default = {
-    current_scrollY: null
-  };
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Event
-   * ------------------------------------------------------------------------
-   */
-
-
-  $(Selector.TARGET).on('click touchend', function (e) {
-    if ($(Selector.BODY).attr('aria-hidden') === 'true') {
-      settingOpen(e);
-    } else {
-      settingClose();
-    }
-  });
-
-
-  $(Selector.BODY).on('click touchend', 'a', function () {
-    settingClose();
-  });
-
-  $(Selector.BG).on('click touchend', function () {
-    settingClose();
-  });
-
-  $(Selector.BODY).on('click touchend', Selector.SCROLL, function (e) {
-    settingClose();
-    clickScrollTo(e);
-  });
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Function
-   * ------------------------------------------------------------------------
-   */
-
-
-  function settingOpen(e) {
-
-    e.preventDefault();
-
-    //ナビゲーションのレイヤーを上にしてスライドイン
-    $(Selector.BODY).attr({'aria-hidden': 'false', 'tabindex': '1'});
-    // $('input').first().focus();
-    //メニューアイコン
-    $(Selector.TARGET).attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
-    //背景黒
-    $(Selector.BG).css({
-      display: 'block',
-      width: '100%',
-      height: '100%',
-      backgroundColor: 'rgba(0, 0, 0, .5)',
-      overflow: 'hidden',
-      position: 'fixed',
-      top: '0',
-      left: '0',
-      zIndex: '998'
-    });
-
-    //下のレイヤーをhidden
-    $(Selector.LOWER_LAYER).attr({'aria-hidden': 'true'});
-    Default.current_scrollY = $(window).scrollTop();
-    //現在地のスクロールを保持
-    $('body').css({
-      position: 'fixed',
-      width: '100%',
-      top: -1 * Default.current_scrollY
-    });
-
-  }
-
-  function settingClose() {
-
-    $(Selector.BODY).attr({'aria-hidden': 'true', 'tabindex': '-1'});
-    $(Selector.TARGET).attr({'aria-expanded': 'false', 'aria-label': '開く'});
-    $(Selector.BG).attr({style: ''});
-    $(Selector.LOWER_LAYER).removeAttr('aria-hidden');
-    $('body').attr({style: ''});
-    $('html, body').prop({scrollTop: Default.current_scrollY});
-  }
-
-
-  function clickScrollTo(e) {
-    e.preventDefault();
-
-    var $target = $(e.currentTarget);
-    var targetHref = $target.attr('href');
-
-    if (targetHref.indexOf('#') != -1) {
-      $target.blur();
-
-      var offset = $(targetHref).offset() || {};
-      var offsetTop = offset.top || 0;
-
-      $('html,body').animate(
-          {scrollTop: offsetTop},
-          {duration: 300, easing: 'swing'});
-    }
-  }
-
-});
-
-
-
-
 window.addEventListener('DOMContentLoaded', function () {
 
 
@@ -848,88 +848,6 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 
-$(function () {
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  var NAME = 'switch';
-  var VERSION = '0.5.0';
-
-  var Selector = {
-    SWITCH        : '[data-switch]',
-    TARGET        : '[data-toggle-switch]',
-    BODY          : '[data-body-switch]',
-    DEVICE        : '[data-device-switch]'//all, pc, tab, sp
-  };
-
-
-  var Default = {
-    TAB_W  : '960px',
-    SP_W   : '600px'
-  };
-
-
-  $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Event
-   * ------------------------------------------------------------------------
-   */
-
-
-  $(Selector.TARGET).on('click touchend E_ENTER_KYE_CODE', function (e) {
-
-    var media = $(e.currentTarget).parents(Selector.DEVICE).data('device-switch') || 'all';
-    var isMobile = window.matchMedia('(max-width:' + Default.SP_W + ')').matches || false;
-    var isTablet = window.matchMedia('(min-width:' + Default.SP_W + ') and (max-width:' + Default.TAB_W + ')').matches || false;
-
-    if (media.match(/all/) ||
-        (media.match(/sp/) && isMobile) ||
-        (media.match(/tab/) && isTablet) ||
-        (media.match(/pc/) && ( !isMobile && !isTablet))
-    ) {
-      toggle(e);
-    }
-  });
-  
-
-  /**
-   * ------------------------------------------------------------------------
-   * Function
-   * ------------------------------------------------------------------------
-   */
-
-  
-  function toggle(e) {
-    e.preventDefault();
-    var $current_target = $(e.currentTarget);
-    var $containerSW = $current_target.parents(Selector.SWITCH);
-    var $bodySW = $containerSW.find(Selector.BODY);
-
-    if ($containerSW.hasClass('is-active')) {
-      $containerSW.removeClass('is-active');
-      $current_target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
-      $bodySW.stop().attr('aria-hidden', 'true');
-    } else {
-      $containerSW.addClass('is-active');
-      $current_target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
-      $bodySW.stop().attr('aria-hidden', 'false');
-
-    }
-  }
-
-
-
-
-
-});
 $(function () {
 
 
@@ -1036,3 +954,86 @@ $(function () {
 
 
 
+
+$(function () {
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
+  var NAME = 'switch';
+  var VERSION = '0.5.0';
+
+  var Selector = {
+    SWITCH        : '[data-switch]',
+    TARGET        : '[data-toggle-switch]',
+    BODY          : '[data-body-switch]',
+    DEVICE        : '[data-device-switch]'//all, pc, tab, sp
+  };
+
+
+  var Default = {
+    TAB_W  : '960px',
+    SP_W   : '600px'
+  };
+
+
+  $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+  $(Selector.TARGET).on('click touchend E_ENTER_KYE_CODE', function (e) {
+
+    var media = $(e.currentTarget).parents(Selector.DEVICE).data('device-switch') || 'all';
+    var isMobile = window.matchMedia('(max-width:' + Default.SP_W + ')').matches || false;
+    var isTablet = window.matchMedia('(min-width:' + Default.SP_W + ') and (max-width:' + Default.TAB_W + ')').matches || false;
+
+    if (media.match(/all/) ||
+        (media.match(/sp/) && isMobile) ||
+        (media.match(/tab/) && isTablet) ||
+        (media.match(/pc/) && ( !isMobile && !isTablet))
+    ) {
+      toggle(e);
+    }
+  });
+  
+
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
+
+  
+  function toggle(e) {
+    e.preventDefault();
+    var $current_target = $(e.currentTarget);
+    var $containerSW = $current_target.parents(Selector.SWITCH);
+    var $bodySW = $containerSW.find(Selector.BODY);
+
+    if ($containerSW.hasClass('is-active')) {
+      $containerSW.removeClass('is-active');
+      $current_target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
+      $bodySW.stop().attr('aria-hidden', 'true');
+    } else {
+      $containerSW.addClass('is-active');
+      $current_target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
+      $bodySW.stop().attr('aria-hidden', 'false');
+
+    }
+  }
+
+
+
+
+
+});
