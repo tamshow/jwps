@@ -20,6 +20,12 @@ UIコンポーネントを組み合わせてwebページを構築していく手
 
  -  [Download design files (XD)](https://github.com/tamshow/jwps/blob/master/design/JWPS.xd)
   
+### アイコン部分が文字化けしてしまう方へ
+このファイルでは「Google Material Icons」をアイコンフォントとして使用しています。   
+以下のURLから「MaterialIcons-Regular.ttf」をダウンロードして、お使いのPCにインストールすることでアイコンが文字化けせずに表示されます。
+  
+[https://github.com/google/material-design-icons/blob/master/iconfont/MaterialIcons-Regular.ttf](https://github.com/google/material-design-icons/blob/master/iconfont/MaterialIcons-Regular.ttf)
+  
   
 ## 開発ガイドライン (For developers)
 
