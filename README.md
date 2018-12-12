@@ -58,9 +58,9 @@ Sassのmixinは[bourbonファミリー](https://www.bourbon.io/)を参考・使�
 ### 環境構築
 
 #### 必要環境
-- Node 8.4.0
-- npm 5.3.0
-- yarn 1.3.2
+- Node 10.14.2
+- npm 6.4.1
+- yarn 1.12.3
 
 
 #### インストール
@@ -91,9 +91,6 @@ JS、CSSなど圧縮、または不要ファイルを削除します。
 HTMLファイルは必要に応じてテンプレート等に組み込んで使用してください。
 
 
-//json-server起動
-$ cd json-server
-$ node server.js
 
 
 //スタイルガイド作成
