@@ -12,7 +12,6 @@ const csso = require('gulp-csso');
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 const stream = browserSync.stream;
-const connectSSI   = require('connect-ssi');
 
 const replace = require('gulp-replace');
 const concat = require('gulp-concat');
@@ -30,10 +29,8 @@ const DEST = 'build';
 //docs
 const DOCS = '../docs';
 
-
 // js
 //=================
-
 
 //結合
 const jsFileBundle = [
@@ -44,29 +41,8 @@ gulp.task('js:bundle', () => {
       .pipe(gulp.dest('source/assets/js/'));
 });
 
-gulp.task('js:no-bundle', () => {
-  return gulp.src([
-    'source/assets/src/**/*.js',
-    '!source/assets/src/bundle/**/*.js'
-  ])
-    .pipe(gulp.dest('source/assets/js/'));
-});
-
-
-gulp.task('js:bundle-copy', () => {
-  return gulp.src([
-    'source/assets/src/bundle/**/*.js'
-  ])
-      .pipe(gulp.dest('source/assets/js/_uncompressed/bundle/'));
-});
-
-
-
-//--------------------
-
-//結合
 const jsFileVendor = [
-  'node_modules/jquery/dist/jquery.js'
+  'source/assets/src/vendor/**/*.js'
 ];
 gulp.task('js:vendor', () => {
   return gulp.src(jsFileVendor).pipe(concat('vendor.js'))
@@ -74,13 +50,16 @@ gulp.task('js:vendor', () => {
 });
 
 
-
-//そのまま
-gulp.task('js:vendor-copy', () => {
-  return gulp.src(jsFileVendor)
-      .pipe(gulp.dest('source/assets/js/_uncompressed/vendor/'));
+gulp.task('js:no-bundle', () => {
+  return gulp.src([
+    'source/assets/src/**/*.js',
+    '!source/assets/src/bundle.js',
+    '!source/assets/src/vendor.js',
+    '!source/assets/src/bundle/**/*.js',
+    '!source/assets/src/vendor/**/*.js'
+  ])
+    .pipe(gulp.dest('source/assets/js/'));
 });
-
 
 
 
@@ -117,8 +96,6 @@ gulp.task('html', (callback) => {
       'js:bundle',
       'js:no-bundle',
       'js:vendor',
-      'js:bundle-copy',
-      'js:vendor-copy',
       callback);
 });
 
@@ -131,13 +108,7 @@ gulp.task('server', () => {
     startPath: '/filelist.html',
     open: 'false',
     server: {
-      baseDir: './source',
-      middleware: [
-        connectSSI({
-          baseDir: __dirname + '/source',
-          ext: '.html'
-        })
-      ]
+      baseDir: './source'
     }
   });
 });
@@ -195,6 +166,7 @@ gulp.task('build:move', () => {
 //=================
 gulp.task('build:clean', () => {
   return del([
+    DEST + '/**/*.kit',
     DEST + '/assets/sass/',
     DEST + '/assets/src/',
     DEST + '/assets/_src/'
@@ -218,9 +190,7 @@ gulp.task('build:css:min', () => {
 //==================
 gulp.task('build:js:min', () => {
   return gulp.src([
-    DEST + '/assets/js/**/*.js',
-    '!' + DEST + '/assets/js/bundle-copy/**/*.js',
-    '!' + DEST + '/assets/js/vendor-copy/**/*.js'
+    DEST + '/assets/js/**/*.js'
   ])
       .pipe(plumber())
       .pipe(minifier({ output:{comments: /^!/}}))
