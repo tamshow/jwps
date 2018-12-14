@@ -1,6 +1,10 @@
 # vendor files
 frontend/vendor
 .bundle
+prepros-6.config
+config.codekit3
+
+
 
 # node modules
 node_modules
