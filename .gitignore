@@ -1,5 +1,5 @@
 # vendor files
-vendor
+frontend/vendor
 .bundle
 
 # node modules
@@ -15,12 +15,12 @@ frontend/source/assets/js-form
 frontend/source/ish
 frontend/source/styleguide
 frontend/source/styleguide.html
+*.kit
 
 # build files
 frontend/build
 
 # other files
-design/JWPS_master.xd
 frontend/_service-worker.js
 frontend/_webpack.config.js
 frontend/_package.json
@@ -28,3 +28,5 @@ frontend/source/assets/_src/
 frontend/source/assets/plugins
 frontend/storybook
 
+frontend/source/assets/src/bundle.js
+frontend/source/assets/src/vendor.js

@@ -602,21 +602,9 @@ th {
 
 /* @  Link Reset
 * ------------------------------------------------------------ */
-::-moz-selection {
-  background: #B2EBF2;
-  color: #ffffff;
-  text-shadow: none;
-}
 ::selection {
   background: #B2EBF2;
   color: #ffffff;
-  text-shadow: none;
-}
-
-input::-moz-selection,
-textarea::-moz-selection {
-  background: #d1f3f7;
-  color: #212121;
   text-shadow: none;
 }
 

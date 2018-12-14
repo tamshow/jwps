@@ -46,14 +46,12 @@ UIコンポーネントを組み合わせてwebページを構築していく手
 
 ### おおまかに説明
 assets内（CSS、JSなど）を管理します。   
-HTMLはそのまま使用せずCMSで使うことを前提に作成します。   
-インクルードは必要に応じて使い分けてください。   
 `frontend/source`フォルダが作業場所です。   
 `gulp serve`することで`frontend/source`を開発用ルートとしてファイルをwatchします。
 `gulp build`することで`frontend/source/assets`を公開用に調整し`frontend/build/assets`へ書き出します。   
 画像圧縮はしていません。必要に応じて圧縮してください。   
 Sassのmixinは[bourbonファミリー](https://www.bourbon.io/)を参考・使用します。   
-`source/assets/src/bundle/`以下に配置したJSファイルはバンドルしたパターンとバンドルしないパターンが書き出されます。必要に応じて使い分けてください。    
+`source/assets/src/bundle/ or /vendor/`以下に配置したJSファイルは1ファイルに結合されます。    
 
 ### 環境構築
 
@@ -88,7 +86,6 @@ $ gulp build
 
 JS、CSSなど圧縮、または不要ファイルを削除します。
 画像圧縮はしていません。必要に応じて圧縮してください。
-HTMLファイルは必要に応じてテンプレート等に組み込んで使用してください。
 
 
 
@@ -122,7 +119,6 @@ hologramで書き出したファイルをdocsフォルダに移動します。
  │   │   │
  │   │   ├── index.html（必要に応じてhtmlファイルを追加）
  │   │   ├── 404.html
- │   │   ├── _partials
  │   │   └── ....
  │   │
  │   ├── package.json

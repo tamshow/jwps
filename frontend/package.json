@@ -11,7 +11,6 @@
     "browser-sync": "^2.26.0",
     "chrome-launcher": "^0.10.2",
     "chrome-remote-interface": "^0.25.6",
-    "connect-ssi": "^1.1.1",
     "css-mqpacker": "^7.0.0",
     "del": "^3.0.0",
     "eslint": "^4.19.1",
@@ -31,10 +30,5 @@
     "gulp-uglify": "^3.0.1",
     "run-sequence": "^2.2.1",
     "workbox-build": "^3.6.2"
-  },
-  "dependencies": {
-    "bourbon": "^5.1.0",
-    "jquery": "^2.2.3",
-    "normalize.css": "^8.0.0"
   }
 }
