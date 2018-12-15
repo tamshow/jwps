@@ -1,15 +1,7 @@
 @charset "UTF-8";
 
 
-//lib
-//---------------------------------
 
-@import "bourbon";
-@import "normalize";
-
-
-//import
-//---------------------------------
 @import "@variables/all";
 @import "@core/all";
 @import "layouts/all";
