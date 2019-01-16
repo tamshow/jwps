@@ -87,32 +87,23 @@ categories: [js, accordion]
   background: #ffffff;
   @include mb-small;
 
-  + .c-accordion {
-    margin-top: -$margin-small-pc;
 
-    @include media-sp-max {
-      margin-top: -$margin-small-sp;
-    }
-
-    .c-accordion__title {
-      border-top: 0;
-    }
-
-  }
 
   &__title {
     display: block;
     border-radius: 0;
     appearance: none;
+    font-size: $fsize-h4-pc;
     user-select: none;
     width: 100%;
     text-align: left;
     background-color: transparent;
     font-weight: bold;
-    padding: 1rem 25px .8rem 20px;
+    padding: 18px 35px 18px 20px;
     border: 1px solid $dividers-color;
     cursor: pointer;
     transition: $animation;
+    line-height: 1.6;
 
     &:hover,
     &:focus {
@@ -121,17 +112,48 @@ categories: [js, accordion]
   }
 
   //icon
+
   &__title {
     position: relative;
     overflow: hidden;
+    &:after {
+      @extend .material-icons;
+      vertical-align: middle;
+      content: 'add';
+      color: $primary-text-color;
+      text-align: right;
 
+      font-size: 1.5rem!important;
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+      position: absolute;
+      right: 1rem;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+
+
+    }
+
+
+
+    &[aria-expanded="false"]:after {
+      content: 'remove';
+    }
+
+  }
+
+  &__title2 {
+    position: relative;
+    overflow: hidden;
     &:after {
       display: inline-block;
       width: 8px;
       height: 8px;
       transform: rotate(45deg);
-      border-top: 1px solid $dividers-color;
-      border-left: 1px solid $dividers-color;
+      border-top: 1px solid $primary-text-color;
+      border-left: 1px solid $primary-text-color;
       content: "";
       vertical-align: middle;
       position: absolute;
@@ -140,6 +162,8 @@ categories: [js, accordion]
       bottom: 0;
       margin: auto;
     }
+
+
 
     &[aria-expanded="false"]:after {
       transform: rotate(225deg);
@@ -152,6 +176,8 @@ categories: [js, accordion]
     border: 1px solid $dividers-color;
     border-top: 0;
     padding: 25px 20px;
+    font-size: $fsize-h4-pc;
+
 
   }
 }
@@ -160,7 +186,7 @@ categories: [js, accordion]
 .c-accordion--faq {
 
   .c-accordion__title {
-    padding-left: 3.6rem;
+    padding-left: 4rem;
   }
   .c-accordion__title:before {
     width:2rem;
@@ -173,14 +199,14 @@ categories: [js, accordion]
     background-color: #477CCB;
     font-size: 1rem;
     text-align: center;
-    line-height: 1.8;
+    line-height: 2rem;
     position: absolute;
-    left: 15px;
-    top: 7px;
+    left: 1rem;
+    top: 16px;
   }
 
   .c-accordion__body {
-    padding-left: 3.6rem;
+    padding-left: 4rem;
     position: relative;
   }
   .c-accordion__body:before {

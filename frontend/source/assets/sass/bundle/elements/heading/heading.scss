@@ -98,11 +98,18 @@ parent: heading
 
 
 <div class="e-heading-group">
-  <h3 class="e-heading3">情に棹させば流される智に働けば角が立つ</h3>
+  <h1 class="e-heading1">情に棹させば流される智に働けば角が立つ</h1>
   <p class="e-heading-date"> 6月12日  12:49</p>
+   <ul class="e-heading-tag e-list-tag">
+    <li><a href="">タグ1</a></li>
+    <li><a href="">タグ2</a></li>
+    <li><a href="">タグ3</a></li>
+    <li><a href="">タグ4</a></li>
+    <li><a href="">タグ5</a></li>
+    <li><a href="">タグ6</a></li>
+  </ul>
+
 </div>
-
-
 
 ```
 */
@@ -110,17 +117,14 @@ parent: heading
 
 .e-heading-date {
   @include mb-small;
-  color: $secondary-text-color;
-  font-size: .12px;
-  margin-top: -10px;
-  a {
-    color: $link-color;
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
-    }
-  }
 }
+
+.e-heading-tag {
+
+}
+
+
+
 
 .e-heading-copy {
   @include mb-small;
@@ -135,7 +139,7 @@ parent: heading
   h4,
   h5,
   h6 {
-    @include mb-large;
+    @include mb-large(.5);
     //margin-bottom: .5em;
   }
 }

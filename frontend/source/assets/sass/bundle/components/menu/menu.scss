@@ -36,7 +36,6 @@ categories: [components, menu]
 
 .c-menu {
 
-  @include mb-small;
 
   &__title {
     color: $primary-color;
@@ -48,7 +47,8 @@ categories: [components, menu]
   }
 
   &__list {
-    margin-bottom: 0;
+    margin-top: 8px;
+    @include mb-small;
 
     a {
       border-bottom: 1px solid $dividers-color;
@@ -62,11 +62,21 @@ categories: [components, menu]
       &.stay{
         color: $primary-color;
       }
+
+      &:focus {
+        outline-offset: -3px;
+      }
     }
 
     .c-menu__list {
       margin-left: 1em;
     }
+  }
+
+  &__list-tag {
+    margin-top: 20px - 12px;
+    @include mb-small;
+
   }
 }
 

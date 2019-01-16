@@ -218,7 +218,7 @@ parent: form
   }
 
   th {
-    padding: 33px 10px 20px 25px;
+    padding: 20px 10px 20px 25px;
     border-bottom: 1px solid $dividers-color;
     vertical-align: top;
     width: 33%;
@@ -233,13 +233,13 @@ parent: form
   }
 
   td {
-    padding: 33px 10px 20px 25px;
+    padding: 20px 10px 20px 25px;
     border-bottom: 1px solid $dividers-color;
 
     @include media-sp-max {
       display: block;
       width: auto;
-      padding:23px 0 16px 0;
+      padding:8px 0 16px 0;
 
 
     }
