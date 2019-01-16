@@ -239,6 +239,86 @@ parent: list
 }
 
 
+/* タグリスト
+   ========================================================================== */
+
+/*doc
+---
+title: list-tag
+name: list-tag
+categories: [elements, list]
+parent: list
+---
+
+```html_example
+<ul class="e-list-tag">
+  <li><a href="">タグ1</a></li>
+  <li><a href="">タグ2</a></li>
+  <li><a href="">タグ3</a></li>
+  <li><a href="">タグ4</a></li>
+  <li><a href="">タグ5</a></li>
+  <li><a href="">タグ6</a></li>
+</ul>
+```
+*/
+
+
+.visual-editor .e-list-tag {
+  margin-left: 0;
+  list-style-type: none;
+}
+
+.e-list-tag {
+
+  @include mb-small;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin-right: -3px;
+  margin-left: -3px;
+  margin-top: -12px;
+
+  li {
+    margin-right: 6px;
+    margin-left: 6px;
+    margin-top: 12px;
+    a {
+
+      box-sizing: border-box;
+      background-color: #fff;
+      color: $primary-text-color !important;
+      text-decoration: none !important;
+      border-radius: $border-radius-pc;
+      min-width: 3rem;
+      display: block;
+      padding: 7px 12px;
+      border: solid 1px $dividers-color;
+
+      line-height: 1.2;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: top;
+
+      &:hover {
+        text-decoration: underline !important;
+      }
+
+      &:focus {
+        outline-offset: -3px;
+      }
+
+    }
+
+
+    &:last-child:after {
+      display: none;
+    }
+  }
+}
+
+
+
 /* 画像リスト
    ========================================================================== */
 

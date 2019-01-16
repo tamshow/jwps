@@ -1,6 +1,143 @@
 @charset "UTF-8";
 /* @  starter-kit
  * ------------------------------------------------------------ */
+/*doc
+---
+title: font
+name: font
+category: mixins
+---
+
+
+```
+
+@include fsize-h1;
+@include fsize-h2;
+@include fsize-h3;
+@include fsize-h4;
+@include fsize-h5;
+@include fsize-h6;
+
+
+@include fsize($size-pc: 14, $size-tab: false, $size-sp: false);
+
+@include fsize-vmin($fsize: 14, $screen: 375);
+
+
+```
+
+*/
+/*doc
+---
+title: floor
+name: floor
+category: mixins
+---
+
+
+```
+@include floor-decimal($number, $digits: 4);
+
+1.234567 => 1.2345
+
+```
+
+*/
+/*doc
+---
+title: mediaqueries
+name: mediaqueries
+category: mixins
+---
+
+```
+@include media-min;
+@include media-sp-min;
+@include media-sp-max;
+@include media-sp-only;
+
+@include media-tab-min;
+@include media-tab-max;
+@include media-tab-only;
+
+@include media-pc-min;
+@include media-pc-max;
+@include media-pc-only;
+
+@include media-lg-min;
+@include media-lg-max;
+@include media-lg-only;
+
+@include media-max;
+
+
+@include media($query);
+
+```
+
+*/
+/*doc
+---
+title: mb
+name: mb
+category: mixins
+---
+
+
+```
+@include mb-small($multiplication:1);
+@include mb-medium($multiplication:1);
+@include mb-large($multiplication:1);
+
+```
+
+*/
+/*doc
+---
+title: elevation
+name: elevation
+category: mixins
+---
+
+
+```
+.item {
+  @include elevation(2);
+  @include elevation-transition;
+
+  &:hover,
+  &:focus {
+    @include elevation(4);
+  }
+
+  &:active {
+    @include elevation(8);
+  }
+}
+
+https://material.io/guidelines/material-design/elevation-shadows.html
+
+```
+
+*/
+/*doc
+---
+title: grid
+name: grid
+category: mixins
+---
+
+```
+grid ($className:'.cols', $col:6, $allW:940, $g:30, $sp:false)
+
+@include grid('.c-summary__item', 6, $screen-pc-max, 24);
+
+
+
+```
+
+
+*/
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -337,143 +474,6 @@ template {
   display: none;
 }
 
-/*doc
----
-title: font
-name: font
-category: mixins
----
-
-
-```
-
-@include fsize-h1;
-@include fsize-h2;
-@include fsize-h3;
-@include fsize-h4;
-@include fsize-h5;
-@include fsize-h6;
-
-
-@include fsize($size-pc: 14, $size-tab: false, $size-sp: false);
-
-@include fsize-vmin($fsize: 14, $screen: 375);
-
-
-```
-
-*/
-/*doc
----
-title: floor
-name: floor
-category: mixins
----
-
-
-```
-@include floor-decimal($number, $digits: 4);
-
-1.234567 => 1.2345
-
-```
-
-*/
-/*doc
----
-title: mediaqueries
-name: mediaqueries
-category: mixins
----
-
-```
-@include media-min;
-@include media-sp-min;
-@include media-sp-max;
-@include media-sp-only;
-
-@include media-tab-min;
-@include media-tab-max;
-@include media-tab-only;
-
-@include media-pc-min;
-@include media-pc-max;
-@include media-pc-only;
-
-@include media-lg-min;
-@include media-lg-max;
-@include media-lg-only;
-
-@include media-max;
-
-
-@include media($query);
-
-```
-
-*/
-/*doc
----
-title: mb
-name: mb
-category: mixins
----
-
-
-```
-@include mb-small($multiplication:1);
-@include mb-medium($multiplication:1);
-@include mb-large($multiplication:1);
-
-```
-
-*/
-/*doc
----
-title: elevation
-name: elevation
-category: mixins
----
-
-
-```
-.item {
-  @include elevation(2);
-  @include elevation-transition;
-
-  &:hover,
-  &:focus {
-    @include elevation(4);
-  }
-
-  &:active {
-    @include elevation(8);
-  }
-}
-
-https://material.io/guidelines/material-design/elevation-shadows.html
-
-```
-
-*/
-/*doc
----
-title: grid
-name: grid
-category: mixins
----
-
-```
-grid ($className:'.cols', $col:6, $allW:940, $g:30, $sp:false)
-
-@include grid('.c-summary__item', 6, $screen-pc-max, 24);
-
-
-
-```
-
-
-*/
 /* @ Print Layout
  * ------------------------------------------------------------ */
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
@@ -2077,28 +2077,23 @@ parent: heading
 
 
 <div class="e-heading-group">
-  <h3 class="e-heading3">情に棹させば流される智に働けば角が立つ</h3>
+  <h1 class="e-heading1">情に棹させば流される智に働けば角が立つ</h1>
   <p class="e-heading-date"> 6月12日  12:49</p>
+   <ul class="e-heading-tag e-list-tag">
+    <li><a href="">タグ1</a></li>
+    <li><a href="">タグ2</a></li>
+    <li><a href="">タグ3</a></li>
+    <li><a href="">タグ4</a></li>
+    <li><a href="">タグ5</a></li>
+    <li><a href="">タグ6</a></li>
+  </ul>
+
 </div>
-
-
 
 ```
 */
 .e-heading-date {
   margin-bottom: 24px;
-  color: #757575;
-  font-size: .12px;
-  margin-top: -10px;
-}
-
-.e-heading-date a {
-  color: #477DCA;
-  text-decoration: underline;
-}
-
-.e-heading-date a:hover {
-  text-decoration: none;
 }
 
 .e-heading-copy {
@@ -2116,7 +2111,7 @@ parent: heading
 .e-heading-group h4,
 .e-heading-group h5,
 .e-heading-group h6 {
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 }
 
 /* @ img
@@ -2691,6 +2686,84 @@ parent: list
 }
 
 .e-list-inline li:last-child:after {
+  display: none;
+}
+
+/* タグリスト
+   ========================================================================== */
+/*doc
+---
+title: list-tag
+name: list-tag
+categories: [elements, list]
+parent: list
+---
+
+```html_example
+<ul class="e-list-tag">
+  <li><a href="">タグ1</a></li>
+  <li><a href="">タグ2</a></li>
+  <li><a href="">タグ3</a></li>
+  <li><a href="">タグ4</a></li>
+  <li><a href="">タグ5</a></li>
+  <li><a href="">タグ6</a></li>
+</ul>
+```
+*/
+.visual-editor .e-list-tag {
+  margin-left: 0;
+  list-style-type: none;
+}
+
+.e-list-tag {
+  margin-bottom: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-right: -3px;
+  margin-left: -3px;
+  margin-top: -12px;
+}
+
+.e-list-tag li {
+  margin-right: 6px;
+  margin-left: 6px;
+  margin-top: 12px;
+}
+
+.e-list-tag li a {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #fff;
+  color: #212121 !important;
+  text-decoration: none !important;
+  border-radius: 4px;
+  min-width: 3rem;
+  display: block;
+  padding: 7px 12px;
+  border: solid 1px #DEDEDE;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.e-list-tag li a:hover {
+  text-decoration: underline !important;
+}
+
+.e-list-tag li a:focus {
+  outline-offset: -3px;
+}
+
+.e-list-tag li:last-child:after {
   display: none;
 }
 
@@ -3795,7 +3868,7 @@ select.e-form-control:focus {
 .e-form-rc-box input + .mwform-checkbox-field-text:before {
   display: block;
   position: absolute;
-  top: .2em;
+  top: .1em;
   left: 0;
   width: 20px;
   height: 20px;
@@ -3893,7 +3966,6 @@ select.e-form-control:focus {
 }
 
 .is-error.e-form-control {
-  background: #fff url("../img/form/form_icon_error.svg") 98% 0.6em no-repeat;
   padding-right: 30px;
   background-color: #fff0f5;
 }
@@ -3903,7 +3975,6 @@ select.e-form-control:focus {
   position: absolute;
   top: 0;
   right: 0;
-  background: #fff url("../img/form/form_icon_error.svg") 98% 0.6em no-repeat;
   width: 30px;
   height: 30px;
 }
@@ -3918,7 +3989,6 @@ select.e-form-control:focus {
 }
 
 .is-warning.e-form-control {
-  background: #fff url("../img/form/form_icon_warning.svg") 98% 0.6em no-repeat;
   padding-right: 30px;
 }
 
@@ -3927,7 +3997,6 @@ select.e-form-control:focus {
   position: absolute;
   top: 0;
   right: 0;
-  background: #fff url("../img/form/form_icon_warning.svg") 98% 0.6em no-repeat;
   width: 30px;
   height: 30px;
 }
@@ -3941,7 +4010,6 @@ select.e-form-control:focus {
 }
 
 .is-valid.e-form-control {
-  background: #fff url("../img/form/form_icon_done.svg") 98% 0.8em no-repeat;
   padding-right: 30px;
 }
 
@@ -3950,7 +4018,6 @@ select.e-form-control:focus {
   position: absolute;
   top: 0;
   right: 0;
-  background: #fff url("../img/form/form_icon_done.svg") 98% 0.6em no-repeat;
   width: 30px;
   height: 30px;
 }
@@ -4178,14 +4245,14 @@ parent: form
 }
 
 .e-form-table th {
-  padding: 33px 10px 20px 25px;
+  padding: 20px 10px 20px 25px;
   border-bottom: 1px solid #DEDEDE;
   vertical-align: top;
   width: 33%;
 }
 
 .e-form-table td {
-  padding: 33px 10px 20px 25px;
+  padding: 20px 10px 20px 25px;
   border-bottom: 1px solid #DEDEDE;
 }
 
@@ -5063,14 +5130,21 @@ parent: headline
 }
 
 .c-headline-search__title {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
+  color: #212121;
+  margin-bottom: 6px;
+}
+
+.c-headline-search__title a {
+  color: inherit;
 }
 
 .c-headline-search__url {
   font-size: 14px;
   color: #6f9614;
   line-height: 1;
+  margin-bottom: 10px;
 }
 
 .c-headline-search__text {
@@ -5116,10 +5190,6 @@ categories: [components, menu]
 */
 /* menu
    ========================================================================== */
-.c-menu {
-  margin-bottom: 24px;
-}
-
 .c-menu__title {
   color: #00BCD4;
   font-size: 18px;
@@ -5130,7 +5200,8 @@ categories: [components, menu]
 }
 
 .c-menu__list {
-  margin-bottom: 0;
+  margin-top: 8px;
+  margin-bottom: 24px;
 }
 
 .c-menu__list a {
@@ -5146,8 +5217,17 @@ categories: [components, menu]
   color: #00BCD4;
 }
 
+.c-menu__list a:focus {
+  outline-offset: -3px;
+}
+
 .c-menu__list .c-menu__list {
   margin-left: 1em;
+}
+
+.c-menu__list-tag {
+  margin-top: 8px;
+  margin-bottom: 24px;
 }
 
 /* Anchor Nav
@@ -5681,20 +5761,13 @@ categories: [js, accordion]
   margin-bottom: 24px;
 }
 
-.c-accordion + .c-accordion {
-  margin-top: -24px;
-}
-
-.c-accordion + .c-accordion .c-accordion__title {
-  border-top: 0;
-}
-
 .c-accordion__title {
   display: block;
   border-radius: 0;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  font-size: 16px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -5703,11 +5776,12 @@ categories: [js, accordion]
   text-align: left;
   background-color: transparent;
   font-weight: bold;
-  padding: 1rem 25px .8rem 20px;
+  padding: 18px 35px 18px 20px;
   border: 1px solid #DEDEDE;
   cursor: pointer;
   -webkit-transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: 1.6;
 }
 
 .c-accordion__title:hover, .c-accordion__title:focus {
@@ -5720,14 +5794,39 @@ categories: [js, accordion]
 }
 
 .c-accordion__title:after {
+  vertical-align: middle;
+  content: 'add';
+  color: #212121;
+  text-align: right;
+  font-size: 1.5rem !important;
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.c-accordion__title[aria-expanded="false"]:after {
+  content: 'remove';
+}
+
+.c-accordion__title2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.c-accordion__title2:after {
   display: inline-block;
   width: 8px;
   height: 8px;
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
-  border-top: 1px solid #DEDEDE;
-  border-left: 1px solid #DEDEDE;
+  border-top: 1px solid #212121;
+  border-left: 1px solid #212121;
   content: "";
   vertical-align: middle;
   position: absolute;
@@ -5737,7 +5836,7 @@ categories: [js, accordion]
   margin: auto;
 }
 
-.c-accordion__title[aria-expanded="false"]:after {
+.c-accordion__title2[aria-expanded="false"]:after {
   -webkit-transform: rotate(225deg);
       -ms-transform: rotate(225deg);
           transform: rotate(225deg);
@@ -5748,10 +5847,11 @@ categories: [js, accordion]
   border: 1px solid #DEDEDE;
   border-top: 0;
   padding: 25px 20px;
+  font-size: 16px;
 }
 
 .c-accordion--faq .c-accordion__title {
-  padding-left: 3.6rem;
+  padding-left: 4rem;
 }
 
 .c-accordion--faq .c-accordion__title:before {
@@ -5766,14 +5866,14 @@ categories: [js, accordion]
   background-color: #477CCB;
   font-size: 1rem;
   text-align: center;
-  line-height: 1.8;
+  line-height: 2rem;
   position: absolute;
-  left: 15px;
-  top: 7px;
+  left: 1rem;
+  top: 16px;
 }
 
 .c-accordion--faq .c-accordion__body {
-  padding-left: 3.6rem;
+  padding-left: 4rem;
   position: relative;
 }
 
@@ -6707,7 +6807,7 @@ categories: [js, ripple]
   src: local("Material Icons"), local("MaterialIcons-Regular"), url(../iconfont/MaterialIcons-Regular.woff2) format("woff2"), url(../iconfont/MaterialIcons-Regular.woff) format("woff"), url(../iconfont/MaterialIcons-Regular.ttf) format("truetype");
 }
 
-.material-icons, .e-box-alert:before, .e-form-error-text:before, .is-icon-target-blank:after,
+.material-icons, .e-box-alert:before, .e-form-error-text:before, .c-accordion__title:after, .is-icon-target-blank:after,
 .visual-editor [target="_blank"]:after {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -8481,7 +8581,7 @@ div.codeBlock {
   .e-heading-group h4,
   .e-heading-group h5,
   .e-heading-group h6 {
-    margin-bottom: 36px;
+    margin-bottom: 18px;
   }
   .e-responsive-img .e-img-box {
     position: relative;
@@ -8543,6 +8643,9 @@ div.codeBlock {
     margin-bottom: 12px;
   }
   .e-list-inline {
+    margin-bottom: 12px;
+  }
+  .e-list-tag {
     margin-bottom: 12px;
   }
   .e-list-img-vertical {
@@ -8759,7 +8862,7 @@ div.codeBlock {
   .e-form-table td {
     display: block;
     width: auto;
-    padding: 23px 0 16px 0;
+    padding: 8px 0 16px 0;
   }
   .e-form-cols--break > .e-form-col1,
   .e-form-cols--break > .e-form-col2,
@@ -8926,12 +9029,15 @@ div.codeBlock {
     margin-bottom: 24px;
   }
   .c-headline-search__title {
-    font-size: 15px;
+    font-size: 16px;
   }
   .c-headline-search__title {
     margin-bottom: 0;
   }
-  .c-menu {
+  .c-menu__list {
+    margin-bottom: 12px;
+  }
+  .c-menu__list-tag {
     margin-bottom: 12px;
   }
   .c-anchor-nav {
@@ -9044,9 +9150,6 @@ div.codeBlock {
   }
   .c-accordion {
     margin-bottom: 12px;
-  }
-  .c-accordion + .c-accordion {
-    margin-top: -12px;
   }
   .c-tab {
     margin-bottom: 12px;
@@ -9256,7 +9359,7 @@ div.codeBlock {
 }
 
 @media all and (-ms-high-contrast: none) {
-  .material-icons, .e-box-alert:before, .e-form-error-text:before, .is-icon-target-blank:after,
+  .material-icons, .e-box-alert:before, .e-form-error-text:before, .c-accordion__title:after, .is-icon-target-blank:after,
   .visual-editor [target="_blank"]:after {
     display: inline-block\0;
   }

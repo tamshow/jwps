@@ -135,8 +135,15 @@ parent: headline
 
   }
   &__title {
-    @include fsize-h4;
+    @include fsize-h3;
     font-weight: bold;
+    color: $primary-text-color;
+    margin-bottom: 6px;
+
+    a {
+      color: inherit;
+    }
+
     @include media-sp-max {
       margin-bottom: 0;
     }
@@ -145,6 +152,8 @@ parent: headline
     font-size: 14px;
     color: $success-color;
     line-height: 1;
+    margin-bottom: 10px;
+
   }
   &__text {
     font-size: 14px;

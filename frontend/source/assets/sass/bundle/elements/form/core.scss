@@ -270,7 +270,7 @@ select.e-form-control {
     + .mwform-checkbox-field-text:before {
       display: block;
       position: absolute;
-      top: .2em;
+      top: .1em;
       left: 0;
       width: 20px;
       height: 20px;
@@ -376,7 +376,7 @@ select.e-form-control {
   }
 
   &.e-form-control {
-    background: $form-field-bg url("../img/form/form_icon_error.svg") 98% .6em no-repeat;
+    //background: $form-field-bg url("../img/form/form_icon_error.svg") 98% .6em no-repeat;
     padding-right: 30px;
     background-color: #fff0f5;
   }
@@ -386,7 +386,7 @@ select.e-form-control {
     position: absolute;
     top: 0;
     right: 0;
-    background: $form-field-bg url("../img/form/form_icon_error.svg") 98% .6em no-repeat;
+   // background: $form-field-bg url("../img/form/form_icon_error.svg") 98% .6em no-repeat;
     width: 30px;
     height: 30px;
   }
@@ -402,7 +402,7 @@ select.e-form-control {
   }
 
   &.e-form-control {
-    background: $form-field-bg url("../img/form/form_icon_warning.svg") 98% .6em no-repeat;
+  //  background: $form-field-bg url("../img/form/form_icon_warning.svg") 98% .6em no-repeat;
     padding-right: 30px;
   }
 
@@ -411,7 +411,7 @@ select.e-form-control {
     position: absolute;
     top: 0;
     right: 0;
-    background: $form-field-bg url("../img/form/form_icon_warning.svg") 98% .6em no-repeat;
+  //  background: $form-field-bg url("../img/form/form_icon_warning.svg") 98% .6em no-repeat;
     width: 30px;
     height: 30px;
   }
@@ -426,7 +426,7 @@ select.e-form-control {
   }
 
   &.e-form-control {
-    background: $form-field-bg url("../img/form/form_icon_done.svg") 98% .8em no-repeat;
+  //  background: $form-field-bg url("../img/form/form_icon_done.svg") 98% .8em no-repeat;
     padding-right: 30px;
   }
 
@@ -435,7 +435,7 @@ select.e-form-control {
     position: absolute;
     top: 0;
     right: 0;
-    background: $form-field-bg url("../img/form/form_icon_done.svg") 98% .6em no-repeat;
+  //  background: $form-field-bg url("../img/form/form_icon_done.svg") 98% .6em no-repeat;
     width: 30px;
     height: 30px;
   }
