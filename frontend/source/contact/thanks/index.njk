@@ -1,0 +1,42 @@
+{% extends "_layout/_base.njk" %}
+
+{% set page_title = "" %}
+{% set page_url = "" %}
+{% set page_description = "" %}
+{% set page_keywords = "" %}
+
+{% block main %}
+
+<div class="c-breadcrumb" role="navigation" aria-label="現在地表示">
+  <div class="c-breadcrumb__inner">
+    <span><a href="/">ホーム</a></span>
+    <span>お問い合わせ</span>
+  </div>
+</div>
+<section class="l-container">
+
+
+  <div class="l-block">
+    <div class="e-heading-group">
+      <h1 class="e-heading1">お問い合わせを受付けました</h1>
+    </div>
+
+    <div class="l-unit visual-editor">
+      <p>
+        お問い合わせありがとうございます。<br>
+        入力いただたメールアドレス宛に自動返信メールを送信させていただきました。<br>
+        お手数ですがメールをご確認ください。</p>
+    </div>
+
+    <div class="l-unit visual-editor">
+      <div class="e-button-group">
+        <a href="" class="e-button e-button--large">トップページへ</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
+
+

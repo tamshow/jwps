@@ -41,6 +41,7 @@
     width: 20%;
     @include media-sp-max {
       width: 30%;
+      padding: 10px;
     }
 
   }
@@ -49,6 +50,10 @@
     padding: 11px 16px;
     border-bottom: 1px solid $dividers-color;
     border-left: 1px solid $dividers-color;
+    background-color: #fff;
+    @include media-sp-max {
+      padding: 10px;
+    }
   }
 
   //テーブルの中の最後の要素のマージンを消す
@@ -163,7 +168,7 @@ parent: table
 ---
 
 ```html_example
-  <table class="e-table e-table--block">
+  <table class="e-table e-table--sp-block">
     <tr>
       <th>見出し</th>
       <td>テキストが入ります</td>

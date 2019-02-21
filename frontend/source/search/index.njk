@@ -1,0 +1,94 @@
+{% extends "_layout/_base.njk" %}
+
+{% set page_title = "" %}
+{% set page_url = "" %}
+{% set page_description = "" %}
+{% set page_keywords = "" %}
+
+{% block main %}
+
+<div class="c-breadcrumb" role="navigation" aria-label="現在地表示">
+  <div class="c-breadcrumb__inner">
+    <span><a href="/">ホーム</a></span>
+    <span>「○○○」で検索</span>
+  </div>
+</div>
+<section class="l-container">
+
+
+  <div class="l-block">
+
+    <div class="e-heading-group">
+      <h1 class="e-heading1">検索結果</h1>
+    </div>
+
+    <div class="l-unit">
+      <form>
+        <div class="c-keyword-search" role="search">
+          <div class="c-keyword-search__body">
+            <p class="c-keyword-search__title">検索キーワード</p>
+            <input type="text" name="#" class="c-keyword-search__input" value="" placeholder="キーワードを入力してください" autocomplete="off" aria-autocomplete="list" role="textbox">
+            <button type="submit" class="c-keyword-search__button"><i class="material-icons">search</i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="l-unit" id="keyword-result">
+      <ul class="c-headline-search">
+        <li class="c-headline-search__item">
+          <p class="c-headline-search__title"><a href="">ニュースタイトルが入ります<span class="is-text-highlight">ニュースタイトル</span>が入ります。</a></p>
+          <p class="c-headline-search__url">/news/news.html</p>
+          <p class="c-headline-search__text">吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。
+            何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを...
+            <span class="c-headline-search__sub-text">最終更新日 2018年01月01日</span></p>
+        </li>
+        <li class="c-headline-search__item">
+          <p class="c-headline-search__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
+          <p class="c-headline-search__url">/news/news.html</p>
+          <p class="c-headline-search__text">吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。
+            何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを...
+            <span class="c-headline-search__sub-text">最終更新日 2018年01月01日</span></p>
+        </li>
+        <li class="c-headline-search__item">
+          <p class="c-headline-search__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
+          <p class="c-headline-search__url">/news/news.html</p>
+          <p class="c-headline-search__text">吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。
+            何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを...
+            <span class="c-headline-search__sub-text">最終更新日 2018年01月01日</span></p>
+        </li>
+        <li class="c-headline-search__item">
+          <p class="c-headline-search__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
+          <p class="c-headline-search__url">/news/news.html</p>
+          <p class="c-headline-search__text">吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。
+            何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを...
+            <span class="c-headline-search__sub-text">最終更新日 2018年01月01日</span></p>
+        </li>
+
+      </ul>
+    </div>
+
+    <div class="l-unit">
+      <div class="c-pagenavi">
+        <p class="c-pagenavi__title">100件中　11 - 20件表示</p>
+
+        <div class="c-pagenavi__body">
+          <a class="c-previouspostslink" rel="prev" href=""></a>
+          <span class="is-current">1</span>
+          <a href="">2</a>
+          <span><a href="">3</a></span>
+          <a href="">4</a>
+          <span class="c-extend">...</span>
+          <a href="">10</a>
+          <a class="c-nextpostslink" rel="next" href=""></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+{% endblock %}
+
+

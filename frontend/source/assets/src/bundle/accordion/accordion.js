@@ -77,11 +77,11 @@ $(function () {
     if ($containerAC.hasClass('is-active')) {
       $containerAC.removeClass('is-active');
       $current_target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
-      $bodyAC.stop().slideUp(150).attr('aria-hidden', 'true');
+      $bodyAC.attr('aria-hidden', 'true');
     } else {
       $containerAC.addClass('is-active');
       $current_target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
-      $bodyAC.stop().slideDown(200).attr('aria-hidden', 'false').focus();
+      $bodyAC.attr('aria-hidden', 'false').focus();
 
       var offset = $current_target.offset() || {};
       var offsetTop = offset.top || 0;
@@ -92,6 +92,8 @@ $(function () {
       });
 
     }
+    e.stopPropagation();
+
   }
 
   function innerAnker() {
@@ -105,7 +107,7 @@ $(function () {
   function accessAnker() {
     //ハッシュでアコーディオン開く
     var urlHash = location.hash || false;
-    if (urlHash && $(urlHash).length) {
+    if (urlHash) {
       if ($('[aria-controls="' + urlHash.slice(1) + '"]').length) {
         $('[aria-controls="' + urlHash.slice(1) + '"]').click();
       }

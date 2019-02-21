@@ -22,6 +22,8 @@ const minifier = require('gulp-uglify');
 
 const workboxBuild = require('workbox-build');
 
+const nunjucksRender = require('gulp-nunjucks-render');
+
 
 //書き出し先変更
 const DEST = 'build';
@@ -87,6 +89,26 @@ gulp.task('css', () => {
 });
 
 
+
+//html
+//静的サイトジェネレーター
+gulp.task('nunjucks', () => {
+  
+  return gulp.src([
+    'source/**/*.njk',
+    '!source/**/_*.njk'
+  ])
+      .pipe(nunjucksRender({
+        path: ['source/'],
+        envOptions: {
+          autoescape: false
+        }
+      }))
+      .pipe(gulp.dest('source/'));
+});
+
+
+
 //確認用書き出し
 //=================
 gulp.task('html', (callback) => {
@@ -96,6 +118,7 @@ gulp.task('html', (callback) => {
       'js:bundle',
       'js:no-bundle',
       'js:vendor',
+      'nunjucks',
       callback);
 });
 
@@ -129,6 +152,11 @@ gulp.task('serve', ['html', 'server'], () => {
   gulp.watch([
     'source/assets/sass/**/*{.scss,.sass}'
   ], ['css']);
+
+  //html
+  gulp.watch([
+    'source/**/*.njk'
+  ], ['nunjucks']);
 
 
 });
@@ -166,7 +194,7 @@ gulp.task('build:move', () => {
 //=================
 gulp.task('build:clean', () => {
   return del([
-    DEST + '/**/*.kit',
+    DEST + '/**/*.njk',
     DEST + '/assets/sass/',
     DEST + '/assets/src/',
     DEST + '/assets/_src/'

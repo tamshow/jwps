@@ -53,7 +53,7 @@ categories: [js, modal]
 
 <div class="c-accordion" data-accordion data-device-accordion="all">
   <button type="button" class="c-accordion__title" aria-expanded="true" aria-label="開く" data-toggle-accordion>Javascript</button>
-    <div class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+    <div class="c-accordion__body" aria-hidden="true" data-body-accordion>
   <ul>
     <li>･data-open-modal</li>
     <li>･data-modal</li>
@@ -67,7 +67,7 @@ categories: [js, modal]
 
 <div class="c-accordion" data-accordion data-device-accordion="all">
   <button type="button" class="c-accordion__title" aria-expanded="true" aria-label="開く" data-toggle-accordion>Accessibility</button>
-    <div class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+    <div class="c-accordion__body" aria-hidden="true" data-body-accordion>
   <ul>
     <li>･表示領域の操作はマウスとキーボードの両方で使用可能です。</li>
     <li>･ボタン領域の属性は、aria-expanded = `true`または`false`を設定します（必須）。</li>

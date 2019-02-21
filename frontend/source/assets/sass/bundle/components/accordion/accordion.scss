@@ -15,7 +15,7 @@ categories: [js, accordion]
 
 <div class="c-accordion" data-accordion>
  <button type="button" class="c-accordion__title" aria-controls="accordion1" aria-expanded="true" aria-label="開く" data-toggle-accordion> 情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - NONE</button>
- <div id="accordion1" class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+ <div id="accordion1" class="c-accordion__body" aria-hidden="true" data-body-accordion>
   <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
  </div>
 </div>
@@ -29,21 +29,21 @@ categories: [js, accordion]
 
 <div class="c-accordion" data-accordion data-device-accordion="pc">
  <button type="button" class="c-accordion__title" aria-controls="accordion3" aria-expanded="true" aria-label="開く" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - PC</button>
- <div id="accordion3" class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+ <div id="accordion3" class="c-accordion__body" aria-hidden="true" data-body-accordion>
   <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
  </div>
 </div>
 
 <div class="c-accordion" data-accordion data-device-accordion="tab">
  <button type="button" class="c-accordion__title" aria-controls="accordion3" aria-expanded="true" aria-label="開く" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - TAB</button>
- <div id="accordion3" class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+ <div id="accordion3" class="c-accordion__body" aria-hidden="true" data-body-accordion>
   <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
  </div>
 </div>
 
 <div class="c-accordion" data-accordion data-device-accordion="sp">
  <button type="button" class="c-accordion__title" aria-controls="accordion3" aria-expanded="true" aria-label="開く" data-toggle-accordion>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った - SP</button>
- <div id="accordion3" class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+ <div id="accordion3" class="c-accordion__body" aria-hidden="true" data-body-accordion>
   <p>情に棹させば流される。智に働けば角が立つ。どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。とかくに人の世は住みにくい。意地を通せば窮屈だ。</p>
  </div>
 </div>
@@ -54,11 +54,11 @@ categories: [js, accordion]
 
 <div class="c-accordion" data-accordion data-device-accordion="all">
   <button type="button" class="c-accordion__title" aria-expanded="true" aria-label="開く" data-toggle-accordion>Javascript</button>
-    <div class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+    <div class="c-accordion__body" aria-hidden="true" data-body-accordion>
   <ul class="list list--disc">
     <li>data-accordion class="is-active"</li>
     <li>data-toggle-accordion</li>
-    <li>data-body-accordion  style="display:none;"</li>
+    <li>data-body-accordion </li>
     <li>data-device-accordion = `all`, `pc`, `tab`, `sp`</li>
   </ul>
     </div>
@@ -67,7 +67,7 @@ categories: [js, accordion]
 
 <div class="c-accordion" data-accordion data-device-accordion="all">
   <button type="button" class="c-accordion__title" aria-expanded="true" aria-label="開く" data-toggle-accordion>Accessibility</button>
-    <div class="c-accordion__body" aria-hidden="true" style="display:none;" data-body-accordion>
+    <div class="c-accordion__body" aria-hidden="true" data-body-accordion>
   <ul class="list list--disc">
     <li>表示領域の操作はマウスとキーボードの両方で使用可能です。</li>
     <li>ボタン領域の属性は、aria-expanded = `true`または`false`を設定します（必須）。</li>
@@ -177,9 +177,17 @@ categories: [js, accordion]
     border-top: 0;
     padding: 25px 20px;
     font-size: $fsize-h4-pc;
-
-
+    transition: $animation;
   }
+  
+  &__body[aria-hidden="true"] {
+    display: none;
+  }
+
+  &__body[aria-hidden="false"] {
+    display: block;
+  }
+
 }
 
 

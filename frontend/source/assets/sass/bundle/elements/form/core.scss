@@ -194,21 +194,26 @@ $form-field-shadow: inset .3px .3px 2px rgba(0, 0, 0, .1) !default;
 }
 
 input[type=file].e-form-control {
-  display: none;
+  // display: none;
 
-  ~ label {
-    padding: 10px 15px;
-    transition: border-color $animation, box-shadow $animation;
-    border: 1px solid $form-field-border;
-    border-radius: $form-field-radius;
-    background-color: $form-field-bg;
-    box-shadow: $form-field-shadow;
-    box-sizing: border-box;
-    width: 100%;
-    display: block;
-    color: #868686;
-  }
+  background-color: transparent;
+  border-width: 0;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0)
+
+  //~ label {
+  //  padding: 10px 15px;
+  //  transition: border-color $animation, box-shadow $animation;
+  //  border: 1px solid $form-field-border;
+  //  border-radius: $form-field-radius;
+  //  background-color: $form-field-bg;
+  //  box-shadow: $form-field-shadow;
+  //  box-sizing: border-box;
+  //  width: 100%;
+  //  display: block;
+  //  color: #868686;
+  //}
 }
+
 
 .e-form-control[disabled],
 .e-form-control[readonly],
@@ -223,7 +228,9 @@ textarea.e-form-control {
 }
 
 select.e-form-control {
-  background: $form-field-bg url("../img/form/form_icon_select_top.svg") right 10px center no-repeat;
+  background-image:url("../img/form/form_icon_select_top.svg");
+  background-position: right 10px center ;
+  background-repeat: no-repeat;
   text-align: left;
   text-indent: .01px;
   text-overflow: "";
@@ -367,16 +374,24 @@ select.e-form-control {
   display: none;
 }
 
+
+.e-form-message-box {
+  &.is-error {
+    display: inline-block;
+  }
+}
+
 .is-error {
   border-color: $error-color;
   color: $error-color;
 
-  &.e-form-error-text {
-    display: block;
-  }
+
 
   &.e-form-control {
-    //background: $form-field-bg url("../img/form/form_icon_error.svg") 98% .6em no-repeat;
+    background-image:url("../img/form/form_icon_error.svg");
+    background-position:  98% .6em;
+    background-repeat: no-repeat;
+
     padding-right: 30px;
     background-color: #fff0f5;
   }
@@ -386,7 +401,9 @@ select.e-form-control {
     position: absolute;
     top: 0;
     right: 0;
-   // background: $form-field-bg url("../img/form/form_icon_error.svg") 98% .6em no-repeat;
+    background-image:url("../img/form/form_icon_error.svg");
+    background-position: 98% .6em ;
+    background-repeat: no-repeat;
     width: 30px;
     height: 30px;
   }
@@ -402,7 +419,7 @@ select.e-form-control {
   }
 
   &.e-form-control {
-  //  background: $form-field-bg url("../img/form/form_icon_warning.svg") 98% .6em no-repeat;
+    //  background: $form-field-bg url("../img/form/form_icon_warning.svg") 98% .6em no-repeat;
     padding-right: 30px;
   }
 
@@ -411,7 +428,7 @@ select.e-form-control {
     position: absolute;
     top: 0;
     right: 0;
-  //  background: $form-field-bg url("../img/form/form_icon_warning.svg") 98% .6em no-repeat;
+    //  background: $form-field-bg url("../img/form/form_icon_warning.svg") 98% .6em no-repeat;
     width: 30px;
     height: 30px;
   }
@@ -426,7 +443,9 @@ select.e-form-control {
   }
 
   &.e-form-control {
-  //  background: $form-field-bg url("../img/form/form_icon_done.svg") 98% .8em no-repeat;
+    background-image:url("../img/form/form_icon_done.svg");
+    background-position: 98% .8em ;
+    background-repeat: no-repeat;
     padding-right: 30px;
   }
 
@@ -435,7 +454,9 @@ select.e-form-control {
     position: absolute;
     top: 0;
     right: 0;
-  //  background: $form-field-bg url("../img/form/form_icon_done.svg") 98% .6em no-repeat;
+    background-image:url("../img/form/form_icon_done.svg");
+    background-position: 98% .6em ;
+    background-repeat: no-repeat;
     width: 30px;
     height: 30px;
   }

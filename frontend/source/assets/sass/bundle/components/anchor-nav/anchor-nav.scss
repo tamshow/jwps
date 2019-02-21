@@ -35,15 +35,10 @@ categories: [js, anchor-nav]
   &__title {
     color: $secondary-text-color;
     font-weight: bold;
-    font-size: 14px;
-    background: #fff;
-    position: absolute;
-    top: -.5em;
-    left: 1.1rem;
-    padding-right: .5rem;
-    padding-left: .5rem;
+    font-size: 1.1rem;
+    margin-top: -5px;
+    margin-bottom: 10px;
     line-height: 1;
-
   }
 
   li {
