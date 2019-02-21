@@ -18,6 +18,8 @@ html {
   //min-width: var(--size);
   // min-width: $screen-pc-max + px;
 
+  background-color: $bg-color;
+
   @include media-sp-max {
     //overflow-x: hidden;
     min-width: 320px;

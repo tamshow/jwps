@@ -1,0 +1,39 @@
+{% extends "_layout/_base.njk" %}
+
+{% set page_title = "" %}
+{% set page_url = "" %}
+{% set page_description = "" %}
+{% set page_keywords = "" %}
+
+
+{% block main %}
+
+<div class="c-breadcrumb" role="navigation" aria-label="現在地表示">
+  <div class="c-breadcrumb__inner">
+    <span><a href="/">ホーム</a></span>
+    <span>お探しのページは見つかりませんでした</span>
+  </div>
+</div>
+
+
+<section class="l-container">
+  <div class="l-block">
+    <div class="e-heading-group">
+      <h1 class="e-heading1">ページが見つかりませんでした</h1>
+    </div>
+    <div class="l-unit visual-editor">
+      <p>大変申し訳ございません。<br>
+        お客様がお探しのページは一時的にアクセスができない状況にあるか、移動もしくは削除された可能性があります。<br>
+        お手数ですが、トップページよりご覧いただければと思います。</p>
+    </div>
+
+    <div class="l-unit visual-editor">
+      <div class="e-button-group">
+        <a href="/" class="e-button e-button--large">トップページへ</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+{% endblock %}

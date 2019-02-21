@@ -44,16 +44,6 @@ window.addEventListener('DOMContentLoaded', function(){
   // }
 
 
-  /*
-   ##uaの判定
-
-   ###OS、ブラウザ、 デバイスを判定してbodyタグに出力します。
-   （例
-   <body data-os="Mac OS 10.11" data-browser="safari" data-device="desktop" data-touch-device="true">
-
-   */
-
-
 
   /**
    * ------------------------------------------------------------------------
@@ -61,82 +51,10 @@ window.addEventListener('DOMContentLoaded', function(){
    * ------------------------------------------------------------------------
    */
 
-  //ua
+
   var uaOS = window.navigator.userAgent;
   var ua = uaOS.toLowerCase();
   var bodyElem = document.body;
-
-  //os
-  var Windows = uaOS.match(/Windows NT (\d+\.\d+)/),
-      MacOS = uaOS.match(/Mac OS X (\d+[_.]\d+)/),
-      iOS = uaOS.match(/iPhone OS (\d_\d)/) || uaOS.match(/iPad; CPU OS (\d_\d)/),
-      Android = uaOS.match(/Android (\d\.\d)/);
-
-  var os = '', version = '';
-
-  if (Windows) {
-    switch (os = "Windows", Windows[1]) {
-      case "5.1":
-      case "5.2":
-        version = "XP";
-        break;
-      case "6.0":
-        version = "Vista";
-        break;
-      case "6.1":
-        version = "7";
-        break;
-      case "6.2":
-        version = "8";
-        break;
-      case "6.3":
-        version = "8.1";
-        break;
-      case "10.0":
-        version = "10"
-    }
-  } else if (MacOS) {
-    os = "Mac OS";
-    version = MacOS[1].replace(/_/g, ".");
-  } else if (iOS) {
-    os = "iOS";
-    version = iOS[1].replace(/_/g, ".");
-  } else if (Android) {
-    os = "Android";
-    version = Android[1];
-  }
-
-  bodyElem.setAttribute("data-os", os + " " + version);
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Add Browser
-   * ------------------------------------------------------------------------
-   */
-
-
-  var BrowserSafari = ua.indexOf("safari") > -1 && ua.indexOf("chrome") === -1,
-      BrowserChrome = ua.indexOf("chrome") > -1 && ua.indexOf("edge") === -1,
-      BrowserFireFox = ua.indexOf("firefox") !== -1,
-      BrowserIE = ua.indexOf("msie") !== -1,
-      BrowserIE11 = ua.indexOf('trident/7') !== -1,
-      BrowserEdge = ua.indexOf("edge") !== -1;
-
-
-  if (BrowserSafari) {
-    bodyElem.setAttribute("data-browser", "safari");
-  } else if (BrowserChrome) {
-    bodyElem.setAttribute("data-browser", "chrome");
-  } else if (BrowserFireFox) {
-    bodyElem.setAttribute("data-browser", "firefox");
-  } else if (BrowserIE || BrowserIE11) {
-    bodyElem.setAttribute("data-browser", "ie");
-  } else if (BrowserEdge) {
-    bodyElem.setAttribute("data-browser", "edge");
-  }
-
-  
 
   /**
    * ------------------------------------------------------------------------
@@ -189,7 +107,7 @@ window.addEventListener('DOMContentLoaded', function(){
     clearTimeout(scrollStop);
     scrollStop = setTimeout(function () {
       bodyElem.setAttribute("data-scroll-pos", "is-stay");
-    }, 1000);
+    }, 600);
   };
 
 
@@ -199,11 +117,14 @@ window.addEventListener('DOMContentLoaded', function(){
    * Off Line
    * ------------------------------------------------------------------------
    */
+
   if (navigator.onLine === false) {
-    var offLineText =
+
+   var offlineElem = document.createElement('div');
+       offlineElem.innerHTML =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>現在オフラインで表示しています。</p></div>';
-    bodyElem.parentNode.insertBefore(offLineText);
+    bodyElem.parentNode.insertBefore(offlineElem,bodyElem);
 
   }
 
@@ -216,12 +137,13 @@ window.addEventListener('DOMContentLoaded', function(){
   
   //IE10対応
   if (ua.indexOf("msie") !== -1) {
-    var noScriptText =
+    var noScriptElem = document.createElement('div');
+        noScriptElem =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>お使いのブラウザはバージョンが古いため、サイトを快適にご利用いただけないかもしれません。<br>' +
         '<a href="https://www.whatbrowser.org/intl/ja/">新しいブラウザをお試しできます。ブラウザは無料、インストールも簡単です。</a>' +
         '</div>';
-    bodyElem.parentNode.insertBefore(noScriptText);
+    bodyElem.parentNode.insertBefore(noScriptElem,bodyElem);
 
   }
 
@@ -231,13 +153,13 @@ window.addEventListener('DOMContentLoaded', function(){
       (/Android/.test(uaOS) && /Chrome/.test(uaOS) && /Version/.test(uaOS)) ||
       (/Android/.test(uaOS) && /Chrome/.test(uaOS) && /SamsungBrowser/.test(uaOS))) {
 
-    var noAndroidText =
+    var noAndroidElem = document.createElement('div');
+    var noAndroidElem =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>ご利用のAndroid端末のバージョンでは閲覧できません。<br>' +
         '<a href="intent://' + hostname + '#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end">Chromeブラウザをご利用頂くかOSのバージョンアップをお願い致します。</a>' +
         '</div>';
-
-    bodyElem.parentNode.insertBefore(noAndroidText);
+    bodyElem.parentNode.insertBefore(noAndroidElem,bodyElem);
   }
 
 

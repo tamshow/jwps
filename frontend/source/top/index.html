@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+
+  
   <meta charset="utf-8">
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <meta name="HandheldFriendly" content="true">
+<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+
+<meta name="HandheldFriendly" content="true">
 <meta name="MobileOptimized" content="320">
 <meta name="format-detection" content="telephone=no">
 <meta name="format-detection" content="email=no">
 
-<link rel="canonical" href="https://">
-<meta name="description" content="説明文">
-<meta name="keywords" content="キーワード, キーワード">
+<link rel="canonical" href="">
+<meta name="description" content="">
+<meta name="keywords" content="">
 
 <!-- add to ogp -->
 <meta property="og:image" content="/img/common/og-image.jpg">
 <meta property="og:url" content="https://">
-<meta property="og:title" content="タイトル">
-<meta property="og:description" content="説明文">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
 
 <!-- add to favicon -->
 <link rel="icon" type="image/png" sizes="128x128" href="/assets/img/favicon/icon-128x128.png">
@@ -25,13 +28,13 @@
 
 <!-- Add to homescreen for Chrome on Android -->
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="タイトル">
+<meta name="application-name" content="">
 <link rel="icon" sizes="192x192" href="/assets/img/favicon/android-chrome-512x512.png">
 
 <!-- Add to homescreen for Safari on iOS -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="タイトル">
+<meta name="apple-mobile-web-app-title" content="">
 <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
 
 <!-- Tile icon for Win8 (144x144 + tile color) -->
@@ -47,9 +50,12 @@
 
 <link rel="stylesheet" href="/assets/css/bundle.css" media="all">
 <script src="/assets/js/vendor.js"></script>
-<script src="/assets/js/bundle.js"></script></head>
+<script src="/assets/js/bundle.js"></script>
+  
 
+</head>
 <body id="skippy">
+
 
 <noscript>
   <div class="is-prompt">
@@ -145,235 +151,242 @@
   </div>
 
 </header>
+
+
 <main class="l-main">
 
-  <section class="l-container">
-    <div class="l-block-full">
-      <div class="top-unit-main-visual">
-        <div class="swiper-main">
-          <div id="js-swiper-main" class="swiper-container">
-            <ul class="swiper-wrapper">
-              <li class="swiper-slide">
-                <a href=""><img src="/assets/img/top/main-visual.png" alt=""></a>
-              </li>
-              <li class="swiper-slide">
-                <a href=""><img src="/assets/img/top/main-visual.png" alt=""></a>
-              </li>
-              <li class="swiper-slide">
-                <a href=""><img src="/assets/img/top/main-visual.png" alt=""></a>
-              </li>
-            </ul>
+  
 
-            <div class="swiper-controls">
-              <button class="swiper-start on"><i class="material-icons">play_arrow</i></button>
-              <button class="swiper-stop"><i class="material-icons">pause</i></button>
-            </div>
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.js"></script>
-        <script>
-
-          var swiperMain = new Swiper('#js-swiper-main', {
-            pagination: '.swiper-main .swiper-pagination',
-            paginationClickable: true,
-            centeredSlides: false,
-            loop: true,
-            loopAdditionalSlides: 1,
-            spaceBetween: 0,
-            slidesPerView: 1,
-            autoplay: 3000,
-            onInit() {
-              var start = $('.swiper-main .swiper-start');
-              var stop = $('.swiper-main .swiper-stop');
-              start.on('click', function () {
-                if (!start.hasClass('on')) {
-                  swiperMain.startAutoplay();
-                  start.addClass('on');
-                  stop.removeClass('on');
-                }
-              });
-              stop.on('click', function () {
-                if (!stop.hasClass('on')) {
-                  swiperMain.stopAutoplay();
-                  stop.addClass('on');
-                  start.removeClass('on');
-                }
-              });
-            }
-          });
-
-
-        </script>
-
-
-
-        <div class="top-heading">
-          <h2 class="top-heading__title">見出し</h2>
-          <p class="top-heading__lead">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。<br>
-            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。<br>
-            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-        </div>
-
-        <ul class="c-summary3">
-          <li class="c-summary__item e-card">
-            <a href="">
-              <div class="e-card__img"><img src="/assets/img/top/card.png" alt="" title=""></div>
-              <div class="e-card__body">
-                <p class="e-card__title">タイトル</p>
-                <p class="e-card__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-              </div>
-            </a>
-          </li>
-          <li class="c-summary__item e-card">
-            <a href="">
-              <div class="e-card__img"><img src="/assets/img/top/card.png" alt="" title=""></div>
-              <div class="e-card__body">
-                <p class="e-card__title">タイトル</p>
-                <p class="e-card__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-              </div>
-            </a>
-          </li>
-          <li class="c-summary__item e-card">
-            <a href="">
-              <div class="e-card__img"><img src="/assets/img/top/card.png" alt="" title=""></div>
-              <div class="e-card__body">
-                <p class="e-card__title">タイトル</p>
-                <p class="e-card__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <div class="e-button-group">
-          <a href="" class="e-button e-button--accent e-button--large">もっと見る</a>
-        </div>
-      </div>
-
-
-      <div class="top-unit-primary-light">
-
-        <div class="top-heading">
-          <h2 class="top-heading__title">見出し</h2>
-          <p class="top-heading__lead">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。<br>
-            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。<br>
-            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-        </div>
-
-        <ul class="c-summary3">
-          <li class="c-summary__item e-media">
-            <div class="e-media__img"><img src="/assets/img/top/media.png" alt="" title=""></div>
-            <div class="e-media__body">
-              <p class="e-media__title">ページタイトル</p>
-              <p class="e-media__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-            </div>
-          </li>
-          <li class="c-summary__item e-media">
-            <div class="e-media__img"><img src="/assets/img/top/media.png" alt="" title=""></div>
-            <div class="e-media__body">
-              <p class="e-media__title">ページタイトル</p>
-              <p class="e-media__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-            </div>
-          </li>
-          <li class="c-summary__item e-media">
-            <div class="e-media__img"><img src="/assets/img/top/media.png" alt="" title=""></div>
-            <div class="e-media__body">
-              <p class="e-media__title">ページタイトル</p>
-              <p class="e-media__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-            </div>
-          </li>
-          <li class="c-summary__item e-media">
-            <div class="e-media__img"><img src="/assets/img/top/media.png" alt="" title=""></div>
-            <div class="e-media__body">
-              <p class="e-media__title">ページタイトル</p>
-              <p class="e-media__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-            </div>
-          </li>
-          <li class="c-summary__item e-media">
-            <div class="e-media__img"><img src="/assets/img/top/media.png" alt="" title=""></div>
-            <div class="e-media__body">
-              <p class="e-media__title">ページタイトル</p>
-              <p class="e-media__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-            </div>
-          </li>
-          <li class="c-summary__item e-media">
-            <div class="e-media__img"><img src="/assets/img/common/media.png" alt="" title=""></div>
-            <div class="e-media__body">
-              <p class="e-media__title">ページタイトル</p>
-              <p class="e-media__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-            </div>
-          </li>
-        </ul>
-        <div class="e-button-group">
-          <a href="" class="e-button">もっと見る</a>
-        </div>
-      </div>
-
-
-      <div class="top-unit-white">
-
-
-        <div class="top-heading">
-          <h2 class="top-heading__title">新着情報</h2>
-        </div>
-
-
-        <div class="l-block">
-          <ul class="c-headline">
-            <li class="c-headline__item">
-              <span class="c-headline__date">2017年10月01日 </span>
-              <p class="c-headline__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。<span class="is-new">New</span></a></p>
+<section class="l-container">
+  <div class="l-block-full">
+    <div class="top-unit-main-visual">
+      <div class="swiper-main">
+        <div id="js-swiper-main" class="swiper-container">
+          <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+              <a href=""><img src="/assets/img/top/main-visual.png" alt=""></a>
             </li>
-            <li class="c-headline__item">
-              <span class="c-headline__date">2017年10月01日 </span>
-              <p class="c-headline__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
+            <li class="swiper-slide">
+              <a href=""><img src="/assets/img/top/main-visual.png" alt=""></a>
             </li>
-            <li class="c-headline__item">
-              <span class="c-headline__date">2017年10月01日 </span>
-              <p class="c-headline__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
+            <li class="swiper-slide">
+              <a href=""><img src="/assets/img/top/main-visual.png" alt=""></a>
             </li>
           </ul>
+
+          <div class="swiper-controls">
+            <button class="swiper-start on"><i class="material-icons">play_arrow</i></button>
+            <button class="swiper-stop"><i class="material-icons">pause</i></button>
+          </div>
+
         </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.js"></script>
+      <script>
+
+        var swiperMain = new Swiper('#js-swiper-main', {
+          pagination: '.swiper-main .swiper-pagination',
+          paginationClickable: true,
+          centeredSlides: false,
+          loop: true,
+          loopAdditionalSlides: 1,
+          spaceBetween: 0,
+          slidesPerView: 1,
+          autoplay: 3000,
+          onInit() {
+            var start = $('.swiper-main .swiper-start');
+            var stop = $('.swiper-main .swiper-stop');
+            start.on('click', function () {
+              if (!start.hasClass('on')) {
+                swiperMain.startAutoplay();
+                start.addClass('on');
+                stop.removeClass('on');
+              }
+            });
+            stop.on('click', function () {
+              if (!stop.hasClass('on')) {
+                swiperMain.stopAutoplay();
+                stop.addClass('on');
+                start.removeClass('on');
+              }
+            });
+          }
+        });
 
 
-        <div class="e-button-group">
-          <a href="" class="e-button">もっと見る</a>
-        </div>
+      </script>
 
-        <ul class="e-list-img-horizontal">
-          <li><a href=""><img src="/assets/img/top/bunner.png" alt=""> </a></li>
-          <li><a href=""><img src="/assets/img/top/bunner.png" alt=""> </a></li>
-          <li><a href=""><img src="/assets/img/top/bunner.png" alt=""> </a></li>
-          <li><a href=""><img src="/assets/img/top/bunner.png" alt=""> </a></li>
-          <li><a href=""><img src="/assets/img/top/bunner.png" alt=""> </a></li>
-          <li><a href=""><img src="/assets/img/top/bunner.png" alt=""> </a></li>
+
+
+      <div class="top-heading">
+        <h2 class="top-heading__title">見出し</h2>
+        <p class="top-heading__lead">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。<br>
+          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。<br>
+          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+      </div>
+
+      <ul class="c-summary3">
+        <li class="c-summary__item e-card">
+          <a href="">
+            <div class="e-card__img"><img src="/assets/img/top/card.png" alt="" title=""></div>
+            <div class="e-card__body">
+              <p class="e-card__title">タイトル</p>
+              <p class="e-card__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+            </div>
+          </a>
+        </li>
+        <li class="c-summary__item e-card">
+          <a href="">
+            <div class="e-card__img"><img src="/assets/img/top/card.png" alt="" title=""></div>
+            <div class="e-card__body">
+              <p class="e-card__title">タイトル</p>
+              <p class="e-card__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+            </div>
+          </a>
+        </li>
+        <li class="c-summary__item e-card">
+          <a href="">
+            <div class="e-card__img"><img src="/assets/img/top/card.png" alt="" title=""></div>
+            <div class="e-card__body">
+              <p class="e-card__title">タイトル</p>
+              <p class="e-card__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <div class="e-button-group">
+        <a href="" class="e-button e-button--accent e-button--large">もっと見る</a>
+      </div>
+    </div>
+
+
+    <div class="top-unit-primary-light">
+
+      <div class="top-heading">
+        <h2 class="top-heading__title">見出し</h2>
+        <p class="top-heading__lead">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。<br>
+          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。<br>
+          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+      </div>
+
+      <ul class="c-summary3">
+        <li class="c-summary__item e-media">
+          <div class="e-media__img"><img src="/assets/img/top/media.png" alt="" title=""></div>
+          <div class="e-media__body">
+            <p class="e-media__title">ページタイトル</p>
+            <p class="e-media__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+          </div>
+        </li>
+        <li class="c-summary__item e-media">
+          <div class="e-media__img"><img src="/assets/img/top/media.png" alt="" title=""></div>
+          <div class="e-media__body">
+            <p class="e-media__title">ページタイトル</p>
+            <p class="e-media__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+          </div>
+        </li>
+        <li class="c-summary__item e-media">
+          <div class="e-media__img"><img src="/assets/img/top/media.png" alt="" title=""></div>
+          <div class="e-media__body">
+            <p class="e-media__title">ページタイトル</p>
+            <p class="e-media__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+          </div>
+        </li>
+        <li class="c-summary__item e-media">
+          <div class="e-media__img"><img src="/assets/img/top/media.png" alt="" title=""></div>
+          <div class="e-media__body">
+            <p class="e-media__title">ページタイトル</p>
+            <p class="e-media__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+          </div>
+        </li>
+        <li class="c-summary__item e-media">
+          <div class="e-media__img"><img src="/assets/img/top/media.png" alt="" title=""></div>
+          <div class="e-media__body">
+            <p class="e-media__title">ページタイトル</p>
+            <p class="e-media__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+          </div>
+        </li>
+        <li class="c-summary__item e-media">
+          <div class="e-media__img"><img src="/assets/img/common/media.png" alt="" title=""></div>
+          <div class="e-media__body">
+            <p class="e-media__title">ページタイトル</p>
+            <p class="e-media__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+          </div>
+        </li>
+      </ul>
+      <div class="e-button-group">
+        <a href="" class="e-button">もっと見る</a>
+      </div>
+    </div>
+
+
+    <div class="top-unit-white">
+
+
+      <div class="top-heading">
+        <h2 class="top-heading__title">新着情報</h2>
+      </div>
+
+
+      <div class="l-block">
+        <ul class="c-headline">
+          <li class="c-headline__item">
+            <span class="c-headline__date">2017年10月01日 </span>
+            <p class="c-headline__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。<span class="is-new">New</span></a></p>
+          </li>
+          <li class="c-headline__item">
+            <span class="c-headline__date">2017年10月01日 </span>
+            <p class="c-headline__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
+          </li>
+          <li class="c-headline__item">
+            <span class="c-headline__date">2017年10月01日 </span>
+            <p class="c-headline__title"><a href="">ニュースタイトルが入りますニュースタイトルが入ります。ニュースタイトルが入りますニュースタイトルが入ります。</a></p>
+          </li>
         </ul>
-
       </div>
 
 
-      <div class="top-unit-gray">
-
-
-        <div class="top-heading top-heading--white">
-          <h2 class="top-heading__title">見出し</h2>
-          <p class="top-heading__lead">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。<br>
-            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。<br>
-            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-        </div>
-        <div class="e-button-group">
-          <a href="" class="e-button e-button--accent e-button--large">お問い合わせフォームへ</a>
-        </div>
-
+      <div class="e-button-group">
+        <a href="" class="e-button">もっと見る</a>
       </div>
 
+      <ul class="e-list-img-horizontal">
+        <li><a href=""><img src="/assets/img/top/banner.png" alt=""> </a></li>
+        <li><a href=""><img src="/assets/img/top/banner.png" alt=""> </a></li>
+        <li><a href=""><img src="/assets/img/top/banner.png" alt=""> </a></li>
+        <li><a href=""><img src="/assets/img/top/banner.png" alt=""> </a></li>
+        <li><a href=""><img src="/assets/img/top/banner.png" alt=""> </a></li>
+        <li><a href=""><img src="/assets/img/top/banner.png" alt=""> </a></li>
+      </ul>
 
     </div>
 
 
-  </section>
+    <div class="top-unit-gray">
+
+
+      <div class="top-heading top-heading--white">
+        <h2 class="top-heading__title">見出し</h2>
+        <p class="top-heading__lead">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。<br>
+          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。<br>
+          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+      </div>
+      <div class="e-button-group">
+        <a href="" class="e-button e-button--accent e-button--large">お問い合わせフォームへ</a>
+      </div>
+
+    </div>
+
+
+  </div>
+</section>
+
+
 </main>
+
+
+
 <footer class="l-footer-v1">
   <div class="_primary">
     <div class="_description _order2-sp">
@@ -414,6 +427,7 @@
     <div class="_copy"><p>© copyright text</p></div>
   </div>
 </footer>
+
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -424,5 +438,13 @@
   ga('send', 'pageview');
 </script>
 <!-- Built with love using Web Starter Kit -->
+
 </body>
 </html>
+
+
+
+
+
+
+

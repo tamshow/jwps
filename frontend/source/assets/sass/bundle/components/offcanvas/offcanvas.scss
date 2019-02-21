@@ -181,23 +181,35 @@ categories: [js, offcanvas]
 
   &__list {
 
-    i {
-      font-size: 14px;
-      margin-right: 7px;
-      position: relative;
-      top: 3px;
-    }
-
     li a {
       line-height: 1.4;
       border-radius: 0;
       font-size: 14px;
       font-weight: bold;
       color: $primary-text-color;
-      padding: 16px 10px 16px 20px;
+      padding: 16px 10px 16px 30px;
       display: block;
       text-decoration: none;
-
+      position: relative;
+      &:before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 12px;
+        margin: auto;
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        transform: rotate(45deg);
+        border-style: solid;
+        border-color: $primary-text-color;
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 0;
+        border-left-width: 0;
+        content: "";
+        vertical-align: middle;
+      }
 
       &.is-active,
       &.stay {

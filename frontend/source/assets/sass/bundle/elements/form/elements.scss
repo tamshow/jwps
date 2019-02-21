@@ -59,6 +59,17 @@
   }
 }
 
+.e-form-button-group {
+  text-align: center;
+  @include mb-small;
+
+  button,input, a{
+    margin-bottom: $margin-xs-pc;
+  }
+
+}
+
+
 /*doc
 ---
 title: form-step

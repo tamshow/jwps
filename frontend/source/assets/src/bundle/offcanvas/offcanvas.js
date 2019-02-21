@@ -30,7 +30,7 @@ $(function () {
    */
 
 
-  $(Selector.TARGET).on('click touchend', function (e) {
+  $(Selector.TARGET).on('click', function (e) {
     if ($(Selector.BODY).attr('aria-hidden') === 'true') {
       settingOpen(e);
     } else {
@@ -39,15 +39,15 @@ $(function () {
   });
 
 
-  $(Selector.BODY).on('click touchend', 'a', function () {
+  $(Selector.BODY).on('click', 'a', function () {
     settingClose();
   });
 
-  $(Selector.BG).on('click touchend', function () {
+  $(Selector.BG).on('click', function () {
     settingClose();
   });
 
-  $(Selector.BODY).on('click touchend', Selector.SCROLL, function (e) {
+  $(Selector.BODY).on('click', Selector.SCROLL, function (e) {
     settingClose();
     clickScrollTo(e);
   });

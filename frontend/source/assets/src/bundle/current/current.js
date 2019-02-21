@@ -1,4 +1,4 @@
-$(function () {
+window.addEventListener('DOMContentLoaded', function(){
 
 
   /**
@@ -33,11 +33,13 @@ $(function () {
    */
 
 
+
+
   if(location.pathname !== "/") {
     $('.js-current-nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass(ClassName.ACTIVE);
-
   } else{
     $('.js-current-nav a:eq(0)').addClass(ClassName.ACTIVE);
+
   }
   
 });

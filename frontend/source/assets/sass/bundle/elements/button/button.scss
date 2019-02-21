@@ -223,6 +223,12 @@ parent: button
       margin-left: (($screen-gap-sp / 2) / $screen-main-colum) * 100%;
     }
   }
+
+  .e-button--large {
+    @include media-sp-max {
+      width:100 - ($screen-gap-sp / $screen-main-colum) * 100%;
+    }
+  }
 }
 
 .e-button-group--one-half {

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  {% block head %}
+  {% include "_partials/_html-head.njk" %}
+  {% endblock %}
+
+</head>
+<body id="skippy">
+
+{% block header %}
+{% include "_partials/_header.njk" %}
+{% endblock %}
+
+<main class="l-main">
+
+  {% block main %}
+  <!-- メインコンテンツ -->
+  {% endblock %}
+</main>
+
+
+{% block footer %}
+{% include "_partials/_footer.njk" %}
+{% include "_partials/_html-foot.njk" %}
+{% endblock %}
+</body>
+</html>
+
+
+
+
+
+
+
