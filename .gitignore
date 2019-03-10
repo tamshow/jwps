@@ -1,7 +1,6 @@
 # vendor files
 frontend/vendor
 .bundle
-prepros-6.config
 config.codekit3
 
 
@@ -19,7 +18,6 @@ frontend/source/assets/js-form
 frontend/source/ish
 frontend/source/styleguide
 frontend/source/styleguide.html
-*.kit
 
 # build files
 frontend/build

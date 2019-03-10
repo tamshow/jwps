@@ -15,11 +15,12 @@ $(function () {
     TO_TOP        : '[data-scroll="to-top"]',
     BG            : '#js-offcanvas-bg',
     LOWER_LAYER   : 'footer,main',
-    SCROLL        : '[data-scroll-offcanvas]'
+    SCROLL        : '[data-scroll-offcanvas]',
+    OFFSET        : '[data-scroll-offset]'
   };
 
   var Default = {
-    MAIN_H           : $('header').height(),
+    MAIN_H           : $('header').height() - 20,
     BOTTOM_POSITION  : '100px'
   };
 
@@ -64,7 +65,7 @@ $(function () {
       $target.blur();
 
       var offset = $(targetHref).offset() || {};
-      var offsetTop = offset.top - Default.MAIN_H - 20 || 0;
+      var offsetTop = offset.top - Selector.OFFSET || Default.MAIN_H;
 
       $('html,body').animate(
           {scrollTop: offsetTop},
@@ -91,17 +92,18 @@ $(function () {
   }
 
 
-    //ハッシュ付きリンク用に遅延して動作
+  //ハッシュ付きリンク用に遅延して動作
   function scrollToAnker() {
     var urlHash = location.hash || false;
-    if (urlHash && $(urlHash).length) {
+    if (urlHash && $(escapeSelector(urlHash)).length) {
       setTimeout(function () {
-        var position = $(urlHash).offset().top - Default.MAIN_H -20;
+        var position = $(escapeSelector(urlHash)).offset().top - Default.MAIN_H -20;
         $('body,html').animate({scrollTop: position}, 100);
       }, 0);
     }
 
   }
+
 
 
 

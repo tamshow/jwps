@@ -111,6 +111,39 @@ window.addEventListener('DOMContentLoaded', function(){
   };
 
 
+  /**
+   * ------------------------------------------------------------------------
+   * Add Fixed
+   * ------------------------------------------------------------------------
+   */
+  
+  // var $header = $('header'),
+  //     scrollStart = $('.js-fixed-start'),
+  //     headerH = $header.height(),
+  //     scrollStartH = scrollStart.height(),
+  //     position = scrollStartH;
+  //
+  // $(window).scroll(function () {
+  //   var scrollPos = $(this).scrollTop();
+  //
+  //   if (scrollPos > headerH) {
+  //     $header.addClass('is-start');
+  //   } else {
+  //     $header.removeClass('is-start');
+  //   }
+  //
+  //   if (scrollPos > position) {
+  //     if (!$header.hasClass('is-fixed')) {
+  //       $header.addClass('is-fixed');
+  //
+  //       $('.js-fixed-start').css({'margin-top': headerH})
+  //     }
+  //   } else {
+  //     $header.removeClass('is-fixed');
+  //     $('.js-fixed-start').css({'margin-top': 'auto'})
+  //   }
+  // });
+
 
   /**
    * ------------------------------------------------------------------------
@@ -124,7 +157,7 @@ window.addEventListener('DOMContentLoaded', function(){
        offlineElem.innerHTML =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>現在オフラインで表示しています。</p></div>';
-    bodyElem.parentNode.insertBefore(offlineElem,bodyElem);
+    bodyElem.insertBefore(offlineElem,bodyElem.firstChild);
 
   }
 
@@ -138,12 +171,12 @@ window.addEventListener('DOMContentLoaded', function(){
   //IE10対応
   if (ua.indexOf("msie") !== -1) {
     var noScriptElem = document.createElement('div');
-        noScriptElem =
+        noScriptElem.innerHTML =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>お使いのブラウザはバージョンが古いため、サイトを快適にご利用いただけないかもしれません。<br>' +
         '<a href="https://www.whatbrowser.org/intl/ja/">新しいブラウザをお試しできます。ブラウザは無料、インストールも簡単です。</a>' +
         '</div>';
-    bodyElem.parentNode.insertBefore(noScriptElem,bodyElem);
+    bodyElem.insertBefore(noScriptElem,bodyElem.firstChild);
 
   }
 
@@ -154,12 +187,12 @@ window.addEventListener('DOMContentLoaded', function(){
       (/Android/.test(uaOS) && /Chrome/.test(uaOS) && /SamsungBrowser/.test(uaOS))) {
 
     var noAndroidElem = document.createElement('div');
-    var noAndroidElem =
+        noAndroidElem.innerHTML =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>ご利用のAndroid端末のバージョンでは閲覧できません。<br>' +
         '<a href="intent://' + hostname + '#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end">Chromeブラウザをご利用頂くかOSのバージョンアップをお願い致します。</a>' +
         '</div>';
-    bodyElem.parentNode.insertBefore(noAndroidElem,bodyElem);
+    bodyElem.insertBefore(noAndroidElem,bodyElem.firstChild);
   }
 
 
@@ -182,6 +215,10 @@ window.addEventListener('DOMContentLoaded', function(){
   }
 
 });
+
+function escapeSelector (val) {
+  return val.replace(/[ !"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~]/g, '\\$&')
+}
 
 
 

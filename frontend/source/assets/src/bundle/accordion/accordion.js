@@ -104,16 +104,16 @@ $(function () {
     }
   }
   
+  
   function accessAnker() {
     //ハッシュでアコーディオン開く
     var urlHash = location.hash || false;
-    if (urlHash) {
-      if ($('[aria-controls="' + urlHash.slice(1) + '"]').length) {
-        $('[aria-controls="' + urlHash.slice(1) + '"]').click();
+    if (urlHash && $(escapeSelector(urlHash)).length) {
+      if ($('[aria-controls="' + escapeSelector(urlHash.slice(1)) + '"]').length) {
+        $('[aria-controls="' + escapeSelector(urlHash.slice(1)) + '"]').click();
       }
     }
   }
-
 
 
 });
