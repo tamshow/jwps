@@ -87,13 +87,13 @@ $(function () {
   }
 
 
-
-//ページアクセス時にハッシュがあれば該当のタブを開く
+  
+  //ページアクセス時にハッシュがあれば該当のタブを開く
   function accessAnker() {
     var urlHash = location.hash || false;
-    if (urlHash && $(urlHash).length) {
-      if ($(urlHash).length) {
-        $(urlHash).find('[data-tablist]').click();
+    if (urlHash && $(escapeSelector(urlHash)).length) {
+      if ($(escapeSelector(urlHash)).length) {
+        $(escapeSelector(urlHash)).find('[data-tablist]').click();
       }
     }
   }
