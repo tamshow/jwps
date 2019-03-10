@@ -7,41 +7,40 @@ window.addEventListener('DOMContentLoaded', function(){
    * Service Worker
    * ------------------------------------------------------------------------
    */
+  
+  var isLocalhost = Boolean(window.location.hostname === 'localhost' ||
+      window.location.hostname === '[::1]' ||
+      window.location.hostname.match(
+          /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+      )
+  );
+
+  if ('serviceWorker' in navigator &&
+      (window.location.protocol === 'https:' || isLocalhost)) {
+    navigator.serviceWorker.register('/service-worker.js')
+        .then(function (registration) {
+
+          registration.onupdatefound = function () {
+            if (navigator.serviceWorker.controller) {
+              var installingWorker = registration.installing;
+              installingWorker.onstatechange = function () {
+                switch (installingWorker.state) {
+                  case 'installed':
+                    break;
+                  case 'redundant':
+                    throw new Error('The installing ' +
+                        'service worker became redundant.');
+                  default:
+                }
+              };
+            }
+          };
 
 
-  // var isLocalhost = Boolean(window.location.hostname === 'localhost' ||
-  //     window.location.hostname === '[::1]' ||
-  //     window.location.hostname.match(
-  //         /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-  //     )
-  // );
-  //
-  // if ('serviceWorker' in navigator &&
-  //     (window.location.protocol === 'https:' || isLocalhost)) {
-  //   navigator.serviceWorker.register('/service-worker.js')
-  //       .then(function (registration) {
-  //
-  //         registration.onupdatefound = function () {
-  //           if (navigator.serviceWorker.controller) {
-  //             var installingWorker = registration.installing;
-  //             installingWorker.onstatechange = function () {
-  //               switch (installingWorker.state) {
-  //                 case 'installed':
-  //                   break;
-  //                 case 'redundant':
-  //                   throw new Error('The installing ' +
-  //                       'service worker became redundant.');
-  //                 default:
-  //               }
-  //             };
-  //           }
-  //         };
-  //
-  //
-  //       }).catch(function (e) {
-  //     console.error('Error during service worker registration:', e);
-  //   });
-  // }
+        }).catch(function (e) {
+      console.error('Error during service worker registration:', e);
+    });
+  }
 
 
 
@@ -111,6 +110,39 @@ window.addEventListener('DOMContentLoaded', function(){
   };
 
 
+  /**
+   * ------------------------------------------------------------------------
+   * Add Fixed
+   * ------------------------------------------------------------------------
+   */
+  
+  // var $header = $('header'),
+  //     scrollStart = $('.js-fixed-start'),
+  //     headerH = $header.height(),
+  //     scrollStartH = scrollStart.height(),
+  //     position = scrollStartH;
+  //
+  // $(window).scroll(function () {
+  //   var scrollPos = $(this).scrollTop();
+  //
+  //   if (scrollPos > headerH) {
+  //     $header.addClass('is-start');
+  //   } else {
+  //     $header.removeClass('is-start');
+  //   }
+  //
+  //   if (scrollPos > position) {
+  //     if (!$header.hasClass('is-fixed')) {
+  //       $header.addClass('is-fixed');
+  //
+  //       $('.js-fixed-start').css({'margin-top': headerH});
+  //     }
+  //   } else {
+  //     $header.removeClass('is-fixed');
+  //     $('.js-fixed-start').css({'margin-top': 'auto'});
+  //   }
+  // });
+
 
   /**
    * ------------------------------------------------------------------------
@@ -124,7 +156,7 @@ window.addEventListener('DOMContentLoaded', function(){
        offlineElem.innerHTML =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>現在オフラインで表示しています。</p></div>';
-    bodyElem.parentNode.insertBefore(offlineElem,bodyElem);
+    bodyElem.insertBefore(offlineElem,bodyElem.firstChild);
 
   }
 
@@ -138,12 +170,12 @@ window.addEventListener('DOMContentLoaded', function(){
   //IE10対応
   if (ua.indexOf("msie") !== -1) {
     var noScriptElem = document.createElement('div');
-        noScriptElem =
+        noScriptElem.innerHTML =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>お使いのブラウザはバージョンが古いため、サイトを快適にご利用いただけないかもしれません。<br>' +
         '<a href="https://www.whatbrowser.org/intl/ja/">新しいブラウザをお試しできます。ブラウザは無料、インストールも簡単です。</a>' +
         '</div>';
-    bodyElem.parentNode.insertBefore(noScriptElem,bodyElem);
+    bodyElem.insertBefore(noScriptElem,bodyElem.firstChild);
 
   }
 
@@ -154,12 +186,12 @@ window.addEventListener('DOMContentLoaded', function(){
       (/Android/.test(uaOS) && /Chrome/.test(uaOS) && /SamsungBrowser/.test(uaOS))) {
 
     var noAndroidElem = document.createElement('div');
-    var noAndroidElem =
+        noAndroidElem.innerHTML =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>ご利用のAndroid端末のバージョンでは閲覧できません。<br>' +
         '<a href="intent://' + hostname + '#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end">Chromeブラウザをご利用頂くかOSのバージョンアップをお願い致します。</a>' +
         '</div>';
-    bodyElem.parentNode.insertBefore(noAndroidElem,bodyElem);
+    bodyElem.insertBefore(noAndroidElem,bodyElem.firstChild);
   }
 
 
@@ -182,6 +214,10 @@ window.addEventListener('DOMContentLoaded', function(){
   }
 
 });
+
+function escapeSelector (val) {
+  return val.replace(/[ !"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~]/g, '\\$&')
+}
 
 
 
@@ -241,7 +277,7 @@ $(function () {
 
 
   $(Selector.ANKER).on('click touchend', function() {
-    innerAnker()
+    innerAnker();
   });
 
   $(window).on('load',function (e) {
@@ -287,21 +323,21 @@ $(function () {
   function innerAnker() {
     //アコーディオン内から別アコーディオンを開く
     var targetHref = $(this).attr('href');
-    if (targetHref.indexOf('#') != -1) {
+    if (targetHref.indexOf('#') !== -1) {
       $('[aria-controls="'+targetHref.slice(1)+'"]').click();
     }
   }
   
+  
   function accessAnker() {
     //ハッシュでアコーディオン開く
     var urlHash = location.hash || false;
-    if (urlHash) {
-      if ($('[aria-controls="' + urlHash.slice(1) + '"]').length) {
-        $('[aria-controls="' + urlHash.slice(1) + '"]').click();
+    if (urlHash && $(escapeSelector(urlHash)).length) {
+      if ($('[aria-controls="' + escapeSelector(urlHash.slice(1)) + '"]').length) {
+        $('[aria-controls="' + escapeSelector(urlHash.slice(1)) + '"]').click();
       }
     }
   }
-
 
 
 });
@@ -584,7 +620,7 @@ $(function () {
     var $target = $(e.currentTarget);
     var targetHref = $target.attr('href');
 
-    if (targetHref.indexOf('#') != -1) {
+    if (targetHref.indexOf('#') !== -1) {
       $target.blur();
 
       var offset = $(targetHref).offset() || {};
@@ -618,11 +654,12 @@ $(function () {
     TO_TOP        : '[data-scroll="to-top"]',
     BG            : '#js-offcanvas-bg',
     LOWER_LAYER   : 'footer,main',
-    SCROLL        : '[data-scroll-offcanvas]'
+    SCROLL        : '[data-scroll-offcanvas]',
+    OFFSET        : '[data-scroll-offset]'
   };
 
   var Default = {
-    MAIN_H           : $('header').height(),
+    MAIN_H           : $('header').height() - 20,
     BOTTOM_POSITION  : '100px'
   };
 
@@ -663,11 +700,11 @@ $(function () {
     var $target = $(e.currentTarget);
     var targetHref = $target.attr('href');
 
-    if (targetHref.indexOf('#') != -1) {
+    if (targetHref.indexOf('#') !== -1) {
       $target.blur();
 
       var offset = $(targetHref).offset() || {};
-      var offsetTop = offset.top - Default.MAIN_H - 20 || 0;
+      var offsetTop = offset.top - Selector.OFFSET || Default.MAIN_H;
 
       $('html,body').animate(
           {scrollTop: offsetTop},
@@ -694,17 +731,18 @@ $(function () {
   }
 
 
-    //ハッシュ付きリンク用に遅延して動作
+  //ハッシュ付きリンク用に遅延して動作
   function scrollToAnker() {
     var urlHash = location.hash || false;
-    if (urlHash && $(urlHash).length) {
+    if (urlHash && $(escapeSelector(urlHash)).length) {
       setTimeout(function () {
-        var position = $(urlHash).offset().top - Default.MAIN_H -20;
+        var position = $(escapeSelector(urlHash)).offset().top - Default.MAIN_H -20;
         $('body,html').animate({scrollTop: position}, 100);
       }, 0);
     }
 
   }
+
 
 
 
@@ -774,88 +812,6 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 
-$(function () {
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  var NAME = 'switch';
-  var VERSION = '0.5.0';
-
-  var Selector = {
-    SWITCH        : '[data-switch]',
-    TARGET        : '[data-toggle-switch]',
-    BODY          : '[data-body-switch]',
-    DEVICE        : '[data-device-switch]'//all, pc, tab, sp
-  };
-
-
-  var Default = {
-    TAB_W  : '960px',
-    SP_W   : '600px'
-  };
-
-
-  $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Event
-   * ------------------------------------------------------------------------
-   */
-
-
-  $(Selector.TARGET).on('click touchend E_ENTER_KYE_CODE', function (e) {
-
-    var media = $(e.currentTarget).parents(Selector.DEVICE).data('device-switch') || 'all';
-    var isMobile = window.matchMedia('(max-width:' + Default.SP_W + ')').matches || false;
-    var isTablet = window.matchMedia('(min-width:' + Default.SP_W + ') and (max-width:' + Default.TAB_W + ')').matches || false;
-
-    if (media.match(/all/) ||
-        (media.match(/sp/) && isMobile) ||
-        (media.match(/tab/) && isTablet) ||
-        (media.match(/pc/) && ( !isMobile && !isTablet))
-    ) {
-      toggle(e);
-    }
-  });
-  
-
-  /**
-   * ------------------------------------------------------------------------
-   * Function
-   * ------------------------------------------------------------------------
-   */
-
-  
-  function toggle(e) {
-    e.preventDefault();
-    var $current_target = $(e.currentTarget);
-    var $containerSW = $current_target.parents(Selector.SWITCH);
-    var $bodySW = $containerSW.find(Selector.BODY);
-
-    if ($containerSW.hasClass('is-active')) {
-      $containerSW.removeClass('is-active');
-      $current_target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
-      $bodySW.stop().attr('aria-hidden', 'true');
-    } else {
-      $containerSW.addClass('is-active');
-      $current_target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
-      $bodySW.stop().attr('aria-hidden', 'false');
-
-    }
-  }
-
-
-
-
-
-});
 $(function () {
 
 
@@ -945,13 +901,13 @@ $(function () {
   }
 
 
-
-//ページアクセス時にハッシュがあれば該当のタブを開く
+  
+  //ページアクセス時にハッシュがあれば該当のタブを開く
   function accessAnker() {
     var urlHash = location.hash || false;
-    if (urlHash && $(urlHash).length) {
-      if ($(urlHash).length) {
-        $(urlHash).find('[data-tablist]').click();
+    if (urlHash && $(escapeSelector(urlHash)).length) {
+      if ($(escapeSelector(urlHash)).length) {
+        $(escapeSelector(urlHash)).find('[data-tablist]').click();
       }
     }
   }
@@ -962,3 +918,86 @@ $(function () {
 
 
 
+
+$(function () {
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
+  var NAME = 'switch';
+  var VERSION = '0.5.0';
+
+  var Selector = {
+    SWITCH        : '[data-switch]',
+    TARGET        : '[data-toggle-switch]',
+    BODY          : '[data-body-switch]',
+    DEVICE        : '[data-device-switch]'//all, pc, tab, sp
+  };
+
+
+  var Default = {
+    TAB_W  : '960px',
+    SP_W   : '600px'
+  };
+
+
+  $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+  $(Selector.TARGET).on('click touchend E_ENTER_KYE_CODE', function (e) {
+
+    var media = $(e.currentTarget).parents(Selector.DEVICE).data('device-switch') || 'all';
+    var isMobile = window.matchMedia('(max-width:' + Default.SP_W + ')').matches || false;
+    var isTablet = window.matchMedia('(min-width:' + Default.SP_W + ') and (max-width:' + Default.TAB_W + ')').matches || false;
+
+    if (media.match(/all/) ||
+        (media.match(/sp/) && isMobile) ||
+        (media.match(/tab/) && isTablet) ||
+        (media.match(/pc/) && ( !isMobile && !isTablet))
+    ) {
+      toggle(e);
+    }
+  });
+  
+
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
+
+  
+  function toggle(e) {
+    e.preventDefault();
+    var $current_target = $(e.currentTarget);
+    var $containerSW = $current_target.parents(Selector.SWITCH);
+    var $bodySW = $containerSW.find(Selector.BODY);
+
+    if ($containerSW.hasClass('is-active')) {
+      $containerSW.removeClass('is-active');
+      $current_target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
+      $bodySW.stop().attr('aria-hidden', 'true');
+    } else {
+      $containerSW.addClass('is-active');
+      $current_target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
+      $bodySW.stop().attr('aria-hidden', 'false');
+
+    }
+  }
+
+
+
+
+
+});

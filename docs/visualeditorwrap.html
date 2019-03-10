@@ -381,10 +381,9 @@ UIコンポーネントを組み合わせてwebページを構築していく手
 </ul>
 
 <h3>おおまかに説明</h3>
-<p>主にassets内（CSS、JSなど）を管理します。<br>
 <code>frontend/source</code>フォルダが作業場所です。<br>
 <code>gulp serve</code>することで<code>frontend/source</code>を開発用ルートとしてファイルをwatchします。<br>
-<code>gulp build</code>することで<code>frontend/source/assets</code>を公開用に調整し<code>frontend/build/assets</code>へ書き出します。<br>
+<code>gulp build</code>することで<code>frontend/source</code>を公開用に調整し<code>html</code>へ書き出します。<br>
 画像圧縮はしていません。必要に応じて圧縮してください。<br>
 Sassのmixinは<a href="https://www.bourbon.io/">bourbonファミリー</a>を使用・参考にします。<br>
 <code>source/assets/src/bundle/ or /vendor/</code>以下に配置したJSファイルは1ファイルに結合されます。</p>
@@ -467,8 +466,9 @@ hologramで書き出したファイルをdocsフォルダに移動します。
  │   ├── yarn.lock
  │   └── gulpfile.js
  │
- ├── build（公開用 assetsのみ書き出される）
- │   └── assets（圧縮済み）
+ ├── html（公開用 ）
+ │   ├── index.html
+ │   └── assets
  │
  ├── design（デザインファイル）
  │   └── JWPS.xd

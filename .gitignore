@@ -1,34 +1,12 @@
-# vendor files
 frontend/vendor
+html
 .bundle
-config.codekit3
-
-
-
-# node modules
 node_modules
 npm-debug.log
-
-# source files
-frontend/source-simple
-frontend/source/assets/*.css.map
 frontend/source/assets/css
 frontend/source/assets/js
-frontend/source/assets/js-form
-frontend/source/ish
-frontend/source/styleguide
-frontend/source/styleguide.html
+frontend/source/**/*html
+frontend/_other
+frontend/source/_other
+frontend/source/assets/_other
 
-# build files
-frontend/build
-
-# other files
-frontend/_service-worker.js
-frontend/_webpack.config.js
-frontend/_package.json
-frontend/source/assets/_src/
-frontend/source/assets/plugins
-frontend/storybook
-
-frontend/source/assets/src/bundle.js
-frontend/source/assets/src/vendor.js

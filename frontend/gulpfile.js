@@ -26,7 +26,7 @@ const nunjucksRender = require('gulp-nunjucks-render');
 
 
 //書き出し先変更
-const DEST = 'build';
+const DEST = '../html';
 
 //docs
 const DOCS = '../docs';
@@ -55,8 +55,6 @@ gulp.task('js:vendor', () => {
 gulp.task('js:no-bundle', () => {
   return gulp.src([
     'source/assets/src/**/*.js',
-    '!source/assets/src/bundle.js',
-    '!source/assets/src/vendor.js',
     '!source/assets/src/bundle/**/*.js',
     '!source/assets/src/vendor/**/*.js'
   ])
@@ -137,6 +135,21 @@ gulp.task('server', () => {
 });
 
 
+//html ローカルサーバーを立ち上げる
+//=================
+gulp.task('server:html', () => {
+  browserSync({
+    port: 9090,
+    startPath: '/index.html',
+    open: 'false',
+    server: {
+      baseDir: '../html'
+    }
+  });
+});
+
+
+
 
 //変更を監視する
 //=================
@@ -158,7 +171,6 @@ gulp.task('serve', ['html', 'server'], () => {
     'source/**/*.njk'
   ], ['nunjucks']);
 
-
 });
 
 
@@ -173,7 +185,7 @@ gulp.task('serve', ['html', 'server'], () => {
 //=================
 gulp.task('build:clean:all', () => {
   return del([
-    DEST + '/assets/'
+    DEST + '/'
   ],{force: true});
 });
 
@@ -181,12 +193,16 @@ gulp.task('build:clean:all', () => {
 //=================
 gulp.task('build:move', () => {
   return gulp.src([
-    'source/assets/**/*',
+    'source/**/*',
+    '!source/_other/**/*',
+    '!source/_layout/**/*',
+    '!source/_partials/**/*',
+    '!source/assets/_other/**/*',
+    '!source/assets/vue/**/*',
     '!source/assets/sass/**/*',
-    '!source/assets/src/**/*',
-    '!source/assets/_src/**/*'
+    '!source/assets/src/**/*'
   ])
-      .pipe(gulp.dest(DEST + '/assets/'));
+      .pipe(gulp.dest(DEST + '/'));
 });
 
 
@@ -195,9 +211,13 @@ gulp.task('build:move', () => {
 gulp.task('build:clean', () => {
   return del([
     DEST + '/**/*.njk',
+    DEST + '/_layout/',
+    DEST + '/_partials/',
+    DEST + '/_other/',
+    DEST + '/assets/_other/',
+    DEST + '/assets/vue/',
     DEST + '/assets/sass/',
-    DEST + '/assets/src/',
-    DEST + '/assets/_src/'
+    DEST + '/assets/src/'
   ],{force: true});
 });
 
@@ -262,11 +282,10 @@ gulp.task('docs:clean', () => {
 gulp.task('docs:move:assets', () => {
   return gulp.src([
     'source/assets/**/*',
-    '!source/assets/plugins/**/*',
-    '!source/assets/js-form/**/*',
+    '!source/assets/_other/**/*',
+    '!source/assets/vue/**/*',
     '!source/assets/sass/**/*',
-    '!source/assets/src/**/*',
-    '!source/assets/_src/**/*'
+    '!source/assets/src/**/*'
 
   ])
       .pipe(gulp.dest(DOCS + '/assets/'));

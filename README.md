@@ -45,10 +45,9 @@ UIコンポーネントを組み合わせてwebページを構築していく手
 
 
 ### おおまかに説明
-assets内（CSS、JSなど）を管理します。   
 `frontend/source`フォルダが作業場所です。   
 `gulp serve`することで`frontend/source`を開発用ルートとしてファイルをwatchします。
-`gulp build`することで`frontend/source/assets`を公開用に調整し`frontend/build/assets`へ書き出します。   
+`gulp build`することで`html/source`を公開用に調整し`html`へ書き出します。   
 画像圧縮はしていません。必要に応じて圧縮してください。   
 Sassのmixinは[bourbonファミリー](https://www.bourbon.io/)を参考・使用します。   
 `source/assets/src/bundle/ or /vendor/`以下に配置したJSファイルは1ファイルに結合されます。    
@@ -125,8 +124,9 @@ hologramで書き出したファイルをdocsフォルダに移動します。
  │   ├── yarn.lock
  │   └── gulpfile.js
  │
- ├── build（公開用 assetsのみ書き出される）
- │   └── assets（圧縮済み）
+ ├── html（公開用に書き出される）
+ │   ├── index.html
+ │   └── assets
  │
  ├── design（デザインファイル）
  │   └── JWPS.xd
