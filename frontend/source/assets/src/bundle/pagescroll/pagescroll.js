@@ -61,7 +61,7 @@ $(function () {
     var $target = $(e.currentTarget);
     var targetHref = $target.attr('href');
 
-    if (targetHref.indexOf('#') != -1) {
+    if (targetHref.indexOf('#') !== -1) {
       $target.blur();
 
       var offset = $(targetHref).offset() || {};

@@ -136,11 +136,11 @@ window.addEventListener('DOMContentLoaded', function(){
   //     if (!$header.hasClass('is-fixed')) {
   //       $header.addClass('is-fixed');
   //
-  //       $('.js-fixed-start').css({'margin-top': headerH})
+  //       $('.js-fixed-start').css({'margin-top': headerH});
   //     }
   //   } else {
   //     $header.removeClass('is-fixed');
-  //     $('.js-fixed-start').css({'margin-top': 'auto'})
+  //     $('.js-fixed-start').css({'margin-top': 'auto'});
   //   }
   // });
 

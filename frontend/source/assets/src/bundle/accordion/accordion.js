@@ -53,7 +53,7 @@ $(function () {
 
 
   $(Selector.ANKER).on('click touchend', function() {
-    innerAnker()
+    innerAnker();
   });
 
   $(window).on('load',function (e) {
@@ -99,7 +99,7 @@ $(function () {
   function innerAnker() {
     //アコーディオン内から別アコーディオンを開く
     var targetHref = $(this).attr('href');
-    if (targetHref.indexOf('#') != -1) {
+    if (targetHref.indexOf('#') !== -1) {
       $('[aria-controls="'+targetHref.slice(1)+'"]').click();
     }
   }

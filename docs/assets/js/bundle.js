@@ -111,6 +111,39 @@ window.addEventListener('DOMContentLoaded', function(){
   };
 
 
+  /**
+   * ------------------------------------------------------------------------
+   * Add Fixed
+   * ------------------------------------------------------------------------
+   */
+  
+  // var $header = $('header'),
+  //     scrollStart = $('.js-fixed-start'),
+  //     headerH = $header.height(),
+  //     scrollStartH = scrollStart.height(),
+  //     position = scrollStartH;
+  //
+  // $(window).scroll(function () {
+  //   var scrollPos = $(this).scrollTop();
+  //
+  //   if (scrollPos > headerH) {
+  //     $header.addClass('is-start');
+  //   } else {
+  //     $header.removeClass('is-start');
+  //   }
+  //
+  //   if (scrollPos > position) {
+  //     if (!$header.hasClass('is-fixed')) {
+  //       $header.addClass('is-fixed');
+  //
+  //       $('.js-fixed-start').css({'margin-top': headerH});
+  //     }
+  //   } else {
+  //     $header.removeClass('is-fixed');
+  //     $('.js-fixed-start').css({'margin-top': 'auto'});
+  //   }
+  // });
+
 
   /**
    * ------------------------------------------------------------------------
@@ -124,7 +157,7 @@ window.addEventListener('DOMContentLoaded', function(){
        offlineElem.innerHTML =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>現在オフラインで表示しています。</p></div>';
-    bodyElem.parentNode.insertBefore(offlineElem,bodyElem);
+    bodyElem.insertBefore(offlineElem,bodyElem.firstChild);
 
   }
 
@@ -138,12 +171,12 @@ window.addEventListener('DOMContentLoaded', function(){
   //IE10対応
   if (ua.indexOf("msie") !== -1) {
     var noScriptElem = document.createElement('div');
-        noScriptElem =
+        noScriptElem.innerHTML =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>お使いのブラウザはバージョンが古いため、サイトを快適にご利用いただけないかもしれません。<br>' +
         '<a href="https://www.whatbrowser.org/intl/ja/">新しいブラウザをお試しできます。ブラウザは無料、インストールも簡単です。</a>' +
         '</div>';
-    bodyElem.parentNode.insertBefore(noScriptElem,bodyElem);
+    bodyElem.insertBefore(noScriptElem,bodyElem.firstChild);
 
   }
 
@@ -154,12 +187,12 @@ window.addEventListener('DOMContentLoaded', function(){
       (/Android/.test(uaOS) && /Chrome/.test(uaOS) && /SamsungBrowser/.test(uaOS))) {
 
     var noAndroidElem = document.createElement('div');
-    var noAndroidElem =
+        noAndroidElem.innerHTML =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>ご利用のAndroid端末のバージョンでは閲覧できません。<br>' +
         '<a href="intent://' + hostname + '#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end">Chromeブラウザをご利用頂くかOSのバージョンアップをお願い致します。</a>' +
         '</div>';
-    bodyElem.parentNode.insertBefore(noAndroidElem,bodyElem);
+    bodyElem.insertBefore(noAndroidElem,bodyElem.firstChild);
   }
 
 
@@ -182,6 +215,10 @@ window.addEventListener('DOMContentLoaded', function(){
   }
 
 });
+
+function escapeSelector (val) {
+  return val.replace(/[ !"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~]/g, '\\$&')
+}
 
 
 
@@ -241,7 +278,7 @@ $(function () {
 
 
   $(Selector.ANKER).on('click touchend', function() {
-    innerAnker()
+    innerAnker();
   });
 
   $(window).on('load',function (e) {
@@ -287,21 +324,21 @@ $(function () {
   function innerAnker() {
     //アコーディオン内から別アコーディオンを開く
     var targetHref = $(this).attr('href');
-    if (targetHref.indexOf('#') != -1) {
+    if (targetHref.indexOf('#') !== -1) {
       $('[aria-controls="'+targetHref.slice(1)+'"]').click();
     }
   }
   
+  
   function accessAnker() {
     //ハッシュでアコーディオン開く
     var urlHash = location.hash || false;
-    if (urlHash) {
-      if ($('[aria-controls="' + urlHash.slice(1) + '"]').length) {
-        $('[aria-controls="' + urlHash.slice(1) + '"]').click();
+    if (urlHash && $(escapeSelector(urlHash)).length) {
+      if ($('[aria-controls="' + escapeSelector(urlHash.slice(1)) + '"]').length) {
+        $('[aria-controls="' + escapeSelector(urlHash.slice(1)) + '"]').click();
       }
     }
   }
-
 
 
 });
@@ -473,6 +510,119 @@ $(function () {
 });
 $(function () {
 
+
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
+  var NAME = 'pagescroll';
+  var VERSION = '0.5.0';
+
+  var Selector = {
+    TARGET        : '[data-scroll]',
+    TO_TOP        : '[data-scroll="to-top"]',
+    BG            : '#js-offcanvas-bg',
+    LOWER_LAYER   : 'footer,main',
+    SCROLL        : '[data-scroll-offcanvas]',
+    OFFSET        : '[data-scroll-offset]'
+  };
+
+  var Default = {
+    MAIN_H           : $('header').height() - 20,
+    BOTTOM_POSITION  : '100px'
+  };
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+  $(document).on('click touchend', Selector.TARGET + ' a', function (e) {
+    pageScroll(e);
+  });
+
+
+  $(window).on('scroll',function (e) {
+    topHide(e);
+  });
+
+
+  $(window).on('load',function (e) {
+
+    scrollToAnker(e);
+
+  });
+
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
+
+  function pageScroll(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var targetHref = $target.attr('href');
+
+    if (targetHref.indexOf('#') !== -1) {
+      $target.blur();
+
+      var offset = $(targetHref).offset() || {};
+      var offsetTop = offset.top - Selector.OFFSET || Default.MAIN_H;
+
+      $('html,body').animate(
+          {scrollTop: offsetTop},
+          {
+            duration: 300, easing: 'swing', complete: function () {
+            if (targetHref !== '#skippy') {
+              // window.location.hash = targetHref;
+            }
+          }
+          });
+    }
+  }
+
+  function topHide(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var scrollPos = $target.scrollTop();
+
+    if (scrollPos < Default.MAIN_H) {
+      $(Selector.TO_TOP).find('a').stop().animate({'bottom': '-' + Default.BOTTOM_POSITION}, 200, 'swing');
+    } else {
+      $(Selector.TO_TOP).find('a').stop().animate({'bottom': Default.BOTTOM_POSITION}, 200, 'swing');
+    }
+  }
+
+
+  //ハッシュ付きリンク用に遅延して動作
+  function scrollToAnker() {
+    var urlHash = location.hash || false;
+    if (urlHash && $(escapeSelector(urlHash)).length) {
+      setTimeout(function () {
+        var position = $(escapeSelector(urlHash)).offset().top - Default.MAIN_H -20;
+        $('body,html').animate({scrollTop: position}, 100);
+      }, 0);
+    }
+
+  }
+
+
+
+
+});
+
+
+
+$(function () {
+
   /**
    * ------------------------------------------------------------------------
    * Constants
@@ -584,7 +734,7 @@ $(function () {
     var $target = $(e.currentTarget);
     var targetHref = $target.attr('href');
 
-    if (targetHref.indexOf('#') != -1) {
+    if (targetHref.indexOf('#') !== -1) {
       $target.blur();
 
       var offset = $(targetHref).offset() || {};
@@ -598,117 +748,6 @@ $(function () {
 
 });
 
-
-
-
-$(function () {
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  var NAME = 'pagescroll';
-  var VERSION = '0.5.0';
-
-  var Selector = {
-    TARGET        : '[data-scroll]',
-    TO_TOP        : '[data-scroll="to-top"]',
-    BG            : '#js-offcanvas-bg',
-    LOWER_LAYER   : 'footer,main',
-    SCROLL        : '[data-scroll-offcanvas]'
-  };
-
-  var Default = {
-    MAIN_H           : $('header').height(),
-    BOTTOM_POSITION  : '100px'
-  };
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Event
-   * ------------------------------------------------------------------------
-   */
-
-
-  $(document).on('click touchend', Selector.TARGET + ' a', function (e) {
-    pageScroll(e);
-  });
-
-
-  $(window).on('scroll',function (e) {
-    topHide(e);
-  });
-
-
-  $(window).on('load',function (e) {
-
-    scrollToAnker(e);
-
-  });
-
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Function
-   * ------------------------------------------------------------------------
-   */
-
-  function pageScroll(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var targetHref = $target.attr('href');
-
-    if (targetHref.indexOf('#') != -1) {
-      $target.blur();
-
-      var offset = $(targetHref).offset() || {};
-      var offsetTop = offset.top - Default.MAIN_H - 20 || 0;
-
-      $('html,body').animate(
-          {scrollTop: offsetTop},
-          {
-            duration: 300, easing: 'swing', complete: function () {
-            if (targetHref !== '#skippy') {
-              // window.location.hash = targetHref;
-            }
-          }
-          });
-    }
-  }
-
-  function topHide(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var scrollPos = $target.scrollTop();
-
-    if (scrollPos < Default.MAIN_H) {
-      $(Selector.TO_TOP).find('a').stop().animate({'bottom': '-' + Default.BOTTOM_POSITION}, 200, 'swing');
-    } else {
-      $(Selector.TO_TOP).find('a').stop().animate({'bottom': Default.BOTTOM_POSITION}, 200, 'swing');
-    }
-  }
-
-
-    //ハッシュ付きリンク用に遅延して動作
-  function scrollToAnker() {
-    var urlHash = location.hash || false;
-    if (urlHash && $(urlHash).length) {
-      setTimeout(function () {
-        var position = $(urlHash).offset().top - Default.MAIN_H -20;
-        $('body,html').animate({scrollTop: position}, 100);
-      }, 0);
-    }
-
-  }
-
-
-
-});
 
 
 
@@ -945,13 +984,13 @@ $(function () {
   }
 
 
-
-//ページアクセス時にハッシュがあれば該当のタブを開く
+  
+  //ページアクセス時にハッシュがあれば該当のタブを開く
   function accessAnker() {
     var urlHash = location.hash || false;
-    if (urlHash && $(urlHash).length) {
-      if ($(urlHash).length) {
-        $(urlHash).find('[data-tablist]').click();
+    if (urlHash && $(escapeSelector(urlHash)).length) {
+      if ($(escapeSelector(urlHash)).length) {
+        $(escapeSelector(urlHash)).find('[data-tablist]').click();
       }
     }
   }
