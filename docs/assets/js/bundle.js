@@ -7,41 +7,40 @@ window.addEventListener('DOMContentLoaded', function(){
    * Service Worker
    * ------------------------------------------------------------------------
    */
+  
+  var isLocalhost = Boolean(window.location.hostname === 'localhost' ||
+      window.location.hostname === '[::1]' ||
+      window.location.hostname.match(
+          /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+      )
+  );
+
+  if ('serviceWorker' in navigator &&
+      (window.location.protocol === 'https:' || isLocalhost)) {
+    navigator.serviceWorker.register('/service-worker.js')
+        .then(function (registration) {
+
+          registration.onupdatefound = function () {
+            if (navigator.serviceWorker.controller) {
+              var installingWorker = registration.installing;
+              installingWorker.onstatechange = function () {
+                switch (installingWorker.state) {
+                  case 'installed':
+                    break;
+                  case 'redundant':
+                    throw new Error('The installing ' +
+                        'service worker became redundant.');
+                  default:
+                }
+              };
+            }
+          };
 
 
-  // var isLocalhost = Boolean(window.location.hostname === 'localhost' ||
-  //     window.location.hostname === '[::1]' ||
-  //     window.location.hostname.match(
-  //         /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-  //     )
-  // );
-  //
-  // if ('serviceWorker' in navigator &&
-  //     (window.location.protocol === 'https:' || isLocalhost)) {
-  //   navigator.serviceWorker.register('/service-worker.js')
-  //       .then(function (registration) {
-  //
-  //         registration.onupdatefound = function () {
-  //           if (navigator.serviceWorker.controller) {
-  //             var installingWorker = registration.installing;
-  //             installingWorker.onstatechange = function () {
-  //               switch (installingWorker.state) {
-  //                 case 'installed':
-  //                   break;
-  //                 case 'redundant':
-  //                   throw new Error('The installing ' +
-  //                       'service worker became redundant.');
-  //                 default:
-  //               }
-  //             };
-  //           }
-  //         };
-  //
-  //
-  //       }).catch(function (e) {
-  //     console.error('Error during service worker registration:', e);
-  //   });
-  // }
+        }).catch(function (e) {
+      console.error('Error during service worker registration:', e);
+    });
+  }
 
 
 
@@ -510,119 +509,6 @@ $(function () {
 });
 $(function () {
 
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  var NAME = 'pagescroll';
-  var VERSION = '0.5.0';
-
-  var Selector = {
-    TARGET        : '[data-scroll]',
-    TO_TOP        : '[data-scroll="to-top"]',
-    BG            : '#js-offcanvas-bg',
-    LOWER_LAYER   : 'footer,main',
-    SCROLL        : '[data-scroll-offcanvas]',
-    OFFSET        : '[data-scroll-offset]'
-  };
-
-  var Default = {
-    MAIN_H           : $('header').height() - 20,
-    BOTTOM_POSITION  : '100px'
-  };
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Event
-   * ------------------------------------------------------------------------
-   */
-
-
-  $(document).on('click touchend', Selector.TARGET + ' a', function (e) {
-    pageScroll(e);
-  });
-
-
-  $(window).on('scroll',function (e) {
-    topHide(e);
-  });
-
-
-  $(window).on('load',function (e) {
-
-    scrollToAnker(e);
-
-  });
-
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Function
-   * ------------------------------------------------------------------------
-   */
-
-  function pageScroll(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var targetHref = $target.attr('href');
-
-    if (targetHref.indexOf('#') !== -1) {
-      $target.blur();
-
-      var offset = $(targetHref).offset() || {};
-      var offsetTop = offset.top - Selector.OFFSET || Default.MAIN_H;
-
-      $('html,body').animate(
-          {scrollTop: offsetTop},
-          {
-            duration: 300, easing: 'swing', complete: function () {
-            if (targetHref !== '#skippy') {
-              // window.location.hash = targetHref;
-            }
-          }
-          });
-    }
-  }
-
-  function topHide(e) {
-    e.preventDefault();
-    var $target = $(e.currentTarget);
-    var scrollPos = $target.scrollTop();
-
-    if (scrollPos < Default.MAIN_H) {
-      $(Selector.TO_TOP).find('a').stop().animate({'bottom': '-' + Default.BOTTOM_POSITION}, 200, 'swing');
-    } else {
-      $(Selector.TO_TOP).find('a').stop().animate({'bottom': Default.BOTTOM_POSITION}, 200, 'swing');
-    }
-  }
-
-
-  //ハッシュ付きリンク用に遅延して動作
-  function scrollToAnker() {
-    var urlHash = location.hash || false;
-    if (urlHash && $(escapeSelector(urlHash)).length) {
-      setTimeout(function () {
-        var position = $(escapeSelector(urlHash)).offset().top - Default.MAIN_H -20;
-        $('body,html').animate({scrollTop: position}, 100);
-      }, 0);
-    }
-
-  }
-
-
-
-
-});
-
-
-
-$(function () {
-
   /**
    * ------------------------------------------------------------------------
    * Constants
@@ -751,6 +637,119 @@ $(function () {
 
 
 
+$(function () {
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
+  var NAME = 'pagescroll';
+  var VERSION = '0.5.0';
+
+  var Selector = {
+    TARGET        : '[data-scroll]',
+    TO_TOP        : '[data-scroll="to-top"]',
+    BG            : '#js-offcanvas-bg',
+    LOWER_LAYER   : 'footer,main',
+    SCROLL        : '[data-scroll-offcanvas]',
+    OFFSET        : '[data-scroll-offset]'
+  };
+
+  var Default = {
+    MAIN_H           : $('header').height() - 20,
+    BOTTOM_POSITION  : '100px'
+  };
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+  $(document).on('click touchend', Selector.TARGET + ' a', function (e) {
+    pageScroll(e);
+  });
+
+
+  $(window).on('scroll',function (e) {
+    topHide(e);
+  });
+
+
+  $(window).on('load',function (e) {
+
+    scrollToAnker(e);
+
+  });
+
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
+
+  function pageScroll(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var targetHref = $target.attr('href');
+
+    if (targetHref.indexOf('#') !== -1) {
+      $target.blur();
+
+      var offset = $(targetHref).offset() || {};
+      var offsetTop = offset.top - Selector.OFFSET || Default.MAIN_H;
+
+      $('html,body').animate(
+          {scrollTop: offsetTop},
+          {
+            duration: 300, easing: 'swing', complete: function () {
+            if (targetHref !== '#skippy') {
+              // window.location.hash = targetHref;
+            }
+          }
+          });
+    }
+  }
+
+  function topHide(e) {
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    var scrollPos = $target.scrollTop();
+
+    if (scrollPos < Default.MAIN_H) {
+      $(Selector.TO_TOP).find('a').stop().animate({'bottom': '-' + Default.BOTTOM_POSITION}, 200, 'swing');
+    } else {
+      $(Selector.TO_TOP).find('a').stop().animate({'bottom': Default.BOTTOM_POSITION}, 200, 'swing');
+    }
+  }
+
+
+  //ハッシュ付きリンク用に遅延して動作
+  function scrollToAnker() {
+    var urlHash = location.hash || false;
+    if (urlHash && $(escapeSelector(urlHash)).length) {
+      setTimeout(function () {
+        var position = $(escapeSelector(urlHash)).offset().top - Default.MAIN_H -20;
+        $('body,html').animate({scrollTop: position}, 100);
+      }, 0);
+    }
+
+  }
+
+
+
+
+});
+
+
+
 window.addEventListener('DOMContentLoaded', function () {
 
 
@@ -813,88 +812,6 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 
-$(function () {
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  var NAME = 'switch';
-  var VERSION = '0.5.0';
-
-  var Selector = {
-    SWITCH        : '[data-switch]',
-    TARGET        : '[data-toggle-switch]',
-    BODY          : '[data-body-switch]',
-    DEVICE        : '[data-device-switch]'//all, pc, tab, sp
-  };
-
-
-  var Default = {
-    TAB_W  : '960px',
-    SP_W   : '600px'
-  };
-
-
-  $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Event
-   * ------------------------------------------------------------------------
-   */
-
-
-  $(Selector.TARGET).on('click touchend E_ENTER_KYE_CODE', function (e) {
-
-    var media = $(e.currentTarget).parents(Selector.DEVICE).data('device-switch') || 'all';
-    var isMobile = window.matchMedia('(max-width:' + Default.SP_W + ')').matches || false;
-    var isTablet = window.matchMedia('(min-width:' + Default.SP_W + ') and (max-width:' + Default.TAB_W + ')').matches || false;
-
-    if (media.match(/all/) ||
-        (media.match(/sp/) && isMobile) ||
-        (media.match(/tab/) && isTablet) ||
-        (media.match(/pc/) && ( !isMobile && !isTablet))
-    ) {
-      toggle(e);
-    }
-  });
-  
-
-  /**
-   * ------------------------------------------------------------------------
-   * Function
-   * ------------------------------------------------------------------------
-   */
-
-  
-  function toggle(e) {
-    e.preventDefault();
-    var $current_target = $(e.currentTarget);
-    var $containerSW = $current_target.parents(Selector.SWITCH);
-    var $bodySW = $containerSW.find(Selector.BODY);
-
-    if ($containerSW.hasClass('is-active')) {
-      $containerSW.removeClass('is-active');
-      $current_target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
-      $bodySW.stop().attr('aria-hidden', 'true');
-    } else {
-      $containerSW.addClass('is-active');
-      $current_target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
-      $bodySW.stop().attr('aria-hidden', 'false');
-
-    }
-  }
-
-
-
-
-
-});
 $(function () {
 
 
@@ -1001,3 +918,86 @@ $(function () {
 
 
 
+
+$(function () {
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
+  var NAME = 'switch';
+  var VERSION = '0.5.0';
+
+  var Selector = {
+    SWITCH        : '[data-switch]',
+    TARGET        : '[data-toggle-switch]',
+    BODY          : '[data-body-switch]',
+    DEVICE        : '[data-device-switch]'//all, pc, tab, sp
+  };
+
+
+  var Default = {
+    TAB_W  : '960px',
+    SP_W   : '600px'
+  };
+
+
+  $.Event('E_ENTER_KYE_CODE', {keyCode: 13, which: 13});
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Event
+   * ------------------------------------------------------------------------
+   */
+
+
+  $(Selector.TARGET).on('click touchend E_ENTER_KYE_CODE', function (e) {
+
+    var media = $(e.currentTarget).parents(Selector.DEVICE).data('device-switch') || 'all';
+    var isMobile = window.matchMedia('(max-width:' + Default.SP_W + ')').matches || false;
+    var isTablet = window.matchMedia('(min-width:' + Default.SP_W + ') and (max-width:' + Default.TAB_W + ')').matches || false;
+
+    if (media.match(/all/) ||
+        (media.match(/sp/) && isMobile) ||
+        (media.match(/tab/) && isTablet) ||
+        (media.match(/pc/) && ( !isMobile && !isTablet))
+    ) {
+      toggle(e);
+    }
+  });
+  
+
+  /**
+   * ------------------------------------------------------------------------
+   * Function
+   * ------------------------------------------------------------------------
+   */
+
+  
+  function toggle(e) {
+    e.preventDefault();
+    var $current_target = $(e.currentTarget);
+    var $containerSW = $current_target.parents(Selector.SWITCH);
+    var $bodySW = $containerSW.find(Selector.BODY);
+
+    if ($containerSW.hasClass('is-active')) {
+      $containerSW.removeClass('is-active');
+      $current_target.attr({'aria-expanded': 'true', 'aria-label': '閉じる'});
+      $bodySW.stop().attr('aria-hidden', 'true');
+    } else {
+      $containerSW.addClass('is-active');
+      $current_target.attr({'aria-expanded': 'false', 'aria-label': '開く'});
+      $bodySW.stop().attr('aria-hidden', 'false');
+
+    }
+  }
+
+
+
+
+
+});
