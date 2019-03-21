@@ -15,8 +15,8 @@ $(function () {
     TO_TOP        : '[data-scroll="to-top"]',
     BG            : '#js-offcanvas-bg',
     LOWER_LAYER   : 'footer,main',
-    SCROLL        : '[data-scroll-offcanvas]',
-    OFFSET        : '[data-scroll-offset]'
+    SCROLL        : '[data-scroll-offcanvas]'
+    //OFFSET        : '[data-scroll-offset]'
   };
 
   var Default = {
@@ -65,6 +65,7 @@ $(function () {
       $target.blur();
 
       var offset = $(targetHref).offset() || {};
+     // var offsetTop = offset.top - Selector.OFFSET || Default.MAIN_H;
       var offsetTop = offset.top - Selector.OFFSET || Default.MAIN_H;
 
       $('html,body').animate(

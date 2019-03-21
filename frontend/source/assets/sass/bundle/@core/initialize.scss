@@ -123,6 +123,11 @@ img,
 picture {
   max-width: 100%;
   vertical-align: middle;
+
+  [data-browser="ie"] & {
+    max-height: 100%;
+
+  }
 }
 
 small {

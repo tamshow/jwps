@@ -173,14 +173,13 @@ window.addEventListener('DOMContentLoaded', function(){
         noScriptElem.innerHTML =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>お使いのブラウザはバージョンが古いため、サイトを快適にご利用いただけないかもしれません。<br>' +
-        '<a href="https://www.whatbrowser.org/intl/ja/">新しいブラウザをお試しできます。ブラウザは無料、インストールも簡単です。</a>' +
+        '新しいブラウザをご利用頂くかバージョンアップをお願い致します。' +
         '</div>';
     bodyElem.insertBefore(noScriptElem,bodyElem.firstChild);
 
   }
 
   //android標準ブラウザ対策
-  var hostname = window.location.hostname;
   if ((/Android/.test(uaOS) && /Linux; U;/.test(uaOS) && !/Chrome/.test(uaOS)) ||
       (/Android/.test(uaOS) && /Chrome/.test(uaOS) && /Version/.test(uaOS)) ||
       (/Android/.test(uaOS) && /Chrome/.test(uaOS) && /SamsungBrowser/.test(uaOS))) {
@@ -189,7 +188,7 @@ window.addEventListener('DOMContentLoaded', function(){
         noAndroidElem.innerHTML =
         '<div class="is-prompt" data-elements="add-js">' +
         '<p>ご利用のAndroid端末のバージョンでは閲覧できません。<br>' +
-        '<a href="intent://' + hostname + '#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end">Chromeブラウザをご利用頂くかOSのバージョンアップをお願い致します。</a>' +
+        'Chromeブラウザをご利用頂くかOSのバージョンアップをお願い致します。' +
         '</div>';
     bodyElem.insertBefore(noAndroidElem,bodyElem.firstChild);
   }
