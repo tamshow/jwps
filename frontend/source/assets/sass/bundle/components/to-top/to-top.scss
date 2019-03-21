@@ -18,6 +18,12 @@ categories: [js, to-top]
 ```
 */
 
+@include media-sp-max {
+  .c-to-top {
+    display: none;
+  }
+}
+
 .c-to-top a {
   display: block;
   position: fixed;

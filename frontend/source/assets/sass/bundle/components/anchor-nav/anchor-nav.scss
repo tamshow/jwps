@@ -24,6 +24,7 @@ categories: [js, anchor-nav]
 
 */
 
+.visual-editor .c-anchor-nav,
 .c-anchor-nav {
   border: 1px solid $dividers-color;
   @include mb-small;
@@ -41,7 +42,13 @@ categories: [js, anchor-nav]
     line-height: 1;
   }
 
+  ul {
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
   li {
+    list-style: none;
     margin-bottom: .4em;
     &:last-child {
       margin-bottom: 0;

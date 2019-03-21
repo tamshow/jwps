@@ -148,16 +148,30 @@ category: visualeditor
 }
 
 
-.visual-editor h2:not(:first-child),
-.visual-editor h3:not(:first-child),
-.visual-editor h4:not(:first-child),
-.visual-editor h5:not(:first-child),
-.visual-editor h6:not(:first-child) {
-  margin-top: 1.6rem;
+
+.visual-editor h2:not(:first-child) {
+  margin-top: 4rem;
   @include media-sp-max {
     margin-top: 0;
   }
 }
+
+.visual-editor h3:not(:first-child),
+.visual-editor h4:not(:first-child) {
+  margin-top: 3rem;
+  @include media-sp-max {
+    margin-top: 0;
+  }
+}
+
+.visual-editor h5:not(:first-child),
+.visual-editor h6:not(:first-child)  {
+  margin-top: 1rem;
+  @include media-sp-max {
+    margin-top: 0;
+  }
+}
+
 
 //連続するタイトルは狭める
 .visual-editor h1 + h2,
@@ -173,6 +187,20 @@ category: visualeditor
   margin-top: 0 !important;
 }
 
+
+
+.visual-editor h1,
+.visual-editor h2,
+.visual-editor h2,
+.visual-editor h3,
+.visual-editor h3,
+.visual-editor h4,
+.visual-editor h4,
+.visual-editor h5,
+.visual-editor h5
+.visual-editor h6 {
+  clear: both;
+}
 
 .visual-editor p + p {
   //margin-top: - $margin-medium-pc / 3;
@@ -192,50 +220,41 @@ category: visualeditor
 //画像左
 .alignleft {
   float: left;
+  text-align: left;
+  margin-right: 16px;
+  margin-bottom: 16px;
 
-  margin-right: $margin-small-pc;
-  margin-bottom: $margin-small-pc;
-
-  @include media-sp-max {
-    float: none;
-
-    margin-right: 0;
-  }
 }
-
 
 //画像右
 .alignright {
+  text-align: right;
   float: right;
+  margin-bottom: 16px;
+  margin-left: 16px;
 
-  margin-bottom: $margin-small-pc;
-  margin-left: $margin-small-pc;
-
-  @include media-sp-max {
-    float: none;
-
-    margin-left: 0;
-  }
 }
 
 //画像中央
 .aligncenter {
   display: block;
-
   margin-right: auto;
-  margin-bottom: $margin-small-pc;
   margin-left: auto;
-
   text-align: center;
 }
+
+.clearfloat {
+  clear: both;
+}
+
 
 
 //TinyMCE
 .size-thumbnail {
-  width: 25%;
+  max-width: 25%;
 }
 .size-medium {
-  width: 33.33%;
+  max-width: 33.33%;
 }
 .size-full {
 
@@ -243,10 +262,10 @@ category: visualeditor
 
 @include media-sp-max {
   .size-thumbnail,
-  .size-medium,
-  .size-full {
-    width: 100%;
+  .size-medium {
+    max-width: 33.33%;
   }
+  .size-full {}
 }
 
 //a-bog cms table

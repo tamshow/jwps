@@ -41,6 +41,7 @@ grid ($className:'.cols', $col:6, $allW:940, $g:30, $sp:false)
     margin-left: percentage($gap / $grid-auto);
     margin-right: percentage($gap / $grid-auto);
     //margin-bottom: percentage(($gap / $grid-auto) * 2);
+    //margin-bottom: $gap * 2.6px;
 
     width: 100%;
     box-sizing: border-box;

@@ -43,20 +43,20 @@ gulp.task('js:bundle', () => {
       .pipe(gulp.dest('source/assets/js/'));
 });
 
-const jsFileVendor = [
-  'source/assets/src/vendor/**/*.js'
-];
-gulp.task('js:vendor', () => {
-  return gulp.src(jsFileVendor).pipe(concat('vendor.js'))
-      .pipe(gulp.dest('source/assets/js/'));
-});
+// const jsFileVendor = [
+//   'source/assets/src/vendor/**/*.js'
+// ];
+// gulp.task('js:vendor', () => {
+//   return gulp.src(jsFileVendor).pipe(concat('vendor.js'))
+//       .pipe(gulp.dest('source/assets/js/'));
+// });
 
 
 gulp.task('js:no-bundle', () => {
   return gulp.src([
     'source/assets/src/**/*.js',
-    '!source/assets/src/bundle/**/*.js',
-    '!source/assets/src/vendor/**/*.js'
+    '!source/assets/src/bundle/**/*.js'
+   // '!source/assets/src/vendor/**/*.js'
   ])
     .pipe(gulp.dest('source/assets/js/'));
 });
@@ -86,6 +86,19 @@ gulp.task('css', () => {
       .pipe(gulp.dest(CSSDEST));
 });
 
+gulp.task('css:plugin', () => {
+  const CSSPRC = [
+    'source/assets/sass/plugin/*.scss'
+  ];
+  const CSSPDEST = 'source/assets/css/plugin/';
+
+  return gulp.src(CSSPRC)
+      .pipe(plumber())
+      .pipe(changed(CSSPDEST))
+      .pipe(sass.sync({}).on('error', sass.logError))
+      .pipe(gulp.dest(CSSPDEST));
+});
+
 
 
 //html
@@ -112,10 +125,11 @@ gulp.task('nunjucks', () => {
 gulp.task('html', (callback) => {
   runSequence(
       'css',
+      'css:plugin',
       //'js',
       'js:bundle',
       'js:no-bundle',
-      'js:vendor',
+      //'js:vendor',
       'nunjucks',
       callback);
 });
@@ -164,7 +178,7 @@ gulp.task('serve', ['html', 'server'], () => {
   //css
   gulp.watch([
     'source/assets/sass/**/*{.scss,.sass}'
-  ], ['css']);
+  ], ['css','css:plugin']);
 
   //html
   gulp.watch([
