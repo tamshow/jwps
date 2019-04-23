@@ -37,7 +37,7 @@ $(function () {
 
   $(Selector.TARGET).on('click touchend E_ENTER_KYE_CODE', function (e) {
 
-    var media = $(e.currentTarget).parents(Selector.DEVICE).data('device-accordion') || 'all';
+    var media = $(e.currentTarget).closest(Selector.DEVICE).data('device-accordion') || 'all';
     var isMobile = window.matchMedia('(max-width:' + Default.SP_W + ')').matches || false;
     var isTablet = window.matchMedia('(min-width:' + Default.SP_W + ') and (max-width:' + Default.TAB_W + ')').matches || false;
 
@@ -71,8 +71,8 @@ $(function () {
   function toggle(e) {
     e.preventDefault();
     var $current_target = $(e.currentTarget);
-    var $containerAC = $current_target.parents(Selector.ACCORDION);
-    var $bodyAC = $containerAC.find(Selector.BODY);
+    var $containerAC = $current_target.closest(Selector.ACCORDION);
+    var $bodyAC = $containerAC.children(Selector.BODY);
 
     if ($containerAC.hasClass('is-active')) {
       $containerAC.removeClass('is-active');

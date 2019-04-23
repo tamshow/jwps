@@ -46,12 +46,33 @@ grid ($className:'.cols', $col:6, $allW:940, $g:30, $sp:false)
     width: 100%;
     box-sizing: border-box;
     //高さ揃え
-    //display: flex;
-    //flex-flow: column wrap;
+    display: flex;
+    flex-flow: column wrap;
     > *:last-child {
       margin-bottom: 0;
+      @media all and (-ms-high-contrast:none) {
+        min-height: 0;
+      }
     }
   }
+}
+
+@mixin grid-scroll () {
+  margin-right: -$width-gap-sp;
+  margin-left: -$width-gap-sp;
+  padding-left: $width-gap-sp;
+
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  flex-flow: nowrap;
+
+  &:after {
+    content: '';
+    display: block;
+    padding-right: $width-gap-sp;
+  }
+
+
 }
 
 
