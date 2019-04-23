@@ -98,7 +98,7 @@ categories: [components, summary]
   //@include grid('.c-summary__item', 4, $screen-pc-max, 24);
 
   @include media-sp-max {
-  //  @include grid('.c-summary__item', 12, $screen-sp-max, 24);
+    //  @include grid('.c-summary__item', 12, $screen-sp-max, 24);
   }
 
 }
@@ -111,20 +111,10 @@ categories: [components, summary]
   @include grid('.c-summary__item', 3, $screen-pc-max, 32);
 
   @include media-sp-max {
-    @include grid('.c-summary__item', 12, $screen-sp-max, 0);
-    //overflow: scroll;
-    //flex-flow: nowrap;
-    //margin-right: -$width-gap-sp;
 
+    @include grid('.c-summary__item', 7, $screen-sp-max, 16);
+    @include grid-scroll;
 
-    //margin-left: -2.0000033333%;
-    //margin-right: -2.0000033333%;
-    //._item {
-    //  margin-left: 2.0000033333%;
-    //  margin-right: 2.0000033333%;
-    //  flex: 0 0 45.9999933333%;
-    //-webkit-overflow-scrolling: touch;
-    //}
   }
 
 
@@ -139,10 +129,10 @@ categories: [components, summary]
 
   @include grid('.c-summary__item', 6, $screen-pc-max, 24);
 
+
   @include media-sp-max {
     @include grid('.c-summary__item', 12, $screen-sp-max, 0);
   }
-
 
 }
 

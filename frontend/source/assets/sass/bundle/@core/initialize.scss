@@ -45,6 +45,11 @@ body {
   word-wrap: break-word;
   overflow-wrap: break-word;
 
+  @media all and (-ms-high-contrast:none) {
+    //ie11
+    font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+  }
+
 }
 
 main {
