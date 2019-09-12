@@ -279,11 +279,11 @@ parent: table
       <th>タイトル</th>
     </tr>
     <tr>
-      <td>テキストテキスト</td>
-      <td>テキストテキスト</td>
-      <td>テキストテキスト</td>
-      <td>テキストテキスト</td>
-      <td>テキストテキスト</td>
+      <td><div>テキストテキスト</div></td>
+      <td><div>テキストテキスト</div></td>
+      <td><div>テキストテキスト</div></td>
+      <td><div>テキストテキスト</div></td>
+      <td><div>テキストテキスト</div></td>
       <td><div class="is-responsive-cell-30vw">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト30vw </div></td>
     </tr>
     <tr>
@@ -329,7 +329,10 @@ parent: table
       font-size: .8em;
       text-align: center;
       white-space: nowrap;
-      content: "← この表は左右に動かせます。 →";
+      content: " ←　この表は左右にスライドできます　→";
+      position: fixed;
+      left: 0;
+      right: 0;
     }
 
     table {

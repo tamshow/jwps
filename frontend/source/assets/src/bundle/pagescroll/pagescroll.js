@@ -66,7 +66,7 @@ $(function () {
 
       var offset = $(targetHref).offset() || {};
      // var offsetTop = offset.top - Selector.OFFSET || Default.MAIN_H;
-      var offsetTop = offset.top - Selector.OFFSET || Default.MAIN_H;
+      var offsetTop = offset.top || Default.MAIN_H;
 
       $('html,body').animate(
           {scrollTop: offsetTop},

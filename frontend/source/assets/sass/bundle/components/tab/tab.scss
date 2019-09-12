@@ -47,6 +47,7 @@ categories: [js, tab]
       z-index: -1;
       position: relative;
       transition: $animation;
+	  overflow: hidden;
     }
 
     &[aria-hidden="false"] {
