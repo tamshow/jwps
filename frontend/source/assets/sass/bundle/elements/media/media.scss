@@ -104,9 +104,10 @@ categories: [elements, media]
   }
 
   &__label {
+    margin-top: -8px;
     margin-bottom: 3px;
     width: 100%;
-    display: inline-block;
+    //display: inline-block;
   }
   &__title {
     @include fsize-h3;

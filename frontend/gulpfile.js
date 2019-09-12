@@ -20,8 +20,6 @@ const prettify = require('gulp-prettify');
 const uglifyjs = require('uglify-js');
 const minifier = require('gulp-uglify');
 
-const workboxBuild = require('workbox-build');
-
 const nunjucksRender = require('gulp-nunjucks-render');
 
 
@@ -62,7 +60,6 @@ gulp.task('js:no-bundle', () => {
 });
 
 
-
 //css
 //=================
 gulp.task('css', () => {
@@ -70,7 +67,6 @@ gulp.task('css', () => {
     'source/assets/sass/bundle.scss'
   ];
   const CSSDEST = 'source/assets/css/';
-  const browsers = ['last 2 versions', 'ie >= 9', 'iOS >= 9', 'Android >= 4.4'];
 
   return gulp.src(CSSRC)
       .pipe(plumber())
@@ -80,7 +76,7 @@ gulp.task('css', () => {
         precision: 10
       }).on('error', sass.logError))
       .pipe(postcss([
-        require('autoprefixer')({browsers: browsers}),
+        require('autoprefixer'),
         require('css-mqpacker')({sort: false})
       ]))
       .pipe(gulp.dest(CSSDEST));
@@ -323,38 +319,4 @@ gulp.task('docs', (callback) => {
       'docs:move:replace',
       callback);
 });
-
-
-
-//========================================================================
-// swを実行
-//========================================================================
-
-//https://developers.google.com/web/tools/workbox/modules/workbox-build
-gulp.task('sw', () => {
-  return workboxBuild.generateSW({
-    globDirectory: 'build',
-    globPatterns: [
-      '**/*.{html,js,css}'
-    ],
-    runtimeCaching: [
-      {
-        urlPattern: /\/$/,
-        handler: 'cacheFirst',
-
-        options: {
-          cacheName: 'cacheName',
-          expiration: {
-            maxEntries: 5,
-            maxAgeSeconds: 60,
-          },
-        }
-      }
-    ],
-
-    swDest: 'build/sw.js'
-  });
-});
-
-
 

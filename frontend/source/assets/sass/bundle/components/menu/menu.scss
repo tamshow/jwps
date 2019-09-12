@@ -44,10 +44,10 @@ categories: [components, menu]
     display: block;
     padding-bottom: 10px;
     border-bottom: 3px solid $primary-color;
+    margin-bottom: 16px;
   }
 
   &__list {
-    margin-top: 8px;
     @include mb-small;
 
     a {
@@ -74,9 +74,54 @@ categories: [components, menu]
   }
 
   &__list-tag {
-    margin-top: 20px - 12px;
+    //margin-top: 20px - 12px;
     @include mb-small;
 
   }
+
+
+  //検索 インプットタイプ
+  //-----------
+  &__search {
+    @include mb-small;
+    position: relative;
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 7px 15px 7px 40px;
+      border: 1px solid $dividers-color;
+      border-radius: $border-radius-pc;
+    }
+  }
+  &__search-button {
+    font-size: 16px;
+    position: absolute;
+    top: 6px;
+    left: 12px;
+    padding: 2px 0 0;
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    i {
+      font-size: 20px;
+    }
+  }
+
+  //検索 チェックボックス
+  //-----------
+  &__searchcheck {
+    @include mb-small;
+  }
+
+  &__search-check-body {
+    border-bottom: 1px solid $dividers-color;
+    margin-bottom: 16px;
+
+  }
+  &__search-check-foot {
+    margin-bottom: 16px;
+  }
+
+
 }
 
