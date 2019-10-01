@@ -145,7 +145,7 @@ UIコンポーネントを組み合わせてwebページを構築していく手
 <h3>おおまかに説明</h3>
 <code>frontend/source</code>フォルダが作業場所です。<br>
 <code>gulp serve</code>することで<code>frontend/source</code>を開発用ルートとしてファイルをwatchします。<br>
-<code>gulp build</code>することで<code>frontend/source</code>を公開用に調整し<code>html</code>へ書き出します。<br>
+<code>npx gulp build</code>することで<code>frontend/source</code>を公開用に調整し<code>html</code>へ書き出します。<br>
 画像圧縮はしていません。必要に応じて圧縮してください。<br>
 Sassのmixinは<a href="https://www.bourbon.io/">bourbonファミリー</a>を使用・参考にします。<br>
 <code>source/assets/src/bundle/ or /vendor/</code>以下に配置したJSファイルは1ファイルに結合されます。</p>
@@ -167,9 +167,9 @@ Sassのmixinは<a href="https://www.bourbon.io/">bourbonファミリー</a>を�
 <h3>環境構築</h3>
 <h4>必要環境</h4>
 <ul>
-<li>Node 10.14.2</li>
-<li>npm 6.4.1</li>
-<li>yarn 1.3.2</li>
+<li>Node 10.16.3</li>
+<li>npm 6.9.0</li>
+<li>yarn 1.19.0</li>
 </ul>
 
 <h4>インストール</h4>
@@ -183,14 +183,14 @@ $ bundle install --path vendor/bundle
 
 <h4>開発サイクル</h4>
 <pre><code>//開発時
-$ gulp serve
+$ npx gulp serve
 
 frontend/source/フォルダをルートとしてファイルをwatchします。
 localhost:9000を見に行きます。
 
 
 //公開時
-$ gulp build
+$ npx gulp build
 
 JS、CSSなど圧縮、または不要ファイルを削除します。
 画像圧縮はしていません。必要に応じて圧縮してください。
@@ -200,7 +200,7 @@ $ cd hologram
 $ hologram
 
 //docsフォルダ作成
-$ gulp docs
+$ npx gulp docs
 hologramで書き出したファイルをdocsフォルダに移動します。
 
 </code></pre>
