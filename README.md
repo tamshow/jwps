@@ -46,8 +46,8 @@ UIコンポーネントを組み合わせてwebページを構築していく手
 
 ### おおまかに説明
 `frontend/source`フォルダが作業場所です。   
-`gulp serve`することで`frontend/source`を開発用ルートとしてファイルをwatchします。
-`gulp build`することで`html/source`を公開用に調整し`html`へ書き出します。   
+`npx gulp serve`することで`frontend/source`を開発用ルートとしてファイルをwatchします。
+`npx gulp build`することで`html/source`を公開用に調整し`html`へ書き出します。   
 画像圧縮はしていません。必要に応じて圧縮してください。   
 Sassのmixinは[bourbonファミリー](https://www.bourbon.io/)を参考・使用します。   
 `source/assets/src/bundle/ or /vendor/`以下に配置したJSファイルは1ファイルに結合されます。    
@@ -55,10 +55,9 @@ Sassのmixinは[bourbonファミリー](https://www.bourbon.io/)を参考・使�
 ### 環境構築
 
 #### 必要環境
-- Node 10.14.2
-- npm 6.4.1
-- yarn 1.12.3
-
+- Node 10.16.3
+- npm 6.9.0
+- yarn 1.19.0
 
 #### インストール
 ```
@@ -74,14 +73,14 @@ $ bundle install --path vendor/bundle
 
 ```
 //開発時
-$ gulp serve
+$ npx gulp serve
 
 frontend/source/フォルダをルートとしてファイルをwatchします。
 localhost:9000を見に行きます。
 
 
 //公開時
-$ gulp build
+$ npx gulp build
 
 JS、CSSなど圧縮、または不要ファイルを削除します。
 画像圧縮はしていません。必要に応じて圧縮してください。
@@ -93,7 +92,7 @@ JS、CSSなど圧縮、または不要ファイルを削除します。
 $ cd hologram
 $ hologram
 //docsフォルダ作成
-$ gulp docs
+$ npx gulp docs
 hologramで書き出したファイルをdocsフォルダに移動します。
 
 ```
