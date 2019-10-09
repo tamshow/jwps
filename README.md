@@ -1,6 +1,5 @@
 # Japan Web Production Standards
 
-
 ## UIコンポーネント+プロトタイピング+アクセシビリティ+CMS
 
 Japan Web Production Standardsは統一ルールに基づいたCSSのUIコンポーネントとJavaScriptのUIコンポーネントを組み合わせたwebサイト用のビジュアルスタイルガイドを含むフレームワークです。   
